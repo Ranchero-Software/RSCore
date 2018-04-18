@@ -10,6 +10,8 @@
 #import "NSString+RSCore.h"
 
 
+unichar kDeleteKeyCode = 127;
+
 @implementation NSEvent (RSCore)
 
 
@@ -17,10 +19,10 @@
 
 	NSEventModifierFlags flags = self.modifierFlags;
 
-	*shiftKeyDown = ((flags & NSShiftKeyMask) != 0);
-	*optionKeyDown = ((flags & NSAlternateKeyMask) != 0);
-	*commandKeyDown = ((flags & NSCommandKeyMask) != 0);
-	*controlKeyDown = ((flags & NSControlKeyMask) != 0);
+	*shiftKeyDown = ((flags & NSEventModifierFlagShift) != 0);
+	*optionKeyDown = ((flags & NSEventModifierFlagOption) != 0);
+	*commandKeyDown = ((flags & NSEventModifierFlagCommand) != 0);
+	*controlKeyDown = ((flags & NSEventModifierFlagControl) != 0);
 }
 
 

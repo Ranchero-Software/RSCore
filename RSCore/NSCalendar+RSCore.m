@@ -11,7 +11,7 @@
 #if TARGET_OS_IPHONE
 @import UIKit;
 #else
-@import Cocoa;
+@import AppKit;
 #endif
 
 @implementation NSCalendar (RSCore)
@@ -72,5 +72,10 @@ static NSCalendar *cachedCalendar = nil;
 	return [[self rs_cachedCalendar] isDateInToday:d];
 }
 
+
++ (NSDate *)rs_startOfToday {
+
+	return [[self rs_cachedCalendar] startOfDayForDate:[NSDate date]];
+}
 
 @end

@@ -23,7 +23,7 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 
 /*The hashed data is a UTF-8 encoded version of the string.*/
 
-- (NSData *)rs_md5Hash;
+- (NSData *)rs_md5HashData;
 - (NSString *)rs_md5HashString;
 
 
@@ -59,6 +59,7 @@ typedef struct {
 - (NSString *)rs_stringByStrippingSuffix:(NSString *)suffix caseSensitive:(BOOL)caseSensitive;
 
 - (NSString *)rs_stringByStrippingHTML:(NSUInteger)maxCharacters;
+- (NSString *)rs_stringByConvertingToPlainText;
 
 /*Filename from path, file URL string, or external URL string.*/
 
@@ -70,6 +71,12 @@ typedef struct {
 
 + (NSString *)rs_stringWithNumberOfTabs:(NSInteger)numberOfTabs;
 - (NSString *)rs_stringByPrependingNumberOfTabs:(NSInteger)numberOfTabs;
+
+// Remove leading http:// or https://
+
+- (NSString *)rs_stringByStrippingHTTPOrHTTPSScheme;
+
++ (NSString *)rs_debugStringWithData:(NSData *)d; // Assume it’s UTF8, at least for now. Good enough for most debugging purposes.
 
 @end
 

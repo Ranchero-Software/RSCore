@@ -11,7 +11,6 @@
 #import <RSCore/RSBlocks.h>
 #import <RSCore/RSConstants.h>
 #import <RSCore/RSPlatform.h>
-#import <RSCore/RSBinaryCache.h>
 
 
 /*Foundation*/
@@ -53,6 +52,10 @@
 
 #import <RSCore/RSGeometry.h>
 
+#import <RSCore/NSAppleEventDescriptor+RSCore.h>
+#import <RSCore/SendToBlogEditorApp.h>
+
+#import <RSCore/NSAttributedString+RSCore.h>
 #endif
 
 

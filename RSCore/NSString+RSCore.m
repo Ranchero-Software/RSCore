@@ -45,7 +45,7 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 @implementation NSString (RSCore)
 
 
-- (NSData *)rs_md5Hash {
+- (NSData *)rs_md5HashData {
 
 	NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
 	return [data rs_md5Hash];
@@ -54,7 +54,7 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 
 - (NSString *)rs_md5HashString {
 
-	NSData *d = [self rs_md5Hash];
+	NSData *d = [self rs_md5HashData];
 	return [d rs_hexadecimalString];
 }
 
@@ -301,6 +301,49 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 	return (__bridge_transfer NSString *)s;
 }
 
+- (NSString *)rs_stringByConvertingToPlainText {
+
+	if (![self containsString:@"<"]) {
+		return self;
+	}
+
+	NSMutableString *preflightedCopy = [self mutableCopy];
+	[preflightedCopy replaceOccurrencesOfString:@"<blockquote>" withString:@"\n\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[preflightedCopy replaceOccurrencesOfString:@"</blockquote>" withString:@"\n\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[preflightedCopy replaceOccurrencesOfString:@"<p>" withString:@"\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[preflightedCopy replaceOccurrencesOfString:@"</p>" withString:@"\n\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[preflightedCopy replaceOccurrencesOfString:@"<div>" withString:@"\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[preflightedCopy replaceOccurrencesOfString:@"</div>" withString:@"\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[preflightedCopy replaceOccurrencesOfString:@"<br>" withString:@"\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[preflightedCopy replaceOccurrencesOfString:@"<br />" withString:@"\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[preflightedCopy replaceOccurrencesOfString:@"<br/>" withString:@"\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[preflightedCopy replaceOccurrencesOfString:@"</li>" withString:@"\n" options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+
+	CFMutableStringRef s = CFStringCreateMutable(kCFAllocatorDefault, (CFIndex)preflightedCopy.length);
+	NSUInteger level = 0;
+
+	for (NSUInteger i = 0; i < preflightedCopy.length; i++) {
+
+		unichar ch = [preflightedCopy characterAtIndex:i];
+
+		if (ch == '<') {
+			level++;
+		}
+		else if (ch == '>') {
+			level--;
+		}
+		else if (level == 0) {
+			CFStringAppendCharacters(s, &ch, 1);
+		}
+	}
+
+	NSMutableString *plainTextString = [(__bridge_transfer NSString *)s mutableCopy];
+	while ([plainTextString rangeOfString:@"\n\n\n"].location != NSNotFound) {
+		[plainTextString replaceOccurrencesOfString:@"\n\n\n" withString:@"\n\n" options:NSLiteralSearch range:NSMakeRange(0, plainTextString.length)];
+	}
+
+	return plainTextString;
+}
 
 - (NSString *)rs_filename {
 
@@ -365,6 +408,18 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 	return [tabs stringByAppendingString:self];
 }
 
+
+- (NSString *)rs_stringByStrippingHTTPOrHTTPSScheme {
+
+	NSString *s = [self rs_stringByStrippingPrefix:@"http://" caseSensitive:NO];
+	s = [s rs_stringByStrippingPrefix:@"https://" caseSensitive:NO];
+	return s;
+}
+
++ (NSString *)rs_debugStringWithData:(NSData *)d {
+
+	return [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding];
+}
 
 @end
 

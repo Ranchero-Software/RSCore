@@ -6,7 +6,7 @@
 //  Copyright © 2016 Ranchero Software, LLC. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 public class RSToolbarItem: NSToolbarItem {
 
@@ -45,7 +45,7 @@ private extension RSToolbarItem {
 			}
 		}
 
-		if let appDelegate = NSApplication.shared().delegate {
+		if let appDelegate = NSApplication.shared.delegate {
 			if let validated = validateWithResponder(appDelegate) {
 				return validated
 			}
