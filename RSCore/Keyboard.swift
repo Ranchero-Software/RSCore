@@ -28,7 +28,6 @@ public struct KeyboardShortcut: Hashable {
 
 	public let key: KeyboardKey
 	public let actionString: String
-	public let hashValue: Int
 
 	public init?(dictionary: [String: Any]) {
 
@@ -41,7 +40,6 @@ public struct KeyboardShortcut: Hashable {
 
 		self.key = key
 		self.actionString = actionString
-		self.hashValue = key.hashValue + self.actionString.hashValue
 	}
 
 	public func perform(with view: NSView) {
@@ -59,11 +57,6 @@ public struct KeyboardShortcut: Hashable {
 		}
 		return nil
 	}
-
-	public static func ==(lhs: KeyboardShortcut, rhs: KeyboardShortcut) -> Bool {
-
-		return lhs.hashValue == rhs.hashValue && lhs.key == rhs.key && lhs.actionString == rhs.actionString
-	}
 }
 
 public struct KeyboardKey: Hashable {
@@ -76,10 +69,6 @@ public struct KeyboardKey: Hashable {
 
 	public var isModified: Bool {
 		return !shiftKeyDown && !optionKeyDown && !commandKeyDown && !controlKeyDown
-	}
-
-	public var hashValue: Int {
-		return integerValue
 	}
 
 	init(integerValue: Int, shiftKeyDown: Bool, optionKeyDown: Bool, commandKeyDown: Bool, controlKeyDown: Bool) {
@@ -104,7 +93,6 @@ public struct KeyboardKey: Hashable {
 
 		self.init(integerValue: integerValue, shiftKeyDown: shiftKeyDown, optionKeyDown: optionKeyDown, commandKeyDown: commandKeyDown, controlKeyDown: controlKeyDown)
 	}
-
 
 	public init?(dictionary: [String: Any]) {
 
@@ -143,10 +131,5 @@ public struct KeyboardKey: Hashable {
 		let controlKeyDown = dictionary["controlModifier"] as? Bool ?? false
 
 		self.init(integerValue: integerValue, shiftKeyDown: shiftKeyDown, optionKeyDown: optionKeyDown, commandKeyDown: commandKeyDown, controlKeyDown: controlKeyDown)
-	}
-
-	public static func ==(lhs: KeyboardKey, rhs: KeyboardKey) -> Bool {
-
-		return lhs.integerValue == rhs.integerValue && lhs.shiftKeyDown == rhs.shiftKeyDown && lhs.optionKeyDown == rhs.optionKeyDown && lhs.commandKeyDown == rhs.commandKeyDown && lhs.controlKeyDown == rhs.controlKeyDown
 	}
 }
