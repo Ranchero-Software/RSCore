@@ -19,12 +19,6 @@ struct QueueCall: Equatable {
 	weak var target: AnyObject?
 	let selector: Selector
 
-	init(target: AnyObject, selector: Selector) {
-
-		self.target = target
-		self.selector = selector
-	}
-
 	func perform() {
 
 		let _ = target?.perform(selector)
