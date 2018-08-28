@@ -9,7 +9,11 @@
 import Cocoa
 
 class RSDarkModeAdaptingToolbarButton: NSButton {
-	public var forceTemplateInDarkMode: Bool = false
+	// Clients probably should not bother using this class unless they want
+	// to force the template in dark mode, but if you are using this in a more
+	// general context where you want to control and/or override it on a
+	// case-by-case basis, set this to false to avoid the templating behavior.
+	public var forceTemplateInDarkMode: Bool = true
 	var originalImageTemplateState: Bool = false
 
 	public convenience init(image: NSImage, target: Any?, action: Selector?, forceTemplateInDarkMode: Bool = false) {
