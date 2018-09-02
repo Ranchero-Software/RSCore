@@ -161,6 +161,10 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 		}
 	}
 
+	if ([s hasPrefix:@"//"]) {
+		s = [s rs_stringByStrippingPrefix:@"//" caseSensitive:YES];
+	}
+	
 	lowercaseS = [s lowercaseString];
 	if (![lowercaseS hasPrefix:httpPrefix]) {
 		s = [NSString stringWithFormat: @"%@://%@", wasFeeds ? httpsPrefix : httpPrefix, s];
