@@ -88,6 +88,7 @@
 		845DE0F31B80477100D1571B /* NSSet+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 845DE0F11B80477100D1571B /* NSSet+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		845DE0F41B80477100D1571B /* NSSet+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DE0F21B80477100D1571B /* NSSet+RSCore.m */; };
 		8461387F1DB3F5BE00048B83 /* RSToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */; };
+		84754C88213E1171009CFDFB /* NSWorkspace+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84754C87213E1171009CFDFB /* NSWorkspace+RSCore.swift */; };
 		8479213C1FBA426B004AD08C /* WebViewWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8479213B1FBA426B004AD08C /* WebViewWindow.xib */; };
 		8479213E1FBA4285004AD08C /* WebViewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479213D1FBA4285004AD08C /* WebViewWindowController.swift */; };
 		848F6AE91FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
@@ -218,6 +219,7 @@
 		845DE0F11B80477100D1571B /* NSSet+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+RSCore.h"; sourceTree = "<group>"; };
 		845DE0F21B80477100D1571B /* NSSet+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+RSCore.m"; sourceTree = "<group>"; };
 		8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSToolbarItem.swift; sourceTree = "<group>"; };
+		84754C87213E1171009CFDFB /* NSWorkspace+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSWorkspace+RSCore.swift"; path = "AppKit/NSWorkspace+RSCore.swift"; sourceTree = "<group>"; };
 		8479213B1FBA426B004AD08C /* WebViewWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WebViewWindow.xib; path = AppKit/WebViewWindow.xib; sourceTree = "<group>"; };
 		8479213D1FBA4285004AD08C /* WebViewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewWindowController.swift; path = AppKit/WebViewWindowController.swift; sourceTree = "<group>"; };
 		848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadSafeCache.swift; path = RSCore/ThreadSafeCache.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				84C687341FBC025600345C9E /* Log.swift */,
 				84C687371FBC028900345C9E /* LogItem.swift */,
 				8434D15B200BD6F400D6281E /* UserApp.swift */,
+				84754C87213E1171009CFDFB /* NSWorkspace+RSCore.swift */,
 				84D5BA1D201E87E2009092BD /* URLPasteboardWriter.swift */,
 				84AD1EA720315BA900BC20B7 /* NSPasteboard+RSCore.swift */,
 				842DD7F91E1499FA00E061EB /* Views */,
@@ -845,6 +848,7 @@
 				8414CBA71C95F2EA00333C12 /* Set+Extensions.swift in Sources */,
 				84B99C9A1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				84E34DA61F9FA1070077082F /* UndoableCommand.swift in Sources */,
+				84754C88213E1171009CFDFB /* NSWorkspace+RSCore.swift in Sources */,
 				844F91D61D90D86100820C48 /* RSTransparentContainerView.m in Sources */,
 				84CFF56E1AC3D20A00CEA6C8 /* NSImage+RSCore.m in Sources */,
 				8453F7DF1BDF337800B1C8ED /* RSMacroProcessor.m in Sources */,
