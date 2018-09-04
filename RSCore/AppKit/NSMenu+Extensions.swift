@@ -20,4 +20,11 @@ public extension NSMenu {
 			addItem(menuItem)
 		}
 	}
+
+	/// Add a separator if there are multiple menu items and the last one is not a separator.
+	public func addSeparatorIfNeeded() {
+		if items.count > 0 && !items.last!.isSeparatorItem {
+			addItem(NSMenuItem.separator())
+		}
+	}
 }
