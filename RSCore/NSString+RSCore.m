@@ -170,6 +170,17 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 		s = [NSString stringWithFormat: @"%@://%@", wasFeeds ? httpsPrefix : httpPrefix, s];
 	}
 
+	// Handle top-level URLs missing a trailing slash, as in https://ranchero.com — make it http://ranchero.com/
+	// We’re sticklers for this kind of thing.
+	// History: it used to be that on Windows they were always fine with no trailing slash,
+	// and on Macs the trailing slash would appear. In recent years you’ve seen no trailing slash
+	// on Macs too, but we’re bucking that trend. We’re Mac people, doggone it. Keepers of the flame.
+	// Add the slash.
+	NSUInteger componentsCount = [s componentsSeparatedByString:@"/"].count;
+	if (componentsCount == 3) {
+		s = [s stringByAppendingString:@"/"];
+	}
+
 	return s;
 }
 
