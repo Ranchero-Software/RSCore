@@ -89,6 +89,8 @@
 		845DE0F41B80477100D1571B /* NSSet+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 845DE0F21B80477100D1571B /* NSSet+RSCore.m */; };
 		8461387F1DB3F5BE00048B83 /* RSToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */; };
 		84754C88213E1171009CFDFB /* NSWorkspace+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84754C87213E1171009CFDFB /* NSWorkspace+RSCore.swift */; };
+		8476F7AA21A757D100C808C3 /* Renamable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476F7A921A757D100C808C3 /* Renamable.swift */; };
+		8476F7AB21A757D100C808C3 /* Renamable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476F7A921A757D100C808C3 /* Renamable.swift */; };
 		8479213C1FBA426B004AD08C /* WebViewWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8479213B1FBA426B004AD08C /* WebViewWindow.xib */; };
 		8479213E1FBA4285004AD08C /* WebViewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479213D1FBA4285004AD08C /* WebViewWindowController.swift */; };
 		848F6AE91FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
@@ -220,6 +222,7 @@
 		845DE0F21B80477100D1571B /* NSSet+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+RSCore.m"; sourceTree = "<group>"; };
 		8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSToolbarItem.swift; sourceTree = "<group>"; };
 		84754C87213E1171009CFDFB /* NSWorkspace+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSWorkspace+RSCore.swift"; path = "AppKit/NSWorkspace+RSCore.swift"; sourceTree = "<group>"; };
+		8476F7A921A757D100C808C3 /* Renamable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Renamable.swift; path = RSCore/Renamable.swift; sourceTree = "<group>"; };
 		8479213B1FBA426B004AD08C /* WebViewWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WebViewWindow.xib; path = AppKit/WebViewWindow.xib; sourceTree = "<group>"; };
 		8479213D1FBA4285004AD08C /* WebViewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewWindowController.swift; path = AppKit/WebViewWindowController.swift; sourceTree = "<group>"; };
 		848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadSafeCache.swift; path = RSCore/ThreadSafeCache.swift; sourceTree = "<group>"; };
@@ -375,6 +378,7 @@
 				8453F7DC1BDF337800B1C8ED /* RSMacroProcessor.h */,
 				8453F7DD1BDF337800B1C8ED /* RSMacroProcessor.m */,
 				84B99C931FAE64D400ECDEDB /* DisplayNameProvider.swift */,
+				8476F7A921A757D100C808C3 /* Renamable.swift */,
 				84B99C991FAE650100ECDEDB /* OPMLRepresentable.swift */,
 				84A835891D4EC7B80004C598 /* PlistProviderProtocol.swift */,
 				842E45CB1ED623C7000A8B52 /* UniqueIdentifier.swift */,
@@ -764,6 +768,7 @@
 				842DD7DF1E14996300E061EB /* NSDictionary+RSCore.m in Sources */,
 				842DD7C81E14995C00E061EB /* RSConstants.m in Sources */,
 				845A29201FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */,
+				8476F7AB21A757D100C808C3 /* Renamable.swift in Sources */,
 				84C687391FBC028900345C9E /* LogItem.swift in Sources */,
 				842DD7E11E14996300E061EB /* NSFileManager+RSCore.m in Sources */,
 				842DD7C61E14995C00E061EB /* RSBlocks.m in Sources */,
@@ -855,6 +860,7 @@
 				84C326872038C9F6006A025C /* CoalescingQueue.swift in Sources */,
 				842E45CC1ED623C7000A8B52 /* UniqueIdentifier.swift in Sources */,
 				849EE72320393A750082A1EA /* NSToolbar+RSCore.swift in Sources */,
+				8476F7AA21A757D100C808C3 /* Renamable.swift in Sources */,
 				84A8358A1D4EC7B80004C598 /* PlistProviderProtocol.swift in Sources */,
 				849A339E1AC90A0A0015BA09 /* NSTableView+RSCore.m in Sources */,
 				8434D15C200BD6F400D6281E /* UserApp.swift in Sources */,
