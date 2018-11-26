@@ -29,6 +29,7 @@ public extension NSWorkspace {
 	/// Set the file path that should be the default app for a given scheme such as "feed:"
 	/// It really just uses the bundle ID for the app, so there’s no guarantee that the actual path will be respected later.
 	/// (In other words, you can’t specify one app over another if they have the same bundle ID.)
+	@discardableResult
 	public func setDefaultApp(forURLScheme scheme: String, to path: String) -> Bool {
 		guard let bundleID = bundleID(for: path) else {
 			return false
@@ -37,6 +38,7 @@ public extension NSWorkspace {
 	}
 
 	/// Set the bundle ID for the app that should be default for a given scheme such as "feed:"
+	@discardableResult
 	public func setDefaultAppBundleID(forURLScheme scheme: String, to bundleID: String) -> Bool {
 		return LSSetDefaultHandlerForURLScheme(scheme as CFString, bundleID as CFString) == noErr
 	}
@@ -46,7 +48,7 @@ public extension NSWorkspace {
 		guard let url = URL(string: scheme) else {
 			return Set<String>()
 		}
-		guard let appURLs = LSCopyApplicationURLsForURL(url as CFURL, .viewer)?.takeUnretainedValue() as [AnyObject]? else {
+		guard let appURLs = LSCopyApplicationURLsForURL(url as CFURL, .viewer)?.takeRetainedValue() as [AnyObject]? else {
 			return Set<String>()
 		}
 		let appPaths = appURLs.compactMap { (item) -> String? in
