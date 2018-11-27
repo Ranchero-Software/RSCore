@@ -11,6 +11,8 @@
 		65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */; };
 		8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402047D1FBCE77900D94C1A /* BatchUpdate.swift */; };
 		8402047F1FBCE77900D94C1A /* BatchUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402047D1FBCE77900D94C1A /* BatchUpdate.swift */; };
+		840F7BF921AD05560057E851 /* String+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F7BF821AD05560057E851 /* String+RSCore.swift */; };
+		840F7BFA21AD05560057E851 /* String+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F7BF821AD05560057E851 /* String+RSCore.swift */; };
 		84134D1F1C59D5450063FD24 /* NSCalendar+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84134D1D1C59D5450063FD24 /* NSCalendar+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84134D201C59D5450063FD24 /* NSCalendar+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84134D1E1C59D5450063FD24 /* NSCalendar+RSCore.m */; };
 		8414CBA71C95F2EA00333C12 /* Set+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414CBA61C95F2EA00333C12 /* Set+Extensions.swift */; };
@@ -190,6 +192,7 @@
 		65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSDarkModeAdaptingToolbarButton.swift; sourceTree = "<group>"; };
 		65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAppearance+RSCore.swift"; sourceTree = "<group>"; };
 		8402047D1FBCE77900D94C1A /* BatchUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchUpdate.swift; path = RSCore/BatchUpdate.swift; sourceTree = "<group>"; };
+		840F7BF821AD05560057E851 /* String+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RSCore.swift"; sourceTree = "<group>"; };
 		84134D1D1C59D5450063FD24 /* NSCalendar+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+RSCore.h"; sourceTree = "<group>"; };
 		84134D1E1C59D5450063FD24 /* NSCalendar+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+RSCore.m"; sourceTree = "<group>"; };
 		8414CBA61C95F2EA00333C12 /* Set+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Extensions.swift"; sourceTree = "<group>"; };
@@ -459,6 +462,7 @@
 				84CFF5451AC3CD8000CEA6C8 /* NSTimer+RSCore.h */,
 				84CFF5461AC3CD8000CEA6C8 /* NSTimer+RSCore.m */,
 				849EE72420393AEA0082A1EA /* Array+RSCore.swift */,
+				840F7BF821AD05560057E851 /* String+RSCore.swift */,
 				84FEB4AB1D19D7F4004727E5 /* Date+Extensions.swift */,
 				84BB45421D6909C700B48537 /* NSMutableDictionary-Extensions.swift */,
 				8414CBA61C95F2EA00333C12 /* Set+Extensions.swift */,
@@ -765,6 +769,7 @@
 				84B99C9B1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				842DD7D71E14996300E061EB /* NSArray+RSCore.m in Sources */,
 				842DD7F31E14996B00E061EB /* NSMutableDictionary-Extensions.swift in Sources */,
+				840F7BFA21AD05560057E851 /* String+RSCore.swift in Sources */,
 				842DD7DF1E14996300E061EB /* NSDictionary+RSCore.m in Sources */,
 				842DD7C81E14995C00E061EB /* RSConstants.m in Sources */,
 				845A29201FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */,
@@ -843,6 +848,7 @@
 				84B99C941FAE64D500ECDEDB /* DisplayNameProvider.swift in Sources */,
 				84BB45431D6909C700B48537 /* NSMutableDictionary-Extensions.swift in Sources */,
 				84411E731FE5FFC3004B527F /* NSImage+RSCore.swift in Sources */,
+				840F7BF921AD05560057E851 /* String+RSCore.swift in Sources */,
 				845DE0F41B80477100D1571B /* NSSet+RSCore.m in Sources */,
 				842635591D7FA24800196285 /* NSOutlineView+Extensions.swift in Sources */,
 				844C915C1B65753E0051FC1B /* RSPlist.m in Sources */,
