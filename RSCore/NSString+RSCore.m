@@ -272,6 +272,51 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 	return [self substringToIndex:self.length - suffix.length];
 }
 
+- (NSUInteger)rs_caseInsensitiveIndexOfString:(NSString *)s beforeIndex:(NSUInteger)ix {
+
+	if (ix < s.length) {
+		return NSNotFound;
+	}
+
+	NSRange range = [self rangeOfString:s options:NSBackwardsSearch | NSCaseInsensitiveSearch range:NSMakeRange(0, ix)];
+	if (range.length < s.length) {
+		return NSNotFound;
+	}
+
+	return range.location;
+}
+
++ (void)rs_removeTagAndContents:(NSString *)tag fromString:(NSMutableString *)s {
+
+	// Remove the tag and everything between start and end tags.
+	// This is not bulletproof. It’s meant for cosmetic use — such
+	// as providing a plain text view in NetNewsWire’s timeline.
+	
+	NSUInteger lastIndexOfTagStart = s.length;
+	NSString *startTag = [NSString stringWithFormat:@"<%@>", tag];
+	NSString *endTag = [NSString stringWithFormat:@"</%@>", tag];
+	NSUInteger numberOfTagEndCharacters = endTag.length;
+
+	while (true) {
+
+		NSUInteger ixTagEnd = [s rs_caseInsensitiveIndexOfString:endTag beforeIndex:lastIndexOfTagStart];
+		if (ixTagEnd == NSNotFound) {
+			break;
+		}
+
+		NSUInteger ixTagStart = [s rs_caseInsensitiveIndexOfString:startTag beforeIndex:ixTagEnd];
+		if (ixTagStart == NSNotFound) {
+			break;
+		}
+
+		NSRange range = NSMakeRange(ixTagStart, (ixTagEnd - ixTagStart) + numberOfTagEndCharacters);
+		[s replaceCharactersInRange:range withString:@""];
+
+		lastIndexOfTagStart = ixTagStart;
+	}
+}
+
+
 - (NSString *)rs_stringByStrippingHTML:(NSUInteger)maxCharacters {
 
 	if (![self containsString:@"<"]) {
@@ -290,6 +335,8 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 	[preflightedCopy replaceOccurrencesOfString:@"</p>" withString:@" " options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
 	[preflightedCopy replaceOccurrencesOfString:@"<div>" withString:@" " options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
 	[preflightedCopy replaceOccurrencesOfString:@"</div>" withString:@" " options:NSCaseInsensitiveSearch range:NSMakeRange(0, preflightedCopy.length)];
+	[NSString rs_removeTagAndContents:@"script" fromString:preflightedCopy];
+	[NSString rs_removeTagAndContents:@"style" fromString:preflightedCopy];
 
 	CFMutableStringRef s = CFStringCreateMutable(kCFAllocatorDefault, (CFIndex)preflightedCopy.length);
 	NSUInteger i = 0;
