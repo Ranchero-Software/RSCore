@@ -19,8 +19,16 @@ public struct KeyboardConstant {
 
 public extension String {
 
-	public var keyboardIntegerValue: Int {
-		return Int(utf16[utf16.startIndex])
+	public var keyboardIntegerValue: Int? {
+		if isEmpty {
+			return nil
+		}
+		let utf16String = utf16
+		let startIndex = utf16String.startIndex
+		if startIndex == utf16String.endIndex {
+			return nil
+		}
+		return Int(utf16String[startIndex])
 	}
 }
 
@@ -104,7 +112,7 @@ public struct KeyboardKey: Hashable {
 
 		switch(s) {
 		case "[space]":
-			integerValue = " ".keyboardIntegerValue
+			integerValue = " ".keyboardIntegerValue!
 		case "[uparrow]":
 			integerValue = NSUpArrowFunctionKey
 		case "[downarrow]":
@@ -122,7 +130,10 @@ public struct KeyboardKey: Hashable {
 		case "[deletefunction]":
 			integerValue = NSDeleteFunctionKey
 		default:
-			integerValue = s.keyboardIntegerValue
+			guard let unwrappedIntegerValue = s.keyboardIntegerValue else {
+				return nil
+			}
+			integerValue = unwrappedIntegerValue
 		}
 
 		let shiftKeyDown = dictionary["shiftModifier"] as? Bool ?? false
