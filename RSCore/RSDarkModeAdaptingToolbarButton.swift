@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ranchero Software, LLC. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class RSDarkModeAdaptingToolbarButton: NSButton {
 	// Clients probably should not bother using this class unless they want
