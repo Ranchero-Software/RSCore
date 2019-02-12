@@ -10,7 +10,7 @@ import Foundation
 
 public extension Notification.Name {
 
-	public static let LogDidAddItem = NSNotification.Name("LogDidAddItem")
+	static let LogDidAddItem = NSNotification.Name("LogDidAddItem")
 }
 
 public class Log {

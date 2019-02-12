@@ -10,12 +10,12 @@ import AppKit
 
 public extension NSWindow {
 
-	public var isDisplayingSheet: Bool {
+	var isDisplayingSheet: Bool {
 
 		return attachedSheet != nil
 	}
 
-	public func makeFirstResponderUnlessDescendantIsFirstResponder(_ responder: NSResponder) {
+	func makeFirstResponderUnlessDescendantIsFirstResponder(_ responder: NSResponder) {
 
 		if let fr = firstResponder, fr.hasAncestor(responder) {
 			return
@@ -23,7 +23,7 @@ public extension NSWindow {
 		makeFirstResponder(responder)
 	}
 
-	public func setPointAndSizeAdjustingForScreen(point: NSPoint, size: NSSize, minimumSize: NSSize) {
+	func setPointAndSizeAdjustingForScreen(point: NSPoint, size: NSSize, minimumSize: NSSize) {
 
 		// point.y specifices from the *top* of the screen, even though screen coordinates work from the bottom up. This is for convenience.
 		// The eventual size may be smaller than requested, since the screen may be small, but not smaller than minimumSize.
@@ -51,7 +51,7 @@ public extension NSWindow {
 		setFrameTopLeftPoint(frame.origin)
 	}
 
-	public var flippedOrigin: NSPoint? {
+	var flippedOrigin: NSPoint? {
 
 		// Screen coordinates start at lower-left.
 		// With this we can use upper-left, like sane people.
@@ -74,7 +74,7 @@ public extension NSWindow {
 		}
 	}
 
-	public func setFlippedOriginAdjustingForScreen(_ point: NSPoint) {
+	func setFlippedOriginAdjustingForScreen(_ point: NSPoint) {
 
 		guard let screenFrame = screen?.frame else {
 			return

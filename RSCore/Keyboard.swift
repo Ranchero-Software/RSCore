@@ -19,7 +19,7 @@ public struct KeyboardConstant {
 
 public extension String {
 
-	public var keyboardIntegerValue: Int? {
+	var keyboardIntegerValue: Int? {
 		if isEmpty {
 			return nil
 		}

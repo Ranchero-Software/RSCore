@@ -10,7 +10,7 @@ import AppKit
 
 public extension NSResponder {
 	
-	public func hasAncestor(_ ancestor: NSResponder) -> Bool {
+	func hasAncestor(_ ancestor: NSResponder) -> Bool {
 		
 		var nomad: NSResponder = self
 		while(true) {

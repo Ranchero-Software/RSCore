@@ -10,7 +10,7 @@ import Foundation
 
 public extension Array {
 
-	public func firstElementPassingTest( _ test: (Element) -> Bool) -> Element? {
+	func firstElementPassingTest( _ test: (Element) -> Bool) -> Element? {
 
 		guard let index = self.index(where: test) else {
 			return nil

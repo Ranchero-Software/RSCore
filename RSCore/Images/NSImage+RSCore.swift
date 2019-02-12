@@ -10,7 +10,7 @@ import AppKit
 
 public extension NSImage {
 
-	public func tinted(with color: NSColor) -> NSImage {
+	func tinted(with color: NSColor) -> NSImage {
 
 		let image = self.copy() as! NSImage
 

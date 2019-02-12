@@ -10,14 +10,14 @@ import Foundation
 
 public extension NSMutableDictionary {
 
-	public func setOptionalStringValue(_ stringValue: String?, _ key: String) {
+	func setOptionalStringValue(_ stringValue: String?, _ key: String) {
 
 		if let s = stringValue {
 			setObjectWithStringKey(s as NSString, key)
 		}
 	}
 
-	public func setObjectWithStringKey(_ obj: Any, _ key: String) {
+	func setObjectWithStringKey(_ obj: Any, _ key: String) {
 
 		setObject(obj, forKey: key as NSString)
 	}

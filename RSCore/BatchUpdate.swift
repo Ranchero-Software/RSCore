@@ -12,7 +12,7 @@ public typealias BatchUpdateBlock = () -> Void
 
 public extension Notification.Name {
 	
-	public static let BatchUpdateDidPerform = Notification.Name(rawValue: "BatchUpdateDidPerform")
+	static let BatchUpdateDidPerform = Notification.Name(rawValue: "BatchUpdateDidPerform")
 }
 
 public final class BatchUpdate {

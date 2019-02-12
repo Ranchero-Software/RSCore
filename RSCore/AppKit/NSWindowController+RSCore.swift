@@ -10,12 +10,12 @@ import AppKit
 
 public extension NSWindowController {
 
-	public var isDisplayingSheet: Bool {
+	var isDisplayingSheet: Bool {
 
 		return window?.isDisplayingSheet ?? false
 	}
 
-	public var isOpen: Bool {
+	var isOpen: Bool {
 
 		return isWindowLoaded && window!.isVisible
 	}
