@@ -10,7 +10,7 @@ import AppKit
 
 public extension NSToolbar {
 
-	public func existingItem(withIdentifier identifier: NSToolbarItem.Identifier) -> NSToolbarItem? {
+	func existingItem(withIdentifier identifier: NSToolbarItem.Identifier) -> NSToolbarItem? {
 
 		return items.firstElementPassingTest{ $0.itemIdentifier == identifier }
 	}

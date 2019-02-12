@@ -10,7 +10,7 @@ import Foundation
 
 public extension Set {
 
-	public func anyObjectPassingTest( _ test: (Element) -> Bool) -> Element? {
+	func anyObjectPassingTest( _ test: (Element) -> Bool) -> Element? {
 
 		guard let index = self.index(where: test) else {
 			return nil

@@ -10,7 +10,7 @@ import AppKit
 
 public extension NSMenu {
 
-	public func takeItems(from menu: NSMenu) {
+	func takeItems(from menu: NSMenu) {
 
 		// The passed-in menu gets all its items removed.
 
@@ -22,7 +22,7 @@ public extension NSMenu {
 	}
 
 	/// Add a separator if there are multiple menu items and the last one is not a separator.
-	public func addSeparatorIfNeeded() {
+	func addSeparatorIfNeeded() {
 		if items.count > 0 && !items.last!.isSeparatorItem {
 			addItem(NSMenuItem.separator())
 		}

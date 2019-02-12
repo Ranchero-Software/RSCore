@@ -11,7 +11,7 @@ import AppKit
 public extension NSWorkspace {
 
 	/// Get the file path to the default app for a given scheme such as "feed:"
-	public func defaultApp(forURLScheme scheme: String) -> String? {
+	func defaultApp(forURLScheme scheme: String) -> String? {
 		guard let url = URL(string: scheme) else {
 			return nil
 		}
@@ -19,7 +19,7 @@ public extension NSWorkspace {
 	}
 
 	/// Get the bundle ID for the default app for a given scheme such as "feed:"
-	public func defaultAppBundleID(forURLScheme scheme: String) -> String? {
+	func defaultAppBundleID(forURLScheme scheme: String) -> String? {
 		guard let path = defaultApp(forURLScheme: scheme) else {
 			return nil
 		}
@@ -30,7 +30,7 @@ public extension NSWorkspace {
 	/// It really just uses the bundle ID for the app, so there’s no guarantee that the actual path will be respected later.
 	/// (In other words, you can’t specify one app over another if they have the same bundle ID.)
 	@discardableResult
-	public func setDefaultApp(forURLScheme scheme: String, to path: String) -> Bool {
+	func setDefaultApp(forURLScheme scheme: String, to path: String) -> Bool {
 		guard let bundleID = bundleID(for: path) else {
 			return false
 		}
@@ -39,12 +39,12 @@ public extension NSWorkspace {
 
 	/// Set the bundle ID for the app that should be default for a given scheme such as "feed:"
 	@discardableResult
-	public func setDefaultAppBundleID(forURLScheme scheme: String, to bundleID: String) -> Bool {
+	func setDefaultAppBundleID(forURLScheme scheme: String, to bundleID: String) -> Bool {
 		return LSSetDefaultHandlerForURLScheme(scheme as CFString, bundleID as CFString) == noErr
 	}
 
 	/// Get the file paths to apps that can handle a given scheme such as "feed:"
-	public func apps(forURLScheme scheme: String) -> Set<String> {
+	func apps(forURLScheme scheme: String) -> Set<String> {
 		guard let url = URL(string: scheme) else {
 			return Set<String>()
 		}
@@ -61,7 +61,7 @@ public extension NSWorkspace {
 	}
 
 	/// Get the bundle IDs for apps that can handle a given scheme such as "feed:"
-	public func bundleIDsForApps(forURLScheme scheme: String) -> Set<String> {
+	func bundleIDsForApps(forURLScheme scheme: String) -> Set<String> {
 		let appPaths = apps(forURLScheme: scheme)
 		let bundleIDs = appPaths.compactMap { (path) -> String? in
 			return bundleID(for: path)
@@ -70,7 +70,7 @@ public extension NSWorkspace {
 	}
 
 	/// Get the bundle ID for an app at a path.
-	public func bundleID(for path: String) -> String? {
+	func bundleID(for path: String) -> String? {
 		return Bundle(path: path)?.bundleIdentifier
 	}
 }

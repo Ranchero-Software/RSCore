@@ -12,12 +12,12 @@ public extension Date {
 	
 	// Below are for rough use only — they don't use the calendar.
 	
-	public mutating func subtract(days: Int) {
+	mutating func subtract(days: Int) {
 		
 		addTimeInterval(0.0 - timeIntervalWithDays(days))
 	}
 
-	public mutating func add(days: Int) {
+	mutating func add(days: Int) {
 		
 		addTimeInterval(timeIntervalWithDays(days))
 	}
