@@ -129,6 +129,8 @@ public struct KeyboardKey: Hashable {
 			integerValue = Int(kDeleteKeyCode)
 		case "[deletefunction]":
 			integerValue = NSDeleteFunctionKey
+        case "[tab]":
+            integerValue = NSTabCharacter
 		default:
 			guard let unwrappedIntegerValue = s.keyboardIntegerValue else {
 				return nil
