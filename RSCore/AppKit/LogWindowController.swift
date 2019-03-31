@@ -17,7 +17,7 @@ public class LogWindowController: NSWindowController {
 
 	public convenience init(title: String, log: Log) {
 
-		self.init(windowNibName: NSNib.Name(rawValue: "LogWindow"))
+		self.init(windowNibName: "LogWindow")
 		self.log = log
 		self.title = title
 

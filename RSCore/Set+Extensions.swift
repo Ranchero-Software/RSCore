@@ -12,7 +12,7 @@ public extension Set {
 
 	func anyObjectPassingTest( _ test: (Element) -> Bool) -> Element? {
 
-		guard let index = self.index(where: test) else {
+		guard let index = self.firstIndex(where: test) else {
 			return nil
 		}
 

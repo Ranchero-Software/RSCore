@@ -16,7 +16,7 @@ public final class WebViewWindowController: NSWindowController {
 
 	public convenience init(title: String) {
 
-		self.init(windowNibName: NSNib.Name(rawValue: "WebViewWindow"))
+		self.init(windowNibName: "WebViewWindow")
 		self.title = title
 	}
 
