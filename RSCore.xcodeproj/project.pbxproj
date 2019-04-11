@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C326862038C9F6006A025C /* CoalescingQueue.swift */; };
-		51126DA8225FE26900722696 /* RSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51126DA6225FE26800722696 /* RSImage.swift */; };
-		51126DA9225FE26900722696 /* RSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51126DA6225FE26800722696 /* RSImage.swift */; };
-		51126DAA225FE26900722696 /* RSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51126DA7225FE26900722696 /* RSScreen.swift */; };
-		51126DAB225FE26900722696 /* RSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51126DA7225FE26900722696 /* RSScreen.swift */; };
+		51C4506B225FF22100C03939 /* UniqueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506A225FF22100C03939 /* UniqueIdentifier.swift */; };
+		51C4506C225FF22100C03939 /* UniqueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506A225FF22100C03939 /* UniqueIdentifier.swift */; };
+		51C4506E225FF23B00C03939 /* RSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506D225FF23B00C03939 /* RSScreen.swift */; };
+		51C4506F225FF23B00C03939 /* RSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506D225FF23B00C03939 /* RSScreen.swift */; };
+		51C45071225FF25800C03939 /* RSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C45070225FF25800C03939 /* RSImage.swift */; };
+		51C45072225FF25800C03939 /* RSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C45070225FF25800C03939 /* RSImage.swift */; };
 		65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */; };
 		65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */; };
 		8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402047D1FBCE77900D94C1A /* BatchUpdate.swift */; };
@@ -76,7 +78,6 @@
 		842DD7F61E14997600E061EB /* RSImageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5631AC3D13C00CEA6C8 /* RSImageRenderer.m */; };
 		842DD7F71E14997600E061EB /* RSScaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5671AC3D1B000CEA6C8 /* RSScaling.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7F81E14997600E061EB /* RSScaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5681AC3D1B000CEA6C8 /* RSScaling.m */; };
-		842E45CC1ED623C7000A8B52 /* UniqueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E45CB1ED623C7000A8B52 /* UniqueIdentifier.swift */; };
 		8432B1861DACA0E90057D6DF /* NSResponder-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432B1851DACA0E90057D6DF /* NSResponder-Extensions.swift */; };
 		8432B1881DACA2060057D6DF /* NSWindow-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432B1871DACA2060057D6DF /* NSWindow-Extensions.swift */; };
 		8434D15C200BD6F400D6281E /* UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434D15B200BD6F400D6281E /* UserApp.swift */; };
@@ -194,8 +195,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		51126DA6225FE26800722696 /* RSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSImage.swift; sourceTree = "<group>"; };
-		51126DA7225FE26900722696 /* RSScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSScreen.swift; sourceTree = "<group>"; };
+		51C4506A225FF22100C03939 /* UniqueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniqueIdentifier.swift; path = RSCore/UniqueIdentifier.swift; sourceTree = "<group>"; };
+		51C4506D225FF23B00C03939 /* RSScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSScreen.swift; path = RSCore/RSScreen.swift; sourceTree = "<group>"; };
+		51C45070225FF25800C03939 /* RSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSImage.swift; path = RSCore/RSImage.swift; sourceTree = "<group>"; };
 		65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSDarkModeAdaptingToolbarButton.swift; sourceTree = "<group>"; };
 		65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAppearance+RSCore.swift"; sourceTree = "<group>"; };
 		8402047D1FBCE77900D94C1A /* BatchUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchUpdate.swift; path = RSCore/BatchUpdate.swift; sourceTree = "<group>"; };
@@ -213,7 +215,6 @@
 		842635581D7FA24800196285 /* NSOutlineView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOutlineView+Extensions.swift"; sourceTree = "<group>"; };
 		842DD7BC1E14993900E061EB /* RSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842DD7BF1E14993900E061EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		842E45CB1ED623C7000A8B52 /* UniqueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueIdentifier.swift; sourceTree = "<group>"; };
 		8432B1851DACA0E90057D6DF /* NSResponder-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSResponder-Extensions.swift"; sourceTree = "<group>"; };
 		8432B1871DACA2060057D6DF /* NSWindow-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow-Extensions.swift"; sourceTree = "<group>"; };
 		8434D15B200BD6F400D6281E /* UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserApp.swift; path = AppKit/UserApp.swift; sourceTree = "<group>"; };
@@ -391,15 +392,15 @@
 				8476F7A921A757D100C808C3 /* Renamable.swift */,
 				84B99C991FAE650100ECDEDB /* OPMLRepresentable.swift */,
 				84A835891D4EC7B80004C598 /* PlistProviderProtocol.swift */,
-				842E45CB1ED623C7000A8B52 /* UniqueIdentifier.swift */,
 				84E34DA51F9FA1070077082F /* UndoableCommand.swift */,
+				51C4506A225FF22100C03939 /* UniqueIdentifier.swift */,
 				8402047D1FBCE77900D94C1A /* BatchUpdate.swift */,
 				848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */,
 				844B5B561FE9D36000C7C76A /* Keyboard.swift */,
 				84AD1EA420315A8700BC20B7 /* PasteboardWriterOwner.swift */,
 				84C326862038C9F6006A025C /* CoalescingQueue.swift */,
-				51126DA6225FE26800722696 /* RSImage.swift */,
-				51126DA7225FE26900722696 /* RSScreen.swift */,
+				51C45070225FF25800C03939 /* RSImage.swift */,
+				51C4506D225FF23B00C03939 /* RSScreen.swift */,
 				84CFF5241AC3C8A200CEA6C8 /* Foundation */,
 				84CFF5551AC3CF4A00CEA6C8 /* AppKit */,
 				84CFF5661AC3D13F00CEA6C8 /* Images */,
@@ -775,7 +776,6 @@
 				842DD7F81E14997600E061EB /* RSScaling.m in Sources */,
 				842DD7D01E14995C00E061EB /* RSMacroProcessor.m in Sources */,
 				842DD7E51E14996300E061EB /* NSMutableDictionary+RSCore.m in Sources */,
-				51126DA9225FE26900722696 /* RSImage.swift in Sources */,
 				842DD7F41E14996B00E061EB /* Set+Extensions.swift in Sources */,
 				84B99C9B1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				842DD7D71E14996300E061EB /* NSArray+RSCore.m in Sources */,
@@ -790,10 +790,11 @@
 				842DD7C61E14995C00E061EB /* RSBlocks.m in Sources */,
 				842DD7DD1E14996300E061EB /* NSDate+RSCore.m in Sources */,
 				84B99C951FAE64D500ECDEDB /* DisplayNameProvider.swift in Sources */,
+				51C45072225FF25800C03939 /* RSImage.swift in Sources */,
 				8402047F1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
 				842DD7E91E14996300E061EB /* NSNotificationCenter+RSCore.m in Sources */,
 				842DD7E71E14996300E061EB /* NSMutableSet+RSCore.m in Sources */,
-				51126DAB225FE26900722696 /* RSScreen.swift in Sources */,
+				51C4506C225FF22100C03939 /* UniqueIdentifier.swift in Sources */,
 				51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */,
 				842DD7E31E14996300E061EB /* NSMutableArray+RSCore.m in Sources */,
 				842DD7DB1E14996300E061EB /* NSData+RSCore.m in Sources */,
@@ -801,6 +802,7 @@
 				842DD7CE1E14995C00E061EB /* RSPlist.m in Sources */,
 				848F6AEA1FC2BC50002D422E /* ThreadSafeCache.swift in Sources */,
 				842DD7EF1E14996300E061EB /* NSString+RSCore.m in Sources */,
+				51C4506F225FF23B00C03939 /* RSScreen.swift in Sources */,
 				842DD7F21E14996B00E061EB /* Date+Extensions.swift in Sources */,
 				842DD7ED1E14996300E061EB /* NSSet+RSCore.m in Sources */,
 				84C687361FBC025600345C9E /* Log.swift in Sources */,
@@ -837,11 +839,12 @@
 				84CFF5401AC3CD0100CEA6C8 /* NSMutableSet+RSCore.m in Sources */,
 				84CFF5441AC3CD3500CEA6C8 /* NSNotificationCenter+RSCore.m in Sources */,
 				84CFF55D1AC3D01F00CEA6C8 /* RSBackgroundColorView.m in Sources */,
-				51126DAA225FE26900722696 /* RSScreen.swift in Sources */,
+				51C4506E225FF23B00C03939 /* RSScreen.swift in Sources */,
 				84CFF5131AC3C6D800CEA6C8 /* RSBlocks.m in Sources */,
 				84C687321FBAA3DF00345C9E /* LogWindowController.swift in Sources */,
 				84C687381FBC028900345C9E /* LogItem.swift in Sources */,
 				8432B1861DACA0E90057D6DF /* NSResponder-Extensions.swift in Sources */,
+				51C4506B225FF22100C03939 /* UniqueIdentifier.swift in Sources */,
 				849EE72520393AEA0082A1EA /* Array+RSCore.swift in Sources */,
 				84E8E0D9202EC39800562D8F /* NSMenu+Extensions.swift in Sources */,
 				84AD1EA820315BA900BC20B7 /* NSPasteboard+RSCore.swift in Sources */,
@@ -855,12 +858,12 @@
 				84C632A1200D30F1007BEEAA /* NSAppleEventDescriptor+RSCore.m in Sources */,
 				84CFF5591AC3CF9100CEA6C8 /* NSView+RSCore.m in Sources */,
 				84CFF56A1AC3D1B000CEA6C8 /* RSScaling.m in Sources */,
-				51126DA8225FE26900722696 /* RSImage.swift in Sources */,
 				84FEB4AC1D19D7F4004727E5 /* Date+Extensions.swift in Sources */,
 				8479213E1FBA4285004AD08C /* WebViewWindowController.swift in Sources */,
 				844B5B571FE9D36000C7C76A /* Keyboard.swift in Sources */,
 				8461387F1DB3F5BE00048B83 /* RSToolbarItem.swift in Sources */,
 				84B99C941FAE64D500ECDEDB /* DisplayNameProvider.swift in Sources */,
+				51C45071225FF25800C03939 /* RSImage.swift in Sources */,
 				84BB45431D6909C700B48537 /* NSMutableDictionary-Extensions.swift in Sources */,
 				84411E731FE5FFC3004B527F /* NSImage+RSCore.swift in Sources */,
 				840F7BF921AD05560057E851 /* String+RSCore.swift in Sources */,
@@ -879,7 +882,6 @@
 				84CFF56E1AC3D20A00CEA6C8 /* NSImage+RSCore.m in Sources */,
 				8453F7DF1BDF337800B1C8ED /* RSMacroProcessor.m in Sources */,
 				84C326872038C9F6006A025C /* CoalescingQueue.swift in Sources */,
-				842E45CC1ED623C7000A8B52 /* UniqueIdentifier.swift in Sources */,
 				849EE72320393A750082A1EA /* NSToolbar+RSCore.swift in Sources */,
 				8476F7AA21A757D100C808C3 /* Renamable.swift in Sources */,
 				84A8358A1D4EC7B80004C598 /* PlistProviderProtocol.swift in Sources */,
