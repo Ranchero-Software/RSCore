@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C326862038C9F6006A025C /* CoalescingQueue.swift */; };
+		51126DA8225FE26900722696 /* RSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51126DA6225FE26800722696 /* RSImage.swift */; };
+		51126DA9225FE26900722696 /* RSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51126DA6225FE26800722696 /* RSImage.swift */; };
+		51126DAA225FE26900722696 /* RSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51126DA7225FE26900722696 /* RSScreen.swift */; };
+		51126DAB225FE26900722696 /* RSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51126DA7225FE26900722696 /* RSScreen.swift */; };
 		65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */; };
 		65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */; };
 		8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402047D1FBCE77900D94C1A /* BatchUpdate.swift */; };
@@ -190,6 +194,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51126DA6225FE26800722696 /* RSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSImage.swift; sourceTree = "<group>"; };
+		51126DA7225FE26900722696 /* RSScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSScreen.swift; sourceTree = "<group>"; };
 		65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSDarkModeAdaptingToolbarButton.swift; sourceTree = "<group>"; };
 		65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAppearance+RSCore.swift"; sourceTree = "<group>"; };
 		8402047D1FBCE77900D94C1A /* BatchUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchUpdate.swift; path = RSCore/BatchUpdate.swift; sourceTree = "<group>"; };
@@ -392,6 +398,8 @@
 				844B5B561FE9D36000C7C76A /* Keyboard.swift */,
 				84AD1EA420315A8700BC20B7 /* PasteboardWriterOwner.swift */,
 				84C326862038C9F6006A025C /* CoalescingQueue.swift */,
+				51126DA6225FE26800722696 /* RSImage.swift */,
+				51126DA7225FE26900722696 /* RSScreen.swift */,
 				84CFF5241AC3C8A200CEA6C8 /* Foundation */,
 				84CFF5551AC3CF4A00CEA6C8 /* AppKit */,
 				84CFF5661AC3D13F00CEA6C8 /* Images */,
@@ -767,6 +775,7 @@
 				842DD7F81E14997600E061EB /* RSScaling.m in Sources */,
 				842DD7D01E14995C00E061EB /* RSMacroProcessor.m in Sources */,
 				842DD7E51E14996300E061EB /* NSMutableDictionary+RSCore.m in Sources */,
+				51126DA9225FE26900722696 /* RSImage.swift in Sources */,
 				842DD7F41E14996B00E061EB /* Set+Extensions.swift in Sources */,
 				84B99C9B1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				842DD7D71E14996300E061EB /* NSArray+RSCore.m in Sources */,
@@ -784,6 +793,7 @@
 				8402047F1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
 				842DD7E91E14996300E061EB /* NSNotificationCenter+RSCore.m in Sources */,
 				842DD7E71E14996300E061EB /* NSMutableSet+RSCore.m in Sources */,
+				51126DAB225FE26900722696 /* RSScreen.swift in Sources */,
 				51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */,
 				842DD7E31E14996300E061EB /* NSMutableArray+RSCore.m in Sources */,
 				842DD7DB1E14996300E061EB /* NSData+RSCore.m in Sources */,
@@ -827,6 +837,7 @@
 				84CFF5401AC3CD0100CEA6C8 /* NSMutableSet+RSCore.m in Sources */,
 				84CFF5441AC3CD3500CEA6C8 /* NSNotificationCenter+RSCore.m in Sources */,
 				84CFF55D1AC3D01F00CEA6C8 /* RSBackgroundColorView.m in Sources */,
+				51126DAA225FE26900722696 /* RSScreen.swift in Sources */,
 				84CFF5131AC3C6D800CEA6C8 /* RSBlocks.m in Sources */,
 				84C687321FBAA3DF00345C9E /* LogWindowController.swift in Sources */,
 				84C687381FBC028900345C9E /* LogItem.swift in Sources */,
@@ -844,6 +855,7 @@
 				84C632A1200D30F1007BEEAA /* NSAppleEventDescriptor+RSCore.m in Sources */,
 				84CFF5591AC3CF9100CEA6C8 /* NSView+RSCore.m in Sources */,
 				84CFF56A1AC3D1B000CEA6C8 /* RSScaling.m in Sources */,
+				51126DA8225FE26900722696 /* RSImage.swift in Sources */,
 				84FEB4AC1D19D7F4004727E5 /* Date+Extensions.swift in Sources */,
 				8479213E1FBA4285004AD08C /* WebViewWindowController.swift in Sources */,
 				844B5B571FE9D36000C7C76A /* Keyboard.swift in Sources */,
