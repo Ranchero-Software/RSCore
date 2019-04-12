@@ -62,13 +62,13 @@ public extension NSTableView {
 		clipView.animator().bounds = rClipView
 	}
 
-	func scrollToIfNotVisable(index: Int) {
-		if let followingRow = rowView(atRow: index, makeIfNecessary: false) {
+	func scrollToRowIfNotVisible(_ row: Int) {
+		if let followingRow = rowView(atRow: row, makeIfNecessary: false) {
 			if !(visibleRowViews()?.contains(followingRow) ?? false) {
-				scrollTo(row: index, extraHeight: 0)
+				scrollTo(row: row, extraHeight: 0)
 			}
 		} else {
-			scrollTo(row: index, extraHeight: 0)
+			scrollTo(row: row, extraHeight: 0)
 		}
 	}
 
