@@ -35,7 +35,7 @@ public extension NSTableView {
 		return indexes.isEmpty ? nil : indexes
 	}
 
-	func scrollTo(row: Int) {
+	func scrollTo(row: Int, extraHeight: Int = 150) {
 
 		guard let scrollView = self.enclosingScrollView else {
 			return
@@ -49,7 +49,6 @@ public extension NSTableView {
 
 		let rMidY = NSMidY(r)
 		var scrollPoint = NSZeroPoint;
-		let extraHeight = 150
 		scrollPoint.y = floor(rMidY - (documentVisibleRect.size.height / 2.0)) + CGFloat(extraHeight)
 		scrollPoint.y = max(scrollPoint.y, 0)
 
@@ -61,6 +60,16 @@ public extension NSTableView {
 		let rClipView = NSMakeRect(scrollPoint.x, scrollPoint.y, NSWidth(clipView.bounds), NSHeight(clipView.bounds))
 
 		clipView.animator().bounds = rClipView
+	}
+
+	func scrollToIfNotVisable(index: Int) {
+		if let followingRow = rowView(atRow: index, makeIfNecessary: false) {
+			if !(visibleRowViews()?.contains(followingRow) ?? false) {
+				scrollTo(row: index, extraHeight: 0)
+			}
+		} else {
+			scrollTo(row: index, extraHeight: 0)
+		}
 	}
 
 	func visibleRowViews() -> [NSTableRowView]? {
