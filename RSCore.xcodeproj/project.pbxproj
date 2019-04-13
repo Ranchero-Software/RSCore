@@ -104,6 +104,7 @@
 		8479213E1FBA4285004AD08C /* WebViewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479213D1FBA4285004AD08C /* WebViewWindowController.swift */; };
 		847E64A22262793300E00365 /* SendToCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E64A12262793300E00365 /* SendToCommand.swift */; };
 		847E64A32262793300E00365 /* SendToCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E64A12262793300E00365 /* SendToCommand.swift */; };
+		847E64A522628C7A00E00365 /* KeyboardDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E64A422628C7A00E00365 /* KeyboardDelegateProtocol.swift */; };
 		848F6AE91FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
 		848F6AEA1FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
 		849A339D1AC90A0A0015BA09 /* NSTableView+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -241,6 +242,7 @@
 		8479213B1FBA426B004AD08C /* WebViewWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WebViewWindow.xib; path = AppKit/WebViewWindow.xib; sourceTree = "<group>"; };
 		8479213D1FBA4285004AD08C /* WebViewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewWindowController.swift; path = AppKit/WebViewWindowController.swift; sourceTree = "<group>"; };
 		847E64A12262793300E00365 /* SendToCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SendToCommand.swift; path = RSCore/SendToCommand.swift; sourceTree = "<group>"; };
+		847E64A422628C7A00E00365 /* KeyboardDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardDelegateProtocol.swift; path = AppKit/KeyboardDelegateProtocol.swift; sourceTree = "<group>"; };
 		848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadSafeCache.swift; path = RSCore/ThreadSafeCache.swift; sourceTree = "<group>"; };
 		849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTableView+RSCore.h"; sourceTree = "<group>"; };
 		849A339C1AC90A0A0015BA09 /* NSTableView+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTableView+RSCore.m"; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 				8414CBAA1C95F8F700333C12 /* RSGeometry.m */,
 				65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */,
 				8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */,
+				847E64A422628C7A00E00365 /* KeyboardDelegateProtocol.swift */,
 				8479213B1FBA426B004AD08C /* WebViewWindow.xib */,
 				8479213D1FBA4285004AD08C /* WebViewWindowController.swift */,
 				84C6872F1FBAA30800345C9E /* LogWindow.xib */,
@@ -892,6 +895,7 @@
 				84CFF56E1AC3D20A00CEA6C8 /* NSImage+RSCore.m in Sources */,
 				8453F7DF1BDF337800B1C8ED /* RSMacroProcessor.m in Sources */,
 				84C326872038C9F6006A025C /* CoalescingQueue.swift in Sources */,
+				847E64A522628C7A00E00365 /* KeyboardDelegateProtocol.swift in Sources */,
 				849EE72320393A750082A1EA /* NSToolbar+RSCore.swift in Sources */,
 				8476F7AA21A757D100C808C3 /* Renamable.swift in Sources */,
 				84A8358A1D4EC7B80004C598 /* PlistProviderProtocol.swift in Sources */,
