@@ -102,6 +102,8 @@
 		8476F7AB21A757D100C808C3 /* Renamable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476F7A921A757D100C808C3 /* Renamable.swift */; };
 		8479213C1FBA426B004AD08C /* WebViewWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8479213B1FBA426B004AD08C /* WebViewWindow.xib */; };
 		8479213E1FBA4285004AD08C /* WebViewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479213D1FBA4285004AD08C /* WebViewWindowController.swift */; };
+		847E64A22262793300E00365 /* SendToCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E64A12262793300E00365 /* SendToCommand.swift */; };
+		847E64A32262793300E00365 /* SendToCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E64A12262793300E00365 /* SendToCommand.swift */; };
 		848F6AE91FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
 		848F6AEA1FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
 		849A339D1AC90A0A0015BA09 /* NSTableView+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -238,6 +240,7 @@
 		8476F7A921A757D100C808C3 /* Renamable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Renamable.swift; path = RSCore/Renamable.swift; sourceTree = "<group>"; };
 		8479213B1FBA426B004AD08C /* WebViewWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WebViewWindow.xib; path = AppKit/WebViewWindow.xib; sourceTree = "<group>"; };
 		8479213D1FBA4285004AD08C /* WebViewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewWindowController.swift; path = AppKit/WebViewWindowController.swift; sourceTree = "<group>"; };
+		847E64A12262793300E00365 /* SendToCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SendToCommand.swift; path = RSCore/SendToCommand.swift; sourceTree = "<group>"; };
 		848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadSafeCache.swift; path = RSCore/ThreadSafeCache.swift; sourceTree = "<group>"; };
 		849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTableView+RSCore.h"; sourceTree = "<group>"; };
 		849A339C1AC90A0A0015BA09 /* NSTableView+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTableView+RSCore.m"; sourceTree = "<group>"; };
@@ -403,6 +406,7 @@
 				84C326862038C9F6006A025C /* CoalescingQueue.swift */,
 				51C45070225FF25800C03939 /* RSImage.swift */,
 				51C4506D225FF23B00C03939 /* RSScreen.swift */,
+				847E64A12262793300E00365 /* SendToCommand.swift */,
 				84CFF5241AC3C8A200CEA6C8 /* Foundation */,
 				84CFF5551AC3CF4A00CEA6C8 /* AppKit */,
 				84CFF5661AC3D13F00CEA6C8 /* Images */,
@@ -782,6 +786,7 @@
 				842DD7F41E14996B00E061EB /* Set+Extensions.swift in Sources */,
 				84B99C9B1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				842DD7D71E14996300E061EB /* NSArray+RSCore.m in Sources */,
+				847E64A32262793300E00365 /* SendToCommand.swift in Sources */,
 				842DD7F31E14996B00E061EB /* NSMutableDictionary-Extensions.swift in Sources */,
 				840F7BFA21AD05560057E851 /* String+RSCore.swift in Sources */,
 				842DD7DF1E14996300E061EB /* NSDictionary+RSCore.m in Sources */,
@@ -878,6 +883,7 @@
 				65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */,
 				65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */,
 				8414CBA71C95F2EA00333C12 /* Set+Extensions.swift in Sources */,
+				847E64A22262793300E00365 /* SendToCommand.swift in Sources */,
 				84B99C9A1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				84E34DA61F9FA1070077082F /* UndoableCommand.swift in Sources */,
 				84754C88213E1171009CFDFB /* NSWorkspace+RSCore.swift in Sources */,
