@@ -10,20 +10,12 @@ import Foundation
 
 #if os(macOS)
 import AppKit
-
-public class RSImage: NSImage {
-	
-}
-
+public typealias RSImage = NSImage
 #endif
 
 #if os(iOS)
 import UIKit
-
-public class RSImage: UIImage {
-	
-}
-
+public typealias RSImage = UIImage
 #endif
 
 public extension RSImage {
