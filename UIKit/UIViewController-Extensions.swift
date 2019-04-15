@@ -10,12 +10,12 @@ import UIKit
 
 extension UIViewController {
 	
-	func presentError(_ error: Error) {
+	public func presentError(_ error: Error) {
 		let errorTitle = NSLocalizedString("Error", comment: "Error")
 		presentError(title: errorTitle, message: error.localizedDescription)
 	}
 	
-	func presentError(title: String, message: String) {
+	public func presentError(title: String, message: String) {
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		let dismissTitle = NSLocalizedString("Dismiss", comment: "Dismiss")
 		alertController.addAction(UIAlertAction(title: dismissTitle, style: .default))

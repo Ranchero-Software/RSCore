@@ -10,7 +10,7 @@ import UIKit
 
 extension UIWindow {
 	
-	var topViewController: UIViewController? {
+	public var topViewController: UIViewController? {
 		
 		var top = self.rootViewController
 		while true {
