@@ -10,7 +10,7 @@ import UIKit
 
 extension UIApplication {
 	
-	func presentError(_ error: Error) {
+	public func presentError(_ error: Error) {
 		guard let controller = windows.first?.topViewController else {
 			return
 		}
