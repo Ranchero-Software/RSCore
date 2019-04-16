@@ -17,6 +17,7 @@
 		51C452242264E22B00C03939 /* UIWindow-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C452212264E22A00C03939 /* UIWindow-Extensions.swift */; };
 		51C452252264E22B00C03939 /* UIViewController-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C452222264E22A00C03939 /* UIViewController-Extensions.swift */; };
 		51C452262264E22B00C03939 /* UIApplication-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C452232264E22B00C03939 /* UIApplication-Extensions.swift */; };
+		51D5949122668F3300DFC836 /* UndoableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E34DA51F9FA1070077082F /* UndoableCommand.swift */; };
 		65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */; };
 		65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */; };
 		8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402047D1FBCE77900D94C1A /* BatchUpdate.swift */; };
@@ -800,6 +801,7 @@
 				51C452242264E22B00C03939 /* UIWindow-Extensions.swift in Sources */,
 				840F7BFA21AD05560057E851 /* String+RSCore.swift in Sources */,
 				842DD7DF1E14996300E061EB /* NSDictionary+RSCore.m in Sources */,
+				51D5949122668F3300DFC836 /* UndoableCommand.swift in Sources */,
 				842DD7C81E14995C00E061EB /* RSConstants.m in Sources */,
 				845A29201FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */,
 				8476F7AB21A757D100C808C3 /* Renamable.swift in Sources */,
