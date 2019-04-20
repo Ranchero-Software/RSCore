@@ -18,6 +18,7 @@
 		51C452252264E22B00C03939 /* UIViewController-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C452222264E22A00C03939 /* UIViewController-Extensions.swift */; };
 		51C452262264E22B00C03939 /* UIApplication-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C452232264E22B00C03939 /* UIApplication-Extensions.swift */; };
 		51D5949122668F3300DFC836 /* UndoableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E34DA51F9FA1070077082F /* UndoableCommand.swift */; };
+		51F10F40226B676600B457D8 /* UIView-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F10F3F226B676600B457D8 /* UIView-Extensions.swift */; };
 		65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */; };
 		65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */; };
 		8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402047D1FBCE77900D94C1A /* BatchUpdate.swift */; };
@@ -211,6 +212,7 @@
 		51C452212264E22A00C03939 /* UIWindow-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow-Extensions.swift"; sourceTree = "<group>"; };
 		51C452222264E22A00C03939 /* UIViewController-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Extensions.swift"; sourceTree = "<group>"; };
 		51C452232264E22B00C03939 /* UIApplication-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication-Extensions.swift"; sourceTree = "<group>"; };
+		51F10F3F226B676600B457D8 /* UIView-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView-Extensions.swift"; sourceTree = "<group>"; };
 		65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSDarkModeAdaptingToolbarButton.swift; sourceTree = "<group>"; };
 		65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAppearance+RSCore.swift"; sourceTree = "<group>"; };
 		8402047D1FBCE77900D94C1A /* BatchUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchUpdate.swift; path = RSCore/BatchUpdate.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				51C452232264E22B00C03939 /* UIApplication-Extensions.swift */,
+				51F10F3F226B676600B457D8 /* UIView-Extensions.swift */,
 				51C452222264E22A00C03939 /* UIViewController-Extensions.swift */,
 				51C452212264E22A00C03939 /* UIWindow-Extensions.swift */,
 			);
@@ -740,13 +743,13 @@
 				TargetAttributes = {
 					842DD7BB1E14993900E061EB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9C84TZ7Q6Z;
+						DevelopmentTeam = SHJK2V3AJG;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					84CFF4F31AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 9C84TZ7Q6Z;
+						DevelopmentTeam = SHJK2V3AJG;
 						LastSwiftMigration = 0800;
 					};
 					84CFF4FE1AC3C69700CEA6C8 = {
@@ -919,6 +922,7 @@
 				847E64A22262793300E00365 /* SendToCommand.swift in Sources */,
 				84B99C9A1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				84E34DA61F9FA1070077082F /* UndoableCommand.swift in Sources */,
+				51F10F40226B676600B457D8 /* UIView-Extensions.swift in Sources */,
 				84754C88213E1171009CFDFB /* NSWorkspace+RSCore.swift in Sources */,
 				844F91D61D90D86100820C48 /* RSTransparentContainerView.m in Sources */,
 				840A6C77226274E9001A037B /* FourCharCode.swift in Sources */,
