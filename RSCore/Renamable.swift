@@ -12,6 +12,7 @@ import Foundation
 
 public protocol Renamable {
 
-	func rename(to: String)
+	func rename(to: String, completion: @escaping (Result<Void, Error>) -> Void)
+	
 }
 
