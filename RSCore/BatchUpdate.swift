@@ -57,7 +57,9 @@ private extension BatchUpdate {
 	}
 	
 	func postBatchUpdateDidPerform() {
-		
-		NotificationCenter.default.post(name: .BatchUpdateDidPerform, object: nil, userInfo: nil)
+		DispatchQueue.main.async {
+			NotificationCenter.default.post(name: .BatchUpdateDidPerform, object: nil, userInfo: nil)
+		}
 	}
+	
 }
