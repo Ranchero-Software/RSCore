@@ -31,6 +31,15 @@ public final class BatchUpdate {
 		batchUpdateBlock()
 		decrementCount()
 	}
+	
+	public func start() {
+		incrementCount()
+	}
+	
+	public func end() {
+		decrementCount()
+	}
+	
 }
 
 private extension BatchUpdate {
