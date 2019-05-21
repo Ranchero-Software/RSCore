@@ -20,6 +20,39 @@ public typealias RSImage = UIImage
 
 public extension RSImage {
 
+	func maskWithColor(color: CGColor) -> RSImage? {
+		
+		#if os(macOS)
+		guard let maskImage = cgImage(forProposedRect: nil, context: nil, hints: nil) else { return nil }
+		#else
+		guard let maskImage = cgImage else { return nil }
+		#endif
+		
+		let width = size.width
+		let height = size.height
+		let bounds = CGRect(x: 0, y: 0, width: width, height: height)
+		
+		let colorSpace = CGColorSpaceCreateDeviceRGB()
+		let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+		let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)!
+		
+		context.clip(to: bounds, mask: maskImage)
+		context.setFillColor(color)
+		context.fill(bounds)
+		
+		if let cgImage = context.makeImage() {
+			#if os(macOS)
+			let coloredImage = RSImage(cgImage: cgImage, size: CGSize(width: cgImage.width, height: cgImage.height))
+			#else
+			let coloredImage = RSImage(cgImage: cgImage)
+			#endif
+			return coloredImage
+		} else {
+			return nil
+		}
+		
+	}
+
 	// Note: the returned image may be larger than maxPixelSize, but not more than maxPixelSize * 2.
 	static func scaleImage(_ data: Data, maxPixelSize: Int) -> CGImage? {
 		
