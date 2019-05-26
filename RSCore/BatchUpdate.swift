@@ -11,7 +11,6 @@ import Foundation
 public typealias BatchUpdateBlock = () -> Void
 
 public extension Notification.Name {
-	
 	static let BatchUpdateDidPerform = Notification.Name(rawValue: "BatchUpdateDidPerform")
 }
 
@@ -26,7 +25,6 @@ public final class BatchUpdate {
 	}
 	
 	public func perform(_ batchUpdateBlock: BatchUpdateBlock) {
-		
 		incrementCount()
 		batchUpdateBlock()
 		decrementCount()
@@ -38,28 +36,19 @@ public final class BatchUpdate {
 	
 	public func end() {
 		decrementCount()
-	}
-	
+	}	
 }
 
 private extension BatchUpdate {
 	
 	func incrementCount() {
-		
 		count = count + 1
 	}
 	
 	func decrementCount() {
-		
 		count = count - 1
-		
 		if count < 1 {
-			
-			if count < 0 {
-				assertionFailure("Expected batch updates count to be 0 or greater.")
-				count = 0
-			}
-			
+			assert(count > -1, "Expected batch updates count to be 0 or greater.")
 			count = 0
 			postBatchUpdateDidPerform()
 		}
