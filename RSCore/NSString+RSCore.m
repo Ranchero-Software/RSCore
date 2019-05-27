@@ -293,7 +293,7 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 	// as providing a plain text view in NetNewsWire’s timeline.
 	
 	NSUInteger lastIndexOfTagStart = s.length;
-	NSString *startTag = [NSString stringWithFormat:@"<%@>", tag];
+	NSString *startTag = [NSString stringWithFormat:@"<%@", tag];
 	NSString *endTag = [NSString stringWithFormat:@"</%@>", tag];
 	NSUInteger numberOfTagEndCharacters = endTag.length;
 
