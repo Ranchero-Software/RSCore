@@ -10,6 +10,7 @@ import UIKit
 
 extension UIApplication {
 	
+	@available(*, deprecated, message: "Don't use this method.  It is going away very, very soon.")
 	public func presentError(_ error: Error) {
 		guard let controller = windows.first?.topViewController else {
 			return
