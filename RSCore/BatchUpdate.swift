@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Main thread only.
+
 public typealias BatchUpdateBlock = () -> Void
 
 public extension Notification.Name {
@@ -21,20 +23,24 @@ public final class BatchUpdate {
 	private var count = 0
 	
 	public var isPerforming: Bool {
+		precondition(Thread.isMainThread)
 		return count > 0
 	}
 	
 	public func perform(_ batchUpdateBlock: BatchUpdateBlock) {
+		precondition(Thread.isMainThread)
 		incrementCount()
 		batchUpdateBlock()
 		decrementCount()
 	}
 	
 	public func start() {
+		precondition(Thread.isMainThread)
 		incrementCount()
 	}
 	
 	public func end() {
+		precondition(Thread.isMainThread)
 		decrementCount()
 	}	
 }
