@@ -13,6 +13,8 @@
 @implementation NSData (RSCore)
 
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 - (NSData *)rs_md5Hash {
 
 	unsigned char hash[CC_MD5_DIGEST_LENGTH];
@@ -20,6 +22,7 @@
 
 	return [NSData dataWithBytes:(const void *)hash length:CC_MD5_DIGEST_LENGTH];
 }
+#pragma GCC diagnostic pop
 
 - (NSString *)rs_md5HashString {
 
