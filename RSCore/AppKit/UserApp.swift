@@ -104,6 +104,10 @@ public final class UserApp {
 				return true
 			}
 			Thread.sleep(forTimeInterval: 1.0) // Give the app time to launch. This is ugly.
+			if app.isFinishedLaunching {
+				return true
+			}
+			Thread.sleep(forTimeInterval: 1.0) // Give it some *more* time.
 			return true
 		}
 
