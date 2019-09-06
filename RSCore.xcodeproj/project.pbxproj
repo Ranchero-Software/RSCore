@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C326862038C9F6006A025C /* CoalescingQueue.swift */; };
+		514B7D512322C83D00BAC947 /* UITableView-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B7D502322C83D00BAC947 /* UITableView-Extensions.swift */; };
 		51C4506B225FF22100C03939 /* UniqueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506A225FF22100C03939 /* UniqueIdentifier.swift */; };
 		51C4506C225FF22100C03939 /* UniqueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506A225FF22100C03939 /* UniqueIdentifier.swift */; };
 		51C4506E225FF23B00C03939 /* RSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506D225FF23B00C03939 /* RSScreen.swift */; };
@@ -208,6 +209,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		514B7D502322C83D00BAC947 /* UITableView-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView-Extensions.swift"; sourceTree = "<group>"; };
 		51C4506A225FF22100C03939 /* UniqueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniqueIdentifier.swift; path = RSCore/UniqueIdentifier.swift; sourceTree = "<group>"; };
 		51C4506D225FF23B00C03939 /* RSScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSScreen.swift; path = RSCore/RSScreen.swift; sourceTree = "<group>"; };
 		51C45070225FF25800C03939 /* RSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSImage.swift; path = RSCore/RSImage.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				51C452232264E22B00C03939 /* UIApplication-Extensions.swift */,
+				514B7D502322C83D00BAC947 /* UITableView-Extensions.swift */,
 				51F10F3F226B676600B457D8 /* UIView-Extensions.swift */,
 				51C452222264E22A00C03939 /* UIViewController-Extensions.swift */,
 				51C452212264E22A00C03939 /* UIWindow-Extensions.swift */,
@@ -755,6 +758,7 @@
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = SHJK2V3AJG;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					84CFF4FE1AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
@@ -843,6 +847,7 @@
 				51C4506C225FF22100C03939 /* UniqueIdentifier.swift in Sources */,
 				51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */,
 				842DD7E31E14996300E061EB /* NSMutableArray+RSCore.m in Sources */,
+				514B7D512322C83D00BAC947 /* UITableView-Extensions.swift in Sources */,
 				842DD7DB1E14996300E061EB /* NSData+RSCore.m in Sources */,
 				842DD7D51E14995C00E061EB /* PlistProviderProtocol.swift in Sources */,
 				842DD7CE1E14995C00E061EB /* RSPlist.m in Sources */,
