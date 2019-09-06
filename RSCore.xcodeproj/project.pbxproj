@@ -20,6 +20,7 @@
 		51D5949122668F3300DFC836 /* UndoableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E34DA51F9FA1070077082F /* UndoableCommand.swift */; };
 		51E595A7228D9A5600FCC42B /* Array+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EE72420393AEA0082A1EA /* Array+RSCore.swift */; };
 		51F10F41226B684500B457D8 /* UIView-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F10F3F226B676600B457D8 /* UIView-Extensions.swift */; };
+		65AA59FC2322812C00D19FA1 /* RSAppMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AA59FB2322812B00D19FA1 /* RSAppMovementMonitor.swift */; };
 		65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */; };
 		65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */; };
 		8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402047D1FBCE77900D94C1A /* BatchUpdate.swift */; };
@@ -214,6 +215,7 @@
 		51C452222264E22A00C03939 /* UIViewController-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Extensions.swift"; sourceTree = "<group>"; };
 		51C452232264E22B00C03939 /* UIApplication-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication-Extensions.swift"; sourceTree = "<group>"; };
 		51F10F3F226B676600B457D8 /* UIView-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView-Extensions.swift"; sourceTree = "<group>"; };
+		65AA59FB2322812B00D19FA1 /* RSAppMovementMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSAppMovementMonitor.swift; sourceTree = "<group>"; };
 		65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSDarkModeAdaptingToolbarButton.swift; sourceTree = "<group>"; };
 		65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAppearance+RSCore.swift"; sourceTree = "<group>"; };
 		8402047D1FBCE77900D94C1A /* BatchUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatchUpdate.swift; path = RSCore/BatchUpdate.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				840A6C76226274E9001A037B /* FourCharCode.swift */,
 				8414CBA91C95F8F700333C12 /* RSGeometry.h */,
 				8414CBAA1C95F8F700333C12 /* RSGeometry.m */,
+				65AA59FB2322812B00D19FA1 /* RSAppMovementMonitor.swift */,
 				65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */,
 				8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */,
 				847E64A422628C7A00E00365 /* KeyboardDelegateProtocol.swift */,
@@ -869,6 +872,7 @@
 				84CFF5341AC3CB6800CEA6C8 /* NSDictionary+RSCore.m in Sources */,
 				84CFF54C1AC3CDAC00CEA6C8 /* NSString+RSCore.m in Sources */,
 				84CFF5171AC3C73000CEA6C8 /* RSConstants.m in Sources */,
+				65AA59FC2322812C00D19FA1 /* RSAppMovementMonitor.swift in Sources */,
 				8432B1881DACA2060057D6DF /* NSWindow-Extensions.swift in Sources */,
 				8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
 				84C632A5200D356E007BEEAA /* SendToBlogEditorApp.m in Sources */,
