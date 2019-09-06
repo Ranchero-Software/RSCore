@@ -80,7 +80,7 @@ public extension NSOutlineView {
 
 		for item in selectedItems {
 			if isExpandable(item) && isItemExpanded(item) {
-				collapseItem(item)
+				animator().collapseItem(item)
 			}
 		}
 	}
@@ -89,7 +89,7 @@ public extension NSOutlineView {
 
 		for item in selectedItems {
 			if isExpandable(item) && !isItemExpanded(item) {
-				expandItem(item)
+				animator().expandItem(item)
 			}
 		}
 	}
@@ -112,7 +112,7 @@ public extension NSOutlineView {
 
 		for child in childItems {
 			if !isItemExpanded(child) && isExpandable(child) {
-				expandItem(child, expandChildren: true)
+				animator().expandItem(child, expandChildren: true)
 			}
 			expandAllChildren(of: child)
 		}
@@ -130,7 +130,7 @@ public extension NSOutlineView {
 				continue
 			}
 			if isItemExpanded(child) {
-				collapseItem(child, collapseChildren: true)
+				animator().collapseItem(child, collapseChildren: true)
 			}
 		}
 	}
