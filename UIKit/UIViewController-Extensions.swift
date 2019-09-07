@@ -1,5 +1,5 @@
 //
-//  UIViewController+.swift
+//  UIViewController-Extensions.swift
 //  NetNewsWire
 //
 //  Created by Maurice Parker on 4/15/19.
@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SwiftUI
 
 extension UIViewController {
+	
+	// MARK: Autolayout
 	
 	public func addChildAndPinView(_ controller: UIViewController) {
 		controller.view.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +33,8 @@ extension UIViewController {
 		addChildAndPinView(controller)
 	}
 	
+	// MARK: Error Handling
+	
 	public func presentError(_ error: Error) {
 		let errorTitle = NSLocalizedString("Error", comment: "Error")
 		presentError(title: errorTitle, message: error.localizedDescription)
@@ -43,3 +48,32 @@ extension UIViewController {
 	}
 	
 }
+
+// MARK: SwiftUI
+
+public struct ViewControllerHolder {
+	public weak var value: UIViewController?
+}
+
+public struct ViewControllerKey: EnvironmentKey {
+	public static var defaultValue: ViewControllerHolder { return ViewControllerHolder(value: UIApplication.shared.windows.first?.rootViewController ) }
+}
+
+extension EnvironmentValues {
+	public var viewController: UIViewController? {
+		get { return self[ViewControllerKey.self].value }
+		set { self[ViewControllerKey.self].value = newValue }
+	}
+}
+
+extension UIViewController {
+	public func present<Content: View>(style: UIModalPresentationStyle = .automatic, @ViewBuilder builder: () -> Content) {
+		let controller = UIHostingController(rootView: AnyView(EmptyView()))
+		controller.modalPresentationStyle = style
+		controller.rootView = AnyView(
+			builder().environment(\.viewController, controller)
+		)
+		self.present(controller, animated: true, completion: nil)
+	}
+}
+
