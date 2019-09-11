@@ -33,12 +33,14 @@ public class RSAppMovementMonitor: NSObject {
 	// the application has been moved, the localization will fail.
 	let alertMessageText: String
 	let alertInformativeText: String
+	let alertRelaunchButtonText: String
 
 	override public init() {
 		let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? NSLocalizedString("This app", comment: "Backup name if the app name cannot be deduced from the bundle")
 		let informativeTextTemplate = NSLocalizedString("%@ was moved or renamed while open.", comment: "Message text for app moved while running alert")
 		self.alertMessageText = String(format: informativeTextTemplate, arguments: [appName])
 		self.alertInformativeText = NSLocalizedString("Moving an open application can cause unexpected behavior. Relaunch the application to continue.", comment: "Informative text for app moved while running alert")
+		self.alertRelaunchButtonText = NSLocalizedString("Relaunch", comment: "Relaunch Button")
 
 		super.init()
 
@@ -122,8 +124,8 @@ public class RSAppMovementMonitor: NSObject {
 	func defaultHandler() {
 		let quitAlert = NSAlert()
 		quitAlert.alertStyle = .critical
-		quitAlert.addButton(withTitle: NSLocalizedString("Relaunch", comment: "Relaunch Button"))
-
+		quitAlert.addButton(withTitle: self.alertRelaunchButtonText)
+		
 		quitAlert.messageText = self.alertMessageText
 		quitAlert.informativeText = self.alertInformativeText
 
