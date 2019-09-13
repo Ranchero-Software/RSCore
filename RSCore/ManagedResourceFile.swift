@@ -22,7 +22,6 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 	private let saveQueue = CoalescingQueue(name: "Save Queue", interval: 1.0)
 
 	private let loadCallback: () -> Void
-	private let reloadCallback: () -> Void
 	private let saveCallback: () -> Void
 
 	public var presentedItemURL: URL? {
@@ -33,11 +32,10 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 		return operationQueue
 	}
 	
-	public init(fileURL: URL, load: @escaping () -> Void, reload: @escaping () -> Void, save: @escaping () -> Void) {
+	public init(fileURL: URL, load: @escaping () -> Void, save: @escaping () -> Void) {
 		
 		self.fileURL = fileURL
 		self.loadCallback = load
-		self.reloadCallback = reload
 		self.saveCallback = save
 		
 		operationQueue = OperationQueue()
@@ -50,7 +48,7 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 	
 	public func presentedItemDidChange() {
 		DispatchQueue.main.async {
-			self.reloadCallback()
+			self.loadCallback()
 		}
 	}
 	
