@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		510BD10F232C369C002692E4 /* ManagedResourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BD10E232C369B002692E4 /* ManagedResourceFile.swift */; };
+		510BD114232C419B002692E4 /* ManagedResourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BD10E232C369B002692E4 /* ManagedResourceFile.swift */; };
 		51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C326862038C9F6006A025C /* CoalescingQueue.swift */; };
 		514B7D512322C83D00BAC947 /* UITableView-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B7D502322C83D00BAC947 /* UITableView-Extensions.swift */; };
 		51C4506B225FF22100C03939 /* UniqueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506A225FF22100C03939 /* UniqueIdentifier.swift */; };
@@ -854,6 +855,7 @@
 				842DD7DB1E14996300E061EB /* NSData+RSCore.m in Sources */,
 				842DD7D51E14995C00E061EB /* PlistProviderProtocol.swift in Sources */,
 				842DD7CE1E14995C00E061EB /* RSPlist.m in Sources */,
+				510BD114232C419B002692E4 /* ManagedResourceFile.swift in Sources */,
 				848F6AEA1FC2BC50002D422E /* ThreadSafeCache.swift in Sources */,
 				842DD7EF1E14996300E061EB /* NSString+RSCore.m in Sources */,
 				51C4506F225FF23B00C03939 /* RSScreen.swift in Sources */,
