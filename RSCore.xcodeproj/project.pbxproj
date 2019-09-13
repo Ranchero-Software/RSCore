@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		510BD10F232C369C002692E4 /* ManagedResourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BD10E232C369B002692E4 /* ManagedResourceFile.swift */; };
 		51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C326862038C9F6006A025C /* CoalescingQueue.swift */; };
 		514B7D512322C83D00BAC947 /* UITableView-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B7D502322C83D00BAC947 /* UITableView-Extensions.swift */; };
 		51C4506B225FF22100C03939 /* UniqueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506A225FF22100C03939 /* UniqueIdentifier.swift */; };
@@ -209,6 +210,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		510BD10E232C369B002692E4 /* ManagedResourceFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedResourceFile.swift; path = RSCore/ManagedResourceFile.swift; sourceTree = "<group>"; };
 		514B7D502322C83D00BAC947 /* UITableView-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView-Extensions.swift"; sourceTree = "<group>"; };
 		51C4506A225FF22100C03939 /* UniqueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UniqueIdentifier.swift; path = RSCore/UniqueIdentifier.swift; sourceTree = "<group>"; };
 		51C4506D225FF23B00C03939 /* RSScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSScreen.swift; path = RSCore/RSScreen.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				51C45070225FF25800C03939 /* RSImage.swift */,
 				51C4506D225FF23B00C03939 /* RSScreen.swift */,
 				847E64A12262793300E00365 /* SendToCommand.swift */,
+				510BD10E232C369B002692E4 /* ManagedResourceFile.swift */,
 				84CFF5241AC3C8A200CEA6C8 /* Foundation */,
 				84CFF5551AC3CF4A00CEA6C8 /* AppKit */,
 				51C452202264E20700C03939 /* UIKit */,
@@ -880,6 +883,7 @@
 				65AA59FC2322812C00D19FA1 /* RSAppMovementMonitor.swift in Sources */,
 				8432B1881DACA2060057D6DF /* NSWindow-Extensions.swift in Sources */,
 				8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
+				510BD10F232C369C002692E4 /* ManagedResourceFile.swift in Sources */,
 				84C632A5200D356E007BEEAA /* SendToBlogEditorApp.m in Sources */,
 				84CFF5541AC3CF4700CEA6C8 /* NSColor+RSCore.m in Sources */,
 				84536F671BB856D4001E1639 /* NSFileManager+RSCore.m in Sources */,
