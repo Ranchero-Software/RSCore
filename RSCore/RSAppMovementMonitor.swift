@@ -26,8 +26,8 @@ public class RSAppMovementMonitor: NSObject {
 	//
 	// See: https://christiantietze.de/posts/2018/09/nsurl-filereferenceurl-swift/
 	//
-	let originalAppURL = Bundle.main.bundleURL
-	var movedAppURL: NSURL? = (Bundle.main.bundleURL as NSURL).fileReferenceURL() as NSURL?
+	let originalAppURL: URL?
+	var appTrackingURL: NSURL?
 
 	// We load these strings at launch time so that they can be localized. If we wait until
 	// the application has been moved, the localization will fail.
@@ -36,6 +36,15 @@ public class RSAppMovementMonitor: NSObject {
 	let alertRelaunchButtonText: String
 
 	override public init() {
+
+		// Establish baseline URLs. Note  that simply asking for Bundle.main.bundleURL will return
+		// the translocated location of an app when it is launched in quarantine state. This leads
+		// to a permanent false-positive detection that the app has moved. To work around this, we
+		// ask for the fileReferenceURL's absoluteURL at launch time, and compare to the absoluteURL
+		// later to detect bona fide user-driven app movement.
+		self.appTrackingURL = (Bundle.main.bundleURL as NSURL).fileReferenceURL() as NSURL?
+		self.originalAppURL = appTrackingURL?.absoluteURL
+
 		let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? NSLocalizedString("This app", comment: "Backup name if the app name cannot be deduced from the bundle")
 		let informativeTextTemplate = NSLocalizedString("%@ was moved or renamed while open.", comment: "Message text for app moved while running alert")
 		self.alertMessageText = String(format: informativeTextTemplate, arguments: [appName])
@@ -47,31 +56,33 @@ public class RSAppMovementMonitor: NSObject {
 		// Monitor for direct changes to the app bundle's folder - this will catch the
 		// majority of direct manipulations to the app's location on disk immediately,
 		// right as it happens.
-		self.fileDescriptor = open(originalAppURL.path, O_EVTONLY)
-		if self.fileDescriptor != -1 {
-			self.dispatchSource = DispatchSource.makeFileSystemObjectSource(fileDescriptor: self.fileDescriptor, eventMask: [.delete, .rename], queue: DispatchQueue.main)
-			if let source = self.dispatchSource {
-				source.setEventHandler {
+		if let originalAppPath = originalAppURL?.path {
+			self.fileDescriptor = open(originalAppPath, O_EVTONLY)
+			if self.fileDescriptor != -1 {
+				self.dispatchSource = DispatchSource.makeFileSystemObjectSource(fileDescriptor: self.fileDescriptor, eventMask: [.delete, .rename], queue: DispatchQueue.main)
+				if let source = self.dispatchSource {
+					source.setEventHandler {
+						self.invokeEventHandler()
+					}
+
+					source.setCancelHandler {
+						self.invalidate()
+					}
+
+					source.resume()
+				}
+			}
+
+			// Also install a notification to re-check the location of the app on disk
+			// every time the app becomes active. This catches a good number of edge-case
+			// changes to the app bundle's path, such as when a containing folder or the
+			// volume name changes.
+			NotificationCenter.default.addObserver(forName: NSApplication.didBecomeActiveNotification, object: nil, queue: nil) { notification in
+				// Removing observer in invalidate doesn't seem to prevent this getting called? Maybe
+				// because it's on the same invocation of the runloop?
+				if self.isValid() && self.originalAppURL != self.appTrackingURL?.absoluteURL {
 					self.invokeEventHandler()
 				}
-
-				source.setCancelHandler {
-					self.invalidate()
-				}
-
-				source.resume()
-			}
-		}
-
-		// Also install a notification to re-check the location of the app on disk
-		// every time the app becomes active. This catches a good number of edge-case
-		// changes to the app bundle's path, such as when a containing folder or the
-		// volume name changes.
-		NotificationCenter.default.addObserver(forName: NSApplication.didBecomeActiveNotification, object: nil, queue: nil) { notification in
-			// Removing observer in invalidate doesn't seem to prevent this getting called? Maybe
-			// because it's on the same invocation of the runloop?
-			if self.isValid() && self.originalAppURL.absoluteURL != self.movedAppURL?.absoluteURL {
-				self.invokeEventHandler()
 			}
 		}
 	}
@@ -133,7 +144,7 @@ public class RSAppMovementMonitor: NSObject {
 		if modalResponse == .alertFirstButtonReturn {
 			self.invalidate()
 
-			if let movedAppURL = self.movedAppURL as URL? {
+			if let movedAppURL = self.appTrackingURL as URL? {
 				self.relaunchFromURL(movedAppURL)
 			}
 		}
