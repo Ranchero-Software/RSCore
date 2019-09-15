@@ -80,9 +80,6 @@ public extension RSImage {
 		}
 		
 		let numberOfImages = CGImageSourceGetCount(imageSource)
-		if numberOfImages == 1 {
-			return CGImageSourceCreateImageAtIndex(imageSource, 0, nil)
-		}
 
 		// If the image size matches exactly, then return it.
 		for i in 0..<numberOfImages {
