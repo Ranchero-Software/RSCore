@@ -14,16 +14,7 @@ extension UIViewController {
 	// MARK: Autolayout
 	
 	public func addChildAndPinView(_ controller: UIViewController) {
-		controller.view.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(controller.view)
-		
-		NSLayoutConstraint.activate([
-			controller.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			controller.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			controller.view.topAnchor.constraint(equalTo: view.topAnchor),
-			controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-		])
-		
+		view.addChildAndPin(controller.view)
 		addChild(controller)
 	}
 	
