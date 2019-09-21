@@ -21,10 +21,10 @@ extension UIView {
 		addSubview(view)
 		
 		NSLayoutConstraint.activate([
-			leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			topAnchor.constraint(equalTo: view.topAnchor),
-			bottomAnchor.constraint(equalTo: view.bottomAnchor)
+			safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			safeAreaLayoutGuide.topAnchor.constraint(equalTo: view.topAnchor),
+			safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 		])
 		
 	}
