@@ -48,7 +48,7 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 	
 	public func presentedItemDidChange() {
 		DispatchQueue.main.async {
-			self.loadCallback()
+			self.load()
 		}
 	}
 	
