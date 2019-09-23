@@ -68,6 +68,10 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 		isLoading = false
 	}
 	
+	public func saveIfNecessary() {
+		saveQueue.performCallsImmediately()
+	}
+	
 }
 
 private extension ManagedResourceFile {

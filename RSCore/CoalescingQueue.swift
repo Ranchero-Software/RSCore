@@ -56,13 +56,17 @@ struct QueueCall: Equatable {
 		}
 	}
 
-	@objc func timerDidFire(_ sender: Any?) {
-
-		lastCallTime = Date()
+	public func performCallsImmediately() {
 		let callsToMake = calls // Make a copy in case calls are added to the queue while performing calls.
 		resetCalls()
 		callsToMake.forEach { $0.perform() }
 	}
+	
+	@objc func timerDidFire(_ sender: Any?) {
+		lastCallTime = Date()
+		performCallsImmediately()
+	}
+	
 }
 
 private extension CoalescingQueue {
