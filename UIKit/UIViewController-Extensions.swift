@@ -50,7 +50,7 @@ public struct ViewControllerHolder {
 }
 
 public struct ViewControllerKey: EnvironmentKey {
-	public static var defaultValue: ViewControllerHolder { return ViewControllerHolder(value: UIApplication.shared.windows.first?.rootViewController ) }
+	public static var defaultValue: ViewControllerHolder { return ViewControllerHolder(value: nil ) }
 }
 
 extension EnvironmentValues {
