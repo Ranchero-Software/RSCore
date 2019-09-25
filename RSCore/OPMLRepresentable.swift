@@ -10,5 +10,5 @@ import Foundation
 
 public protocol OPMLRepresentable {
 
-	func OPMLString(indentLevel: Int) -> String
+	func OPMLString(indentLevel: Int, strictConformance: Bool) -> String
 }
