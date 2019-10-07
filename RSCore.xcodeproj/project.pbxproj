@@ -754,13 +754,11 @@
 				TargetAttributes = {
 					842DD7BB1E14993900E061EB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SHJK2V3AJG;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					84CFF4F31AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = SHJK2V3AJG;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
