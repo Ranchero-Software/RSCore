@@ -1,7 +1,6 @@
 #include "./RSCore_target.xcconfig"
 
 CODE_SIGN_IDENTITY =
-DEVELOPMENT_TEAM = 9C84TZ7Q6Z
 
 // See the notes in NetNewsWire_target.xcconfig on why the
 // DeveloperSettings.xcconfig is #included here
