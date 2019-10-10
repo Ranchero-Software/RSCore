@@ -24,4 +24,4 @@ jobs:
       run: xcodebuild -showsdks
 
     - name: Run Build
-      run: xcodebuild -scheme RSCoreTests test -showBuildTimingSummary
+      run: xcodebuild -scheme RSCoreTests test -showBuildTimingSummary CODE_SIGN_IDENTITY=
