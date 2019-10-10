@@ -36,4 +36,4 @@ jobs:
         test: ${{ matrix.test }}
         scheme: ${{ matrix.scheme }}
         destination: ${{ matrix.destination }}
-      run: xcodebuild -scheme ${scheme} ${test} -destination ${destination} -showBuildTimingSummary CODE_SIGN_IDENTITY=
+      run: xcodebuild -scheme ${scheme} ${test} -destination "${destination}" -showBuildTimingSummary CODE_SIGN_IDENTITY=
