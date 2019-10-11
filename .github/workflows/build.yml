@@ -8,9 +8,18 @@ jobs:
     runs-on: macOS-latest
     strategy: 
       matrix:
-        test: ['test', '']
-        scheme: ['RSCore', 'RSCoreiOS']
-        destination: ['platform=macOS', 'platform=iOS Simulator,OS=13.0,name=iPhone 8']
+        rscore:
+          test: 'test'
+          scheme: 'RSCore'
+          destination: 'platform=macOS'
+        rscoreios: 
+          test: ''
+          scheme: 'RSCoreiOS'
+          destination: 'platform=iOS Simulator,OS=13.0,name=iPhone 8'
+
+#        test: ['test', '']
+#        scheme: ['RSCore', 'RSCoreiOS']
+#        destination: ['platform=macOS', 'platform=iOS Simulator,OS=13.0,name=iPhone 8']
     
     steps:
     - name: Checkout Project
