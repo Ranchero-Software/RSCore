@@ -148,7 +148,6 @@
 		84C687391FBC028900345C9E /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687371FBC028900345C9E /* LogItem.swift */; };
 		84CFF4FA1AC3C69700CEA6C8 /* RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF4F91AC3C69700CEA6C8 /* RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84CFF5001AC3C69700CEA6C8 /* RSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CFF4F41AC3C69700CEA6C8 /* RSCore.framework */; };
-		84CFF5071AC3C69700CEA6C8 /* RSCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5061AC3C69700CEA6C8 /* RSCoreTests.m */; };
 		84CFF5121AC3C6D800CEA6C8 /* RSBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5101AC3C6D800CEA6C8 /* RSBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84CFF5131AC3C6D800CEA6C8 /* RSBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5111AC3C6D800CEA6C8 /* RSBlocks.m */; };
 		84CFF5161AC3C73000CEA6C8 /* RSConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5141AC3C73000CEA6C8 /* RSConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -293,7 +292,6 @@
 		84CFF4F91AC3C69700CEA6C8 /* RSCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RSCore.h; path = RSCore/RSCore.h; sourceTree = "<group>"; };
 		84CFF4FF1AC3C69700CEA6C8 /* RSCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CFF5051AC3C69700CEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84CFF5061AC3C69700CEA6C8 /* RSCoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSCoreTests.m; sourceTree = "<group>"; };
 		84CFF5101AC3C6D800CEA6C8 /* RSBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSBlocks.h; path = RSCore/RSBlocks.h; sourceTree = "<group>"; };
 		84CFF5111AC3C6D800CEA6C8 /* RSBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSBlocks.m; path = RSCore/RSBlocks.m; sourceTree = "<group>"; };
 		84CFF5141AC3C73000CEA6C8 /* RSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSConstants.h; path = RSCore/RSConstants.h; sourceTree = "<group>"; };
@@ -468,7 +466,6 @@
 		84CFF5031AC3C69700CEA6C8 /* RSCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				84CFF5061AC3C69700CEA6C8 /* RSCoreTests.m */,
 				84B890551C59CF1600D8BF23 /* NSString+ExtrasTests.m */,
 				84CFF5041AC3C69700CEA6C8 /* Supporting Files */,
 			);
@@ -1005,7 +1002,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B890561C59CF1600D8BF23 /* NSString+ExtrasTests.m in Sources */,
-				84CFF5071AC3C69700CEA6C8 /* RSCoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

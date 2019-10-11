@@ -9,8 +9,8 @@ jobs:
     strategy: 
       matrix:
         run-config:
-          - { scheme: 'RSCore', destination: 'platform=macOS', test: 'test' }
-          - { scheme: 'RSCoreiOS', destination: 'platform=iOS Simulator,OS=13.0,name=iPhone 8', test: '' }
+          - { scheme: 'RSCore', destination: 'platform=macOS'}
+          - { scheme: 'RSCoreiOS', destination: 'platform=iOS Simulator,OS=13.0,name=iPhone 8' }
 
     steps:
     - name: Checkout Project
@@ -33,7 +33,6 @@ jobs:
 
     - name: Run Build
       env:
-        test: ${{ matrix.run-config['test'] }}
         scheme: ${{ matrix.run-config['scheme'] }}
         destination: ${{ matrix.run-config['destination'] }}
-      run: xcodebuild -scheme ${scheme} ${test} -destination "${destination}" -showBuildTimingSummary CODE_SIGN_IDENTITY=
+      run: xcodebuild -scheme ${scheme} test -destination "${destination}" -showBuildTimingSummary CODE_SIGN_IDENTITY=
