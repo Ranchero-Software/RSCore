@@ -19,7 +19,7 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 	private var isLoading = false
 	private let fileURL: URL
 	private let operationQueue: OperationQueue
-	private let saveQueue = CoalescingQueue(name: "Save Queue", interval: 1.0)
+	private let saveQueue = CoalescingQueue(name: "Save Queue", interval: 0.5)
 
 	private let loadCallback: () -> Void
 	private let saveCallback: () -> Void
@@ -52,6 +52,25 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 		}
 	}
 	
+	public func savePresentedItemChanges(completionHandler: @escaping (Error?) -> Void) {
+		saveIfNecessary()
+		completionHandler(nil)
+	}
+	
+	public func relinquishPresentedItem(toReader reader: @escaping ((() -> Void)?) -> Void) {
+		saveQueue.isPaused = true
+		reader() {
+			self.saveQueue.isPaused = false
+		}
+	}
+	
+	public func relinquishPresentedItem(toWriter writer: @escaping ((() -> Void)?) -> Void) {
+		saveQueue.isPaused = true
+		writer() {
+			self.saveQueue.isPaused = false
+		}
+	}
+	
 	public func markAsDirty() {
 		if !isLoading {
 			isDirty = true
@@ -70,6 +89,10 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 	
 	public func saveIfNecessary() {
 		saveQueue.performCallsImmediately()
+	}
+	
+	deinit {
+		NSFileCoordinator.removeFilePresenter(self)
 	}
 	
 }
