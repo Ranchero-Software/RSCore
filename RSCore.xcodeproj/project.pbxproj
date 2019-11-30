@@ -117,6 +117,8 @@
 		847E64A522628C7A00E00365 /* KeyboardDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E64A422628C7A00E00365 /* KeyboardDelegateProtocol.swift */; };
 		847E64A722628FF800E00365 /* IndeterminateProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847E64A622628FF800E00365 /* IndeterminateProgressWindow.xib */; };
 		847E64A92262900000E00365 /* IndeterminateProgressWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E64A82262900000E00365 /* IndeterminateProgressWindowController.swift */; };
+		8489A2F8239250C60035AB6E /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489A2F7239250C60035AB6E /* Blocks.swift */; };
+		8489A2F9239250C60035AB6E /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489A2F7239250C60035AB6E /* Blocks.swift */; };
 		848F6AE91FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
 		848F6AEA1FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
 		849A339D1AC90A0A0015BA09 /* NSTableView+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -264,6 +266,7 @@
 		847E64A422628C7A00E00365 /* KeyboardDelegateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardDelegateProtocol.swift; path = AppKit/KeyboardDelegateProtocol.swift; sourceTree = "<group>"; };
 		847E64A622628FF800E00365 /* IndeterminateProgressWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IndeterminateProgressWindow.xib; path = AppKit/IndeterminateProgressWindow.xib; sourceTree = "<group>"; };
 		847E64A82262900000E00365 /* IndeterminateProgressWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndeterminateProgressWindowController.swift; path = AppKit/IndeterminateProgressWindowController.swift; sourceTree = "<group>"; };
+		8489A2F7239250C60035AB6E /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Blocks.swift; path = RSCore/Blocks.swift; sourceTree = "<group>"; };
 		848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadSafeCache.swift; path = RSCore/ThreadSafeCache.swift; sourceTree = "<group>"; };
 		849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTableView+RSCore.h"; sourceTree = "<group>"; };
 		849A339C1AC90A0A0015BA09 /* NSTableView+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTableView+RSCore.m"; sourceTree = "<group>"; };
@@ -419,6 +422,7 @@
 				84CFF4F91AC3C69700CEA6C8 /* RSCore.h */,
 				84CFF5101AC3C6D800CEA6C8 /* RSBlocks.h */,
 				84CFF5111AC3C6D800CEA6C8 /* RSBlocks.m */,
+				8489A2F7239250C60035AB6E /* Blocks.swift */,
 				84CFF5141AC3C73000CEA6C8 /* RSConstants.h */,
 				84CFF5151AC3C73000CEA6C8 /* RSConstants.m */,
 				84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */,
@@ -754,13 +758,13 @@
 				TargetAttributes = {
 					842DD7BB1E14993900E061EB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SHJK2V3AJG;
+						DevelopmentTeam = 9C84TZ7Q6Z;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					84CFF4F31AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = SHJK2V3AJG;
+						DevelopmentTeam = 9C84TZ7Q6Z;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -843,6 +847,7 @@
 				842DD7E11E14996300E061EB /* NSFileManager+RSCore.m in Sources */,
 				842DD7C61E14995C00E061EB /* RSBlocks.m in Sources */,
 				842DD7DD1E14996300E061EB /* NSDate+RSCore.m in Sources */,
+				8489A2F9239250C60035AB6E /* Blocks.swift in Sources */,
 				84B99C951FAE64D500ECDEDB /* DisplayNameProvider.swift in Sources */,
 				51C45072225FF25800C03939 /* RSImage.swift in Sources */,
 				8402047F1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
@@ -942,6 +947,7 @@
 				84E34DA61F9FA1070077082F /* UndoableCommand.swift in Sources */,
 				84754C88213E1171009CFDFB /* NSWorkspace+RSCore.swift in Sources */,
 				844F91D61D90D86100820C48 /* RSTransparentContainerView.m in Sources */,
+				8489A2F8239250C60035AB6E /* Blocks.swift in Sources */,
 				840A6C77226274E9001A037B /* FourCharCode.swift in Sources */,
 				84CFF56E1AC3D20A00CEA6C8 /* NSImage+RSCore.m in Sources */,
 				8453F7DF1BDF337800B1C8ED /* RSMacroProcessor.m in Sources */,
