@@ -96,7 +96,7 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 		return NO;
 	}
 
-	if (![s containsString:@"."]) {
+	if (![s containsString:@"."] && ![s containsString:@":"]) { // ":" is for IPv6
 		return NO;
 	}
 
