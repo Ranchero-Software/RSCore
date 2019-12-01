@@ -91,7 +91,11 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 		saveQueue.performCallsImmediately()
 	}
 	
-	deinit {
+	public func resume() {
+		NSFileCoordinator.addFilePresenter(self)
+	}
+	
+	public func suspend() {
 		NSFileCoordinator.removeFilePresenter(self)
 	}
 	
