@@ -89,6 +89,11 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 	return range.length > 0;
 }
 
+- (BOOL)rs_stringMayBeIPv6URL {
+
+	return [self rangeOfString:@"\\[[0-9a-fA-F:]+\\]" options:NSRegularExpressionSearch].location != NSNotFound;
+}
+
 - (BOOL)rs_stringMayBeURL {
 
 	NSString *s = [self rs_stringByTrimmingWhitespace];
@@ -96,7 +101,7 @@ NSString *RSStringReplaceAll(NSString *stringToSearch, NSString *searchFor, NSSt
 		return NO;
 	}
 
-	if (![s containsString:@"."]) {
+	if (![s containsString:@"."] && ![s rs_stringMayBeIPv6URL]) {
 		return NO;
 	}
 
