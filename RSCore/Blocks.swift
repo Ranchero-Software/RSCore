@@ -14,3 +14,7 @@ public typealias VoidCompletionBlock = () -> ()
 public func callVoidCompletionBlock(_ block: @escaping VoidCompletionBlock) {
 	DispatchQueue.main.async(execute: block)
 }
+
+public typealias VoidResult = Result<Void, Error>
+public typealias VoidResultCompletionBlock = (VoidResult) -> Void
+
