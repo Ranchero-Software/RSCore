@@ -29,8 +29,6 @@
 #import <RSCore/NSTimer+RSCore.h>
 #import <RSCore/NSString+RSCore.h>
 
-#import <RSCore/RSPlist.h>
-
 
 #if !TARGET_OS_IPHONE
 

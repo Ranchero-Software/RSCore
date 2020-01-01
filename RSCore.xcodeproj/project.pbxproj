@@ -46,8 +46,6 @@
 		842DD7C61E14995C00E061EB /* RSBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5111AC3C6D800CEA6C8 /* RSBlocks.m */; };
 		842DD7C91E14995C00E061EB /* RSPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7CA1E14995C00E061EB /* RSPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */; };
-		842DD7CD1E14995C00E061EB /* RSPlist.h in Headers */ = {isa = PBXBuildFile; fileRef = 844C91591B65753E0051FC1B /* RSPlist.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		842DD7CE1E14995C00E061EB /* RSPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C915A1B65753E0051FC1B /* RSPlist.m */; };
 		842DD7CF1E14995C00E061EB /* RSMacroProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8453F7DC1BDF337800B1C8ED /* RSMacroProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7D01E14995C00E061EB /* RSMacroProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8453F7DD1BDF337800B1C8ED /* RSMacroProcessor.m */; };
 		842DD7D51E14995C00E061EB /* PlistProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A835891D4EC7B80004C598 /* PlistProviderProtocol.swift */; };
@@ -91,8 +89,6 @@
 		8434D15C200BD6F400D6281E /* UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434D15B200BD6F400D6281E /* UserApp.swift */; };
 		84411E731FE5FFC3004B527F /* NSImage+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84411E721FE5FFC3004B527F /* NSImage+RSCore.swift */; };
 		844B5B571FE9D36000C7C76A /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5B561FE9D36000C7C76A /* Keyboard.swift */; };
-		844C915B1B65753E0051FC1B /* RSPlist.h in Headers */ = {isa = PBXBuildFile; fileRef = 844C91591B65753E0051FC1B /* RSPlist.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		844C915C1B65753E0051FC1B /* RSPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 844C915A1B65753E0051FC1B /* RSPlist.m */; };
 		84536F661BB856D4001E1639 /* NSFileManager+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84536F641BB856D4001E1639 /* NSFileManager+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84536F671BB856D4001E1639 /* NSFileManager+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84536F651BB856D4001E1639 /* NSFileManager+RSCore.m */; };
 		8453F7DE1BDF337800B1C8ED /* RSMacroProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8453F7DC1BDF337800B1C8ED /* RSMacroProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -236,8 +232,6 @@
 		8434D15B200BD6F400D6281E /* UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserApp.swift; path = AppKit/UserApp.swift; sourceTree = "<group>"; };
 		84411E721FE5FFC3004B527F /* NSImage+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSImage+RSCore.swift"; path = "Images/NSImage+RSCore.swift"; sourceTree = "<group>"; };
 		844B5B561FE9D36000C7C76A /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keyboard.swift; path = RSCore/Keyboard.swift; sourceTree = "<group>"; };
-		844C91591B65753E0051FC1B /* RSPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSPlist.h; path = RSCore/RSPlist.h; sourceTree = "<group>"; };
-		844C915A1B65753E0051FC1B /* RSPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSPlist.m; path = RSCore/RSPlist.m; sourceTree = "<group>"; };
 		84536F641BB856D4001E1639 /* NSFileManager+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+RSCore.h"; sourceTree = "<group>"; };
 		84536F651BB856D4001E1639 /* NSFileManager+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+RSCore.m"; sourceTree = "<group>"; };
 		8453F7DC1BDF337800B1C8ED /* RSMacroProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSMacroProcessor.h; path = RSCore/RSMacroProcessor.h; sourceTree = "<group>"; };
@@ -396,8 +390,6 @@
 				84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */,
 				84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */,
 				845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */,
-				844C91591B65753E0051FC1B /* RSPlist.h */,
-				844C915A1B65753E0051FC1B /* RSPlist.m */,
 				8453F7DC1BDF337800B1C8ED /* RSMacroProcessor.h */,
 				8453F7DD1BDF337800B1C8ED /* RSMacroProcessor.m */,
 				84B99C931FAE64D400ECDEDB /* DisplayNameProvider.swift */,
@@ -600,7 +592,6 @@
 				842DD7F71E14997600E061EB /* RSScaling.h in Headers */,
 				842DD7D81E14996300E061EB /* NSCalendar+RSCore.h in Headers */,
 				842DD7EA1E14996300E061EB /* NSObject+RSCore.h in Headers */,
-				842DD7CD1E14995C00E061EB /* RSPlist.h in Headers */,
 				842DD7C51E14995C00E061EB /* RSBlocks.h in Headers */,
 				842DD7E01E14996300E061EB /* NSFileManager+RSCore.h in Headers */,
 				842DD7E61E14996300E061EB /* NSMutableSet+RSCore.h in Headers */,
@@ -643,7 +634,6 @@
 				8414CBAB1C95F8F700333C12 /* RSGeometry.h in Headers */,
 				845DE0F31B80477100D1571B /* NSSet+RSCore.h in Headers */,
 				84C632A4200D356E007BEEAA /* SendToBlogEditorApp.h in Headers */,
-				844C915B1B65753E0051FC1B /* RSPlist.h in Headers */,
 				8453F7DE1BDF337800B1C8ED /* RSMacroProcessor.h in Headers */,
 				8415CB8A1BF84D24007B1E98 /* NSEvent+RSCore.h in Headers */,
 				849B08971BF7BCE30090CEE4 /* NSPasteboard+RSCore.h in Headers */,
@@ -862,7 +852,6 @@
 				514B7D512322C83D00BAC947 /* UITableView-Extensions.swift in Sources */,
 				842DD7DB1E14996300E061EB /* NSData+RSCore.m in Sources */,
 				842DD7D51E14995C00E061EB /* PlistProviderProtocol.swift in Sources */,
-				842DD7CE1E14995C00E061EB /* RSPlist.m in Sources */,
 				510BD114232C419B002692E4 /* ManagedResourceFile.swift in Sources */,
 				848F6AEA1FC2BC50002D422E /* ThreadSafeCache.swift in Sources */,
 				842DD7EF1E14996300E061EB /* NSString+RSCore.m in Sources */,
@@ -936,7 +925,6 @@
 				840F7BF921AD05560057E851 /* String+RSCore.swift in Sources */,
 				845DE0F41B80477100D1571B /* NSSet+RSCore.m in Sources */,
 				842635591D7FA24800196285 /* NSOutlineView+Extensions.swift in Sources */,
-				844C915C1B65753E0051FC1B /* RSPlist.m in Sources */,
 				84CFF5231AC3C89D00CEA6C8 /* NSObject+RSCore.m in Sources */,
 				84AD1EA520315A8800BC20B7 /* PasteboardWriterOwner.swift in Sources */,
 				65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */,
