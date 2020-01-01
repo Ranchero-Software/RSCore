@@ -43,10 +43,6 @@
 #import <RSCore/NSTableView+RSCore.h>
 #import <RSCore/NSView+RSCore.h>
 
-#import <RSCore/RSBackgroundColorView.h>
-#import <RSCore/RSOpaqueContainerView.h>
-#import <RSCore/RSTransparentContainerView.h>
-
 #import <RSCore/NSImage+RSCore.h>
 
 #import <RSCore/RSGeometry.h>
