@@ -97,8 +97,6 @@
 		84C632A1200D30F1007BEEAA /* NSAppleEventDescriptor+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6329F200D30F1007BEEAA /* NSAppleEventDescriptor+RSCore.m */; };
 		84C632A4200D356E007BEEAA /* SendToBlogEditorApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 84C632A2200D356E007BEEAA /* SendToBlogEditorApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84C632A5200D356E007BEEAA /* SendToBlogEditorApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C632A3200D356E007BEEAA /* SendToBlogEditorApp.m */; };
-		84C687301FBAA30800345C9E /* LogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C6872F1FBAA30800345C9E /* LogWindow.xib */; };
-		84C687321FBAA3DF00345C9E /* LogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687311FBAA3DF00345C9E /* LogWindowController.swift */; };
 		84C687351FBC025600345C9E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687341FBC025600345C9E /* Log.swift */; };
 		84C687361FBC025600345C9E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687341FBC025600345C9E /* Log.swift */; };
 		84C687381FBC028900345C9E /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687371FBC028900345C9E /* LogItem.swift */; };
@@ -197,8 +195,6 @@
 		84C6329F200D30F1007BEEAA /* NSAppleEventDescriptor+RSCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSAppleEventDescriptor+RSCore.m"; path = "AppKit/NSAppleEventDescriptor+RSCore.m"; sourceTree = "<group>"; };
 		84C632A2200D356E007BEEAA /* SendToBlogEditorApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SendToBlogEditorApp.h; path = AppKit/SendToBlogEditorApp.h; sourceTree = "<group>"; };
 		84C632A3200D356E007BEEAA /* SendToBlogEditorApp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SendToBlogEditorApp.m; path = AppKit/SendToBlogEditorApp.m; sourceTree = "<group>"; };
-		84C6872F1FBAA30800345C9E /* LogWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LogWindow.xib; path = AppKit/LogWindow.xib; sourceTree = "<group>"; };
-		84C687311FBAA3DF00345C9E /* LogWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogWindowController.swift; path = AppKit/LogWindowController.swift; sourceTree = "<group>"; };
 		84C687341FBC025600345C9E /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		84C687371FBC028900345C9E /* LogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItem.swift; sourceTree = "<group>"; };
 		84CFF4F41AC3C69700CEA6C8 /* RSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,8 +393,6 @@
 				847E64A422628C7A00E00365 /* KeyboardDelegateProtocol.swift */,
 				8479213B1FBA426B004AD08C /* WebViewWindow.xib */,
 				8479213D1FBA4285004AD08C /* WebViewWindowController.swift */,
-				84C6872F1FBAA30800345C9E /* LogWindow.xib */,
-				84C687311FBAA3DF00345C9E /* LogWindowController.swift */,
 				84C687341FBC025600345C9E /* Log.swift */,
 				84C687371FBC028900345C9E /* LogItem.swift */,
 				8434D15B200BD6F400D6281E /* UserApp.swift */,
@@ -598,7 +592,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				847E64A722628FF800E00365 /* IndeterminateProgressWindow.xib in Resources */,
-				84C687301FBAA30800345C9E /* LogWindow.xib in Resources */,
 				8479213C1FBA426B004AD08C /* WebViewWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,7 +698,6 @@
 				849EE70D2039187D0082A1EA /* NSWindowController+RSCore.swift in Sources */,
 				51C4506E225FF23B00C03939 /* RSScreen.swift in Sources */,
 				84CFF5131AC3C6D800CEA6C8 /* RSBlocks.m in Sources */,
-				84C687321FBAA3DF00345C9E /* LogWindowController.swift in Sources */,
 				84C687381FBC028900345C9E /* LogItem.swift in Sources */,
 				8432B1861DACA0E90057D6DF /* NSResponder-Extensions.swift in Sources */,
 				849EE72520393AEA0082A1EA /* Array+RSCore.swift in Sources */,
