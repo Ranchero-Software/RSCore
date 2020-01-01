@@ -16,14 +16,7 @@
 
 #import <RSCore/NSCalendar+RSCore.h>
 #import <RSCore/NSData+RSCore.h>
-#import <RSCore/NSDictionary+RSCore.h>
 #import <RSCore/NSFileManager+RSCore.h>
-#import <RSCore/NSMutableArray+RSCore.h>
-#import <RSCore/NSMutableDictionary+RSCore.h>
-#import <RSCore/NSMutableSet+RSCore.h>
-#import <RSCore/NSNotificationCenter+RSCore.h>
-#import <RSCore/NSObject+RSCore.h>
-#import <RSCore/NSTimer+RSCore.h>
 #import <RSCore/NSString+RSCore.h>
 
 
