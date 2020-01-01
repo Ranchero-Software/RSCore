@@ -9,21 +9,21 @@
 import Foundation
 
 public extension Date {
-	
+
 	// Below are for rough use only — they don't use the calendar.
-	
-	mutating func subtract(days: Int) {
-		
-		addTimeInterval(0.0 - timeIntervalWithDays(days))
+
+	func bySubtracting(days: Int) -> Date {
+		return addingTimeInterval(0.0 - TimeInterval(days: days))
 	}
 
-	mutating func add(days: Int) {
-		
-		addTimeInterval(timeIntervalWithDays(days))
+	func byAdding(days: Int) -> Date {
+		return addingTimeInterval(TimeInterval(days: days))
 	}
 }
 
-private func timeIntervalWithDays(_ days: Int) -> TimeInterval {
-	
-	return TimeInterval(days * 24 * 60 * 60)
+private extension TimeInterval {
+
+	init(days: Int) {
+		self.init(days * 24 * 60 * 60)
+	}
 }
