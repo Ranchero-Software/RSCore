@@ -89,6 +89,8 @@ public struct KeyboardKey: Hashable {
 		self.controlKeyDown = controlKeyDown
 	}
 
+	static let deleteKeyCode = 127
+
 	public init(with event: NSEvent) {
 
 		let flags = event.modifierFlags
@@ -126,7 +128,7 @@ public struct KeyboardKey: Hashable {
 		case "[enter]":
 			integerValue = NSEnterCharacter
 		case "[delete]":
-			integerValue = Int(kDeleteKeyCode)
+			integerValue = KeyboardKey.deleteKeyCode
 		case "[deletefunction]":
 			integerValue = NSDeleteFunctionKey
         case "[tab]":
