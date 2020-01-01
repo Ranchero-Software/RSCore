@@ -107,8 +107,6 @@
 		847E64A92262900000E00365 /* IndeterminateProgressWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E64A82262900000E00365 /* IndeterminateProgressWindowController.swift */; };
 		8489A2F8239250C60035AB6E /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489A2F7239250C60035AB6E /* Blocks.swift */; };
 		8489A2F9239250C60035AB6E /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489A2F7239250C60035AB6E /* Blocks.swift */; };
-		848F6AE91FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
-		848F6AEA1FC2BC50002D422E /* ThreadSafeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */; };
 		849A339D1AC90A0A0015BA09 /* NSTableView+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		849A339E1AC90A0A0015BA09 /* NSTableView+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 849A339C1AC90A0A0015BA09 /* NSTableView+RSCore.m */; };
 		849B08971BF7BCE30090CEE4 /* NSPasteboard+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 849B08951BF7BCE30090CEE4 /* NSPasteboard+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -244,7 +242,6 @@
 		847E64A622628FF800E00365 /* IndeterminateProgressWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IndeterminateProgressWindow.xib; path = AppKit/IndeterminateProgressWindow.xib; sourceTree = "<group>"; };
 		847E64A82262900000E00365 /* IndeterminateProgressWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndeterminateProgressWindowController.swift; path = AppKit/IndeterminateProgressWindowController.swift; sourceTree = "<group>"; };
 		8489A2F7239250C60035AB6E /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Blocks.swift; path = RSCore/Blocks.swift; sourceTree = "<group>"; };
-		848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThreadSafeCache.swift; path = RSCore/ThreadSafeCache.swift; sourceTree = "<group>"; };
 		849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTableView+RSCore.h"; sourceTree = "<group>"; };
 		849A339C1AC90A0A0015BA09 /* NSTableView+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTableView+RSCore.m"; sourceTree = "<group>"; };
 		849B08951BF7BCE30090CEE4 /* NSPasteboard+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPasteboard+RSCore.h"; sourceTree = "<group>"; };
@@ -391,7 +388,6 @@
 				84B99C991FAE650100ECDEDB /* OPMLRepresentable.swift */,
 				84E34DA51F9FA1070077082F /* UndoableCommand.swift */,
 				8402047D1FBCE77900D94C1A /* BatchUpdate.swift */,
-				848F6AE81FC2BC50002D422E /* ThreadSafeCache.swift */,
 				844B5B561FE9D36000C7C76A /* Keyboard.swift */,
 				84AD1EA420315A8700BC20B7 /* PasteboardWriterOwner.swift */,
 				84C326862038C9F6006A025C /* CoalescingQueue.swift */,
@@ -843,7 +839,6 @@
 				514B7D512322C83D00BAC947 /* UITableView-Extensions.swift in Sources */,
 				842DD7DB1E14996300E061EB /* NSData+RSCore.m in Sources */,
 				510BD114232C419B002692E4 /* ManagedResourceFile.swift in Sources */,
-				848F6AEA1FC2BC50002D422E /* ThreadSafeCache.swift in Sources */,
 				842DD7EF1E14996300E061EB /* NSString+RSCore.m in Sources */,
 				51C4506F225FF23B00C03939 /* RSScreen.swift in Sources */,
 				842DD7F21E14996B00E061EB /* Date+Extensions.swift in Sources */,
@@ -937,7 +932,6 @@
 				84CFF51B1AC3C77500CEA6C8 /* RSPlatform.m in Sources */,
 				845A291F1FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */,
 				84CFF52C1AC3CA9700CEA6C8 /* NSData+RSCore.m in Sources */,
-				848F6AE91FC2BC50002D422E /* ThreadSafeCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
