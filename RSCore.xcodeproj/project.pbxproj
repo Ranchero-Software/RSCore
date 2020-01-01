@@ -42,8 +42,6 @@
 		842DD7C61E14995C00E061EB /* RSBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5111AC3C6D800CEA6C8 /* RSBlocks.m */; };
 		842DD7C91E14995C00E061EB /* RSPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7CA1E14995C00E061EB /* RSPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */; };
-		842DD7CF1E14995C00E061EB /* RSMacroProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8453F7DC1BDF337800B1C8ED /* RSMacroProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		842DD7D01E14995C00E061EB /* RSMacroProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8453F7DD1BDF337800B1C8ED /* RSMacroProcessor.m */; };
 		842DD7D81E14996300E061EB /* NSCalendar+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84134D1D1C59D5450063FD24 /* NSCalendar+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7D91E14996300E061EB /* NSCalendar+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84134D1E1C59D5450063FD24 /* NSCalendar+RSCore.m */; };
 		842DD7DA1E14996300E061EB /* NSData+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5291AC3CA9700CEA6C8 /* NSData+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,8 +59,6 @@
 		844B5B571FE9D36000C7C76A /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B5B561FE9D36000C7C76A /* Keyboard.swift */; };
 		84536F661BB856D4001E1639 /* NSFileManager+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84536F641BB856D4001E1639 /* NSFileManager+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84536F671BB856D4001E1639 /* NSFileManager+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84536F651BB856D4001E1639 /* NSFileManager+RSCore.m */; };
-		8453F7DE1BDF337800B1C8ED /* RSMacroProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8453F7DC1BDF337800B1C8ED /* RSMacroProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8453F7DF1BDF337800B1C8ED /* RSMacroProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8453F7DD1BDF337800B1C8ED /* RSMacroProcessor.m */; };
 		845A291F1FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */; };
 		845A29201FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */; };
 		8461387F1DB3F5BE00048B83 /* RSToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */; };
@@ -120,6 +116,9 @@
 		84E8E0D9202EC39800562D8F /* NSMenu+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8E0D8202EC39800562D8F /* NSMenu+Extensions.swift */; };
 		84F20F831F16BA6200D8E682 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F20F821F16BA6200D8E682 /* PropertyList.swift */; };
 		84FEB4AC1D19D7F4004727E5 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEB4AB1D19D7F4004727E5 /* Date+Extensions.swift */; };
+		B2BF9A6723BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */; };
+		B2BF9A6823BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */; };
+		B2BF9A6C23BD63A600CCE9A0 /* MacroProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6B23BD63A600CCE9A0 /* MacroProcessorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,8 +164,6 @@
 		844B5B561FE9D36000C7C76A /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keyboard.swift; path = RSCore/Keyboard.swift; sourceTree = "<group>"; };
 		84536F641BB856D4001E1639 /* NSFileManager+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+RSCore.h"; sourceTree = "<group>"; };
 		84536F651BB856D4001E1639 /* NSFileManager+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+RSCore.m"; sourceTree = "<group>"; };
-		8453F7DC1BDF337800B1C8ED /* RSMacroProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSMacroProcessor.h; path = RSCore/RSMacroProcessor.h; sourceTree = "<group>"; };
-		8453F7DD1BDF337800B1C8ED /* RSMacroProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSMacroProcessor.m; path = RSCore/RSMacroProcessor.m; sourceTree = "<group>"; };
 		845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BinaryDiskCache.swift; path = RSCore/BinaryDiskCache.swift; sourceTree = "<group>"; };
 		8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSToolbarItem.swift; sourceTree = "<group>"; };
 		84754C87213E1171009CFDFB /* NSWorkspace+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSWorkspace+RSCore.swift"; path = "AppKit/NSWorkspace+RSCore.swift"; sourceTree = "<group>"; };
@@ -219,6 +216,8 @@
 		84E8E0D8202EC39800562D8F /* NSMenu+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSMenu+Extensions.swift"; path = "AppKit/NSMenu+Extensions.swift"; sourceTree = "<group>"; };
 		84F20F821F16BA6200D8E682 /* PropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyList.swift; sourceTree = "<group>"; };
 		84FEB4AB1D19D7F4004727E5 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MacroProcessor.swift; path = RSCore/MacroProcessor.swift; sourceTree = "<group>"; };
+		B2BF9A6B23BD63A600CCE9A0 /* MacroProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroProcessorTests.swift; sourceTree = "<group>"; };
 		D511EEFD20242E4C00712EC3 /* RSCore_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_target.xcconfig; sourceTree = "<group>"; };
 		D511EEFE20242E4C00712EC3 /* RSCore_project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project.xcconfig; sourceTree = "<group>"; };
 		D511EEFF20242E4C00712EC3 /* RSCoreTests_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCoreTests_target.xcconfig; sourceTree = "<group>"; };
@@ -286,8 +285,7 @@
 				84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */,
 				84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */,
 				845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */,
-				8453F7DC1BDF337800B1C8ED /* RSMacroProcessor.h */,
-				8453F7DD1BDF337800B1C8ED /* RSMacroProcessor.m */,
+				B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */,
 				84B99C931FAE64D400ECDEDB /* DisplayNameProvider.swift */,
 				8476F7A921A757D100C808C3 /* Renamable.swift */,
 				84B99C991FAE650100ECDEDB /* OPMLRepresentable.swift */,
@@ -326,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				84B890551C59CF1600D8BF23 /* NSString+ExtrasTests.m */,
+				B2BF9A6B23BD63A600CCE9A0 /* MacroProcessorTests.swift */,
 				84CFF5041AC3C69700CEA6C8 /* Supporting Files */,
 			);
 			path = RSCoreTests;
@@ -446,7 +445,6 @@
 				842DD7D81E14996300E061EB /* NSCalendar+RSCore.h in Headers */,
 				842DD7C51E14995C00E061EB /* RSBlocks.h in Headers */,
 				842DD7E01E14996300E061EB /* NSFileManager+RSCore.h in Headers */,
-				842DD7CF1E14995C00E061EB /* RSMacroProcessor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +465,6 @@
 				84536F661BB856D4001E1639 /* NSFileManager+RSCore.h in Headers */,
 				8414CBAB1C95F8F700333C12 /* RSGeometry.h in Headers */,
 				84C632A4200D356E007BEEAA /* SendToBlogEditorApp.h in Headers */,
-				8453F7DE1BDF337800B1C8ED /* RSMacroProcessor.h in Headers */,
 				849B08971BF7BCE30090CEE4 /* NSPasteboard+RSCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,19 +540,19 @@
 				TargetAttributes = {
 					842DD7BB1E14993900E061EB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9C84TZ7Q6Z;
+						DevelopmentTeam = M72QZ9W58G;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					84CFF4F31AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = M8L2WTLA8W;
+						DevelopmentTeam = M72QZ9W58G;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					84CFF4FE1AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -649,7 +646,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842DD7D01E14995C00E061EB /* RSMacroProcessor.m in Sources */,
 				842DD7F41E14996B00E061EB /* Set+Extensions.swift in Sources */,
 				84B99C9B1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				847E64A32262793300E00365 /* SendToCommand.swift in Sources */,
@@ -677,6 +673,7 @@
 				84C687361FBC025600345C9E /* Log.swift in Sources */,
 				842DD7CA1E14995C00E061EB /* RSPlatform.m in Sources */,
 				842DD7D91E14996300E061EB /* NSCalendar+RSCore.m in Sources */,
+				B2BF9A6823BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */,
 				51C452262264E22B00C03939 /* UIApplication-Extensions.swift in Sources */,
 				51E595A7228D9A5600FCC42B /* Array+RSCore.swift in Sources */,
 			);
@@ -695,6 +692,7 @@
 				84536F671BB856D4001E1639 /* NSFileManager+RSCore.m in Sources */,
 				8414CBAC1C95F8F700333C12 /* RSGeometry.m in Sources */,
 				84134D201C59D5450063FD24 /* NSCalendar+RSCore.m in Sources */,
+				B2BF9A6723BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */,
 				849EE70D2039187D0082A1EA /* NSWindowController+RSCore.swift in Sources */,
 				51C4506E225FF23B00C03939 /* RSScreen.swift in Sources */,
 				84CFF5131AC3C6D800CEA6C8 /* RSBlocks.m in Sources */,
@@ -731,7 +729,6 @@
 				8489A2F8239250C60035AB6E /* Blocks.swift in Sources */,
 				840A6C77226274E9001A037B /* FourCharCode.swift in Sources */,
 				84CFF56E1AC3D20A00CEA6C8 /* NSImage+RSCore.m in Sources */,
-				8453F7DF1BDF337800B1C8ED /* RSMacroProcessor.m in Sources */,
 				84C326872038C9F6006A025C /* CoalescingQueue.swift in Sources */,
 				847E64A522628C7A00E00365 /* KeyboardDelegateProtocol.swift in Sources */,
 				849EE72320393A750082A1EA /* NSToolbar+RSCore.swift in Sources */,
@@ -750,6 +747,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B890561C59CF1600D8BF23 /* NSString+ExtrasTests.m in Sources */,
+				B2BF9A6C23BD63A600CCE9A0 /* MacroProcessorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

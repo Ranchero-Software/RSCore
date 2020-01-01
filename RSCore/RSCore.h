@@ -36,8 +36,3 @@
 #import <RSCore/SendToBlogEditorApp.h>
 
 #endif
-
-/*Text*/
-
-#import <RSCore/RSMacroProcessor.h>
-
