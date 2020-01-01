@@ -46,8 +46,6 @@
 		842DD7C41E14995000E061EB /* RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF4F91AC3C69700CEA6C8 /* RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7C51E14995C00E061EB /* RSBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5101AC3C6D800CEA6C8 /* RSBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7C61E14995C00E061EB /* RSBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5111AC3C6D800CEA6C8 /* RSBlocks.m */; };
-		842DD7C71E14995C00E061EB /* RSConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5141AC3C73000CEA6C8 /* RSConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		842DD7C81E14995C00E061EB /* RSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5151AC3C73000CEA6C8 /* RSConstants.m */; };
 		842DD7C91E14995C00E061EB /* RSPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7CA1E14995C00E061EB /* RSPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */; };
 		842DD7CD1E14995C00E061EB /* RSPlist.h in Headers */ = {isa = PBXBuildFile; fileRef = 844C91591B65753E0051FC1B /* RSPlist.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -153,8 +151,6 @@
 		84CFF5001AC3C69700CEA6C8 /* RSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CFF4F41AC3C69700CEA6C8 /* RSCore.framework */; };
 		84CFF5121AC3C6D800CEA6C8 /* RSBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5101AC3C6D800CEA6C8 /* RSBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84CFF5131AC3C6D800CEA6C8 /* RSBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5111AC3C6D800CEA6C8 /* RSBlocks.m */; };
-		84CFF5161AC3C73000CEA6C8 /* RSConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5141AC3C73000CEA6C8 /* RSConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84CFF5171AC3C73000CEA6C8 /* RSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5151AC3C73000CEA6C8 /* RSConstants.m */; };
 		84CFF51A1AC3C77500CEA6C8 /* RSPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84CFF51B1AC3C77500CEA6C8 /* RSPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */; };
 		84CFF5221AC3C89D00CEA6C8 /* NSObject+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5201AC3C89D00CEA6C8 /* NSObject+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -300,8 +296,6 @@
 		84CFF5051AC3C69700CEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84CFF5101AC3C6D800CEA6C8 /* RSBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSBlocks.h; path = RSCore/RSBlocks.h; sourceTree = "<group>"; };
 		84CFF5111AC3C6D800CEA6C8 /* RSBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSBlocks.m; path = RSCore/RSBlocks.m; sourceTree = "<group>"; };
-		84CFF5141AC3C73000CEA6C8 /* RSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSConstants.h; path = RSCore/RSConstants.h; sourceTree = "<group>"; };
-		84CFF5151AC3C73000CEA6C8 /* RSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSConstants.m; path = RSCore/RSConstants.m; sourceTree = "<group>"; };
 		84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSPlatform.h; path = RSCore/RSPlatform.h; sourceTree = "<group>"; };
 		84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSPlatform.m; path = RSCore/RSPlatform.m; sourceTree = "<group>"; };
 		84CFF5201AC3C89D00CEA6C8 /* NSObject+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RSCore.h"; sourceTree = "<group>"; };
@@ -424,8 +418,6 @@
 				84CFF5101AC3C6D800CEA6C8 /* RSBlocks.h */,
 				84CFF5111AC3C6D800CEA6C8 /* RSBlocks.m */,
 				8489A2F7239250C60035AB6E /* Blocks.swift */,
-				84CFF5141AC3C73000CEA6C8 /* RSConstants.h */,
-				84CFF5151AC3C73000CEA6C8 /* RSConstants.m */,
 				84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */,
 				84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */,
 				845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */,
@@ -632,7 +624,6 @@
 				842DD7EC1E14996300E061EB /* NSSet+RSCore.h in Headers */,
 				842DD7C41E14995000E061EB /* RSCore.h in Headers */,
 				842DD7F71E14997600E061EB /* RSScaling.h in Headers */,
-				842DD7C71E14995C00E061EB /* RSConstants.h in Headers */,
 				842DD7D81E14996300E061EB /* NSCalendar+RSCore.h in Headers */,
 				842DD7EA1E14996300E061EB /* NSObject+RSCore.h in Headers */,
 				842DD7CD1E14995C00E061EB /* RSPlist.h in Headers */,
@@ -676,7 +667,6 @@
 				84CFF5331AC3CB6800CEA6C8 /* NSDictionary+RSCore.h in Headers */,
 				84CFF54B1AC3CDAC00CEA6C8 /* NSString+RSCore.h in Headers */,
 				84CFF55C1AC3D01F00CEA6C8 /* RSBackgroundColorView.h in Headers */,
-				84CFF5161AC3C73000CEA6C8 /* RSConstants.h in Headers */,
 				84536F661BB856D4001E1639 /* NSFileManager+RSCore.h in Headers */,
 				84CFF52F1AC3CB1900CEA6C8 /* NSDate+RSCore.h in Headers */,
 				8414CBAB1C95F8F700333C12 /* RSGeometry.h in Headers */,
@@ -768,9 +758,9 @@
 					};
 					84CFF4F31AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 9C84TZ7Q6Z;
+						DevelopmentTeam = M8L2WTLA8W;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					84CFF4FE1AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
@@ -883,7 +873,6 @@
 				842DD7DF1E14996300E061EB /* NSDictionary+RSCore.m in Sources */,
 				51F10F41226B684500B457D8 /* UIView-Extensions.swift in Sources */,
 				51D5949122668F3300DFC836 /* UndoableCommand.swift in Sources */,
-				842DD7C81E14995C00E061EB /* RSConstants.m in Sources */,
 				845A29201FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */,
 				8476F7AB21A757D100C808C3 /* Renamable.swift in Sources */,
 				84C687391FBC028900345C9E /* LogItem.swift in Sources */,
@@ -929,7 +918,6 @@
 				84FE9FC41C00453900081CE9 /* NSStoryboard+RSCore.m in Sources */,
 				84CFF5341AC3CB6800CEA6C8 /* NSDictionary+RSCore.m in Sources */,
 				84CFF54C1AC3CDAC00CEA6C8 /* NSString+RSCore.m in Sources */,
-				84CFF5171AC3C73000CEA6C8 /* RSConstants.m in Sources */,
 				65AA59FC2322812C00D19FA1 /* RSAppMovementMonitor.swift in Sources */,
 				8432B1881DACA2060057D6DF /* NSWindow-Extensions.swift in Sources */,
 				8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
