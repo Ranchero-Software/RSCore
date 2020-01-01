@@ -24,7 +24,6 @@
 
 /*AppKit*/
 
-#import <RSCore/NSColor+RSCore.h>
 #import <RSCore/NSEvent+RSCore.h>
 #import <RSCore/NSPasteboard+RSCore.h>
 #import <RSCore/NSStoryboard+RSCore.h>
