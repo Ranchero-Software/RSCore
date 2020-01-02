@@ -9,46 +9,48 @@
 import Foundation
 import os
 
-func DataFolder(forApplication appName: String?) -> URL? {
-	do {
-		var dataFolder = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+struct Platform {
+	static func dataFolder(forApplication appName: String?) -> URL? {
+		do {
+			var dataFolder = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
 
-		if let appName = appName ?? Bundle.main.infoDictionary?["CFBundleExecutable"] as? String {
+			if let appName = appName ?? Bundle.main.infoDictionary?["CFBundleExecutable"] as? String {
 
-			dataFolder = dataFolder.appendingPathComponent(appName)
+				dataFolder = dataFolder.appendingPathComponent(appName)
 
-			try FileManager.default.createDirectory(at: dataFolder, withIntermediateDirectories: true, attributes: nil)
+				try FileManager.default.createDirectory(at: dataFolder, withIntermediateDirectories: true, attributes: nil)
+			}
+
+			return dataFolder
+		} catch {
+			print("DataFolder error:", error)
 		}
 
-		return dataFolder
-	} catch {
-		print("DataFolder error:", error)
-	}
-
-	return nil
-}
-
-func DataFile(forApplication appName: String?, filename: String) -> URL? {
-	let dataFolder = DataFolder(forApplication: appName)
-	return dataFolder?.appendingPathComponent(filename)
-}
-
-func DataSubfolder(forApplication appName: String?, folderName: String) -> URL? {
-	guard let dataFolder = DataFile(forApplication: appName, filename: folderName) else {
 		return nil
 	}
 
-	do {
-		try FileManager.default.createDirectory(at: dataFolder, withIntermediateDirectories: true, attributes: nil)
-		return dataFolder
-	} catch {
-		print("DataSubfolder error:", error)
+	static func dataFile(forApplication appName: String?, filename: String) -> URL? {
+		let dataFolder = self.dataFolder(forApplication: appName)
+		return dataFolder?.appendingPathComponent(filename)
 	}
 
-	return nil
-}
+	static func dataSubfolder(forApplication appName: String?, folderName: String) -> URL? {
+		guard let dataFolder = dataFile(forApplication: appName, filename: folderName) else {
+			return nil
+		}
 
-func DataSubfolderFile(forApplication appName: String?, folderName: String, filename: String) -> URL? {
-	let dataFolder = DataSubfolder(forApplication: appName, folderName: folderName)
-	return dataFolder?.appendingPathComponent(filename)
+		do {
+			try FileManager.default.createDirectory(at: dataFolder, withIntermediateDirectories: true, attributes: nil)
+			return dataFolder
+		} catch {
+			print("DataSubfolder error:", error)
+		}
+
+		return nil
+	}
+
+	static func dataSubfolderFile(forApplication appName: String?, folderName: String, filename: String) -> URL? {
+		let dataFolder = dataSubfolder(forApplication: appName, folderName: folderName)
+		return dataFolder?.appendingPathComponent(filename)
+	}
 }
