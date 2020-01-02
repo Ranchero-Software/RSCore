@@ -5,6 +5,9 @@ CODE_SIGN_IDENTITY =
 // See the notes in NetNewsWire_target.xcconfig on why the
 // DeveloperSettings.xcconfig is #included here
 
+// Single .. is for stand-alone clones; triple is for submodules.
+
+#include? "../SharedXcodeSettings/DeveloperSettings.xcconfig"
 #include? "../../../SharedXcodeSettings/DeveloperSettings.xcconfig"
 
 SDKROOT = iphoneos

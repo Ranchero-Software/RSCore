@@ -8,6 +8,9 @@ PROVISIONING_PROFILE_SPECIFIER =
 // See the notes in NetNewsWire_target.xcconfig on why the
 // DeveloperSettings.xcconfig is #included here
 
+// Single .. is for stand-alone clones; triple is for submodules.
+
+#include? "../SharedXcodeSettings/DeveloperSettings.xcconfig"
 #include? "../../../SharedXcodeSettings/DeveloperSettings.xcconfig"
 
 INFOPLIST_FILE = RSCore/Info.plist
