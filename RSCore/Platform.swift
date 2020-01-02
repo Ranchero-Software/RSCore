@@ -9,7 +9,7 @@
 import Foundation
 import os
 
-struct Platform {
+public struct Platform {
 	static func dataFolder(forApplication appName: String?) -> URL? {
 		do {
 			var dataFolder = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
@@ -34,23 +34,18 @@ struct Platform {
 		return dataFolder?.appendingPathComponent(filename)
 	}
 
-	static func dataSubfolder(forApplication appName: String?, folderName: String) -> URL? {
+	public static func dataSubfolder(forApplication appName: String?, folderName: String) -> String? {
 		guard let dataFolder = dataFile(forApplication: appName, filename: folderName) else {
 			return nil
 		}
 
 		do {
 			try FileManager.default.createDirectory(at: dataFolder, withIntermediateDirectories: true, attributes: nil)
-			return dataFolder
+			return dataFolder.path
 		} catch {
 			print("DataSubfolder error:", error)
 		}
 
 		return nil
-	}
-
-	static func dataSubfolderFile(forApplication appName: String?, folderName: String, filename: String) -> URL? {
-		let dataFolder = dataSubfolder(forApplication: appName, folderName: folderName)
-		return dataFolder?.appendingPathComponent(filename)
 	}
 }
