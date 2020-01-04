@@ -72,8 +72,6 @@
 		8489A2F9239250C60035AB6E /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489A2F7239250C60035AB6E /* Blocks.swift */; };
 		849A339D1AC90A0A0015BA09 /* NSTableView+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		849A339E1AC90A0A0015BA09 /* NSTableView+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 849A339C1AC90A0A0015BA09 /* NSTableView+RSCore.m */; };
-		849B08971BF7BCE30090CEE4 /* NSPasteboard+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 849B08951BF7BCE30090CEE4 /* NSPasteboard+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		849B08981BF7BCE30090CEE4 /* NSPasteboard+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 849B08961BF7BCE30090CEE4 /* NSPasteboard+RSCore.m */; };
 		849EE70D2039187D0082A1EA /* NSWindowController+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EE70C2039187D0082A1EA /* NSWindowController+RSCore.swift */; };
 		849EE72320393A750082A1EA /* NSToolbar+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EE72220393A750082A1EA /* NSToolbar+RSCore.swift */; };
 		849EE72520393AEA0082A1EA /* Array+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849EE72420393AEA0082A1EA /* Array+RSCore.swift */; };
@@ -168,8 +166,6 @@
 		8489A2F7239250C60035AB6E /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Blocks.swift; path = RSCore/Blocks.swift; sourceTree = "<group>"; };
 		849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTableView+RSCore.h"; sourceTree = "<group>"; };
 		849A339C1AC90A0A0015BA09 /* NSTableView+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTableView+RSCore.m"; sourceTree = "<group>"; };
-		849B08951BF7BCE30090CEE4 /* NSPasteboard+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPasteboard+RSCore.h"; sourceTree = "<group>"; };
-		849B08961BF7BCE30090CEE4 /* NSPasteboard+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPasteboard+RSCore.m"; sourceTree = "<group>"; };
 		849EE70C2039187D0082A1EA /* NSWindowController+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSWindowController+RSCore.swift"; path = "AppKit/NSWindowController+RSCore.swift"; sourceTree = "<group>"; };
 		849EE72220393A750082A1EA /* NSToolbar+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSToolbar+RSCore.swift"; path = "AppKit/NSToolbar+RSCore.swift"; sourceTree = "<group>"; };
 		849EE72420393AEA0082A1EA /* Array+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RSCore.swift"; sourceTree = "<group>"; };
@@ -355,8 +351,7 @@
 				84C632A3200D356E007BEEAA /* SendToBlogEditorApp.m */,
 				84E8E0D8202EC39800562D8F /* NSMenu+Extensions.swift */,
 				842635581D7FA24800196285 /* NSOutlineView+Extensions.swift */,
-				849B08951BF7BCE30090CEE4 /* NSPasteboard+RSCore.h */,
-				849B08961BF7BCE30090CEE4 /* NSPasteboard+RSCore.m */,
+				84AD1EA720315BA900BC20B7 /* NSPasteboard+RSCore.swift */,
 				8432B1851DACA0E90057D6DF /* NSResponder-Extensions.swift */,
 				842635561D7FA1C800196285 /* NSTableView+Extensions.swift */,
 				849A339B1AC90A0A0015BA09 /* NSTableView+RSCore.h */,
@@ -378,7 +373,6 @@
 				8434D15B200BD6F400D6281E /* UserApp.swift */,
 				84754C87213E1171009CFDFB /* NSWorkspace+RSCore.swift */,
 				84D5BA1D201E87E2009092BD /* URLPasteboardWriter.swift */,
-				84AD1EA720315BA900BC20B7 /* NSPasteboard+RSCore.swift */,
 				847E64A622628FF800E00365 /* IndeterminateProgressWindow.xib */,
 				847E64A82262900000E00365 /* IndeterminateProgressWindowController.swift */,
 			);
@@ -441,7 +435,6 @@
 				84CFF54B1AC3CDAC00CEA6C8 /* NSString+RSCore.h in Headers */,
 				84536F661BB856D4001E1639 /* NSFileManager+RSCore.h in Headers */,
 				84C632A4200D356E007BEEAA /* SendToBlogEditorApp.h in Headers */,
-				849B08971BF7BCE30090CEE4 /* NSPasteboard+RSCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,7 +670,6 @@
 				847E64A92262900000E00365 /* IndeterminateProgressWindowController.swift in Sources */,
 				84AD1EA820315BA900BC20B7 /* NSPasteboard+RSCore.swift in Sources */,
 				84D5BA1E201E87E2009092BD /* URLPasteboardWriter.swift in Sources */,
-				849B08981BF7BCE30090CEE4 /* NSPasteboard+RSCore.m in Sources */,
 				842635571D7FA1C800196285 /* NSTableView+Extensions.swift in Sources */,
 				84F20F831F16BA6200D8E682 /* PropertyList.swift in Sources */,
 				84C687351FBC025600345C9E /* Log.swift in Sources */,

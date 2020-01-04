@@ -23,7 +23,6 @@
 
 /*AppKit*/
 
-#import <RSCore/NSPasteboard+RSCore.h>
 #import <RSCore/NSTableView+RSCore.h>
 
 #import <RSCore/NSAppleEventDescriptor+RSCore.h>
