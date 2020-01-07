@@ -59,4 +59,13 @@ class MacroProcessorTests: XCTestCase {
 		}
 
 	}
+
+	// Macro replacement shouldn't be recursive
+	func testMacroInSubstitutions() {
+		let substitutions = ["one": "[[two]]", "two": "2"]
+		let template = "foo [[one]] bar"
+		let expected = "foo [[two]] bar"
+		let result = try! MacroProcessor.renderedText(withTemplate: template, substitutions: substitutions)
+		XCTAssertEqual(result, expected)
+	}
 }
