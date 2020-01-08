@@ -33,8 +33,6 @@
 		84134D1F1C59D5450063FD24 /* NSCalendar+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84134D1D1C59D5450063FD24 /* NSCalendar+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84134D201C59D5450063FD24 /* NSCalendar+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84134D1E1C59D5450063FD24 /* NSCalendar+RSCore.m */; };
 		8414CBA71C95F2EA00333C12 /* Set+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414CBA61C95F2EA00333C12 /* Set+Extensions.swift */; };
-		8414CBAB1C95F8F700333C12 /* RSGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 8414CBA91C95F8F700333C12 /* RSGeometry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8414CBAC1C95F8F700333C12 /* RSGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8414CBAA1C95F8F700333C12 /* RSGeometry.m */; };
 		842635571D7FA1C800196285 /* NSTableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842635561D7FA1C800196285 /* NSTableView+Extensions.swift */; };
 		842635591D7FA24800196285 /* NSOutlineView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842635581D7FA24800196285 /* NSOutlineView+Extensions.swift */; };
 		842DD7C41E14995000E061EB /* RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF4F91AC3C69700CEA6C8 /* RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -107,8 +105,6 @@
 		84CFF52C1AC3CA9700CEA6C8 /* NSData+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF52A1AC3CA9700CEA6C8 /* NSData+RSCore.m */; };
 		84CFF54B1AC3CDAC00CEA6C8 /* NSString+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5491AC3CDAC00CEA6C8 /* NSString+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84CFF54C1AC3CDAC00CEA6C8 /* NSString+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF54A1AC3CDAC00CEA6C8 /* NSString+RSCore.m */; };
-		84CFF5581AC3CF9100CEA6C8 /* NSView+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5561AC3CF9100CEA6C8 /* NSView+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84CFF5591AC3CF9100CEA6C8 /* NSView+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5571AC3CF9100CEA6C8 /* NSView+RSCore.m */; };
 		84CFF56D1AC3D20A00CEA6C8 /* NSImage+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF56B1AC3D20A00CEA6C8 /* NSImage+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84CFF56E1AC3D20A00CEA6C8 /* NSImage+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF56C1AC3D20A00CEA6C8 /* NSImage+RSCore.m */; };
 		84D5BA1E201E87E2009092BD /* URLPasteboardWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BA1D201E87E2009092BD /* URLPasteboardWriter.swift */; };
@@ -152,8 +148,6 @@
 		84134D1D1C59D5450063FD24 /* NSCalendar+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+RSCore.h"; sourceTree = "<group>"; };
 		84134D1E1C59D5450063FD24 /* NSCalendar+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+RSCore.m"; sourceTree = "<group>"; };
 		8414CBA61C95F2EA00333C12 /* Set+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Extensions.swift"; sourceTree = "<group>"; };
-		8414CBA91C95F8F700333C12 /* RSGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSGeometry.h; sourceTree = "<group>"; };
-		8414CBAA1C95F8F700333C12 /* RSGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGeometry.m; sourceTree = "<group>"; };
 		842635561D7FA1C800196285 /* NSTableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTableView+Extensions.swift"; sourceTree = "<group>"; };
 		842635581D7FA24800196285 /* NSOutlineView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOutlineView+Extensions.swift"; sourceTree = "<group>"; };
 		842DD7BC1E14993900E061EB /* RSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,8 +202,6 @@
 		84CFF52A1AC3CA9700CEA6C8 /* NSData+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+RSCore.m"; sourceTree = "<group>"; };
 		84CFF5491AC3CDAC00CEA6C8 /* NSString+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RSCore.h"; sourceTree = "<group>"; };
 		84CFF54A1AC3CDAC00CEA6C8 /* NSString+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RSCore.m"; sourceTree = "<group>"; };
-		84CFF5561AC3CF9100CEA6C8 /* NSView+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+RSCore.h"; sourceTree = "<group>"; };
-		84CFF5571AC3CF9100CEA6C8 /* NSView+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+RSCore.m"; sourceTree = "<group>"; };
 		84CFF56B1AC3D20A00CEA6C8 /* NSImage+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+RSCore.h"; sourceTree = "<group>"; };
 		84CFF56C1AC3D20A00CEA6C8 /* NSImage+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+RSCore.m"; sourceTree = "<group>"; };
 		84D5BA1D201E87E2009092BD /* URLPasteboardWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLPasteboardWriter.swift; path = AppKit/URLPasteboardWriter.swift; sourceTree = "<group>"; };
@@ -381,14 +373,10 @@
 				849A339C1AC90A0A0015BA09 /* NSTableView+RSCore.m */,
 				849EE72220393A750082A1EA /* NSToolbar+RSCore.swift */,
 				518C3195237B02F6004D740F /* NSView+RSCore.swift */,
-				84CFF5561AC3CF9100CEA6C8 /* NSView+RSCore.h */,
-				84CFF5571AC3CF9100CEA6C8 /* NSView+RSCore.m */,
 				8432B1871DACA2060057D6DF /* NSWindow-Extensions.swift */,
 				849EE70C2039187D0082A1EA /* NSWindowController+RSCore.swift */,
 				840A6C76226274E9001A037B /* FourCharCode.swift */,
 				B2C3DEFB23C6885B00492598 /* Geometry.swift */,
-				8414CBA91C95F8F700333C12 /* RSGeometry.h */,
-				8414CBAA1C95F8F700333C12 /* RSGeometry.m */,
 				65AA59FB2322812B00D19FA1 /* RSAppMovementMonitor.swift */,
 				65CF4DE52135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift */,
 				8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */,
@@ -455,7 +443,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CFF5581AC3CF9100CEA6C8 /* NSView+RSCore.h in Headers */,
 				84134D1F1C59D5450063FD24 /* NSCalendar+RSCore.h in Headers */,
 				849A339D1AC90A0A0015BA09 /* NSTableView+RSCore.h in Headers */,
 				84CFF52B1AC3CA9700CEA6C8 /* NSData+RSCore.h in Headers */,
@@ -466,7 +453,6 @@
 				84CFF56D1AC3D20A00CEA6C8 /* NSImage+RSCore.h in Headers */,
 				84CFF54B1AC3CDAC00CEA6C8 /* NSString+RSCore.h in Headers */,
 				84536F661BB856D4001E1639 /* NSFileManager+RSCore.h in Headers */,
-				8414CBAB1C95F8F700333C12 /* RSGeometry.h in Headers */,
 				84C632A4200D356E007BEEAA /* SendToBlogEditorApp.h in Headers */,
 				849B08971BF7BCE30090CEE4 /* NSPasteboard+RSCore.h in Headers */,
 			);
@@ -693,7 +679,6 @@
 				510BD10F232C369C002692E4 /* ManagedResourceFile.swift in Sources */,
 				84C632A5200D356E007BEEAA /* SendToBlogEditorApp.m in Sources */,
 				84536F671BB856D4001E1639 /* NSFileManager+RSCore.m in Sources */,
-				8414CBAC1C95F8F700333C12 /* RSGeometry.m in Sources */,
 				84134D201C59D5450063FD24 /* NSCalendar+RSCore.m in Sources */,
 				B2BF9A6723BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */,
 				849EE70D2039187D0082A1EA /* NSWindowController+RSCore.swift in Sources */,
@@ -711,7 +696,6 @@
 				84F20F831F16BA6200D8E682 /* PropertyList.swift in Sources */,
 				84C687351FBC025600345C9E /* Log.swift in Sources */,
 				84C632A1200D30F1007BEEAA /* NSAppleEventDescriptor+RSCore.m in Sources */,
-				84CFF5591AC3CF9100CEA6C8 /* NSView+RSCore.m in Sources */,
 				84FEB4AC1D19D7F4004727E5 /* Date+Extensions.swift in Sources */,
 				8479213E1FBA4285004AD08C /* WebViewWindowController.swift in Sources */,
 				844B5B571FE9D36000C7C76A /* Keyboard.swift in Sources */,
