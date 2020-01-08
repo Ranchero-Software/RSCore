@@ -119,6 +119,7 @@
 		B2BF9A6723BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */; };
 		B2BF9A6823BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */; };
 		B2BF9A6C23BD63A600CCE9A0 /* MacroProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6B23BD63A600CCE9A0 /* MacroProcessorTests.swift */; };
+		B2C3DEFC23C6885B00492598 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DEFB23C6885B00492598 /* Geometry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,7 @@
 		84FEB4AB1D19D7F4004727E5 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MacroProcessor.swift; path = RSCore/MacroProcessor.swift; sourceTree = "<group>"; };
 		B2BF9A6B23BD63A600CCE9A0 /* MacroProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroProcessorTests.swift; sourceTree = "<group>"; };
+		B2C3DEFB23C6885B00492598 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = AppKit/Geometry.swift; sourceTree = "<group>"; };
 		D511EEFD20242E4C00712EC3 /* RSCore_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_target.xcconfig; sourceTree = "<group>"; };
 		D511EEFE20242E4C00712EC3 /* RSCore_project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project.xcconfig; sourceTree = "<group>"; };
 		D511EEFF20242E4C00712EC3 /* RSCoreTests_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCoreTests_target.xcconfig; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				8432B1871DACA2060057D6DF /* NSWindow-Extensions.swift */,
 				849EE70C2039187D0082A1EA /* NSWindowController+RSCore.swift */,
 				840A6C76226274E9001A037B /* FourCharCode.swift */,
+				B2C3DEFB23C6885B00492598 /* Geometry.swift */,
 				8414CBA91C95F8F700333C12 /* RSGeometry.h */,
 				8414CBAA1C95F8F700333C12 /* RSGeometry.m */,
 				65AA59FB2322812B00D19FA1 /* RSAppMovementMonitor.swift */,
@@ -732,6 +735,7 @@
 				84C326872038C9F6006A025C /* CoalescingQueue.swift in Sources */,
 				847E64A522628C7A00E00365 /* KeyboardDelegateProtocol.swift in Sources */,
 				849EE72320393A750082A1EA /* NSToolbar+RSCore.swift in Sources */,
+				B2C3DEFC23C6885B00492598 /* Geometry.swift in Sources */,
 				8476F7AA21A757D100C808C3 /* Renamable.swift in Sources */,
 				518C3196237B02F6004D740F /* NSView+Extensions.swift in Sources */,
 				849A339E1AC90A0A0015BA09 /* NSTableView+RSCore.m in Sources */,
