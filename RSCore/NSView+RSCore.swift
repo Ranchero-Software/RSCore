@@ -29,12 +29,12 @@ public extension NSView {
 	- Parameter subview: The subview to constrain. Must be a descendant of `self`.
 	*/
 	func addFullSizeConstraints(forSubview subview: NSView) {
-		let d = ["subview": subview]
-
-		var constraints = NSLayoutConstraint.constraints(withVisualFormat: "|[subview|", options: [], metrics: nil, views: d)
-		constraints.append(contentsOf: NSLayoutConstraint.constraints(withVisualFormat: "V:|[subview|", options: [], metrics: nil, views: d))
-
-		self.addConstraints(constraints)
+		NSLayoutConstraint.activate([
+			subview.leadingAnchor.constraint(equalTo: leadingAnchor),
+			subview.trailingAnchor.constraint(equalTo: trailingAnchor),
+			subview.topAnchor.constraint(equalTo: topAnchor),
+			subview.bottomAnchor.constraint(equalTo: bottomAnchor)
+		])
 	}
 
 	/**
