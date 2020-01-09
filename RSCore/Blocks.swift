@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias VoidCompletionBlock = () -> ()
+public typealias VoidCompletionBlock = () -> Void
 
 /// Call a VoidCompletionBlock on the main thread.
 public func callVoidCompletionBlock(_ block: @escaping VoidCompletionBlock) {
@@ -18,3 +18,6 @@ public func callVoidCompletionBlock(_ block: @escaping VoidCompletionBlock) {
 public typealias VoidResult = Result<Void, Error>
 public typealias VoidResultCompletionBlock = (VoidResult) -> Void
 
+//typedef void (^RSImageResultBlock)(RS_IMAGE *image);
+
+public typealias ImageResultBlock = (RSImage?) -> Void
