@@ -8,7 +8,6 @@
 
 @import Foundation;
 
-#import <RSCore/RSBlocks.h>
 #import <RSCore/RSPlatform.h>
 
 
@@ -26,8 +25,6 @@
 
 #import <RSCore/NSPasteboard+RSCore.h>
 #import <RSCore/NSTableView+RSCore.h>
-
-#import <RSCore/NSImage+RSCore.h>
 
 #import <RSCore/NSAppleEventDescriptor+RSCore.h>
 #import <RSCore/SendToBlogEditorApp.h>

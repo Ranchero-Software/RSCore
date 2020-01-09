@@ -61,16 +61,14 @@ public extension RSImage {
 		#endif
 	}
 		
-	#if os(iOS)
-	static func rs_image(with data: Data, imageResultBlock: @escaping (RSImage?) -> Void) {
+	static func image(with data: Data, imageResultBlock: @escaping ImageResultBlock) {
 		DispatchQueue.global().async {
-			let image = UIImage(data: data)
+			let image = RSImage(data: data)
 			DispatchQueue.main.async {
 				imageResultBlock(image)
 			}
 		}
 	}
-	#endif
 
 	// Note: the returned image may be larger than maxPixelSize, but not more than maxPixelSize * 2.
 	static func scaleImage(_ data: Data, maxPixelSize: Int) -> CGImage? {
