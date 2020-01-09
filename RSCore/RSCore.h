@@ -29,4 +29,8 @@
 #import <RSCore/NSAppleEventDescriptor+RSCore.h>
 #import <RSCore/SendToBlogEditorApp.h>
 
+#else
+
+#import <UIKit/UIKit.h>
+
 #endif
