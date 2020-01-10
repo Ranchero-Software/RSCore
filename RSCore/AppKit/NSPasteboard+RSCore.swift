@@ -34,7 +34,7 @@ public extension NSPasteboard {
 
 public extension NSPasteboard {
 
-	static func urlStringFromPasteboard(_ pasteboard: NSPasteboard) -> String? {
+	static func urlString(from pasteboard: NSPasteboard) -> String? {
 		return pasteboard.urlString
 	}
 
