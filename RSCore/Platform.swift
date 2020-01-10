@@ -23,7 +23,7 @@ public struct Platform {
 
 			return dataFolder
 		} catch {
-			print("DataFolder error:", error)
+			os_log(.error, log: .default, "Platform.dataFolder error: %@", error.localizedDescription)
 		}
 
 		return nil
@@ -43,7 +43,7 @@ public struct Platform {
 			try FileManager.default.createDirectory(at: dataFolder, withIntermediateDirectories: true, attributes: nil)
 			return dataFolder.path
 		} catch {
-			print("DataSubfolder error:", error)
+			os_log(.error, log: .default, "Platform.dataSubfolder error: %@", error.localizedDescription)
 		}
 
 		return nil
