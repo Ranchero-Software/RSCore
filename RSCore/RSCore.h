@@ -8,9 +8,6 @@
 
 @import Foundation;
 
-#import <RSCore/RSPlatform.h>
-
-
 /*Foundation*/
 
 #import <RSCore/NSCalendar+RSCore.h>

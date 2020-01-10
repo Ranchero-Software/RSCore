@@ -36,8 +36,6 @@
 		842635571D7FA1C800196285 /* NSTableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842635561D7FA1C800196285 /* NSTableView+Extensions.swift */; };
 		842635591D7FA24800196285 /* NSOutlineView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842635581D7FA24800196285 /* NSOutlineView+Extensions.swift */; };
 		842DD7C41E14995000E061EB /* RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF4F91AC3C69700CEA6C8 /* RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		842DD7C91E14995C00E061EB /* RSPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		842DD7CA1E14995C00E061EB /* RSPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */; };
 		842DD7D81E14996300E061EB /* NSCalendar+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84134D1D1C59D5450063FD24 /* NSCalendar+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7D91E14996300E061EB /* NSCalendar+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84134D1E1C59D5450063FD24 /* NSCalendar+RSCore.m */; };
 		842DD7DA1E14996300E061EB /* NSData+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5291AC3CA9700CEA6C8 /* NSData+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,8 +91,6 @@
 		84C687391FBC028900345C9E /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687371FBC028900345C9E /* LogItem.swift */; };
 		84CFF4FA1AC3C69700CEA6C8 /* RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF4F91AC3C69700CEA6C8 /* RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84CFF5001AC3C69700CEA6C8 /* RSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CFF4F41AC3C69700CEA6C8 /* RSCore.framework */; };
-		84CFF51A1AC3C77500CEA6C8 /* RSPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84CFF51B1AC3C77500CEA6C8 /* RSPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */; };
 		84CFF52B1AC3CA9700CEA6C8 /* NSData+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5291AC3CA9700CEA6C8 /* NSData+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84CFF52C1AC3CA9700CEA6C8 /* NSData+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF52A1AC3CA9700CEA6C8 /* NSData+RSCore.m */; };
 		84CFF54B1AC3CDAC00CEA6C8 /* NSString+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5491AC3CDAC00CEA6C8 /* NSString+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -186,8 +182,6 @@
 		84CFF4F91AC3C69700CEA6C8 /* RSCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RSCore.h; path = RSCore/RSCore.h; sourceTree = "<group>"; };
 		84CFF4FF1AC3C69700CEA6C8 /* RSCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CFF5051AC3C69700CEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSPlatform.h; path = RSCore/RSPlatform.h; sourceTree = "<group>"; };
-		84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSPlatform.m; path = RSCore/RSPlatform.m; sourceTree = "<group>"; };
 		84CFF5291AC3CA9700CEA6C8 /* NSData+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+RSCore.h"; sourceTree = "<group>"; };
 		84CFF52A1AC3CA9700CEA6C8 /* NSData+RSCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+RSCore.m"; sourceTree = "<group>"; };
 		84CFF5491AC3CDAC00CEA6C8 /* NSString+RSCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RSCore.h"; sourceTree = "<group>"; };
@@ -264,8 +258,6 @@
 				84CFF4F91AC3C69700CEA6C8 /* RSCore.h */,
 				8489A2F7239250C60035AB6E /* Blocks.swift */,
 				B2C3DF0223C8010B00492598 /* Platform.swift */,
-				84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */,
-				84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */,
 				845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */,
 				B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */,
 				84B99C931FAE64D400ECDEDB /* DisplayNameProvider.swift */,
@@ -415,7 +407,6 @@
 			files = (
 				842DD7DA1E14996300E061EB /* NSData+RSCore.h in Headers */,
 				842DD7EE1E14996300E061EB /* NSString+RSCore.h in Headers */,
-				842DD7C91E14995C00E061EB /* RSPlatform.h in Headers */,
 				842DD7C41E14995000E061EB /* RSCore.h in Headers */,
 				842DD7D81E14996300E061EB /* NSCalendar+RSCore.h in Headers */,
 				842DD7E01E14996300E061EB /* NSFileManager+RSCore.h in Headers */,
@@ -429,7 +420,6 @@
 				84134D1F1C59D5450063FD24 /* NSCalendar+RSCore.h in Headers */,
 				849A339D1AC90A0A0015BA09 /* NSTableView+RSCore.h in Headers */,
 				84CFF52B1AC3CA9700CEA6C8 /* NSData+RSCore.h in Headers */,
-				84CFF51A1AC3C77500CEA6C8 /* RSPlatform.h in Headers */,
 				84CFF4FA1AC3C69700CEA6C8 /* RSCore.h in Headers */,
 				84C632A0200D30F1007BEEAA /* NSAppleEventDescriptor+RSCore.h in Headers */,
 				84CFF54B1AC3CDAC00CEA6C8 /* NSString+RSCore.h in Headers */,
@@ -640,7 +630,6 @@
 				842DD7F21E14996B00E061EB /* Date+Extensions.swift in Sources */,
 				51C452252264E22B00C03939 /* UIViewController-Extensions.swift in Sources */,
 				84C687361FBC025600345C9E /* Log.swift in Sources */,
-				842DD7CA1E14995C00E061EB /* RSPlatform.m in Sources */,
 				842DD7D91E14996300E061EB /* NSCalendar+RSCore.m in Sources */,
 				B2BF9A6823BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */,
 				51C452262264E22B00C03939 /* UIApplication-Extensions.swift in Sources */,
@@ -702,7 +691,6 @@
 				518C3196237B02F6004D740F /* NSView+RSCore.swift in Sources */,
 				849A339E1AC90A0A0015BA09 /* NSTableView+RSCore.m in Sources */,
 				8434D15C200BD6F400D6281E /* UserApp.swift in Sources */,
-				84CFF51B1AC3C77500CEA6C8 /* RSPlatform.m in Sources */,
 				845A291F1FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */,
 				84CFF52C1AC3CA9700CEA6C8 /* NSData+RSCore.m in Sources */,
 			);
