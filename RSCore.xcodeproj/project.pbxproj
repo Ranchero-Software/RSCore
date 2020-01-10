@@ -110,6 +110,8 @@
 		B2BF9A6823BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */; };
 		B2BF9A6C23BD63A600CCE9A0 /* MacroProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6B23BD63A600CCE9A0 /* MacroProcessorTests.swift */; };
 		B2C3DEFC23C6885B00492598 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DEFB23C6885B00492598 /* Geometry.swift */; };
+		B2C3DF0323C8010B00492598 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF0223C8010B00492598 /* Platform.swift */; };
+		B2C3DF0423C8010B00492598 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF0223C8010B00492598 /* Platform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +204,7 @@
 		B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MacroProcessor.swift; path = RSCore/MacroProcessor.swift; sourceTree = "<group>"; };
 		B2BF9A6B23BD63A600CCE9A0 /* MacroProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroProcessorTests.swift; sourceTree = "<group>"; };
 		B2C3DEFB23C6885B00492598 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = AppKit/Geometry.swift; sourceTree = "<group>"; };
+		B2C3DF0223C8010B00492598 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = RSCore/Platform.swift; sourceTree = "<group>"; };
 		D511EEFD20242E4C00712EC3 /* RSCore_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_target.xcconfig; sourceTree = "<group>"; };
 		D511EEFE20242E4C00712EC3 /* RSCore_project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project.xcconfig; sourceTree = "<group>"; };
 		D511EEFF20242E4C00712EC3 /* RSCoreTests_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCoreTests_target.xcconfig; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 			children = (
 				84CFF4F91AC3C69700CEA6C8 /* RSCore.h */,
 				8489A2F7239250C60035AB6E /* Blocks.swift */,
+				B2C3DF0223C8010B00492598 /* Platform.swift */,
 				84CFF5181AC3C77500CEA6C8 /* RSPlatform.h */,
 				84CFF5191AC3C77500CEA6C8 /* RSPlatform.m */,
 				845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */,
@@ -618,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C3DF0423C8010B00492598 /* Platform.swift in Sources */,
 				842DD7F41E14996B00E061EB /* Set+Extensions.swift in Sources */,
 				84B99C9B1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				847E64A32262793300E00365 /* SendToCommand.swift in Sources */,
@@ -690,6 +695,7 @@
 				65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */,
 				65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */,
 				8414CBA71C95F2EA00333C12 /* Set+Extensions.swift in Sources */,
+				B2C3DF0323C8010B00492598 /* Platform.swift in Sources */,
 				847E64A22262793300E00365 /* SendToCommand.swift in Sources */,
 				84B99C9A1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				84E34DA61F9FA1070077082F /* UndoableCommand.swift in Sources */,
