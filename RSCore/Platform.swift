@@ -9,7 +9,7 @@
 import Foundation
 import os
 
-public struct Platform {
+public enum Platform {
 	static func dataFolder(forApplication appName: String?) -> URL? {
 		do {
 			var dataFolder = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
