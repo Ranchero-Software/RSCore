@@ -9,7 +9,26 @@
 import Foundation
 import os
 
-public struct Platform {
+public enum Platform {
+
+	public static func dataSubfolder(forApplication appName: String?, folderName: String) -> String? {
+		guard let dataFolder = dataFile(forApplication: appName, filename: folderName) else {
+			return nil
+		}
+
+		do {
+			try FileManager.default.createDirectory(at: dataFolder, withIntermediateDirectories: true, attributes: nil)
+			return dataFolder.path
+		} catch {
+			os_log(.error, log: .default, "Platform.dataSubfolder error: %@", error.localizedDescription)
+		}
+
+		return nil
+	}
+}
+
+private extension Platform {
+
 	static func dataFolder(forApplication appName: String?) -> URL? {
 		do {
 			var dataFolder = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
@@ -32,20 +51,5 @@ public struct Platform {
 	static func dataFile(forApplication appName: String?, filename: String) -> URL? {
 		let dataFolder = self.dataFolder(forApplication: appName)
 		return dataFolder?.appendingPathComponent(filename)
-	}
-
-	public static func dataSubfolder(forApplication appName: String?, folderName: String) -> String? {
-		guard let dataFolder = dataFile(forApplication: appName, filename: folderName) else {
-			return nil
-		}
-
-		do {
-			try FileManager.default.createDirectory(at: dataFolder, withIntermediateDirectories: true, attributes: nil)
-			return dataFolder.path
-		} catch {
-			os_log(.error, log: .default, "Platform.dataSubfolder error: %@", error.localizedDescription)
-		}
-
-		return nil
 	}
 }
