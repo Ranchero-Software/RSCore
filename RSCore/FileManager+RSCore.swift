@@ -10,8 +10,8 @@ import Foundation
 
 public extension FileManager {
 
-	func fileIsFolder(atPath file: String) -> Bool {
-		let url = URL(fileURLWithPath: file)
+	func fileIsFolder(atPath path: String) -> Bool {
+		let url = URL(fileURLWithPath: path)
 
 		if let values = try? url.resourceValues(forKeys: [.isDirectoryKey]) {
 			return values.isDirectory ?? false
