@@ -17,7 +17,7 @@ public extension FileManager {
 
 	- Returns: `true` if the path refers to a folder; otherwise `false`.
 	*/
-	func fileIsFolder(atPath path: String) -> Bool {
+	func isFolder(atPath path: String) -> Bool {
 		let url = URL(fileURLWithPath: path)
 
 		if let values = try? url.resourceValues(forKeys: [.isDirectoryKey]) {
@@ -37,8 +37,8 @@ public extension FileManager {
 	- Note: This function does not copy files whose names begin with a period.
 	*/
 	func copyFiles(fromFolder source: String, toFolder destination: String) throws {
-		assert(fileIsFolder(atPath: source))
-		assert(fileIsFolder(atPath: destination))
+		assert(isFolder(atPath: source))
+		assert(isFolder(atPath: destination))
 
 		let sourceURL = URL(fileURLWithPath: source)
 		let destinationURL = URL(fileURLWithPath: destination)
@@ -66,9 +66,9 @@ public extension FileManager {
 	- Returns: An array containing the names of files in `folder`, an empty array if `folder` does not refer to a folder, or `nil` if an error occurs.
 	*/
 	func filenames(inFolder folder: String) -> [String]? {
-		assert(fileIsFolder(atPath: folder))
+		assert(isFolder(atPath: folder))
 
-		guard fileIsFolder(atPath: folder) else {
+		guard isFolder(atPath: folder) else {
 			return []
 		}
 
