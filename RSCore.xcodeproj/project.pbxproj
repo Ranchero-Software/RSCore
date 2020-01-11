@@ -104,6 +104,8 @@
 		B2C3DF0423C8010B00492598 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF0223C8010B00492598 /* Platform.swift */; };
 		B2C3DF2C23C9490400492598 /* Calendar+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF2B23C9490400492598 /* Calendar+RSCore.swift */; };
 		B2C3DF2D23C9490400492598 /* Calendar+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF2B23C9490400492598 /* Calendar+RSCore.swift */; };
+		B2C3DF3123C9B1E200492598 /* FileManager+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */; };
+		B2C3DF3223C9B1E500492598 /* FileManager+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +194,7 @@
 		B2C3DEFB23C6885B00492598 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = AppKit/Geometry.swift; sourceTree = "<group>"; };
 		B2C3DF0223C8010B00492598 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = RSCore/Platform.swift; sourceTree = "<group>"; };
 		B2C3DF2B23C9490400492598 /* Calendar+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+RSCore.swift"; sourceTree = "<group>"; };
+		B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+RSCore.swift"; sourceTree = "<group>"; };
 		D511EEFD20242E4C00712EC3 /* RSCore_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_target.xcconfig; sourceTree = "<group>"; };
 		D511EEFE20242E4C00712EC3 /* RSCore_project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project.xcconfig; sourceTree = "<group>"; };
 		D511EEFF20242E4C00712EC3 /* RSCoreTests_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCoreTests_target.xcconfig; sourceTree = "<group>"; };
@@ -315,6 +318,7 @@
 				B2C3DF2B23C9490400492598 /* Calendar+RSCore.swift */,
 				84CFF5291AC3CA9700CEA6C8 /* NSData+RSCore.h */,
 				84CFF52A1AC3CA9700CEA6C8 /* NSData+RSCore.m */,
+				B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */,
 				84536F641BB856D4001E1639 /* NSFileManager+RSCore.h */,
 				84536F651BB856D4001E1639 /* NSFileManager+RSCore.m */,
 				84CFF5491AC3CDAC00CEA6C8 /* NSString+RSCore.h */,
@@ -614,6 +618,7 @@
 				842DD7E11E14996300E061EB /* NSFileManager+RSCore.m in Sources */,
 				8489A2F9239250C60035AB6E /* Blocks.swift in Sources */,
 				84B99C951FAE64D500ECDEDB /* DisplayNameProvider.swift in Sources */,
+				B2C3DF3223C9B1E500492598 /* FileManager+RSCore.swift in Sources */,
 				51C45072225FF25800C03939 /* RSImage.swift in Sources */,
 				8402047F1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
 				51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */,
@@ -687,6 +692,7 @@
 				8434D15C200BD6F400D6281E /* UserApp.swift in Sources */,
 				845A291F1FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */,
 				84CFF52C1AC3CA9700CEA6C8 /* NSData+RSCore.m in Sources */,
+				B2C3DF3123C9B1E200492598 /* FileManager+RSCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
