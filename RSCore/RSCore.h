@@ -8,9 +8,6 @@
 
 @import Foundation;
 
-#import <RSCore/RSPlatform.h>
-
-
 /*Foundation*/
 
 #import <RSCore/NSCalendar+RSCore.h>
@@ -23,7 +20,6 @@
 
 /*AppKit*/
 
-#import <RSCore/NSPasteboard+RSCore.h>
 #import <RSCore/NSTableView+RSCore.h>
 
 #import <RSCore/NSAppleEventDescriptor+RSCore.h>

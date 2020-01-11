@@ -29,6 +29,27 @@ public extension NSPasteboard {
 		}
 		return false
 	}
+
+}
+
+public extension NSPasteboard {
+
+	static func urlString(from pasteboard: NSPasteboard) -> String? {
+		return pasteboard.urlString
+	}
+
+	private var urlString: String? {
+		guard let type = self.availableType(from: [.string]) else {
+			return nil
+		}
+
+		guard let str = self.string(forType: type), !str.isEmpty else {
+			return nil
+		}
+
+		return NSString(string: str).rs_stringMayBeURL() ? str : nil
+	}
+
 }
 
 private extension NSPasteboard {
