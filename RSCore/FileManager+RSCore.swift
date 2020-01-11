@@ -20,18 +20,6 @@ public extension FileManager {
 		return false
 	}
 
-	private func copyFile(atPath source: String, toPath destination: String, overwriting: Bool) throws {
-		assert(fileExists(atPath: source))
-
-		if fileExists(atPath: destination) {
-			if (overwriting) {
-				try removeItem(atPath: destination)
-			}
-		}
-
-		try copyItem(atPath: source, toPath: destination)
-	}
-
 	func copyFiles(fromFolder source: String, toFolder destination: String) throws {
 		assert(fileIsFolder(atPath: source))
 		assert(fileIsFolder(atPath: destination))
@@ -68,6 +56,22 @@ public extension FileManager {
 		let filenames = self.filenames(inFolder: folder)
 		let url = URL(fileURLWithPath: folder)
 		return filenames.map { url.appendingPathComponent($0).path }
+	}
+
+}
+
+private extension FileManager {
+
+	func copyFile(atPath source: String, toPath destination: String, overwriting: Bool) throws {
+		assert(fileExists(atPath: source))
+
+		if fileExists(atPath: destination) {
+			if (overwriting) {
+				try removeItem(atPath: destination)
+			}
+		}
+
+		try copyItem(atPath: source, toPath: destination)
 	}
 
 }
