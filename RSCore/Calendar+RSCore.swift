@@ -16,7 +16,7 @@ public extension Calendar {
 		return cached.isDateInToday(date)
 	}
 
-	static var startOfToday = {
+	static var startOfToday: Date {
 		cached.startOfDay(for: Date())
 	}
 	
