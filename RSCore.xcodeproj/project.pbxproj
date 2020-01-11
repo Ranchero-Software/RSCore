@@ -106,6 +106,7 @@
 		B2C3DF2D23C9490400492598 /* Calendar+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF2B23C9490400492598 /* Calendar+RSCore.swift */; };
 		B2C3DF3123C9B1E200492598 /* FileManager+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */; };
 		B2C3DF3223C9B1E500492598 /* FileManager+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */; };
+		B2C3DF3423CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF3323CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +196,7 @@
 		B2C3DF0223C8010B00492598 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = RSCore/Platform.swift; sourceTree = "<group>"; };
 		B2C3DF2B23C9490400492598 /* Calendar+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+RSCore.swift"; sourceTree = "<group>"; };
 		B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+RSCore.swift"; sourceTree = "<group>"; };
+		B2C3DF3323CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAppleEventDescriptor+RSCore.swift"; path = "AppKit/NSAppleEventDescriptor+RSCore.swift"; sourceTree = "<group>"; };
 		D511EEFD20242E4C00712EC3 /* RSCore_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_target.xcconfig; sourceTree = "<group>"; };
 		D511EEFE20242E4C00712EC3 /* RSCore_project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project.xcconfig; sourceTree = "<group>"; };
 		D511EEFF20242E4C00712EC3 /* RSCoreTests_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCoreTests_target.xcconfig; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */,
+				B2C3DF3323CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift */,
 				84C6329E200D30F1007BEEAA /* NSAppleEventDescriptor+RSCore.h */,
 				84C6329F200D30F1007BEEAA /* NSAppleEventDescriptor+RSCore.m */,
 				84C632A2200D356E007BEEAA /* SendToBlogEditorApp.h */,
@@ -657,6 +660,7 @@
 				B2C3DF2C23C9490400492598 /* Calendar+RSCore.swift in Sources */,
 				847E64A92262900000E00365 /* IndeterminateProgressWindowController.swift in Sources */,
 				84AD1EA820315BA900BC20B7 /* NSPasteboard+RSCore.swift in Sources */,
+				B2C3DF3423CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift in Sources */,
 				84D5BA1E201E87E2009092BD /* URLPasteboardWriter.swift in Sources */,
 				842635571D7FA1C800196285 /* NSTableView+Extensions.swift in Sources */,
 				84F20F831F16BA6200D8E682 /* PropertyList.swift in Sources */,
