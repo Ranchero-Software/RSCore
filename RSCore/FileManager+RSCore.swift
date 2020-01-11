@@ -42,18 +42,21 @@ public extension FileManager {
 
 	}
 
-	func filenames(inFolder folder: String) -> [String] {
+	func filenames(inFolder folder: String) -> [String]? {
 		assert(fileIsFolder(atPath: folder))
 
 		guard fileIsFolder(atPath: folder) else {
 			return []
 		}
 
-		return (try? self.contentsOfDirectory(atPath: folder)) ?? []
+		return try? self.contentsOfDirectory(atPath: folder)
 	}
 
-	func filePaths(inFolder folder: String) -> [String] {
-		let filenames = self.filenames(inFolder: folder)
+	func filePaths(inFolder folder: String) -> [String]? {
+		guard let filenames = self.filenames(inFolder: folder) else {
+			return nil
+		}
+		
 		let url = URL(fileURLWithPath: folder)
 		return filenames.map { url.appendingPathComponent($0).path }
 	}
