@@ -55,7 +55,11 @@ public extension FileManager {
 	}
 
 	func filenames(inFolder folder: String) -> [String] {
-		guard fileIsFolder(atPath: folder) else { return [] }
+		assert(fileIsFolder(atPath: folder))
+
+		guard fileIsFolder(atPath: folder) else {
+			return []
+		}
 
 		return (try? self.contentsOfDirectory(atPath: folder)) ?? []
 	}
