@@ -16,7 +16,7 @@
 
 #if !TARGET_OS_IPHONE
 
-/*AppKit*/
+#import <AppKit/AppKit.h>
 
 #else
 
