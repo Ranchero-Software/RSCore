@@ -10,9 +10,7 @@ import Foundation
 
 public extension Calendar {
 
-	/**
-	A cached `.autoupdatingCurrent` for performance.
-	*/
+	/// A cached `.autoupdatingCurrent` for performance.
 	static let cached: Calendar = .autoupdatingCurrent
 
 	/**
@@ -26,9 +24,7 @@ public extension Calendar {
 		return cached.isDateInToday(date)
 	}
 
-	/**
-	The first moment of today.
-	*/
+	/// The first moment of today.
 	static var startOfToday: Date {
 		cached.startOfDay(for: Date())
 	}
