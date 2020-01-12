@@ -71,8 +71,6 @@
 		84B99C9A1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99C991FAE650100ECDEDB /* OPMLRepresentable.swift */; };
 		84B99C9B1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99C991FAE650100ECDEDB /* OPMLRepresentable.swift */; };
 		84C326872038C9F6006A025C /* CoalescingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C326862038C9F6006A025C /* CoalescingQueue.swift */; };
-		84C632A4200D356E007BEEAA /* SendToBlogEditorApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 84C632A2200D356E007BEEAA /* SendToBlogEditorApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84C632A5200D356E007BEEAA /* SendToBlogEditorApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C632A3200D356E007BEEAA /* SendToBlogEditorApp.m */; };
 		84C687351FBC025600345C9E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687341FBC025600345C9E /* Log.swift */; };
 		84C687361FBC025600345C9E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687341FBC025600345C9E /* Log.swift */; };
 		84C687381FBC028900345C9E /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687371FBC028900345C9E /* LogItem.swift */; };
@@ -159,8 +157,6 @@
 		84B99C931FAE64D400ECDEDB /* DisplayNameProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayNameProvider.swift; path = RSCore/DisplayNameProvider.swift; sourceTree = "<group>"; };
 		84B99C991FAE650100ECDEDB /* OPMLRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPMLRepresentable.swift; path = RSCore/OPMLRepresentable.swift; sourceTree = "<group>"; };
 		84C326862038C9F6006A025C /* CoalescingQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoalescingQueue.swift; path = RSCore/CoalescingQueue.swift; sourceTree = "<group>"; };
-		84C632A2200D356E007BEEAA /* SendToBlogEditorApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SendToBlogEditorApp.h; path = AppKit/SendToBlogEditorApp.h; sourceTree = "<group>"; };
-		84C632A3200D356E007BEEAA /* SendToBlogEditorApp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SendToBlogEditorApp.m; path = AppKit/SendToBlogEditorApp.m; sourceTree = "<group>"; };
 		84C687341FBC025600345C9E /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		84C687371FBC028900345C9E /* LogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItem.swift; sourceTree = "<group>"; };
 		84CFF4F41AC3C69700CEA6C8 /* RSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,8 +323,6 @@
 				65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */,
 				B2C3DF3323CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift */,
 				B2C3DF4623CAAD2B00492598 /* SendToBlogEditorApp.swift */,
-				84C632A2200D356E007BEEAA /* SendToBlogEditorApp.h */,
-				84C632A3200D356E007BEEAA /* SendToBlogEditorApp.m */,
 				84E8E0D8202EC39800562D8F /* NSMenu+Extensions.swift */,
 				842635581D7FA24800196285 /* NSOutlineView+RSCore.swift */,
 				84AD1EA720315BA900BC20B7 /* NSPasteboard+RSCore.swift */,
@@ -404,7 +398,6 @@
 				84CFF52B1AC3CA9700CEA6C8 /* NSData+RSCore.h in Headers */,
 				84CFF4FA1AC3C69700CEA6C8 /* RSCore.h in Headers */,
 				84CFF54B1AC3CDAC00CEA6C8 /* NSString+RSCore.h in Headers */,
-				84C632A4200D356E007BEEAA /* SendToBlogEditorApp.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,7 +619,6 @@
 				8432B1881DACA2060057D6DF /* NSWindow-Extensions.swift in Sources */,
 				8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
 				510BD10F232C369C002692E4 /* ManagedResourceFile.swift in Sources */,
-				84C632A5200D356E007BEEAA /* SendToBlogEditorApp.m in Sources */,
 				B2BF9A6723BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */,
 				849EE70D2039187D0082A1EA /* NSWindowController+RSCore.swift in Sources */,
 				51C4506E225FF23B00C03939 /* RSScreen.swift in Sources */,

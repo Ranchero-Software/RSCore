@@ -18,8 +18,6 @@
 
 /*AppKit*/
 
-#import <RSCore/SendToBlogEditorApp.h>
-
 #else
 
 #import <UIKit/UIKit.h>
