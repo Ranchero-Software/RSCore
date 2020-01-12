@@ -32,7 +32,7 @@
 		840F7BFA21AD05560057E851 /* String+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F7BF821AD05560057E851 /* String+RSCore.swift */; };
 		8414CBA71C95F2EA00333C12 /* Set+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414CBA61C95F2EA00333C12 /* Set+Extensions.swift */; };
 		842635571D7FA1C800196285 /* NSTableView+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842635561D7FA1C800196285 /* NSTableView+RSCore.swift */; };
-		842635591D7FA24800196285 /* NSOutlineView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842635581D7FA24800196285 /* NSOutlineView+Extensions.swift */; };
+		842635591D7FA24800196285 /* NSOutlineView+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842635581D7FA24800196285 /* NSOutlineView+RSCore.swift */; };
 		842DD7C41E14995000E061EB /* RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF4F91AC3C69700CEA6C8 /* RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7DA1E14996300E061EB /* NSData+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5291AC3CA9700CEA6C8 /* NSData+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		842DD7DB1E14996300E061EB /* NSData+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF52A1AC3CA9700CEA6C8 /* NSData+RSCore.m */; };
@@ -130,7 +130,7 @@
 		840F7BF821AD05560057E851 /* String+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RSCore.swift"; sourceTree = "<group>"; };
 		8414CBA61C95F2EA00333C12 /* Set+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Extensions.swift"; sourceTree = "<group>"; };
 		842635561D7FA1C800196285 /* NSTableView+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTableView+RSCore.swift"; sourceTree = "<group>"; };
-		842635581D7FA24800196285 /* NSOutlineView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOutlineView+Extensions.swift"; sourceTree = "<group>"; };
+		842635581D7FA24800196285 /* NSOutlineView+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOutlineView+RSCore.swift"; sourceTree = "<group>"; };
 		842DD7BC1E14993900E061EB /* RSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842DD7BF1E14993900E061EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8432B1851DACA0E90057D6DF /* NSResponder-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSResponder-Extensions.swift"; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 				84C632A2200D356E007BEEAA /* SendToBlogEditorApp.h */,
 				84C632A3200D356E007BEEAA /* SendToBlogEditorApp.m */,
 				84E8E0D8202EC39800562D8F /* NSMenu+Extensions.swift */,
-				842635581D7FA24800196285 /* NSOutlineView+Extensions.swift */,
+				842635581D7FA24800196285 /* NSOutlineView+RSCore.swift */,
 				84AD1EA720315BA900BC20B7 /* NSPasteboard+RSCore.swift */,
 				8432B1851DACA0E90057D6DF /* NSResponder-Extensions.swift */,
 				842635561D7FA1C800196285 /* NSTableView+RSCore.swift */,
@@ -647,7 +647,7 @@
 				51C45071225FF25800C03939 /* RSImage.swift in Sources */,
 				84411E731FE5FFC3004B527F /* NSImage+RSCore.swift in Sources */,
 				840F7BF921AD05560057E851 /* String+RSCore.swift in Sources */,
-				842635591D7FA24800196285 /* NSOutlineView+Extensions.swift in Sources */,
+				842635591D7FA24800196285 /* NSOutlineView+RSCore.swift in Sources */,
 				84AD1EA520315A8800BC20B7 /* PasteboardWriterOwner.swift in Sources */,
 				65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */,
 				65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */,
