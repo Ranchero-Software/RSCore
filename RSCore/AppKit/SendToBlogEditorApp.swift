@@ -56,7 +56,7 @@ public struct SendToBlogEditorApp {
 	/// Sends the receiver's data to the blog editor application described by `targetDescriptor`.
 	public func send() {
 
-		let appleEvent = NSAppleEventDescriptor.appleEvent(withEventClass: .editDataItemAppleEventClass, eventID: .editDataItemAppleEventID, targetDescriptor: targetDescriptor, returnID: .autoGenerate, transactionID: .any)
+		let appleEvent = NSAppleEventDescriptor(eventClass: .editDataItemAppleEventClass, eventID: .editDataItemAppleEventID, targetDescriptor: targetDescriptor, returnID: .autoGenerate, transactionID: .any)
 
 		appleEvent.setParam(paramDescriptor, forKeyword: keyDirectObject)
 
