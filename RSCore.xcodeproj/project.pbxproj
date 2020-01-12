@@ -99,6 +99,7 @@
 		B2C3DF3123C9B1E200492598 /* FileManager+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */; };
 		B2C3DF3223C9B1E500492598 /* FileManager+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */; };
 		B2C3DF3423CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF3323CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift */; };
+		B2C3DF4723CAAD2B00492598 /* SendToBlogEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3DF4623CAAD2B00492598 /* SendToBlogEditorApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,7 @@
 		B2C3DF2B23C9490400492598 /* Calendar+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+RSCore.swift"; sourceTree = "<group>"; };
 		B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+RSCore.swift"; sourceTree = "<group>"; };
 		B2C3DF3323CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSAppleEventDescriptor+RSCore.swift"; path = "AppKit/NSAppleEventDescriptor+RSCore.swift"; sourceTree = "<group>"; };
+		B2C3DF4623CAAD2B00492598 /* SendToBlogEditorApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SendToBlogEditorApp.swift; path = AppKit/SendToBlogEditorApp.swift; sourceTree = "<group>"; };
 		D511EEFD20242E4C00712EC3 /* RSCore_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_target.xcconfig; sourceTree = "<group>"; };
 		D511EEFE20242E4C00712EC3 /* RSCore_project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project.xcconfig; sourceTree = "<group>"; };
 		D511EEFF20242E4C00712EC3 /* RSCoreTests_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCoreTests_target.xcconfig; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			children = (
 				65CF4E1A2135D74500F7DB67 /* NSAppearance+RSCore.swift */,
 				B2C3DF3323CA876B00492598 /* NSAppleEventDescriptor+RSCore.swift */,
+				B2C3DF4623CAAD2B00492598 /* SendToBlogEditorApp.swift */,
 				84C632A2200D356E007BEEAA /* SendToBlogEditorApp.h */,
 				84C632A3200D356E007BEEAA /* SendToBlogEditorApp.m */,
 				84E8E0D8202EC39800562D8F /* NSMenu+Extensions.swift */,
@@ -663,6 +666,7 @@
 				847E64A522628C7A00E00365 /* KeyboardDelegateProtocol.swift in Sources */,
 				849EE72320393A750082A1EA /* NSToolbar+RSCore.swift in Sources */,
 				B2C3DEFC23C6885B00492598 /* Geometry.swift in Sources */,
+				B2C3DF4723CAAD2B00492598 /* SendToBlogEditorApp.swift in Sources */,
 				8476F7AA21A757D100C808C3 /* Renamable.swift in Sources */,
 				518C3196237B02F6004D740F /* NSView+RSCore.swift in Sources */,
 				8434D15C200BD6F400D6281E /* UserApp.swift in Sources */,
