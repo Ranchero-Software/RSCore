@@ -36,6 +36,23 @@ public struct SendToBlogEditorApp {
 	private let sourceHomeURL: String?
 	private let sourceFeedURL: String?
 
+	public init(targetDescriptor: NSAppleEventDescriptor, title: String?, body: String?, summary: String?, link: String?, permalink: String?, subject: String?, creator: String?, commentsURL: String?, guid: String?, sourceName: String?, sourceHomeURL: String?, sourceFeedURL: String?) {
+		self.targetDescriptor = targetDescriptor
+		self.title = title
+		self.body = body
+		self.summary = summary
+		self.link = link
+		self.permalink = permalink
+		self.subject = subject
+		self.creator = creator
+		self.commentsURL = commentsURL
+		self.guid = guid
+		self.sourceName = sourceName
+		self.sourceHomeURL = sourceHomeURL
+		self.sourceFeedURL = sourceFeedURL
+	}
+
+
 	/// Sends the receiver's data to the blog editor application described by `targetDescriptor`.
 	func send() {
 
