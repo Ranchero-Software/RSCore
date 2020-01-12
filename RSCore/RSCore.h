@@ -18,7 +18,6 @@
 
 /*AppKit*/
 
-#import <RSCore/NSTableView+RSCore.h>
 #import <RSCore/SendToBlogEditorApp.h>
 
 #else
