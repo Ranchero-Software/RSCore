@@ -10,27 +10,32 @@ import XCTest
 @testable import RSCore
 
 class Data_RSCoreTests: XCTestCase {
+	var bigHTML: String!
 
-	let htmlTest = "<html><head><title>Sample HTML</title></head><body>Some body text</body></html>"
+	override func setUp() {
+		let bundle = Bundle(for: type(of: self))
+		let htmlFile = bundle.url(forResource: "test", withExtension: "html")!
+		bigHTML = try? String(contentsOf: htmlFile)
+	}
 
 	func testIsProbablyHTML() {
 
-		let utf8 = htmlTest.data(using: .utf8)!
+		let utf8 = bigHTML.data(using: .utf8)!
 		XCTAssertTrue(utf8.isProbablyHTML)
 
-		let utf16 = htmlTest.data(using: .utf16)!
+		let utf16 = bigHTML.data(using: .utf16)!
 		XCTAssertTrue(utf16.isProbablyHTML)
 
-		let utf16Little = htmlTest.data(using: .utf16LittleEndian)!
+		let utf16Little = bigHTML.data(using: .utf16LittleEndian)!
 		XCTAssertTrue(utf16Little.isProbablyHTML)
 
-		let utf16Big = htmlTest.data(using: .utf16BigEndian)!
+		let utf16Big = bigHTML.data(using: .utf16BigEndian)!
 		XCTAssertTrue(utf16Big.isProbablyHTML)
 
 	}
 
 	func testIsProbablyHTMLPerformance() {
-		let utf8 = htmlTest.data(using: .utf8)!
+		let utf8 = bigHTML.data(using: .utf8)!
 
 		self.measure {
 			for _ in 0 ..< 10000 {
@@ -40,7 +45,7 @@ class Data_RSCoreTests: XCTestCase {
 	}
 
 	func testRSIsProbablyHTMLPerformance() {
-		let utf8 = NSData(data: htmlTest.data(using: .utf8)!)
+		let utf8 = NSData(data: bigHTML.data(using: .utf8)!)
 
 		self.measure {
 			for _ in 0 ..< 10000 {

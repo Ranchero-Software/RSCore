@@ -8,69 +8,105 @@
 
 import Foundation
 import CryptoKit
+import CommonCrypto
 
 public extension Data {
 
-	var md5Hash: Data? {
+	/// Compute the MD5 hash of the data.
+	var md5Hash: Data {
+
 		if #available(macOS 10.15, *) {
 			let digest = Insecure.MD5.hash(data: self)
 			return Data(digest)
+		} else {
+			let len = Int(CC_MD5_DIGEST_LENGTH)
+			let md = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: len)
+
+			let _ = self.withUnsafeBytes {
+				CC_MD5($0.baseAddress, numericCast($0.count), md)
+			}
+
+			return Data(bytes: md, count: len)
 		}
 
-		return nil;
 	}
 
 	var md5String: String? {
-		return md5Hash?.hexadecimalString
+		return md5Hash.hexadecimalString
 	}
 
-	// http://www.w3.org/TR/PNG/#5PNG-file-signature : "The first eight bytes of a PNG datastream always contain the following (decimal) values: 137 80 78 71 13 10 26 10"
+	/// http://www.w3.org/TR/PNG/#5PNG-file-signature : "The first eight bytes of a PNG datastream always contain the following (decimal) values: 137 80 78 71 13 10 26 10"
 
-	private static let pngHeader = Data([137, 80, 78, 71, 13, 10, 26, 10])
+	private static let pngSignature = Data([137, 80, 78, 71, 13, 10, 26, 10])
 
+
+	/// Returns `true` if the data begins with the PNG signature.
 	var isPNG: Bool {
-		return prefix(8) == .pngHeader
+		return prefix(8) == .pngSignature
 	}
 
-	// http://www.onicos.com/staff/iz/formats/gif.html
 
-	private static let gif89Header = "GIF89a".data(using: .ascii)
-	private static let gif87Header = "GIF87a".data(using: .ascii)
+	private static let gif89Signature = "GIF89a".data(using: .ascii)
+	private static let gif87Signature = "GIF87a".data(using: .ascii)
 
+	/// Returns `true` if the data begins with a valid GIF signature.
+	///
+	/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
 	var isGIF: Bool {
 		let prefix = self.prefix(6)
-		return prefix == .gif89Header || prefix == .gif87Header
+		return prefix == .gif89Signature || prefix == .gif87Signature
 	}
 
-	private static let jpegHeader = "JFIF".data(using: .ascii)
-	private static let exifHeader = "Exif".data(using: .ascii)
+	private static let jpegSignature = "JFIF".data(using: .ascii)
+	private static let exifSignature = "Exif".data(using: .ascii)
 
+	/// Returns `true` if the data contains a valid JPEG signature.
 	var isJPEG: Bool {
 		let signature = self[6..<10]
-		return signature == .jpegHeader || signature == .exifHeader
+		return signature == .jpegSignature || signature == .exifSignature
 	}
 
+	/// Constants for `isProbablyHTML`.
+	private enum RSSearch {
+
+		static let lessThan = "<".utf8.first!
+		static let greaterThan = ">".utf8.first!
+
+		enum UTF8 {
+			static let lowercaseHTML = "html".data(using: .utf8)!
+			static let lowercaseBody = "body".data(using: .utf8)!
+			static let uppercaseHTML = "HTML".data(using: .utf8)!
+			static let uppercaseBody = "HTML".data(using: .utf8)!
+		}
+
+		enum UTF16 {
+			static let lowercaseHTML = "html".data(using: .utf16LittleEndian)!
+			static let lowercaseBody = "body".data(using: .utf16LittleEndian)!
+			static let uppercaseHTML = "HTML".data(using: .utf16LittleEndian)!
+			static let uppercaseBody = "HTML".data(using: .utf16LittleEndian)!
+		}
+
+	}
+
+	/// Returns `true` if the data looks like it could be HTML.
+	///
+	/// Advantage is taken of the fact that most common encodings are ASCII-compatible, aside from UTF-16,
+	/// which for ASCII codepoints is basically ASCII characters with nulls in between.
+	///
+	/// An uncommon exception is any EBCDIC-derived encoding.
 	var isProbablyHTML: Bool {
 
-		if !self.contains("<".utf8.first!) || !self.contains(">".utf8.first!) {
+		if !self.contains(RSSearch.lessThan) || !self.contains(RSSearch.greaterThan) {
 			return false
 		}
 
-		let tags = ["html", "body"]
-
-		if tags.reduce(true, { (lastResult, tag) -> Bool in
-			return lastResult
-				&& (self.range(of: tag.data(using: .utf8)!) != nil
-					|| self.range(of: tag.uppercased().data(using: .utf8)!) != nil)
-		}) {
+		if (self.range(of: RSSearch.UTF8.lowercaseHTML) != nil || self.range(of: RSSearch.UTF8.uppercaseHTML) != nil)
+			&& (self.range(of: RSSearch.UTF8.lowercaseBody) != nil || self.range(of: RSSearch.UTF8.uppercaseBody) != nil) {
 			return true
 		}
 
-		if tags.reduce(true, { (lastResult, tag) -> Bool in
-			return lastResult
-				&& (self.range(of: tag.data(using: .utf16LittleEndian)!) != nil
-					|| self.range(of: tag.uppercased().data(using: .utf16LittleEndian)!) != nil)
-		}) {
+		if (self.range(of: RSSearch.UTF16.lowercaseHTML) != nil || self.range(of: RSSearch.UTF16.uppercaseHTML) != nil)
+			&& (self.range(of: RSSearch.UTF16.lowercaseBody) != nil || self.range(of: RSSearch.UTF16.uppercaseBody) != nil) {
 			return true
 		}
 
