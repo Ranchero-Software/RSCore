@@ -12,14 +12,3 @@
 
 #import <RSCore/NSData+RSCore.h>
 #import <RSCore/NSString+RSCore.h>
-
-
-#if !TARGET_OS_IPHONE
-
-#import <AppKit/AppKit.h>
-
-#else
-
-#import <UIKit/UIKit.h>
-
-#endif
