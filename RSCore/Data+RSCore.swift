@@ -52,26 +52,29 @@ public extension Data {
 
 	var isProbablyHTML: Bool {
 
-		let encodings: [String.Encoding] = [.utf8, .shiftJIS, .japaneseEUC, .GB_18030_2000, .big5, .koreanEUC, .windowsCP1251]
+		if !self.contains("<".utf8.first!) || !self.contains(">".utf8.first!) {
+			return false
+		}
 
-		for encoding in encodings {
-			if let str = String(data: self, encoding: encoding) {
-				if !str.contains(">") {
-					return false
-				}
+		let tags = ["html", "body"]
 
-				for tag in ["html", "body"] {
-					if str.range(of: tag, options: .caseInsensitive) == nil {
-						return false
-					}
-				}
+		if tags.reduce(true, { (lastResult, tag) -> Bool in
+			return lastResult
+				&& (self.range(of: tag.data(using: .utf8)!) != nil
+					|| self.range(of: tag.uppercased().data(using: .utf8)!) != nil)
+		}) {
+			return true
+		}
 
-				return true
-			}
+		if tags.reduce(true, { (lastResult, tag) -> Bool in
+			return lastResult
+				&& (self.range(of: tag.data(using: .utf16LittleEndian)!) != nil
+					|| self.range(of: tag.uppercased().data(using: .utf16LittleEndian)!) != nil)
+		}) {
+			return true
 		}
 
 		return false
-
 	}
 
 	var hexadecimalString: String? {
