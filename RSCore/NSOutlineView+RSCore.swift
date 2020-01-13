@@ -51,7 +51,7 @@ public extension NSOutlineView {
 				return
 			}
 			if canSelect(row) {
-				rs_selectRowAndScrollToVisible(row)
+				selectRowAndScrollToVisible(row)
 				return
 			}
 		}
@@ -66,7 +66,7 @@ public extension NSOutlineView {
 			row += 1
 			if let _ = item(atRow: row) {
 				if canSelect(row) {
-					rs_selectRowAndScrollToVisible(row)
+					selectRowAndScrollToVisible(row)
 					return
 				}
 			}
@@ -176,7 +176,7 @@ public extension NSOutlineView {
 			return
 		}
 
-		rs_selectRowAndScrollToVisible(rowToSelect)
+		selectRowAndScrollToVisible(rowToSelect)
 	}
 }
 

@@ -20,7 +20,7 @@ import Foundation
 */
 public extension String {
 
-    func fourCharCode() -> FourCharCode {
+	var fourCharCode: FourCharCode {
 		precondition(count == 4)
         var sum: UInt32 = 0
         for scalar in self.unicodeScalars {
@@ -32,8 +32,8 @@ public extension String {
 
 public extension Int {
 
-    func fourCharCode() -> FourCharCode {
-        return (UInt32(self))
+	var fourCharCode: FourCharCode {
+        return UInt32(self)
     }
 }
 

@@ -93,4 +93,15 @@ public extension NSTableView {
 
 		return visibleRows.isEmpty ? nil : visibleRows
 	}
+
+	func selectRow(_ row: Int) {
+
+		self.selectRowIndexes(IndexSet(integer: row), byExtendingSelection: false)
+	}
+
+	func selectRowAndScrollToVisible(_ row: Int) {
+
+		self.selectRow(row)
+		self.scrollRowToVisible(row)
+	}
 }
