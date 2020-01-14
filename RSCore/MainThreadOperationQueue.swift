@@ -28,6 +28,10 @@ public final class MainThreadOperationQueue {
 	private var isSuspended = false
 	private let dependencies = MainThreadOperationDependencies()
 
+	public init() {
+		// Silence compiler complaint about init not being public.
+	}
+
 	deinit {
 		cancelAllOperations()
 	}
