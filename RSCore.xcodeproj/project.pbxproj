@@ -48,6 +48,8 @@
 		845A291F1FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */; };
 		845A29201FC8BC49007B49E3 /* BinaryDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */; };
 		8461387F1DB3F5BE00048B83 /* RSToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */; };
+		8472619023CD85C000799D43 /* MainThreadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472618F23CD85C000799D43 /* MainThreadOperation.swift */; };
+		8472619123CD85C000799D43 /* MainThreadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472618F23CD85C000799D43 /* MainThreadOperation.swift */; };
 		84754C88213E1171009CFDFB /* NSWorkspace+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84754C87213E1171009CFDFB /* NSWorkspace+RSCore.swift */; };
 		8476F7AA21A757D100C808C3 /* Renamable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476F7A921A757D100C808C3 /* Renamable.swift */; };
 		8476F7AB21A757D100C808C3 /* Renamable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476F7A921A757D100C808C3 /* Renamable.swift */; };
@@ -87,8 +89,6 @@
 		84F20F831F16BA6200D8E682 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F20F821F16BA6200D8E682 /* PropertyList.swift */; };
 		84FE7D1E23C98A3900F49117 /* MainThreadOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE7D1D23C98A3900F49117 /* MainThreadOperationQueue.swift */; };
 		84FE7D1F23C98A3900F49117 /* MainThreadOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE7D1D23C98A3900F49117 /* MainThreadOperationQueue.swift */; };
-		84FE7D2123C98A4A00F49117 /* MainThreadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE7D2023C98A4A00F49117 /* MainThreadOperation.swift */; };
-		84FE7D2223C98A4A00F49117 /* MainThreadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE7D2023C98A4A00F49117 /* MainThreadOperation.swift */; };
 		84FEB4AC1D19D7F4004727E5 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEB4AB1D19D7F4004727E5 /* Date+Extensions.swift */; };
 		B2BF9A6723BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */; };
 		B2BF9A6823BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */; };
@@ -143,6 +143,7 @@
 		844B5B561FE9D36000C7C76A /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keyboard.swift; path = RSCore/Keyboard.swift; sourceTree = "<group>"; };
 		845A291E1FC8BC49007B49E3 /* BinaryDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BinaryDiskCache.swift; path = RSCore/BinaryDiskCache.swift; sourceTree = "<group>"; };
 		8461387E1DB3F5BE00048B83 /* RSToolbarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSToolbarItem.swift; sourceTree = "<group>"; };
+		8472618F23CD85C000799D43 /* MainThreadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainThreadOperation.swift; path = RSCore/MainThreadOperation.swift; sourceTree = "<group>"; };
 		84754C87213E1171009CFDFB /* NSWorkspace+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSWorkspace+RSCore.swift"; path = "AppKit/NSWorkspace+RSCore.swift"; sourceTree = "<group>"; };
 		8476F7A921A757D100C808C3 /* Renamable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Renamable.swift; path = RSCore/Renamable.swift; sourceTree = "<group>"; };
 		8479213B1FBA426B004AD08C /* WebViewWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WebViewWindow.xib; path = AppKit/WebViewWindow.xib; sourceTree = "<group>"; };
@@ -177,7 +178,6 @@
 		84E8E0D8202EC39800562D8F /* NSMenu+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSMenu+Extensions.swift"; path = "AppKit/NSMenu+Extensions.swift"; sourceTree = "<group>"; };
 		84F20F821F16BA6200D8E682 /* PropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyList.swift; sourceTree = "<group>"; };
 		84FE7D1D23C98A3900F49117 /* MainThreadOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainThreadOperationQueue.swift; path = RSCore/MainThreadOperationQueue.swift; sourceTree = "<group>"; };
-		84FE7D2023C98A4A00F49117 /* MainThreadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainThreadOperation.swift; sourceTree = "<group>"; };
 		84FEB4AB1D19D7F4004727E5 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B2BF9A6623BD4F6500CCE9A0 /* MacroProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MacroProcessor.swift; path = RSCore/MacroProcessor.swift; sourceTree = "<group>"; };
 		B2BF9A6B23BD63A600CCE9A0 /* MacroProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroProcessorTests.swift; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 				847E64A12262793300E00365 /* SendToCommand.swift */,
 				510BD10E232C369B002692E4 /* ManagedResourceFile.swift */,
 				84FE7D1D23C98A3900F49117 /* MainThreadOperationQueue.swift */,
-				84FE7D2023C98A4A00F49117 /* MainThreadOperation.swift */,
+				8472618F23CD85C000799D43 /* MainThreadOperation.swift */,
 				84CFF5241AC3C8A200CEA6C8 /* Foundation */,
 				84CFF5551AC3CF4A00CEA6C8 /* AppKit */,
 				51C452202264E20700C03939 /* UIKit */,
@@ -588,6 +588,7 @@
 			files = (
 				B2C3DF0423C8010B00492598 /* Platform.swift in Sources */,
 				842DD7F41E14996B00E061EB /* Set+Extensions.swift in Sources */,
+				8472619123CD85C000799D43 /* MainThreadOperation.swift in Sources */,
 				84B99C9B1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				847E64A32262793300E00365 /* SendToCommand.swift in Sources */,
 				51C452242264E22B00C03939 /* UIWindow-Extensions.swift in Sources */,
@@ -614,7 +615,6 @@
 				51C452252264E22B00C03939 /* UIViewController-Extensions.swift in Sources */,
 				84C687361FBC025600345C9E /* Log.swift in Sources */,
 				B2BF9A6823BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */,
-				84FE7D2223C98A4A00F49117 /* MainThreadOperation.swift in Sources */,
 				51C452262264E22B00C03939 /* UIApplication-Extensions.swift in Sources */,
 				51E595A7228D9A5600FCC42B /* Array+RSCore.swift in Sources */,
 			);
@@ -643,7 +643,7 @@
 				84D5BA1E201E87E2009092BD /* URLPasteboardWriter.swift in Sources */,
 				842635571D7FA1C800196285 /* NSTableView+RSCore.swift in Sources */,
 				84F20F831F16BA6200D8E682 /* PropertyList.swift in Sources */,
-				84FE7D2123C98A4A00F49117 /* MainThreadOperation.swift in Sources */,
+				8472619023CD85C000799D43 /* MainThreadOperation.swift in Sources */,
 				84C687351FBC025600345C9E /* Log.swift in Sources */,
 				84FEB4AC1D19D7F4004727E5 /* Date+Extensions.swift in Sources */,
 				8479213E1FBA4285004AD08C /* WebViewWindowController.swift in Sources */,
