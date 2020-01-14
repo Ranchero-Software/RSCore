@@ -137,7 +137,7 @@ public extension String {
 		CFXMLCreateStringByEscapingEntities(kCFAllocatorDefault, self as CFString, nil) as String
 	}
 
-	var strippingHTTPorHTTPSScheme: String {
+	var strippingHTTPOrHTTPSScheme: String {
 		self.strippingPrefix("http://").strippingPrefix("https://")
 	}
 
