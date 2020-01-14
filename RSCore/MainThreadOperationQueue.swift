@@ -151,7 +151,7 @@ private extension MainThreadOperationQueue {
 	}
 
 	func operationIsAvailable(_ operation: MainThreadOperation) -> Bool {
-		return !dependencies.operationIDIsBlockedByDependency(operation.id!)
+		return !operation.isCanceled && !dependencies.operationIDIsBlockedByDependency(operation.id!)
 	}
 
 	func createOperationID() -> Int {
