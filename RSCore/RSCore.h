@@ -10,23 +10,5 @@
 
 /*Foundation*/
 
-#import <RSCore/NSCalendar+RSCore.h>
 #import <RSCore/NSData+RSCore.h>
-#import <RSCore/NSFileManager+RSCore.h>
 #import <RSCore/NSString+RSCore.h>
-
-
-#if !TARGET_OS_IPHONE
-
-/*AppKit*/
-
-#import <RSCore/NSTableView+RSCore.h>
-
-#import <RSCore/NSAppleEventDescriptor+RSCore.h>
-#import <RSCore/SendToBlogEditorApp.h>
-
-#else
-
-#import <UIKit/UIKit.h>
-
-#endif
