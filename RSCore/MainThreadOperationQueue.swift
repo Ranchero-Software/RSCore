@@ -51,6 +51,14 @@ public final class MainThreadOperationQueue {
 		runNextOperationIfNeeded()
 	}
 
+	/// Add multiple operations to the queue.
+	/// This has the same effect as calling addOperation one-by-one.
+	public func addOperations(_ operations: [MainThreadOperation]) {
+		for operation in operations {
+			addOperation(operation)
+		}
+	}
+
 	/// Add a dependency. Do this *before* calling addOperation, since addOperation might run the operation right away.
 	public func make(_ childOperation: MainThreadOperation, dependOn parentOperation: MainThreadOperation) {
 		precondition(Thread.isMainThread)
