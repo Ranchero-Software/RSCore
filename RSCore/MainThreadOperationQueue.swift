@@ -112,6 +112,7 @@ private extension MainThreadOperationQueue {
 			dependencies.operationIDDidComplete(operationID)
 		}
 		removeFromStorage(operation)
+		operation.operationDelegate = nil
 		runNextOperationIfNeeded()
 	}
 

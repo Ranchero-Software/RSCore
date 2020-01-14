@@ -19,7 +19,7 @@ public protocol MainThreadOperation: class {
 	// These properties are set by MainThreadOperationQueue. Don’t set them.
 	var isCanceled: Bool { get set } // Check this at appropriate times in case the operation has been canceled.
 	var id: Int? { get set }
-	var operationDelegate: MainThreadOperationDelegate? { get set }
+	var operationDelegate: MainThreadOperationDelegate? { get set } // Make this weak.
 
 	/// Do the thing this operation does.
 	func run()
