@@ -9,17 +9,17 @@
 import Foundation
 
 /// Code to be run by MainThreadOperationQueue.
-/// When finished, it must call delegate.operationDidComplete(self).
-/// If it’s canceled, it does not need to call the delegate.
+/// When finished, it must call operationDelegate.operationDidComplete(self).
+/// If it’s canceled, it should not call the delegate.
 /// When it’s canceled, it should do its best to stop
 /// doing whatever it’s doing. However, it should not
 /// leave data in an inconsistent state.
 public protocol MainThreadOperation: class {
 
-	var isCanceled: Bool { get set }
-	var id: Int? { get set } // Used by MainThreadOperationQueue; meaningless to the operation. Don’t set it.
-
-	init(delegate: MainThreadOperationDelegate)
+	// These properties are set by MainThreadOperationQueue. Don’t set them.
+	var isCanceled: Bool { get set } // Check this at appropriate times in case the operation has been canceled.
+	var id: Int? { get set }
+	var operationDelegate: MainThreadOperationDelegate? { get set }
 
 	/// Do the thing this operation does.
 	func run()

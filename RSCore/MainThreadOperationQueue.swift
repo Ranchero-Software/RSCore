@@ -35,6 +35,7 @@ public final class MainThreadOperationQueue {
 	/// Add an operation to the queue.
 	public func addOperation(_ operation: MainThreadOperation) {
 		precondition(Thread.isMainThread)
+		operation.operationDelegate = self
 		let operationID = ensureOperationID(operation)
 		operations[operationID] = operation
 
@@ -165,7 +166,7 @@ private extension MainThreadOperationQueue {
 
 	func cancel(_ operationIDs: [Int]) {
 		let operationIDsToCancel = operationIDsByAddingChildOperationIDs(operationIDs)
-		setCanceled(for: operationIDsToCancel)
+		setCanceledAndRemoveDelegate(for: operationIDsToCancel)
 		clearCurrentOperationIDIfContained(by: operationIDsToCancel)
 		removeOperationIDsFromPendingOperationIDs(operationIDsToCancel)
 		dependencies.cancel(operationIDsToCancel)
@@ -181,10 +182,11 @@ private extension MainThreadOperationQueue {
 		return operationIDsToCancel
 	}
 
-	func setCanceled(for operationIDs: [Int]) {
+	func setCanceledAndRemoveDelegate(for operationIDs: [Int]) {
 		for operationID in operationIDs {
 			if let operation = operations[operationID] {
 				operation.isCanceled = true
+				operation.operationDelegate = nil
 			}
 		}
 	}
