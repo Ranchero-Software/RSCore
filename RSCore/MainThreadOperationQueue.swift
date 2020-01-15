@@ -105,6 +105,7 @@ public final class MainThreadOperationQueue {
 extension MainThreadOperationQueue: MainThreadOperationDelegate {
 
 	public func operationDidComplete(_ operation: MainThreadOperation) {
+		precondition(Thread.isMainThread)
 		operationDidFinish(operation)
 	}
 }
@@ -123,6 +124,7 @@ private extension MainThreadOperationQueue {
 		if !operation.isCanceled {
 			dependencies.operationIDDidComplete(operationID)
 		}
+		callCompletionBlock(for: operation)
 		removeFromStorage(operation)
 		operation.operationDelegate = nil
 		runNextOperationIfNeeded()
@@ -180,6 +182,7 @@ private extension MainThreadOperationQueue {
 	func cancel(_ operationIDs: [Int]) {
 		let operationIDsToCancel = operationIDsByAddingChildOperationIDs(operationIDs)
 		setCanceledAndRemoveDelegate(for: operationIDsToCancel)
+		callCompletionBlockForOperationIDs(operationIDsToCancel)
 		clearCurrentOperationIDIfContained(by: operationIDsToCancel)
 		removeOperationIDsFromPendingOperationIDs(operationIDsToCancel)
 		dependencies.cancel(operationIDsToCancel)
@@ -229,6 +232,25 @@ private extension MainThreadOperationQueue {
 			}
 			self.operations[operationID] = nil
 		}
+	}
+
+	func callCompletionBlockForOperationIDs(_ operationIDs: [Int]) {
+		let completedOperations = operationIDs.compactMap { operations[$0] }
+		callCompletionBlockForOperations(completedOperations)
+	}
+
+	func callCompletionBlockForOperations(_ operations: [MainThreadOperation]) {
+		for operation in operations {
+			callCompletionBlock(for: operation)
+		}
+	}
+
+	func callCompletionBlock(for operation: MainThreadOperation) {
+		guard let completionBlock = operation.completionBlock else {
+			return
+		}
+		completionBlock(operation)
+		operation.completionBlock = nil
 	}
 }
 
