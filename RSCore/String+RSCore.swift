@@ -110,7 +110,7 @@ public extension String {
 
 	/// Strips HTML from a string.
 	/// - Parameter maxCharacters: The maximum characters in the return string.
-	func strippingHTML(maxCharacters: Int?) -> String {
+	func strippingHTML(maxCharacters: Int? = nil) -> String {
 		if !self.contains("<") {
 
 			if let maxCharacters = maxCharacters {
