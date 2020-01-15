@@ -152,7 +152,7 @@ public extension String {
 		return self.replacingOccurrences(of: prefix, with: "", options: options)
 	}
 
-	/// Removes a suffix from the beginning of a string.
+	/// Removes a suffix from the end of a string.
 	/// - Parameters:
 	///   - suffix: The suffix to remove
 	///   - caseSensitive: `true` if the suffix should be matched case-sensitively.

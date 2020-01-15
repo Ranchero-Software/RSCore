@@ -64,11 +64,11 @@ class String_RSCore: XCTestCase {
 
 		let str = "foobar"
 		let expected = "bar"
-		XCTAssertEqual(str.strippingPrefix("foo", caseSensitive: true), expected)
+		XCTAssertEqual(str.stripping(prefix: "foo", caseSensitive: true), expected)
 
-		XCTAssertEqual(str.strippingPrefix("FOO"), expected)
+		XCTAssertEqual(str.stripping(prefix: "FOO"), expected)
 
-		XCTAssertEqual(str.strippingPrefix("FOO", caseSensitive: true), str)
+		XCTAssertEqual(str.stripping(prefix: "FOO", caseSensitive: true), str)
 
 	}
 
