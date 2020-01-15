@@ -113,14 +113,14 @@ public extension String {
 		if lowercaseS.hasPrefix(Prefixes.feed) || lowercaseS.hasPrefix(Prefixes.feeds) {
 			if lowercaseS.hasPrefix(Prefixes.feeds) {
 				wasFeeds = true
-				s = s.strippingPrefix(Prefixes.feeds)
+				s = s.stripping(prefix: Prefixes.feeds)
 			} else {
-				s = s.strippingPrefix(Prefixes.feed)
+				s = s.stripping(prefix: Prefixes.feed)
 			}
 		}
 
 		if s.hasPrefix("//") {
-			s = s.strippingPrefix("//")
+			s = s.stripping(prefix: "//")
 		}
 
 		lowercaseS = s.lowercased()
@@ -147,7 +147,7 @@ public extension String {
 	///   - prefix: The prefix to remove
 	///   - caseSensitive: `true` if the prefix should be matched case-sensitively.
 	/// - Returns: A new string with the prefix removed.
-	func strippingPrefix(_ prefix: String, caseSensitive: Bool = false) -> String {
+	func stripping(prefix: String, caseSensitive: Bool = false) -> String {
 		let options: String.CompareOptions = caseSensitive ? .anchored : [.anchored, .caseInsensitive]
 		return self.replacingOccurrences(of: prefix, with: "", options: options)
 	}
@@ -157,7 +157,7 @@ public extension String {
 	///   - suffix: The suffix to remove
 	///   - caseSensitive: `true` if the suffix should be matched case-sensitively.
 	/// - Returns: A new string with the suffix removed.
-	func strippingSuffix(_ suffix: String, caseSensitive: Bool = false) -> String {
+	func stripping(suffix: String, caseSensitive: Bool = false) -> String {
 		let options: String.CompareOptions = caseSensitive ? [.backwards, .anchored] : [.backwards, .anchored, .caseInsensitive]
 		return self.replacingOccurrences(of: suffix, with: "", options: options)
 
@@ -294,7 +294,7 @@ public extension String {
 	}
 
 	var strippingHTTPOrHTTPSScheme: String {
-		self.strippingPrefix("http://").strippingPrefix("https://")
+		self.stripping(prefix: "http://").stripping(prefix: "https://")
 	}
 
 }
