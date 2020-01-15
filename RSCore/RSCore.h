@@ -11,4 +11,3 @@
 /*Foundation*/
 
 #import <RSCore/NSData+RSCore.h>
-#import <RSCore/NSString+RSCore.h>
