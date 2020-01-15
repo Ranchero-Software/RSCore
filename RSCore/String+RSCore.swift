@@ -176,7 +176,7 @@ public extension String {
 			return self
 		}
 
-		var preflight = self;
+		var preflight = self
 
 		let options: String.CompareOptions = [.regularExpression, .caseInsensitive]
 		preflight = preflight.replacingOccurrences(of: "</?(?:blockquote|p|div)>", with: " ", options: options)
@@ -260,6 +260,26 @@ public extension String {
 
 	var escapingSpecialXMLCharacters: String {
 		CFXMLCreateStringByEscapingEntities(kCFAllocatorDefault, self as CFString, nil) as String
+	}
+
+	static func withNumberOfTabs(_ numberOfTabs: Int) -> String {
+		enum Cache {
+			static var tabs: [Int: String] = [:]
+		}
+
+		if let cachedString = Cache.tabs[numberOfTabs] {
+			return cachedString
+		}
+
+		let s = String(repeating: "\t", count: numberOfTabs)
+		Cache.tabs[numberOfTabs] = s
+		return s
+	}
+
+	func prepending(numberOfTabs: Int) -> String {
+
+		let tabs = String.withNumberOfTabs(numberOfTabs)
+		return "\(tabs)\(self)"
 	}
 
 	var strippingHTTPOrHTTPSScheme: String {
