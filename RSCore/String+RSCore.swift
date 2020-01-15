@@ -86,6 +86,61 @@ public extension String {
 
 	}
 
+	/// Normalizes a URL that could begin with "feed:" or "feeds:", converting
+	/// it to a URL beginning with "http:" or "https:"
+	///
+	/// Strategy:
+	/// 1) Note whether or not this is a feed: or feeds: or other prefix
+	/// 2) Strip the feed: or feeds: prefix
+	/// 3) If the resulting string is not prefixed with http: or https:, then add http:// as a prefix
+	///
+	/// - Note: Must handle edge case (like boingboing.net) where the feed URL is
+	/// feed:http://boingboing.net/feed
+	var normalizedURL: String {
+
+		enum Prefixes {
+			static let feed = "prefix:"
+			static let feeds = "feeds:"
+			static let http = "http"
+			static let https = "https"
+		}
+
+		var s = self.trimmingWhitespace
+		var wasFeeds = false
+
+		var lowercaseS = s.lowercased()
+
+		if lowercaseS.hasPrefix(Prefixes.feed) || lowercaseS.hasPrefix(Prefixes.feeds) {
+			if lowercaseS.hasPrefix(Prefixes.feeds) {
+				wasFeeds = true
+				s = s.strippingPrefix(Prefixes.feeds)
+			} else {
+				s = s.strippingPrefix(Prefixes.feed)
+			}
+		}
+
+		if s.hasPrefix("//") {
+			s = s.strippingPrefix("//")
+		}
+
+		lowercaseS = s.lowercased()
+		if lowercaseS.hasPrefix(Prefixes.http) {
+			s = "\(wasFeeds ? Prefixes.https : Prefixes.http)://\(s)"
+		}
+
+		// Handle top-level URLs missing a trailing slash, as in https://ranchero.com — make it http://ranchero.com/
+		// We’re sticklers for this kind of thing.
+		// History: it used to be that on Windows they were always fine with no trailing slash,
+		// and on Macs the trailing slash would appear. In recent years you’ve seen no trailing slash
+		// on Macs too, but we’re bucking that trend. We’re Mac people, doggone it. Keepers of the flame.
+		// Add the slash.
+		let componentsCount = s.components(separatedBy: "/").count
+		if componentsCount == 3 {
+			s = s.appending("/")
+		}
+
+		return s
+	}
 
 	/// Removes a prefix from the beginning of a string.
 	/// - Parameters:
