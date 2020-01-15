@@ -97,11 +97,81 @@ public extension String {
 		return self.replacingOccurrences(of: prefix, with: "", options: options)
 	}
 
+	/// Removes an HTML tag and everything between its start and end tags.
+	///
+	/// - Parameter tag: The tag to remove.
+	///
+	/// - Returns: A new copy of `self` with the tag removed.
+	///
+	/// - Note: Doesn't work correctly with nested tags of the same name.
+	private func removingTagAndContents(_ tag: String) -> String {
+		return self.replacingOccurrences(of: "<\(tag).+?</\(tag)>", with: "", options: [.regularExpression, .caseInsensitive])
+	}
+
+	/// Strips HTML from a string.
+	/// - Parameter maxCharacters: The maximum characters in the return string.
+	func strippingHTML(maxCharacters: Int?) -> String {
+		if !self.contains("<") {
+
+			if let maxCharacters = maxCharacters {
+				let ix = self.index(self.startIndex, offsetBy: maxCharacters)
+				return String(self[..<ix])
+			}
+
+			return self
+		}
+
+		var preflight = self;
+
+		let options: String.CompareOptions = [.regularExpression, .caseInsensitive]
+		preflight = preflight.replacingOccurrences(of: "</?(?:blockquote|p|div)>", with: " ", options: options)
+		preflight = preflight.replacingOccurrences(of: "<p>|</?div>|<br(?: ?/)?>|</li>", with: "\n", options: options)
+		preflight = preflight.removingTagAndContents("script")
+		preflight = preflight.removingTagAndContents("style")
+
+		var s = String()
+		s.reserveCapacity(preflight.count)
+		var lastCharacterWasSpace = false
+		var charactersAdded = 0
+		var level = 0
+
+		for var char in preflight {
+			if char == "<" {
+				level += 1
+			} else if char == ">" {
+				level -= 1
+			} else if level == 0 {
+
+				if char == " " || char == "\r" || char == "\t" || char == "\n" {
+					if lastCharacterWasSpace {
+						continue
+					} else {
+						lastCharacterWasSpace = true
+					}
+					char = " "
+				} else {
+					lastCharacterWasSpace = false
+				}
+
+				s.append(char)
+
+				if let maxCharacters = maxCharacters {
+					charactersAdded += 1
+					if (charactersAdded >= maxCharacters) {
+						break
+					}
+				}
+			}
+		}
+
+		return s
+	}
+
 	/// A copy of an HTML string converted to plain text.
 	///
 	/// Replaces `p`, `blockquote`, `div`, `br`, and `li` tags with varying quantities
 	/// of newlines, and guarantees no more than two consecutive newlines.
-	var convertedToPlainText: String {
+	var convertingToPlainText: String {
 		if !self.contains("<") {
 			return self
 		}
