@@ -192,6 +192,7 @@ public extension String {
 
 		var preflight = self
 
+		// NOTE: If performance on repeated invocations becomes an issue here, the regexes can be cached.
 		let options: String.CompareOptions = [.regularExpression, .caseInsensitive]
 		preflight = preflight.replacingOccurrences(of: "</?(?:blockquote|p|div)>", with: " ", options: options)
 		preflight = preflight.replacingOccurrences(of: "<p>|</?div>|<br(?: ?/)?>|</li>", with: "\n", options: options)
@@ -249,6 +250,7 @@ public extension String {
 
 		var preflight = self
 
+		// NOTE: If performance on repeated invocations becomes an issue here, the regexes can be cached.
 		let options: String.CompareOptions = [.regularExpression, .caseInsensitive]
 		preflight = preflight.replacingOccurrences(of: "</?blockquote>|</p>", with: "\n\n", options: options)
 		preflight = preflight.replacingOccurrences(of: "<p>|</?div>|<br(?: ?/)?>|</li>", with: "\n", options: options)
