@@ -126,9 +126,13 @@ private extension MainThreadOperationQueue {
 			self.currentOperationID = nil
 		}
 
-		if !operation.isCanceled {
+		if operation.isCanceled {
+			dependencies.operationIDWasCanceled(operationID)
+		}
+		else {
 			dependencies.operationIDDidComplete(operationID)
 		}
+
 		callCompletionBlock(for: operation)
 		removeFromStorage(operation)
 		operation.operationDelegate = nil
@@ -140,7 +144,7 @@ private extension MainThreadOperationQueue {
 			guard !self.isSuspended && !self.isRunningAnOperation() else {
 				return
 			}
-			guard let operation = self.nextAvailableOperation() else {
+			guard let operation = self.popNextAvailableOperation() else {
 				return
 			}
 			self.currentOperationID = operation.id!
@@ -152,13 +156,15 @@ private extension MainThreadOperationQueue {
 		return currentOperationID != nil
 	}
 
-	func nextAvailableOperation() -> MainThreadOperation? {
+	func popNextAvailableOperation() -> MainThreadOperation? {
 		for operationID in pendingOperationIDs {
 			guard let operation = operations[operationID] else {
 				assertionFailure("Expected pending operation to be found in operations dictionary.")
 				continue
 			}
 			if operationIsAvailable(operation) {
+				removeOperationIDsFromPendingOperationIDs([operationID])
+				dependencies.operationIDWillRun(operationID)
 				return operation
 			}
 		}
@@ -311,7 +317,7 @@ private final class MainThreadOperationDependencies {
 		return nil
 	}
 
-	/// Call this, when an operation is completed, to update the dependencies.
+	/// Update dependencies when an operation is completed.
 	func operationIDDidComplete(_ operationID: Int) {
 		if let dependency = dependencies[operationID] {
 			dependency.parentOperationDidComplete = true
@@ -320,9 +326,19 @@ private final class MainThreadOperationDependencies {
 		removeEmptyDependencies()
 	}
 
-	/// Call this, when canceling, to update the dependenceis.
+	/// Update dependencies when an operation finished but was canceled.
+	func operationIDWasCanceled(_ operationID: Int) {
+		removeAllReferencesToOperationIDs([operationID])
+	}
+
+	/// Update dependencies when canceling operations.
 	func cancel(_ operationIDs: [Int]) {
 		removeAllReferencesToOperationIDs(operationIDs)
+	}
+
+	/// Update dependencies when an operation is about to run.
+	func operationIDWillRun(_ operationID: Int) {
+		removeChildOperationIDs([operationID])
 	}
 
 	/// Find out if an operationID is blocked by a dependency.
