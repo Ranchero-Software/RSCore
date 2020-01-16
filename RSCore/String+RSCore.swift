@@ -178,6 +178,7 @@ public extension String {
 
 	/// Strips HTML from a string.
 	/// - Parameter maxCharacters: The maximum characters in the return string.
+	///	If `nil`, the whole string is used.
 	func strippingHTML(maxCharacters: Int? = nil) -> String {
 		if !self.contains("<") {
 
@@ -267,34 +268,53 @@ public extension String {
 		return s.replacingOccurrences(of: "\\n{3,}", with: "\n\n", options: .regularExpression)
 	}
 
+
+	/// Returns a Boolean value indicating whether the string contains another string, case-insensitively.
+	///
+	/// - Parameter string: The string to search for.
+	///
+	/// - Returns: `true` if the string contains `string`; `false` otherswise.
 	func caseInsensitiveContains(_ string: String) -> Bool {
 		return self.range(of: string, options: .caseInsensitive) != nil
 	}
 
+	/// Returns the string with the five special XML characters ampersand-escaped.
+	///
+	/// The five special XML characters are `<`, `>`, `&`, `"`, and `'`.
 	var escapingSpecialXMLCharacters: String {
 		CFXMLCreateStringByEscapingEntities(kCFAllocatorDefault, self as CFString, nil) as String
 	}
 
-	static func withNumberOfTabs(_ numberOfTabs: Int) -> String {
+
+	/// Initializes a string with a run of tabs.
+	///
+	/// - Parameter tabCount: The number of tabs in the returned string. Must be greater than or equal to zero.
+	init(tabCount: Int) {
 		enum Cache {
 			static var tabs: [Int: String] = [:]
 		}
 
-		if let cachedString = Cache.tabs[numberOfTabs] {
-			return cachedString
+		if let cachedString = Cache.tabs[tabCount] {
+			self = cachedString
+		} else {
+			let s = String(repeating: "\t", count: tabCount)
+			Cache.tabs[tabCount] = s
+			self = s
 		}
-
-		let s = String(repeating: "\t", count: numberOfTabs)
-		Cache.tabs[numberOfTabs] = s
-		return s
 	}
 
-	func prepending(numberOfTabs: Int) -> String {
+	/// Prepends tabs to a string.
+	///
+	/// - Parameter tabCount: The number of tabs to prepend. Must be greater than or equal to zero.
+	///
+	/// - Returns: The string with `numberOfTabs` tabs prepended.
+	func prepending(tabCount: Int) -> String {
 
-		let tabs = String.withNumberOfTabs(numberOfTabs)
+		let tabs = String(tabCount: tabCount)
 		return "\(tabs)\(self)"
 	}
 
+	/// Returns the string with `http://` or `https://` removed from the beginning.
 	var strippingHTTPOrHTTPSScheme: String {
 		self.stripping(prefix: "http://").stripping(prefix: "https://")
 	}
