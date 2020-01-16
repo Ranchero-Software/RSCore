@@ -26,14 +26,9 @@ extension UIViewController {
 	
 	// MARK: Error Handling
 	
-	public func presentError(_ error: Error, dismiss: (() -> Void)? = nil) {
-		let errorTitle = NSLocalizedString("Error", comment: "Error")
-		presentError(title: errorTitle, message: error.localizedDescription, dismiss: dismiss)
-	}
-	
 	public func presentError(title: String, message: String, dismiss: (() -> Void)? = nil) {
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		let dismissTitle = NSLocalizedString("Dismiss", comment: "Dismiss")
+		let dismissTitle = NSLocalizedString("OK", comment: "OK")
 		let dismissAction = UIAlertAction(title: dismissTitle, style: .default) { _ in
 			dismiss?()
 		}
