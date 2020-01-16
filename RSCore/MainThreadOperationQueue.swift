@@ -21,6 +21,11 @@ public protocol MainThreadOperationDelegate: class {
 /// It is *not* suspended on creation.
 public final class MainThreadOperationQueue {
 
+	/// Use the shared queue when you don’t need to create a separate queue.
+	public static let shared: MainThreadOperationQueue = {
+		MainThreadOperationQueue()
+	}()
+
 	private var operations = [Int: MainThreadOperation]()
 	private var pendingOperationIDs = [Int]()
 	private var currentOperationID: Int?
