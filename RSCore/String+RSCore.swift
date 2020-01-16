@@ -100,7 +100,7 @@ public extension String {
 	/// feed:http://boingboing.net/feed
 	var normalizedURL: String {
 
-		enum Prefixes {
+		enum Prefix {
 			static let feed = "prefix:"
 			static let feeds = "feeds:"
 			static let http = "http"
@@ -112,12 +112,12 @@ public extension String {
 
 		var lowercaseS = s.lowercased()
 
-		if lowercaseS.hasPrefix(Prefixes.feed) || lowercaseS.hasPrefix(Prefixes.feeds) {
-			if lowercaseS.hasPrefix(Prefixes.feeds) {
+		if lowercaseS.hasPrefix(Prefix.feed) || lowercaseS.hasPrefix(Prefix.feeds) {
+			if lowercaseS.hasPrefix(Prefix.feeds) {
 				wasFeeds = true
-				s = s.stripping(prefix: Prefixes.feeds)
+				s = s.stripping(prefix: Prefix.feeds)
 			} else {
-				s = s.stripping(prefix: Prefixes.feed)
+				s = s.stripping(prefix: Prefix.feed)
 			}
 		}
 
@@ -126,8 +126,8 @@ public extension String {
 		}
 
 		lowercaseS = s.lowercased()
-		if lowercaseS.hasPrefix(Prefixes.http) {
-			s = "\(wasFeeds ? Prefixes.https : Prefixes.http)://\(s)"
+		if lowercaseS.hasPrefix(Prefix.http) {
+			s = "\(wasFeeds ? Prefix.https : Prefix.http)://\(s)"
 		}
 
 		// Handle top-level URLs missing a trailing slash, as in https://ranchero.com — make it http://ranchero.com/
