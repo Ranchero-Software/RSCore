@@ -239,8 +239,10 @@ public extension String {
 	/// A copy of an HTML string converted to plain text.
 	///
 	/// Replaces `p`, `blockquote`, `div`, `br`, and `li` tags with varying quantities
-	/// of newlines, and guarantees no more than two consecutive newlines.
-	var convertingToPlainText: String {
+	/// of newlines, strips all other tags, and guarantees no more than two consecutive newlines.
+	///
+	/// - Returns: A copy of self, with HTML tags removed..
+	func convertingToPlainText() -> String {
 		if !self.contains("<") {
 			return self
 		}
