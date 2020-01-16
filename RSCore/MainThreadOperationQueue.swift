@@ -12,7 +12,7 @@ public protocol MainThreadOperationDelegate: class {
 	func operationDidComplete(_ operation: MainThreadOperation)
 }
 
-/// Manage a queue of RSOperation tasks.
+/// Manage a queue of MainThreadOperation tasks.
 /// Runs them one at a time; runs them on the main thread.
 /// Any operation can use DispatchQueue or whatever to run code off of the main thread.
 /// An operation calls back to the queue when it’s completed or canceled.
