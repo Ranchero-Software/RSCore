@@ -21,10 +21,13 @@ public protocol MainThreadOperation: class {
 	var id: Int? { get set }
 	var operationDelegate: MainThreadOperationDelegate? { get set } // Make this weak.
 
+	/// Name may be useful for debugging. Unused otherwise.
+	var name: String? { get set }
+
 	typealias MainThreadOperationCompletionBlock = (MainThreadOperation) -> Void
 
-	/// Called when the operation completes. It may have been canceled,
-	/// and therefore it may not have run all its code. The completionBlock
+	/// Called when the operation completes. The completionBlock is called
+	/// even if the operation was canceled. The completionBlock
 	/// takes the operation as parameter, so you can inspect it as needed.
 	///
 	/// Implementations of MainThreadOperation are *not* responsible
