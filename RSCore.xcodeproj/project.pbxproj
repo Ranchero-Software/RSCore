@@ -37,6 +37,8 @@
 		842DD7DB1E14996300E061EB /* NSData+RSCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF52A1AC3CA9700CEA6C8 /* NSData+RSCore.m */; };
 		842DD7F21E14996B00E061EB /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEB4AB1D19D7F4004727E5 /* Date+Extensions.swift */; };
 		842DD7F41E14996B00E061EB /* Set+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414CBA61C95F2EA00333C12 /* Set+Extensions.swift */; };
+		842F6D4723D189D400AFFEBF /* MainThreadBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F6D4423D186C800AFFEBF /* MainThreadBlockOperation.swift */; };
+		842F6D4823D189D500AFFEBF /* MainThreadBlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F6D4423D186C800AFFEBF /* MainThreadBlockOperation.swift */; };
 		8432B1861DACA0E90057D6DF /* NSResponder-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432B1851DACA0E90057D6DF /* NSResponder-Extensions.swift */; };
 		8432B1881DACA2060057D6DF /* NSWindow-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432B1871DACA2060057D6DF /* NSWindow-Extensions.swift */; };
 		8434D15C200BD6F400D6281E /* UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434D15B200BD6F400D6281E /* UserApp.swift */; };
@@ -130,6 +132,7 @@
 		842635581D7FA24800196285 /* NSOutlineView+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOutlineView+RSCore.swift"; sourceTree = "<group>"; };
 		842DD7BC1E14993900E061EB /* RSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842DD7BF1E14993900E061EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		842F6D4423D186C800AFFEBF /* MainThreadBlockOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainThreadBlockOperation.swift; path = RSCore/MainThreadBlockOperation.swift; sourceTree = "<group>"; };
 		8432B1851DACA0E90057D6DF /* NSResponder-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSResponder-Extensions.swift"; sourceTree = "<group>"; };
 		8432B1871DACA2060057D6DF /* NSWindow-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow-Extensions.swift"; sourceTree = "<group>"; };
 		8434D15B200BD6F400D6281E /* UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserApp.swift; path = AppKit/UserApp.swift; sourceTree = "<group>"; };
@@ -257,6 +260,7 @@
 				510BD10E232C369B002692E4 /* ManagedResourceFile.swift */,
 				84FE7D1D23C98A3900F49117 /* MainThreadOperationQueue.swift */,
 				8472618F23CD85C000799D43 /* MainThreadOperation.swift */,
+				842F6D4423D186C800AFFEBF /* MainThreadBlockOperation.swift */,
 				84CFF5241AC3C8A200CEA6C8 /* Foundation */,
 				84CFF5551AC3CF4A00CEA6C8 /* AppKit */,
 				51C452202264E20700C03939 /* UIKit */,
@@ -473,9 +477,9 @@
 					};
 					84CFF4F31AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = M72QZ9W58G;
+						DevelopmentTeam = M8L2WTLA8W;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					84CFF4FE1AC3C69700CEA6C8 = {
 						CreatedOnToolsVersion = 6.2;
@@ -573,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842F6D4823D189D500AFFEBF /* MainThreadBlockOperation.swift in Sources */,
 				B2C3DF0423C8010B00492598 /* Platform.swift in Sources */,
 				842DD7F41E14996B00E061EB /* Set+Extensions.swift in Sources */,
 				8472619123CD85C000799D43 /* MainThreadOperation.swift in Sources */,
@@ -640,6 +645,7 @@
 				842635591D7FA24800196285 /* NSOutlineView+RSCore.swift in Sources */,
 				84AD1EA520315A8800BC20B7 /* PasteboardWriterOwner.swift in Sources */,
 				65CF4DE62135D5BE00F7DB67 /* RSDarkModeAdaptingToolbarButton.swift in Sources */,
+				842F6D4723D189D400AFFEBF /* MainThreadBlockOperation.swift in Sources */,
 				65CF4E1B2135D74500F7DB67 /* NSAppearance+RSCore.swift in Sources */,
 				8414CBA71C95F2EA00333C12 /* Set+Extensions.swift in Sources */,
 				B2C3DF0323C8010B00492598 /* Platform.swift in Sources */,
