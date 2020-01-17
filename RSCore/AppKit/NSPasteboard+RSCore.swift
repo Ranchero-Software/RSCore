@@ -47,7 +47,7 @@ public extension NSPasteboard {
 			return nil
 		}
 
-		return NSString(string: str).rs_stringMayBeURL() ? str : nil
+		return str.mayBeURL ? str : nil
 	}
 
 }
