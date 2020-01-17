@@ -282,13 +282,29 @@ public extension String {
 		return self.range(of: string, options: .caseInsensitive) != nil
 	}
 
-	/// Returns the string with the five special XML characters ampersand-escaped.
+	/// Returns the string with the special XML characters (other than single-quote) ampersand-escaped.
 	///
-	/// The five special XML characters are `<`, `>`, `&`, `"`, and `'`.
+	/// The four escaped characters are `<`, `>`, `&`, and `"`.
 	var escapingSpecialXMLCharacters: String {
-		CFXMLCreateStringByEscapingEntities(kCFAllocatorDefault, self as CFString, nil) as String
-	}
+		var escaped = String()
 
+		for char in self {
+			switch char {
+				case "&":
+					escaped.append("&amp;")
+				case "<":
+					escaped.append("&lt;")
+				case ">":
+					escaped.append("&gt;")
+				case "\"":
+					escaped.append("&quot;")
+				default:
+					escaped.append(char)
+			}
+		}
+
+		return escaped
+	}
 
 	/// Initializes a string with a run of tabs.
 	///
