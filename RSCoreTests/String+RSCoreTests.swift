@@ -19,7 +19,6 @@ class String_RSCore: XCTestCase {
 	}
 
 	func testTrimmingWhitespace() {
-
 		let str = "   lots\t\tof   random\n\nwhitespace\r\n"
 		let expected = "lots\t\tof   random\n\nwhitespace"
 		XCTAssertEqual(str.trimmingWhitespace, expected)
@@ -56,8 +55,6 @@ class String_RSCore: XCTestCase {
 		s = "fo\n\n\n\n\n\no\n"
 		result = s.trimmingWhitespace
 		XCTAssertEqual(result, "fo\n\n\n\n\n\no")
-
-
 	}
 
 	func testStrippingPrefix() {
@@ -74,6 +71,11 @@ class String_RSCore: XCTestCase {
 		XCTAssertEqual(s2.stripping(prefix: "FOO"), expected2)
 		XCTAssertEqual(s2.stripping(prefix: "FOO", caseSensitive: true), s2)
 
+		let s3 = "barfoo"
+		let expected3 = "barfoo"
+		XCTAssertEqual(s3.stripping(prefix: "foo", caseSensitive: true), expected3)
+		XCTAssertEqual(s3.stripping(prefix: "FOO"), expected3)
+		XCTAssertEqual(s3.stripping(prefix: "FOO", caseSensitive: true), expected3)
 	}
 
 	func testStrippingSuffix() {
@@ -88,6 +90,12 @@ class String_RSCore: XCTestCase {
 		XCTAssertEqual(s2.stripping(suffix: "bar", caseSensitive: true), expected2)
 		XCTAssertEqual(s2.stripping(suffix: "BAR"), expected2)
 		XCTAssertEqual(s2.stripping(suffix: "BAR", caseSensitive: true), s2)
+
+		let s3 = "foobar"
+		let expected3 = "foobar"
+		XCTAssertEqual(s3.stripping(suffix: "foo", caseSensitive: true), expected3)
+		XCTAssertEqual(s3.stripping(suffix: "FOO"), expected3)
+		XCTAssertEqual(s3.stripping(suffix: "FOO", caseSensitive: true), expected3)
 	}
 
 	func testEscapingSpecialXMLCharacters() {
