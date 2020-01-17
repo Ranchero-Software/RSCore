@@ -60,16 +60,34 @@ class String_RSCore: XCTestCase {
 
 	}
 
-	func testStrippingpPrefix() {
-
+	func testStrippingPrefix() {
 		let str = "foobar"
 		let expected = "bar"
+
 		XCTAssertEqual(str.stripping(prefix: "foo", caseSensitive: true), expected)
-
 		XCTAssertEqual(str.stripping(prefix: "FOO"), expected)
-
 		XCTAssertEqual(str.stripping(prefix: "FOO", caseSensitive: true), str)
 
+		let s2 = "foofoobar"
+		let expected2 = "foobar"
+		XCTAssertEqual(s2.stripping(prefix: "foo", caseSensitive: true), expected2)
+		XCTAssertEqual(s2.stripping(prefix: "FOO"), expected2)
+		XCTAssertEqual(s2.stripping(prefix: "FOO", caseSensitive: true), s2)
+
+	}
+
+	func testStrippingSuffix() {
+		let s = "foobar"
+		let expected = "foo"
+		XCTAssertEqual(s.stripping(suffix: "bar", caseSensitive: true), expected)
+		XCTAssertEqual(s.stripping(suffix: "BAR"), expected)
+		XCTAssertEqual(s.stripping(suffix: "BAR", caseSensitive: true), s)
+
+		let s2 = "foobarbar"
+		let expected2 = "foobar"
+		XCTAssertEqual(s2.stripping(suffix: "bar", caseSensitive: true), expected2)
+		XCTAssertEqual(s2.stripping(suffix: "BAR"), expected2)
+		XCTAssertEqual(s2.stripping(suffix: "BAR", caseSensitive: true), s2)
 	}
 
 	func testEscapingSpecialXMLCharacters() {
