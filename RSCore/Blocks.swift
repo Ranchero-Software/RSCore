@@ -8,7 +8,8 @@
 
 import Foundation
 
-public typealias VoidCompletionBlock = () -> Void
+public typealias VoidBlock = () -> Void
+public typealias VoidCompletionBlock = VoidBlock
 
 /// Call a VoidCompletionBlock on the main thread.
 public func callVoidCompletionBlock(_ block: @escaping VoidCompletionBlock) {
