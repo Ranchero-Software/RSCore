@@ -151,7 +151,12 @@ public extension String {
 	/// - Returns: A new string with the prefix removed.
 	func stripping(prefix: String, caseSensitive: Bool = false) -> String {
 		let options: String.CompareOptions = caseSensitive ? .anchored : [.anchored, .caseInsensitive]
-		return self.replacingOccurrences(of: prefix, with: "", options: options)
+
+		if let range = self.range(of: prefix, options: options) {
+			return self.replacingCharacters(in: range, with: "")
+		}
+
+		return self
 	}
 
 	/// Removes a suffix from the end of a string.
@@ -161,8 +166,12 @@ public extension String {
 	/// - Returns: A new string with the suffix removed.
 	func stripping(suffix: String, caseSensitive: Bool = false) -> String {
 		let options: String.CompareOptions = caseSensitive ? [.backwards, .anchored] : [.backwards, .anchored, .caseInsensitive]
-		return self.replacingOccurrences(of: suffix, with: "", options: options)
 
+		if let range = self.range(of: suffix, options: options) {
+			return self.replacingCharacters(in: range, with: "")
+		}
+
+		return self;
 	}
 
 	/// Removes an HTML tag and everything between its start and end tags.
