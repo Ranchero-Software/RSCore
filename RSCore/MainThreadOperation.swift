@@ -49,3 +49,10 @@ public protocol MainThreadOperation: class {
 	/// in another thread, you should check isCanceled in that code.
 	func run()
 }
+
+// More notes:
+//
+// If an operation wants to cancel itself, it can.
+// It needs to have a reference to its MainThreadOperationQueue,
+// and then it should call queue.cancelOperation(self).
+
