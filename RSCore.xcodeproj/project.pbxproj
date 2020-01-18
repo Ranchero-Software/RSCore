@@ -98,6 +98,7 @@
 		B2D1A8DC23D2D5340045D235 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = B2D1A8DB23D2D5340045D235 /* test.html */; };
 		B2D1A8DE23D2D5470045D235 /* Data+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D1A8DD23D2D5470045D235 /* Data+RSCore.swift */; };
 		B2D1A8DF23D2D5470045D235 /* Data+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D1A8DD23D2D5470045D235 /* Data+RSCore.swift */; };
+		B2D1A8E123D2E57C0045D235 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D1A8E023D2E57C0045D235 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +183,7 @@
 		B2D1A8D923D2D52D0045D235 /* Data+RSCoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+RSCoreTests.swift"; sourceTree = "<group>"; };
 		B2D1A8DB23D2D5340045D235 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		B2D1A8DD23D2D5470045D235 /* Data+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+RSCore.swift"; sourceTree = "<group>"; };
+		B2D1A8E023D2E57C0045D235 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D511EEFD20242E4C00712EC3 /* RSCore_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_target.xcconfig; sourceTree = "<group>"; };
 		D511EEFE20242E4C00712EC3 /* RSCore_project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project.xcconfig; sourceTree = "<group>"; };
 		D511EEFF20242E4C00712EC3 /* RSCoreTests_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCoreTests_target.xcconfig; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				B2B431F623CE8600008B0D66 /* String+RSCoreTests.swift */,
 				B2D1A8D923D2D52D0045D235 /* Data+RSCoreTests.swift */,
 				B2D1A8DB23D2D5340045D235 /* test.html */,
+				B2D1A8E023D2E57C0045D235 /* icon.png */,
 			);
 			path = RSCoreTests;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2D1A8DC23D2D5340045D235 /* test.html in Resources */,
+				B2D1A8E123D2E57C0045D235 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

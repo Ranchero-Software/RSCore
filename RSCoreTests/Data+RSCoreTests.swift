@@ -12,8 +12,9 @@ import XCTest
 class Data_RSCoreTests: XCTestCase {
 	var bigHTML: String!
 
+	lazy var bundle = Bundle(for: type(of: self))
+
 	override func setUp() {
-		let bundle = Bundle(for: type(of: self))
 		let htmlFile = bundle.url(forResource: "test", withExtension: "html")!
 		bigHTML = try? String(contentsOf: htmlFile)
 	}
@@ -42,6 +43,13 @@ class Data_RSCoreTests: XCTestCase {
 				let _ = utf8.isProbablyHTML
 			}
 		}
+	}
+
+	func testIsImage() {
+		let pngURL = bundle.urlForImageResource("icon")!
+		let pngData = try! Data(contentsOf: pngURL)
+		XCTAssertTrue(pngData.isPNG)
+		XCTAssertTrue(pngData.isImage)
 	}
 
 }
