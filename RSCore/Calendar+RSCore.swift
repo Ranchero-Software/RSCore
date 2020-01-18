@@ -13,13 +13,11 @@ public extension Calendar {
 	/// A cached `.autoupdatingCurrent` for performance.
 	static let cached: Calendar = .autoupdatingCurrent
 
-	/**
-	Determine whether a date is in today.
-
-	- Parameter date: The specified date.
-
-	- Returns: `true` if `date` is in today; `false` otherwise.
-	*/
+	/// Determine whether a date is in today.
+	///
+	/// - Parameter date: The specified date.
+	///
+	/// - Returns: `true` if `date` is in today; `false` otherwise.
 	static func dateIsToday(_ date: Date) -> Bool {
 		return cached.isDateInToday(date)
 	}

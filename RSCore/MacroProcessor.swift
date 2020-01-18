@@ -20,19 +20,18 @@ public class MacroProcessor {
 	let macroEnd: String
 	lazy var renderedText: String = processMacros()
 
-	/**
-	Parses a template string and replaces macros with specified values.
-
-	- Returns: A copy of `template` with defined macros replaced by their values. Macros with undefined values are left as-is.
-
-	- Parameters:
-		- template: The template string to parse, with macros surrounded by `macroStart` and `macroEnd`.
-		- substitutions: A dictionary mapping macro keys to their replacement values.
-		- macroStart: A string denoting the beginning of a macro.
-		- macroEnd: A string denoting the end of a macro.
-
-	- Throws: An error of type `MacroProcessorError`.
-	*/
+	/// Parses a template string and replaces macros with specified values.
+	///
+	/// - Returns: A copy of `template` with defined macros replaced by their values.
+	///   Macros with undefined values are left as-is.
+	///
+	/// - Parameters:
+	///   - template: The template string to parse, with macros surrounded by `macroStart` and `macroEnd`.
+	///   - substitutions: A dictionary mapping macro keys to their replacement values.
+	///   - macroStart: A string denoting the beginning of a macro.
+	///   - macroEnd: A string denoting the end of a macro.
+	///
+	/// - Throws: An error of type `MacroProcessorError`.
 
 	public static func renderedText(withTemplate template: String, substitutions: [String: String], macroStart: String = "[[", macroEnd: String = "]]") throws -> String {
 		let processor = try MacroProcessor(template: template, substitutions: substitutions, macroStart: macroStart, macroEnd: macroEnd)

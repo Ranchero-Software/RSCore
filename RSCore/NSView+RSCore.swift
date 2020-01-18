@@ -23,11 +23,9 @@ extension NSView {
 
 public extension NSView {
 
-	/**
-	Keeps subview at same size as receiver.
-
-	- Parameter subview: The subview to constrain. Must be a descendant of `self`.
-	*/
+	/// Keeps a subview at same size as receiver.
+	///
+	/// - Parameter subview: The subview to constrain. Must be a descendant of `self`.
 	func addFullSizeConstraints(forSubview subview: NSView) {
 		NSLayoutConstraint.activate([
 			subview.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -37,11 +35,9 @@ public extension NSView {
 		])
 	}
 
-	/**
-	Sets the view's frame if it's different from the current frame.
-
-	- Parameter rect: The new frame.
-	*/
+	/// Sets the view's frame if it's different from the current frame.
+	///
+	/// - Parameter rect: The new frame.
 	func setFrame(ifNotEqualTo rect: NSRect) {
 		if self.frame != rect {
 			self.frame = rect
@@ -62,29 +58,23 @@ public extension NSView {
 		return (self.window?.isMainWindow ?? false) && self.isOrIsDescendedFromFirstResponder
 	}
 
-	/**
-	Vertically centers a rectangle in the view's bounds.
-	- Parameter rect: The rectangle to center.
-	- Returns: A new rectangle, vertically centered in the view's bounds.
-	*/
+	/// Vertically centers a rectangle in the view's bounds.
+	/// - Parameter rect: The rectangle to center.
+	/// - Returns: A new rectangle, vertically centered in the view's bounds.
 	func verticallyCenteredRect(_ rect: NSRect) -> NSRect {
 		return rect.centeredVertically(in: self.bounds)
 	}
 
-	/**
-	Horizontally centers a rectangle in the view's bounds.
-	- Parameter rect: The rectangle to center.
-	- Returns: A new rectangle, horizontally centered in the view's bounds.
-	*/
+	/// Horizontally centers a rectangle in the view's bounds.
+	/// - Parameter rect: The rectangle to center.
+	/// - Returns: A new rectangle, horizontally centered in the view's bounds.
 	func horizontallyCenteredRect(_ rect: NSRect) -> NSRect {
 		return rect.centeredHorizontally(in: self.bounds)
 	}
 
-	/**
-	Centers a rectangle in the view's bounds.
-	- Parameter rect: The rectangle to center.
-	- Returns: A new rectangle, both horizontally and vertically centered in the view's bounds.
-	*/
+	/// Centers a rectangle in the view's bounds.
+	/// - Parameter rect: The rectangle to center.
+	/// - Returns: A new rectangle, both horizontally and vertically centered in the view's bounds.
 	func centeredRect(_ rect: NSRect) -> NSRect {
 		return rect.centered(in: self.bounds)
 	}
