@@ -8,8 +8,9 @@
 
 import AppKit
 
-// Represents an app (the type of app mostly found in /Applications.)
-// The app may or may not be running. It may or may not exist.
+/// Represents an app (the type of app mostly found in /Applications.)
+///
+/// The app may or may not be running. It may or may not exist.
 
 public final class UserApp {
 
