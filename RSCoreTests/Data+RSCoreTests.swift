@@ -46,10 +46,22 @@ class Data_RSCoreTests: XCTestCase {
 	}
 
 	func testIsImage() {
-		let pngURL = bundle.urlForImageResource("icon")!
+		let pngURL = bundle.url(forResource: "icon", withExtension: "png")!
 		let pngData = try! Data(contentsOf: pngURL)
+
+		let jpegURL = bundle.url(forResource: "icon", withExtension: "jpg")!
+		let jpegData = try! Data(contentsOf: jpegURL)
+
+		let gifURL = bundle.url(forResource: "icon", withExtension: "gif")!
+		let gifData = try! Data(contentsOf: gifURL)
+
 		XCTAssertTrue(pngData.isPNG)
+		XCTAssertTrue(jpegData.isJPEG)
+		XCTAssertTrue(gifData.isGIF)
+
 		XCTAssertTrue(pngData.isImage)
+		XCTAssertTrue(jpegData.isImage)
+		XCTAssertTrue(gifData.isImage)
 	}
 
 }

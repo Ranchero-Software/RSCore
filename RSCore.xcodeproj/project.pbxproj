@@ -99,6 +99,8 @@
 		B2D1A8DE23D2D5470045D235 /* Data+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D1A8DD23D2D5470045D235 /* Data+RSCore.swift */; };
 		B2D1A8DF23D2D5470045D235 /* Data+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D1A8DD23D2D5470045D235 /* Data+RSCore.swift */; };
 		B2D1A8E123D2E57C0045D235 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D1A8E023D2E57C0045D235 /* icon.png */; };
+		B2D1A8E323D2E8B90045D235 /* icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = B2D1A8E223D2E8B90045D235 /* icon.gif */; };
+		B2D1A8E523D2E9830045D235 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2D1A8E423D2E9830045D235 /* icon.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,7 +166,6 @@
 		84CFF4F41AC3C69700CEA6C8 /* RSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CFF4F81AC3C69700CEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RSCore/Info.plist; sourceTree = "<group>"; };
 		84CFF4FF1AC3C69700CEA6C8 /* RSCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84CFF5051AC3C69700CEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D5BA1D201E87E2009092BD /* URLPasteboardWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLPasteboardWriter.swift; path = AppKit/URLPasteboardWriter.swift; sourceTree = "<group>"; };
 		84E34DA51F9FA1070077082F /* UndoableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UndoableCommand.swift; path = RSCore/UndoableCommand.swift; sourceTree = "<group>"; };
 		84E8E0D8202EC39800562D8F /* NSMenu+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSMenu+Extensions.swift"; path = "AppKit/NSMenu+Extensions.swift"; sourceTree = "<group>"; };
@@ -184,6 +185,8 @@
 		B2D1A8DB23D2D5340045D235 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 		B2D1A8DD23D2D5470045D235 /* Data+RSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+RSCore.swift"; sourceTree = "<group>"; };
 		B2D1A8E023D2E57C0045D235 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		B2D1A8E223D2E8B90045D235 /* icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icon.gif; sourceTree = "<group>"; };
+		B2D1A8E423D2E9830045D235 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		D511EEFD20242E4C00712EC3 /* RSCore_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_target.xcconfig; sourceTree = "<group>"; };
 		D511EEFE20242E4C00712EC3 /* RSCore_project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project.xcconfig; sourceTree = "<group>"; };
 		D511EEFF20242E4C00712EC3 /* RSCoreTests_target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCoreTests_target.xcconfig; sourceTree = "<group>"; };
@@ -292,17 +295,11 @@
 				B2B431F623CE8600008B0D66 /* String+RSCoreTests.swift */,
 				B2D1A8D923D2D52D0045D235 /* Data+RSCoreTests.swift */,
 				B2D1A8DB23D2D5340045D235 /* test.html */,
+				B2D1A8E223D2E8B90045D235 /* icon.gif */,
 				B2D1A8E023D2E57C0045D235 /* icon.png */,
+				B2D1A8E423D2E9830045D235 /* icon.jpg */,
 			);
 			path = RSCoreTests;
-			sourceTree = "<group>";
-		};
-		84CFF5041AC3C69700CEA6C8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				84CFF5051AC3C69700CEA6C8 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		84CFF5241AC3C8A200CEA6C8 /* Foundation */ = {
@@ -527,7 +524,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D1A8E523D2E9830045D235 /* icon.jpg in Resources */,
 				B2D1A8DC23D2D5340045D235 /* test.html in Resources */,
+				B2D1A8E323D2E8B90045D235 /* icon.gif in Resources */,
 				B2D1A8E123D2E57C0045D235 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
