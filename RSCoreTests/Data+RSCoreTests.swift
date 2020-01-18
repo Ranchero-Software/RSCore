@@ -44,13 +44,4 @@ class Data_RSCoreTests: XCTestCase {
 		}
 	}
 
-	func testRSIsProbablyHTMLPerformance() {
-		let utf8 = NSData(data: bigHTML.data(using: .utf8)!)
-
-		self.measure {
-			for _ in 0 ..< 10000 {
-				let _ = utf8.rs_dataIsProbablyHTML()
-			}
-		}
-	}
 }

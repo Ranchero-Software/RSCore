@@ -153,7 +153,7 @@ class String_RSCore: XCTestCase {
 
 	}
 
-	func testMD5HashStringPerformance() {
+	func testMD5StringPerformance() {
 
 		let s1 = "These are the times that try men’s souls."
 		let s2 = "These are the times that men’s souls."
@@ -168,16 +168,16 @@ class String_RSCore: XCTestCase {
 
 		self.measure {
 			for _ in 0..<1000 {
-				let _ = s1.md5HashString
-				let _ = s2.md5HashString
-				let _ = s3.md5HashString
-				let _ = s4.md5HashString
-				let _ = s5.md5HashString
-				let _ = s6.md5HashString
-				let _ = s7.md5HashString
-				let _ = s8.md5HashString
-				let _ = s9.md5HashString
-				let _ = s10.md5HashString
+				let _ = s1.MD5String
+				let _ = s2.MD5String
+				let _ = s3.MD5String
+				let _ = s4.MD5String
+				let _ = s5.MD5String
+				let _ = s6.MD5String
+				let _ = s7.MD5String
+				let _ = s8.MD5String
+				let _ = s9.MD5String
+				let _ = s10.MD5String
 			}
 		}
 	}
