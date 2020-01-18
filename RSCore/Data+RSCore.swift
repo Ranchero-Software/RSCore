@@ -44,7 +44,8 @@ public extension Data {
 		/// The signature for PNG data.
 		///
 		/// [PNG signature](http://www.w3.org/TR/PNG/#5PNG-file-signature)\:
-		/// "The first eight bytes of a PNG datastream always contain the following (decimal) values:
+		/// The first eight bytes of a PNG datastream always contain the following (decimal) values:
+		///
 		/// ```
 		/// 137 80 78 71 13 10 26 10
 		/// ```
