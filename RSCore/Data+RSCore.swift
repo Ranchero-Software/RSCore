@@ -120,7 +120,7 @@ public extension Data {
 	/// Returns `true` if the data looks like it could be HTML.
 	///
 	/// Advantage is taken of the fact that most common encodings are ASCII-compatible, aside from UTF-16,
-	/// which for ASCII codepoints is basically ASCII characters with nulls in between.
+	/// which for ASCII codepoints is essentially ASCII characters with nulls in between.
 	///
 	/// An uncommon exception is any EBCDIC-derived encoding.
 	var isProbablyHTML: Bool {
