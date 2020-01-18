@@ -75,6 +75,7 @@
 		84C687361FBC025600345C9E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687341FBC025600345C9E /* Log.swift */; };
 		84C687381FBC028900345C9E /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687371FBC028900345C9E /* LogItem.swift */; };
 		84C687391FBC028900345C9E /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C687371FBC028900345C9E /* LogItem.swift */; };
+		84CB30E823D2ADD50062D1EF /* MainThreadOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB30E723D2ADD50062D1EF /* MainThreadOperationTests.swift */; };
 		84CFF4FA1AC3C69700CEA6C8 /* RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF4F91AC3C69700CEA6C8 /* RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84CFF5001AC3C69700CEA6C8 /* RSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CFF4F41AC3C69700CEA6C8 /* RSCore.framework */; };
 		84CFF52B1AC3CA9700CEA6C8 /* NSData+RSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CFF5291AC3CA9700CEA6C8 /* NSData+RSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -160,6 +161,7 @@
 		84C326862038C9F6006A025C /* CoalescingQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoalescingQueue.swift; path = RSCore/CoalescingQueue.swift; sourceTree = "<group>"; };
 		84C687341FBC025600345C9E /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		84C687371FBC028900345C9E /* LogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogItem.swift; sourceTree = "<group>"; };
+		84CB30E723D2ADD50062D1EF /* MainThreadOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainThreadOperationTests.swift; sourceTree = "<group>"; };
 		84CFF4F41AC3C69700CEA6C8 /* RSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CFF4F81AC3C69700CEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RSCore/Info.plist; sourceTree = "<group>"; };
 		84CFF4F91AC3C69700CEA6C8 /* RSCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RSCore.h; path = RSCore/RSCore.h; sourceTree = "<group>"; };
@@ -287,8 +289,9 @@
 			isa = PBXGroup;
 			children = (
 				B2BF9A6B23BD63A600CCE9A0 /* MacroProcessorTests.swift */,
-				84CFF5041AC3C69700CEA6C8 /* Supporting Files */,
+				84CB30E723D2ADD50062D1EF /* MainThreadOperationTests.swift */,
 				B2B431F623CE8600008B0D66 /* String+RSCoreTests.swift */,
+				84CFF5041AC3C69700CEA6C8 /* Supporting Files */,
 			);
 			path = RSCoreTests;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2B431F723CE8600008B0D66 /* String+RSCoreTests.swift in Sources */,
+				84CB30E823D2ADD50062D1EF /* MainThreadOperationTests.swift in Sources */,
 				B2BF9A6C23BD63A600CCE9A0 /* MacroProcessorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
