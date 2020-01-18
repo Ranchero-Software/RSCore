@@ -92,6 +92,9 @@ public final class MainThreadOperationQueue {
 	public func cancelOperations(_ operations: [MainThreadOperation]) {
 		precondition(Thread.isMainThread)
 		let operationIDsToCancel = operations.map{ ensureOperationID($0) }
+		assert(allOperationIDsArePending(operationIDsToCancel))
+		assert(allOperationIDsAreInStorage(operationIDsToCancel))
+
 		cancel(operationIDsToCancel)
 		runNextOperationIfNeeded()
 	}
@@ -272,6 +275,26 @@ private extension MainThreadOperationQueue {
 		}
 		completionBlock(operation)
 		operation.completionBlock = nil
+	}
+
+	func allOperationIDsArePending(_ operationIDs: [Int]) -> Bool {
+		// Used by an assert.
+		for operationID in operationIDs {
+			if !pendingOperationIDs.contains(operationID) {
+				return false
+			}
+		}
+		return true
+	}
+
+	func allOperationIDsAreInStorage(_ operationIDs: [Int]) -> Bool {
+		// Used by an assert.
+		for operationID in operationIDs {
+			guard let _ = operations[operationID] else {
+				return false
+			}
+		}
+		return true
 	}
 }
 
