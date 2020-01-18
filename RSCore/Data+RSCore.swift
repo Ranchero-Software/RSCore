@@ -83,11 +83,15 @@ public extension Data {
 		return prefix == ImageSignature.GIF89 || prefix == ImageSignature.GIF87
 	}
 
-
 	/// Returns `true` if the data contains a valid JPEG signature.
 	var isJPEG: Bool {
 		let signature = self[6..<10]
 		return signature == ImageSignature.JFIF || signature == ImageSignature.Exif
+	}
+
+	/// Returns `true` if the data is an image (PNG, JPEG, or GIF).
+	var isImage: Bool {
+		return  isPNG || isJPEG || isGIF
 	}
 
 	/// Constants for `isProbablyHTML`.
