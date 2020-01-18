@@ -33,6 +33,12 @@ class Data_RSCoreTests: XCTestCase {
 		let utf16Big = bigHTML.data(using: .utf16BigEndian)!
 		XCTAssertTrue(utf16Big.isProbablyHTML)
 
+		let shiftJIS = bigHTML.data(using: .shiftJIS)!
+		XCTAssertTrue(shiftJIS.isProbablyHTML)
+
+		let japaneseEUC = bigHTML.data(using: .japaneseEUC)!
+		XCTAssertTrue(japaneseEUC.isProbablyHTML)
+
 	}
 
 	func testIsProbablyHTMLPerformance() {
