@@ -38,7 +38,6 @@ public extension Data {
 		return md5Hash.hexadecimalString
 	}
 
-
 	/// Image signature constants.
 	private enum ImageSignature {
 
@@ -144,6 +143,7 @@ public extension Data {
 
 	/// A representation of the data as a hexadecimal string.
 	var hexadecimalString: String? {
+
 		if count == 0 {
 			return nil
 		}
@@ -154,6 +154,7 @@ public extension Data {
 		}
 
 		return reduce("") { $0 + String(format: "%02x", $1) }
+
 	}
 
 }
