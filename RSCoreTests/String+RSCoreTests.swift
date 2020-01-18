@@ -120,6 +120,39 @@ class String_RSCore: XCTestCase {
 
 	}
 
+	func testNormalizedURL() {
+
+		// feeds:
+		let feeds = "feeds:daringfireball.net"
+		XCTAssertEqual(feeds.normalizedURL, "https://daringfireball.net/")
+
+		let feedsWithHTTPS = "feeds:https://daringfireball.net/"
+		XCTAssertEqual(feedsWithHTTPS.normalizedURL, "https://daringfireball.net/")
+
+		let feedsWithHTTPSAndSlashes = "feeds://https://daringfireball.net/"
+		XCTAssertEqual(feedsWithHTTPSAndSlashes.normalizedURL, "https://daringfireball.net/")
+
+		// feed:
+
+		let feed = "feed:daringfireball.net"
+		XCTAssertEqual(feed.normalizedURL, "http://daringfireball.net/")
+
+		let feedWithHTTPS = "feed:https://daringfireball.net/"
+		XCTAssertEqual(feedWithHTTPS.normalizedURL, "https://daringfireball.net/")
+
+		let feedWithHTTPSAndSlashes = "feed://https://daringfireball.net/"
+		XCTAssertEqual(feedWithHTTPSAndSlashes.normalizedURL, "https://daringfireball.net/")
+
+		// bare
+		let https = "https://daringfireball.net/"
+		XCTAssertEqual(https.normalizedURL, "https://daringfireball.net/")
+
+		// bare
+		let http = "http://daringfireball.net/"
+		XCTAssertEqual(http.normalizedURL, "http://daringfireball.net/")
+
+	}
+
 	func testMD5HashStringPerformance() {
 
 		let s1 = "These are the times that try men’s souls."

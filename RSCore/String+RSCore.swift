@@ -100,8 +100,10 @@ public extension String {
 	/// feed:http://boingboing.net/feed
 	var normalizedURL: String {
 
+		/// Prefix constants.
+		/// - Note: The lack of colon on `http(s)` is intentional.
 		enum Prefix {
-			static let feed = "prefix:"
+			static let feed = "feed:"
 			static let feeds = "feeds:"
 			static let http = "http"
 			static let https = "https"
@@ -112,13 +114,11 @@ public extension String {
 
 		var lowercaseS = s.lowercased()
 
-		if lowercaseS.hasPrefix(Prefix.feed) || lowercaseS.hasPrefix(Prefix.feeds) {
-			if lowercaseS.hasPrefix(Prefix.feeds) {
-				wasFeeds = true
-				s = s.stripping(prefix: Prefix.feeds)
-			} else {
-				s = s.stripping(prefix: Prefix.feed)
-			}
+		if lowercaseS.hasPrefix(Prefix.feeds) {
+			wasFeeds = true
+			s = s.stripping(prefix: Prefix.feeds)
+		} else if lowercaseS.hasPrefix(Prefix.feed) {
+			s = s.stripping(prefix: Prefix.feed)
 		}
 
 		if s.hasPrefix("//") {
@@ -126,7 +126,7 @@ public extension String {
 		}
 
 		lowercaseS = s.lowercased()
-		if lowercaseS.hasPrefix(Prefix.http) {
+		if !lowercaseS.hasPrefix(Prefix.http) {
 			s = "\(wasFeeds ? Prefix.https : Prefix.http)://\(s)"
 		}
 
