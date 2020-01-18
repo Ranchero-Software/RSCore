@@ -49,44 +49,43 @@ public extension Data {
 		/// ```
 		/// 137 80 78 71 13 10 26 10
 		/// ```
-		static let PNG = Data([137, 80, 78, 71, 13, 10, 26, 10])
+		static let png = Data([137, 80, 78, 71, 13, 10, 26, 10])
 
 		/// The signature for GIF 89a data.
 		///
 		/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
-		static let GIF89 = "GIF89a".data(using: .ascii)
+		static let gif89a = "GIF89a".data(using: .ascii)
 		/// The signature for GIF 87a data.
 		///
 		/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
-		static let GIF87 = "GIF87a".data(using: .ascii)
+		static let gif87a = "GIF87a".data(using: .ascii)
 
 		/// The signature for standard JPEG data.
 		///
 		/// JPEG signatures start at byte 6.
-		static let JFIF = "JFIF".data(using: .ascii)
+		static let jfif = "JFIF".data(using: .ascii)
 
 		/// The signature for Exif JPEG data.
 		///
 		/// JPEG signatures start at byte 6.
-		static let Exif = "Exif".data(using: .ascii)
+		static let exif = "Exif".data(using: .ascii)
 	}
 
 	/// Returns `true` if the data begins with the PNG signature.
 	var isPNG: Bool {
-		return prefix(8) == ImageSignature.PNG
+		return prefix(8) == ImageSignature.png
 	}
 
 	/// Returns `true` if the data begins with a valid GIF signature.
-	///
 	var isGIF: Bool {
 		let prefix = self.prefix(6)
-		return prefix == ImageSignature.GIF89 || prefix == ImageSignature.GIF87
+		return prefix == ImageSignature.gif89a || prefix == ImageSignature.gif87a
 	}
 
 	/// Returns `true` if the data contains a valid JPEG signature.
 	var isJPEG: Bool {
 		let signature = self[6..<10]
-		return signature == ImageSignature.JFIF || signature == ImageSignature.Exif
+		return signature == ImageSignature.jfif || signature == ImageSignature.exif
 	}
 
 	/// Returns `true` if the data is an image (PNG, JPEG, or GIF).
