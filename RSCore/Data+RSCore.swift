@@ -15,7 +15,7 @@ import CommonCrypto
 public extension Data {
 
 	/// The MD5 hash of the data.
-	var MD5Hash: Data {
+	var md5Hash: Data {
 
 		if #available(macOS 10.15, *) {
 			let digest = Insecure.MD5.hash(data: self)
@@ -34,8 +34,8 @@ public extension Data {
 	}
 
 	/// The MD5 has of the data, as a hexadecimal string.
-	var MD5String: String? {
-		return MD5Hash.hexadecimalString
+	var md5String: String? {
+		return md5Hash.hexadecimalString
 	}
 
 

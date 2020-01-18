@@ -168,16 +168,16 @@ class String_RSCore: XCTestCase {
 
 		self.measure {
 			for _ in 0..<1000 {
-				let _ = s1.MD5String
-				let _ = s2.MD5String
-				let _ = s3.MD5String
-				let _ = s4.MD5String
-				let _ = s5.MD5String
-				let _ = s6.MD5String
-				let _ = s7.MD5String
-				let _ = s8.MD5String
-				let _ = s9.MD5String
-				let _ = s10.MD5String
+				let _ = s1.md5String
+				let _ = s2.md5String
+				let _ = s3.md5String
+				let _ = s4.md5String
+				let _ = s5.md5String
+				let _ = s6.md5String
+				let _ = s7.md5String
+				let _ = s8.md5String
+				let _ = s9.md5String
+				let _ = s10.md5String
 			}
 		}
 	}

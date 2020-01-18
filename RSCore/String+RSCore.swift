@@ -38,13 +38,13 @@ public extension String {
 public extension String {
 
 	/// An MD5 hash of the string's UTF-8 representation.
-	var MD5Hash: Data {
-		self.data(using: .utf8)!.MD5Hash
+	var md5Hash: Data {
+		self.data(using: .utf8)!.md5Hash
 	}
 
 	/// A hexadecimal representaion of an MD5 hash of the string's UTF-8 representation.
-	var MD5String: String {
-		self.MD5Hash.hexadecimalString!
+	var md5String: String {
+		self.md5Hash.hexadecimalString!
 	}
 
 	/// Trims leading and trailing whitespace, and collapses other whitespace into a single space.
