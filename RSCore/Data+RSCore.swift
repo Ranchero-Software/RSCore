@@ -142,6 +142,8 @@ public extension Data {
 	}
 
 	/// A representation of the data as a hexadecimal string.
+	///
+	/// Returns `nil` if the data is empty.
 	var hexadecimalString: String? {
 
 		if count == 0 {
