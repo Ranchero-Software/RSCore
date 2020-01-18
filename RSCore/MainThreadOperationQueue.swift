@@ -29,9 +29,14 @@ public final class MainThreadOperationQueue {
 	private var operations = [Int: MainThreadOperation]()
 	private var pendingOperationIDs = [Int]()
 	private var currentOperationID: Int?
-	private var incrementingID = 0
+	private static var incrementingID = 0
 	private var isSuspended = false
 	private let dependencies = MainThreadOperationDependencies()
+
+	/// Meant for testing; not intended to be useful.
+	public var pendingOperationsCount: Int {
+		return pendingOperationIDs.count
+	}
 
 	public init() {
 		// Silence compiler complaint about init not being public.
@@ -176,8 +181,9 @@ private extension MainThreadOperationQueue {
 	}
 
 	func createOperationID() -> Int {
-		incrementingID += 1
-		return incrementingID
+		precondition(Thread.isMainThread)
+		Self.incrementingID += 1
+		return Self.incrementingID
 	}
 
 	func ensureOperationID(_ operation: MainThreadOperation) -> Int {
@@ -191,6 +197,10 @@ private extension MainThreadOperationQueue {
 	}
 
 	func cancel(_ operationIDs: [Int]) {
+		guard !operationIDs.isEmpty else {
+			return
+		}
+		
 		let operationIDsToCancel = operationIDsByAddingChildOperationIDs(operationIDs)
 		setCanceledAndRemoveDelegate(for: operationIDsToCancel)
 		callCompletionBlockForOperationIDs(operationIDsToCancel)
