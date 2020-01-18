@@ -191,7 +191,7 @@ public extension String {
 	func strippingHTML(maxCharacters: Int? = nil) -> String {
 		if !self.contains("<") {
 
-			if let maxCharacters = maxCharacters {
+			if let maxCharacters = maxCharacters, maxCharacters < count {
 				let ix = self.index(self.startIndex, offsetBy: maxCharacters)
 				return String(self[..<ix])
 			}
