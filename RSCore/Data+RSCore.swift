@@ -104,7 +104,7 @@ public extension Data {
 			static let lowercaseHTML = "html".data(using: .utf8)!
 			static let lowercaseBody = "body".data(using: .utf8)!
 			static let uppercaseHTML = "HTML".data(using: .utf8)!
-			static let uppercaseBody = "HTML".data(using: .utf8)!
+			static let uppercaseBody = "BODY".data(using: .utf8)!
 		}
 
 		/// Tags in UTF-16 format.
@@ -112,7 +112,7 @@ public extension Data {
 			static let lowercaseHTML = "html".data(using: .utf16LittleEndian)!
 			static let lowercaseBody = "body".data(using: .utf16LittleEndian)!
 			static let uppercaseHTML = "HTML".data(using: .utf16LittleEndian)!
-			static let uppercaseBody = "HTML".data(using: .utf16LittleEndian)!
+			static let uppercaseBody = "BODY".data(using: .utf16LittleEndian)!
 		}
 
 	}

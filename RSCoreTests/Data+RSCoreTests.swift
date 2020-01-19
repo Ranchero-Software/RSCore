@@ -19,7 +19,7 @@ class Data_RSCoreTests: XCTestCase {
 		bigHTML = try? String(contentsOf: htmlFile)
 	}
 
-	func testIsProbablyHTML() {
+	func testIsProbablyHTMLEncodings() {
 
 		let utf8 = bigHTML.data(using: .utf8)!
 		XCTAssertTrue(utf8.isProbablyHTML)
@@ -38,6 +38,31 @@ class Data_RSCoreTests: XCTestCase {
 
 		let japaneseEUC = bigHTML.data(using: .japaneseEUC)!
 		XCTAssertTrue(japaneseEUC.isProbablyHTML)
+
+	}
+
+	func testIsProbablyHTMLTags() {
+
+		let noLT = "html body".data(using: .utf8)!
+		XCTAssertFalse(noLT.isProbablyHTML)
+
+		let noBody = "<html><head></head></html>".data(using: .utf8)!
+		XCTAssertFalse(noBody.isProbablyHTML)
+
+		let noHead = "<body>foo</body>".data(using: .utf8)!
+		XCTAssertFalse(noHead.isProbablyHTML)
+
+		let lowerHTMLLowerBODY = "<html><body></body></html>".data(using: .utf8)!
+		XCTAssertTrue(lowerHTMLLowerBODY.isProbablyHTML)
+
+		let upperHTMLUpperBODY = "<HTML><BODY></BODY></HTML>".data(using: .utf8)!
+		XCTAssertTrue(upperHTMLUpperBODY.isProbablyHTML)
+
+		let lowerHTMLUpperBODY = "<html><BODY></BODY></html>".data(using: .utf8)!
+		XCTAssertTrue(lowerHTMLUpperBODY.isProbablyHTML)
+
+		let upperHTMLLowerBODY = "<HTML><body></body></HTML>".data(using: .utf8)!
+		XCTAssertTrue(upperHTMLLowerBODY.isProbablyHTML)
 
 	}
 
