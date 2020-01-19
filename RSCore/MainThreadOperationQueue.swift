@@ -10,6 +10,8 @@ import Foundation
 
 public protocol MainThreadOperationDelegate: class {
 	func operationDidComplete(_ operation: MainThreadOperation)
+	func cancelOperation(_ operation: MainThreadOperation)
+	func make(_ childOperation: MainThreadOperation, dependOn parentOperation: MainThreadOperation)
 }
 
 /// Manage a queue of MainThreadOperation tasks.
@@ -120,6 +122,10 @@ extension MainThreadOperationQueue: MainThreadOperationDelegate {
 	public func operationDidComplete(_ operation: MainThreadOperation) {
 		precondition(Thread.isMainThread)
 		operationDidFinish(operation)
+	}
+
+	public func cancelOperation(_ operation: MainThreadOperation) {
+		cancelOperations([operation])
 	}
 }
 

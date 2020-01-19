@@ -48,11 +48,33 @@ public protocol MainThreadOperation: class {
 	/// it’s guaranteed to not be canceled. However, if you run code
 	/// in another thread, you should check isCanceled in that code.
 	func run()
+
+	/// Cancel this operation. Any operations dependent on this operation
+	/// will also be canceled automatically.
+	///
+	/// This function has a default implementation. It’s super-rare
+	/// to need to provide your own.
+	func cancel()
+
+	/// Make this operation dependent on an other operation.
+	///
+	/// This means the other operation must complete before
+	/// this operation gets run. If the other operation is canceled,
+	/// this operation will automatically be canceled.
+	/// Note: an operation can have multiple dependencies.
+	///
+	/// This function has a default implementation. It’s super-rare
+	/// to need to provide your own.
+	func addDependency(_ parentOperation: MainThreadOperation)
 }
 
-// More notes:
-//
-// If an operation wants to cancel itself, it can.
-// It needs to have a reference to its MainThreadOperationQueue,
-// and then it should call queue.cancelOperation(self).
+public extension MainThreadOperation {
 
+	func cancel() {
+		operationDelegate?.cancelOperation(self)
+	}
+
+	func addDependency(_ parentOperation: MainThreadOperation) {
+		operationDelegate?.make(self, dependOn: parentOperation)
+	}
+}
