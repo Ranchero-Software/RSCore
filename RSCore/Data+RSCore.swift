@@ -84,7 +84,7 @@ public extension Data {
 
 	/// Returns `true` if the data contains a valid JPEG signature.
 	var isJPEG: Bool {
-		if self.count < 10 {
+		if count < 10 {
 			return false
 		}
 		let signature = self[6..<10]
