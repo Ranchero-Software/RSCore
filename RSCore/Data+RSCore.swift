@@ -60,6 +60,8 @@ public extension Data {
 		/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
 		static let gif87a = "GIF87a".data(using: .ascii)!
 
+		/// A convenience array of all GIF signatures.
+		static let gif = [Self.gif89a, Self.gif87a]
 
 		/// The signature for standard JPEG data.
 		///
@@ -71,26 +73,35 @@ public extension Data {
 		/// JPEG signatures start at byte 6.
 		static let exif = "Exif".data(using: .ascii)!
 
+		/// A convenience array of all JPEG signatures.
+		static let jpeg = [Self.jfif, Self.exif]
+	}
+
+	private func matchesSignature(from signatures: [Data], at offset: Int = 0) -> Bool {
+		for signature in signatures {
+			let upperBound = signature.count + offset
+
+			if upperBound < count, self[offset..<upperBound] == signature {
+				return true
+			}
+		}
+
+		return false
 	}
 
 	/// Returns `true` if the data begins with the PNG signature.
 	var isPNG: Bool {
-		return prefix(8) == ImageSignature.png
+		return matchesSignature(from: [ImageSignature.png])
 	}
 
 	/// Returns `true` if the data begins with a valid GIF signature.
 	var isGIF: Bool {
-		let prefix = self.prefix(6)
-		return prefix == ImageSignature.gif89a || prefix == ImageSignature.gif87a
+		return matchesSignature(from: ImageSignature.gif)
 	}
 
 	/// Returns `true` if the data contains a valid JPEG signature.
 	var isJPEG: Bool {
-		if count < 10 {
-			return false
-		}
-		let signature = self[6..<10]
-		return signature == ImageSignature.jfif || signature == ImageSignature.exif
+		return matchesSignature(from: ImageSignature.jpeg, at: 6)
 	}
 
 	/// Returns `true` if the data is an image (PNG, JPEG, or GIF).
