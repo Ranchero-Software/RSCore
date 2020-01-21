@@ -100,6 +100,11 @@ class Data_RSCoreTests: XCTestCase {
 		XCTAssertTrue(gifData.isImage)
 	}
 
+	func testDataIsTooSmallForJPEG() {
+		let data = Data(count: 9)
+		XCTAssertFalse(data.isJPEG)
+	}
+
 	func testMD5() {
 		let foobarData = "foobar".data(using: .utf8)!
 		XCTAssertEqual(foobarData.md5String, "3858f62230ac3c915f300c664312c63f")
