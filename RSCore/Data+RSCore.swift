@@ -77,6 +77,12 @@ public extension Data {
 		static let jpeg = [Self.jfif, Self.exif]
 	}
 
+	/// Check if data matches a signature at a particular offset.
+	///
+	/// - Parameters:
+	///   - signatures: An array of signatures to match against.
+	///   - offset: The offset into `self` to check for a match.
+	/// - Returns: `true` if the data matches; `false` otherwise.
 	private func matchesSignature(from signatures: [Data], at offset: Int = 0) -> Bool {
 		for signature in signatures {
 			let upperBound = signature.count + offset
