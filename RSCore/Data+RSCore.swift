@@ -54,21 +54,23 @@ public extension Data {
 		/// The signature for GIF 89a data.
 		///
 		/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
-		static let gif89a = "GIF89a".data(using: .ascii)
+		static let gif89a = "GIF89a".data(using: .ascii)!
 		/// The signature for GIF 87a data.
 		///
 		/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
-		static let gif87a = "GIF87a".data(using: .ascii)
+		static let gif87a = "GIF87a".data(using: .ascii)!
+
 
 		/// The signature for standard JPEG data.
 		///
 		/// JPEG signatures start at byte 6.
-		static let jfif = "JFIF".data(using: .ascii)
+		static let jfif = "JFIF".data(using: .ascii)!
 
 		/// The signature for Exif JPEG data.
 		///
 		/// JPEG signatures start at byte 6.
-		static let exif = "Exif".data(using: .ascii)
+		static let exif = "Exif".data(using: .ascii)!
+
 	}
 
 	/// Returns `true` if the data begins with the PNG signature.
