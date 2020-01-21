@@ -212,4 +212,77 @@ class MainThreadOperationTests: XCTestCase {
 		waitForExpectations(timeout: 1.0, handler: nil)
 		XCTAssertTrue(queue.pendingOperationsCount == 0)
 	}
+    
+    func testCancelingDisownsOperation() {
+        
+        final class SlowFinishingOperation: MainThreadOperation {
+
+            // MainThreadOperation
+            var isCanceled = false {
+                didSet {
+                    if isCanceled {
+                        didCancelExpectation?.fulfill()
+                    }
+                }
+            }
+            var didCancelExpectation: XCTestExpectation?
+            
+            var id: Int?
+            var operationDelegate: MainThreadOperationDelegate?
+            var name: String?
+            var completionBlock: MainThreadOperation.MainThreadOperationCompletionBlock?
+            
+            var didStartRunBlock: (() -> ())?
+
+            func run() {
+                guard let block = didStartRunBlock else {
+                    XCTFail("Unable to test cancelation of running operation.")
+                    return
+                }
+                block()
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else {
+                        XCTFail("Could not complete slow finishing operation because it seems to be prematurely disowned.")
+                        return
+                    }
+                    self.operationDelegate?.operationDidComplete(self)
+                }
+            }
+        }
+        
+        let queue = MainThreadOperationQueue()
+        let completionExpectation = expectation(description: "Slow Finishing Operation Did Complete")
+        
+        // Using an Optional allows us to control this scope's ownership of the operation.
+        var operation: SlowFinishingOperation? = {
+            let operation = SlowFinishingOperation()
+            operation.didCancelExpectation = expectation(description: "Did Cancel Operation")
+            operation.didStartRunBlock = { [weak operation] in
+                guard let operation = operation else {
+                    XCTFail("Could not cancel slow finishing operation because it seems to be prematurely disowned.")
+                    return
+                }
+                queue.cancelOperation(operation)
+            }
+            operation.completionBlock = { _ in
+                XCTAssertTrue(Thread.isMainThread)
+                completionExpectation.fulfill()
+            }
+            return operation
+        }()
+        
+        // The queue should take ownership of the operation (asserted below).
+        queue.addOperation(operation!)
+        
+        // Verify something other than this scope has ownership of the operation.
+        weak var addedOperation = operation!
+        operation = nil
+        XCTAssertNil(operation)
+        XCTAssertNotNil(addedOperation, "Perhaps the queue did not take ownership of the operation?")
+        
+        // Wait for the operation to start running, cancel and complete.
+        waitForExpectations(timeout: 1)
+        
+        XCTAssertNil(addedOperation, "Perhaps the queue did not disown the operation?")
+    }
 }
