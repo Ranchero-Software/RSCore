@@ -215,24 +215,28 @@ class MainThreadOperationTests: XCTestCase {
     
     func testCancelingDisownsOperation() {
         
-        final class SlowFinishingOperation: MainThreadOperation {
+		final class SlowFinishingOperation: MainThreadOperation {
 
-            // MainThreadOperation
+			let didCancelExpectation: XCTestExpectation
+
+			// MainThreadOperation
             var isCanceled = false {
                 didSet {
                     if isCanceled {
-                        didCancelExpectation?.fulfill()
+                        didCancelExpectation.fulfill()
                     }
                 }
             }
-            var didCancelExpectation: XCTestExpectation?
-            
-            var id: Int?
+			var id: Int?
             var operationDelegate: MainThreadOperationDelegate?
             var name: String?
             var completionBlock: MainThreadOperation.MainThreadOperationCompletionBlock?
             
             var didStartRunBlock: (() -> ())?
+
+			init(didCancelExpectation: XCTestExpectation) {
+				self.didCancelExpectation = didCancelExpectation
+			}
 
             func run() {
                 guard let block = didStartRunBlock else {
@@ -241,23 +245,22 @@ class MainThreadOperationTests: XCTestCase {
                 }
                 block()
                 DispatchQueue.main.async { [weak self] in
-                    guard let self = self else {
-                        XCTFail("Could not complete slow finishing operation because it seems to be prematurely disowned.")
-                        return
-                    }
-                    self.operationDelegate?.operationDidComplete(self)
+					if let self = self {
+						XCTAssert(false, "This code should not be executed.")
+						self.operationDelegate?.operationDidComplete(self)
+					}
                 }
             }
         }
         
         let queue = MainThreadOperationQueue()
-        let completionExpectation = expectation(description: "Slow Finishing Operation Did Complete")
-        
-        // Using an Optional allows us to control this scope's ownership of the operation.
+		let didCancelExpectation = expectation(description: "Did Cancel Operation")
+		let completionBlockDidRunExpectation = expectation(description: "Completion Block Did Run")
+
+		// Using an Optional allows us to control this scope's ownership of the operation.
         var operation: SlowFinishingOperation? = {
-            let operation = SlowFinishingOperation()
-            operation.didCancelExpectation = expectation(description: "Did Cancel Operation")
-            operation.didStartRunBlock = { [weak operation] in
+            let operation = SlowFinishingOperation(didCancelExpectation: didCancelExpectation)
+			operation.didStartRunBlock = { [weak operation] in
                 guard let operation = operation else {
                     XCTFail("Could not cancel slow finishing operation because it seems to be prematurely disowned.")
                     return
@@ -266,7 +269,7 @@ class MainThreadOperationTests: XCTestCase {
             }
             operation.completionBlock = { _ in
                 XCTAssertTrue(Thread.isMainThread)
-                completionExpectation.fulfill()
+                completionBlockDidRunExpectation.fulfill()
             }
             return operation
         }()
@@ -279,10 +282,14 @@ class MainThreadOperationTests: XCTestCase {
         operation = nil
         XCTAssertNil(operation)
         XCTAssertNotNil(addedOperation, "Perhaps the queue did not take ownership of the operation?")
-        
+
+		let didDisownOperationExpectation = expectation(description: "Did Disown Operation")
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak addedOperation] in
+			XCTAssertNil(addedOperation, "Perhaps the queue did not disown the operation?")
+			didDisownOperationExpectation.fulfill()
+		}
+
         // Wait for the operation to start running, cancel and complete.
         waitForExpectations(timeout: 1)
-        
-        XCTAssertNil(addedOperation, "Perhaps the queue did not disown the operation?")
-    }
+     }
 }

@@ -94,7 +94,7 @@ public final class MainThreadOperationQueue {
 	public func cancelOperations(_ operations: [MainThreadOperation]) {
 		precondition(Thread.isMainThread)
 		let operationIDsToCancel = operations.map{ ensureOperationID($0) }
-		assert(allOperationIDsArePending(operationIDsToCancel))
+		assert(allOperationIDsArePendingOrCurrent(operationIDsToCancel))
 		assert(allOperationIDsAreInStorage(operationIDsToCancel))
 
 		cancel(operationIDsToCancel)
@@ -215,6 +215,7 @@ private extension MainThreadOperationQueue {
 		callCompletionBlockForOperationIDs(operationIDsToCancel)
 		clearCurrentOperationIDIfContained(by: operationIDsToCancel)
 		removeOperationIDsFromPendingOperationIDs(operationIDsToCancel)
+		removeOperationIDsFromStorage(operationIDsToCancel)
 		dependencies.cancel(operationIDsToCancel)
 	}
 
@@ -255,12 +256,18 @@ private extension MainThreadOperationQueue {
 	}
 
 	func removeFromStorage(_ operation: MainThreadOperation) {
+		guard let operationID = operation.id else {
+			assertionFailure("Expected operation.id, got nil.")
+			return
+		}
+		removeOperationIDsFromStorage([operationID])
+	}
+
+	func removeOperationIDsFromStorage(_ operationIDs: [Int]) {
 		DispatchQueue.main.async {
-			guard let operationID = operation.id else {
-				assertionFailure("Expected operation.id, got nil.")
-				return
+			for operationID in operationIDs {
+				self.operations[operationID] = nil
 			}
-			self.operations[operationID] = nil
 		}
 	}
 
@@ -283,10 +290,10 @@ private extension MainThreadOperationQueue {
 		operation.completionBlock = nil
 	}
 
-	func allOperationIDsArePending(_ operationIDs: [Int]) -> Bool {
+	func allOperationIDsArePendingOrCurrent(_ operationIDs: [Int]) -> Bool {
 		// Used by an assert.
 		for operationID in operationIDs {
-			if !pendingOperationIDs.contains(operationID) {
+			if currentOperationID != operationID && !pendingOperationIDs.contains(operationID) {
 				return false
 			}
 		}
