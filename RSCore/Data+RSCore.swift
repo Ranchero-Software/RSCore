@@ -90,7 +90,7 @@ public extension Data {
 		return matchesSignature(from: [ImageSignature.gif89a, ImageSignature.gif87a])
 	}
 
-	/// Returns `true` if the data contains a valid JPEG signature.
+	/// Returns `true` if the data begins with a valid JPEG signature.
 	var isJPEG: Bool {
 		return matchesSignature(from: [ImageSignature.jpeg])
 	}
