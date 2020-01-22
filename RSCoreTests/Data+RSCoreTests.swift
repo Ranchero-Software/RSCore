@@ -100,8 +100,9 @@ class Data_RSCoreTests: XCTestCase {
 		XCTAssertTrue(gifData.isImage)
 	}
 
-	func testDataIsTooSmallForJPEG() {
-		let data = Data(count: 9)
+	// Shouldn't crash.
+	func testDataIsTooSmall() {
+		let data = Data(count: 2)
 		XCTAssertFalse(data.isJPEG)
 	}
 
