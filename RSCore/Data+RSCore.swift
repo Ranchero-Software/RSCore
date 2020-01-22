@@ -66,17 +66,13 @@ public extension Data {
 
 	}
 
-	/// Check if data matches a signature at a particular offset.
+	/// Check if data matches a signature at its start.
 	///
-	/// - Parameters:
-	///   - signatures: An array of signatures to match against.
-	///   - offset: The offset into `self` to check for a match.
+	/// - Parameter signatures: An array of signatures to match against.
 	/// - Returns: `true` if the data matches; `false` otherwise.
 	private func matchesSignature(from signatures: [Data]) -> Bool {
 		for signature in signatures {
-			let upperBound = signature.count
-
-			if upperBound < count, self[..<upperBound] == signature {
+			if self.prefix(signature.count) == signature {
 				return true
 			}
 		}
