@@ -55,26 +55,15 @@ public extension Data {
 		///
 		/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
 		static let gif89a = "GIF89a".data(using: .ascii)!
+
 		/// The signature for GIF 87a data.
 		///
 		/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
 		static let gif87a = "GIF87a".data(using: .ascii)!
 
-		/// A convenience array of all GIF signatures.
-		static let gif = [Self.gif89a, Self.gif87a]
+		/// The signature for JPEG data.
+		static let jpeg = Data([0xFF, 0xD8, 0xFF])
 
-		/// The signature for standard JPEG data.
-		///
-		/// JPEG signatures start at byte 6.
-		static let jfif = "JFIF".data(using: .ascii)!
-
-		/// The signature for Exif JPEG data.
-		///
-		/// JPEG signatures start at byte 6.
-		static let exif = "Exif".data(using: .ascii)!
-
-		/// A convenience array of all JPEG signatures.
-		static let jpeg = [Self.jfif, Self.exif]
 	}
 
 	/// Check if data matches a signature at a particular offset.
@@ -83,11 +72,11 @@ public extension Data {
 	///   - signatures: An array of signatures to match against.
 	///   - offset: The offset into `self` to check for a match.
 	/// - Returns: `true` if the data matches; `false` otherwise.
-	private func matchesSignature(from signatures: [Data], at offset: Int = 0) -> Bool {
+	private func matchesSignature(from signatures: [Data]) -> Bool {
 		for signature in signatures {
-			let upperBound = signature.count + offset
+			let upperBound = signature.count
 
-			if upperBound < count, self[offset..<upperBound] == signature {
+			if upperBound < count, self[..<upperBound] == signature {
 				return true
 			}
 		}
@@ -102,12 +91,12 @@ public extension Data {
 
 	/// Returns `true` if the data begins with a valid GIF signature.
 	var isGIF: Bool {
-		return matchesSignature(from: ImageSignature.gif)
+		return matchesSignature(from: [ImageSignature.gif89a, ImageSignature.gif87a])
 	}
 
 	/// Returns `true` if the data contains a valid JPEG signature.
 	var isJPEG: Bool {
-		return matchesSignature(from: ImageSignature.jpeg, at: 6)
+		return matchesSignature(from: [ImageSignature.jpeg])
 	}
 
 	/// Returns `true` if the data is an image (PNG, JPEG, or GIF).
