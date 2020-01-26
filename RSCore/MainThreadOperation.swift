@@ -9,6 +9,7 @@
 import Foundation
 
 /// Code to be run by MainThreadOperationQueue.
+///
 /// When finished, it must call operationDelegate.operationDidComplete(self).
 /// If it’s canceled, it should not call the delegate.
 /// When it’s canceled, it should do its best to stop
@@ -26,7 +27,9 @@ public protocol MainThreadOperation: class {
 
 	typealias MainThreadOperationCompletionBlock = (MainThreadOperation) -> Void
 
-	/// Called when the operation completes. The completionBlock is called
+	/// Called when the operation completes.
+	///
+	/// The completionBlock is called
 	/// even if the operation was canceled. The completionBlock
 	/// takes the operation as parameter, so you can inspect it as needed.
 	///
@@ -49,7 +52,9 @@ public protocol MainThreadOperation: class {
 	/// in another thread, you should check isCanceled in that code.
 	func run()
 
-	/// Cancel this operation. Any operations dependent on this operation
+	/// Cancel this operation.
+	///
+	/// Any operations dependent on this operation
 	/// will also be canceled automatically.
 	///
 	/// This function has a default implementation. It’s super-rare
