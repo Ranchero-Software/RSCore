@@ -11,6 +11,11 @@ import os
 
 public enum Platform {
 
+
+	/// Get the path to a subfolder of the application's data folder (often `Application Support`).
+	/// - Parameters:
+	///   - appName: The name of the application.
+	///   - folderName: The name of the subfolder in the application's data folder.
 	public static func dataSubfolder(forApplication appName: String?, folderName: String) -> String? {
 		guard let dataFolder = dataFile(forApplication: appName, filename: folderName) else {
 			return nil
