@@ -54,41 +54,45 @@ public extension Data {
 		/// The signature for GIF 89a data.
 		///
 		/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
-		static let gif89a = "GIF89a".data(using: .ascii)
+		static let gif89a = "GIF89a".data(using: .ascii)!
+
 		/// The signature for GIF 87a data.
 		///
 		/// [http://www.onicos.com/staff/iz/formats/gif.html](http://www.onicos.com/staff/iz/formats/gif.html)
-		static let gif87a = "GIF87a".data(using: .ascii)
+		static let gif87a = "GIF87a".data(using: .ascii)!
 
-		/// The signature for standard JPEG data.
-		///
-		/// JPEG signatures start at byte 6.
-		static let jfif = "JFIF".data(using: .ascii)
+		/// The signature for JPEG data.
+		static let jpeg = Data([0xFF, 0xD8, 0xFF])
 
-		/// The signature for Exif JPEG data.
-		///
-		/// JPEG signatures start at byte 6.
-		static let exif = "Exif".data(using: .ascii)
+	}
+
+	/// Check if data matches a signature at its start.
+	///
+	/// - Parameter signatures: An array of signatures to match against.
+	/// - Returns: `true` if the data matches; `false` otherwise.
+	private func matchesSignature(from signatures: [Data]) -> Bool {
+		for signature in signatures {
+			if self.prefix(signature.count) == signature {
+				return true
+			}
+		}
+
+		return false
 	}
 
 	/// Returns `true` if the data begins with the PNG signature.
 	var isPNG: Bool {
-		return prefix(8) == ImageSignature.png
+		return matchesSignature(from: [ImageSignature.png])
 	}
 
 	/// Returns `true` if the data begins with a valid GIF signature.
 	var isGIF: Bool {
-		let prefix = self.prefix(6)
-		return prefix == ImageSignature.gif89a || prefix == ImageSignature.gif87a
+		return matchesSignature(from: [ImageSignature.gif89a, ImageSignature.gif87a])
 	}
 
-	/// Returns `true` if the data contains a valid JPEG signature.
+	/// Returns `true` if the data begins with a valid JPEG signature.
 	var isJPEG: Bool {
-		if count < 10 {
-			return false
-		}
-		let signature = self[6..<10]
-		return signature == ImageSignature.jfif || signature == ImageSignature.exif
+		return matchesSignature(from: [ImageSignature.jpeg])
 	}
 
 	/// Returns `true` if the data is an image (PNG, JPEG, or GIF).
