@@ -77,4 +77,18 @@ public extension MainThreadOperation {
 	func addDependency(_ parentOperation: MainThreadOperation) {
 		operationDelegate?.make(self, dependOn: parentOperation)
 	}
+
+	func informOperationDelegateOfCompletion() {
+		guard !isCanceled else {
+			return
+		}
+		if Thread.isMainThread {
+			operationDelegate?.operationDidComplete(self)
+		}
+		else {
+			DispatchQueue.main.async {
+				self.informOperationDelegateOfCompletion()
+			}
+		}
+	}
 }

@@ -28,6 +28,6 @@ public final class MainThreadBlockOperation: MainThreadOperation {
 
 	public func run() {
 		block()
-		operationDelegate?.operationDidComplete(self)
+		informOperationDelegateOfCompletion()
 	}
 }
