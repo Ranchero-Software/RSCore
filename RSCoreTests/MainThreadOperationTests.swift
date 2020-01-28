@@ -292,4 +292,32 @@ class MainThreadOperationTests: XCTestCase {
         // Wait for the operation to start running, cancel and complete.
         waitForExpectations(timeout: 1)
      }
+
+	func testCancellingOperationsWithName() {
+		let queue = MainThreadOperationQueue()
+		queue.suspend()
+
+		let operationsCount = 100
+		for i in 0..<operationsCount {
+			let operation = MainThreadBlockOperation {
+			}
+			operation.name = "\(i)"
+			queue.addOperation(operation)
+
+			let operation2 = MainThreadBlockOperation {
+			}
+			operation2.name = "foo"
+			queue.addOperation(operation2)
+		}
+
+		queue.resume()
+		queue.cancelOperations(named: "33")
+		queue.cancelOperations(named: "99")
+		queue.cancelOperations(named: "654")
+		queue.cancelOperations(named: "foo")
+		XCTAssert(queue.pendingOperationsCount == 98)
+
+		queue.cancelAllOperations()
+		XCTAssert(queue.pendingOperationsCount == 0)
+	}
 }

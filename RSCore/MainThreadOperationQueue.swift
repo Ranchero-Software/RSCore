@@ -101,6 +101,19 @@ public final class MainThreadOperationQueue {
 		runNextOperationIfNeeded()
 	}
 
+	/// Cancel operations with the given name. If any of them have dependent
+	/// operations, they will be canceled too.
+	///
+	/// This will cancel the current operation, not just pending operations,
+	/// if it has the specified name.
+	public func cancelOperations(named name: String) {
+		precondition(Thread.isMainThread)
+		guard let operationsToCancel = pendingAndCurrentOperations(named: name) else {
+			return
+		}
+		cancelOperations(operationsToCancel)
+	}
+
 	/// Stop running operations until resume() is called.
 	/// The current operation, if there is one, will run to completion —
 	/// it will not be canceled.
@@ -130,6 +143,31 @@ extension MainThreadOperationQueue: MainThreadOperationDelegate {
 }
 
 private extension MainThreadOperationQueue {
+
+	var pendingOperations: [MainThreadOperation] {
+		return pendingOperationIDs.compactMap { (operationID) -> MainThreadOperation? in
+			guard let operation = operations[operationID] else {
+				assertionFailure("Expected operation, got nil.")
+				return nil
+			}
+			return operation
+		}
+	}
+
+	var currentOperation: MainThreadOperation? {
+		guard let operationID = currentOperationID else {
+			return nil
+		}
+		return operations[operationID]
+	}
+
+	func pendingAndCurrentOperations(named name: String) -> [MainThreadOperation]? {
+		var operations = pendingOperations.filter { $0.name == name }
+		if let current = currentOperation, current.name == name {
+			operations.append(current)
+		}
+		return operations.isEmpty ? nil : operations
+	}
 
 	func operationDidFinish(_ operation: MainThreadOperation) {
 		guard let operationID = operation.id else {
