@@ -20,7 +20,7 @@ class MainThreadOperationTests: XCTestCase {
 			XCTAssertTrue(operationDidRun)
 			singleOperationDidRunExpectation.fulfill()
 		}
-		queue.addOperation(operation)
+		queue.add(operation)
 
 		waitForExpectations(timeout: 1.0, handler: nil)
 		XCTAssertTrue(queue.pendingOperationsCount == 0)
@@ -45,8 +45,8 @@ class MainThreadOperationTests: XCTestCase {
 		}
 
 		queue.make(childOperation, dependOn: parentOperation)
-		queue.addOperation(parentOperation)
-		queue.addOperation(childOperation)
+		queue.add(parentOperation)
+		queue.add(childOperation)
 
 		waitForExpectations(timeout: 1.0, handler: nil)
 		XCTAssertTrue(queue.pendingOperationsCount == 0)
@@ -71,8 +71,8 @@ class MainThreadOperationTests: XCTestCase {
 		}
 
 		queue.make(childOperation, dependOn: parentOperation)
-		queue.addOperation(childOperation)
-		queue.addOperation(parentOperation)
+		queue.add(childOperation)
+		queue.add(parentOperation)
 
 		waitForExpectations(timeout: 1.0, handler: nil)
 		XCTAssertTrue(queue.pendingOperationsCount == 0)
@@ -105,9 +105,9 @@ class MainThreadOperationTests: XCTestCase {
 
 		queue.make(childOperation, dependOn: parentOperation)
 		queue.make(childOperation2, dependOn: parentOperation)
-		queue.addOperation(childOperation)
-		queue.addOperation(childOperation2)
-		queue.addOperation(parentOperation)
+		queue.add(childOperation)
+		queue.add(childOperation2)
+		queue.add(parentOperation)
 
 		waitForExpectations(timeout: 1.0, handler: nil)
 		XCTAssertTrue(queue.pendingOperationsCount == 0)
@@ -140,9 +140,9 @@ class MainThreadOperationTests: XCTestCase {
 
 		queue.make(childOperation, dependOn: parentOperation)
 		queue.make(childOperation, dependOn: parentOperation2)
-		queue.addOperation(childOperation)
-		queue.addOperation(parentOperation)
-		queue.addOperation(parentOperation2)
+		queue.add(childOperation)
+		queue.add(parentOperation)
+		queue.add(parentOperation2)
 
 		waitForExpectations(timeout: 1.0, handler: nil)
 		XCTAssertTrue(queue.pendingOperationsCount == 0)
@@ -275,7 +275,7 @@ class MainThreadOperationTests: XCTestCase {
         }()
         
         // The queue should take ownership of the operation (asserted below).
-        queue.addOperation(operation!)
+        queue.add(operation!)
         
         // Verify something other than this scope has ownership of the operation.
         weak var addedOperation = operation!
@@ -302,12 +302,12 @@ class MainThreadOperationTests: XCTestCase {
 			let operation = MainThreadBlockOperation {
 			}
 			operation.name = "\(i)"
-			queue.addOperation(operation)
+			queue.add(operation)
 
 			let operation2 = MainThreadBlockOperation {
 			}
 			operation2.name = "foo"
-			queue.addOperation(operation2)
+			queue.add(operation2)
 		}
 
 		queue.resume()
