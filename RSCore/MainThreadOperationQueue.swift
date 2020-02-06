@@ -49,7 +49,7 @@ public final class MainThreadOperationQueue {
 	}
 
 	/// Add an operation to the queue.
-	public func addOperation(_ operation: MainThreadOperation) {
+	public func add(_ operation: MainThreadOperation) {
 		precondition(Thread.isMainThread)
 		operation.operationDelegate = self
 		let operationID = ensureOperationID(operation)
@@ -66,9 +66,7 @@ public final class MainThreadOperationQueue {
 	/// Add multiple operations to the queue.
 	/// This has the same effect as calling addOperation one-by-one.
 	public func addOperations(_ operations: [MainThreadOperation]) {
-		for operation in operations {
-			addOperation(operation)
-		}
+		operations.forEach{ add($0) }
 	}
 
 	/// Add a dependency. Do this *before* calling addOperation, since addOperation might run the operation right away.
