@@ -10,7 +10,8 @@
 import AppKit
 
 public class RSScreen {
-	
+
+	/// The scale factor of the main screen.
 	public static var mainScreenScale: CGFloat = {
 		return NSScreen.main?.backingScaleFactor ?? CGFloat(integerLiteral: 1)
 	}()
@@ -23,7 +24,8 @@ public class RSScreen {
 import UIKit
 
 public class RSScreen {
-	
+
+	/// The scale factor of the main screen.
 	public static var mainScreenScale: CGFloat = {
 		return UIScreen.main.scale
 	}()
