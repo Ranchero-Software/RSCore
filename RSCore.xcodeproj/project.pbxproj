@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		510BD10F232C369C002692E4 /* ManagedResourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BD10E232C369B002692E4 /* ManagedResourceFile.swift */; };
-		510BD114232C419B002692E4 /* ManagedResourceFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BD10E232C369B002692E4 /* ManagedResourceFile.swift */; };
 		51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C326862038C9F6006A025C /* CoalescingQueue.swift */; };
 		518C3196237B02F6004D740F /* NSView+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C3195237B02F6004D740F /* NSView+RSCore.swift */; };
 		51C4506E225FF23B00C03939 /* RSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506D225FF23B00C03939 /* RSScreen.swift */; };
@@ -114,7 +112,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		510BD10E232C369B002692E4 /* ManagedResourceFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManagedResourceFile.swift; path = RSCore/ManagedResourceFile.swift; sourceTree = "<group>"; };
 		518B2EA9235135F700400001 /* RSCore_project_test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project_test.xcconfig; sourceTree = "<group>"; };
 		518C3195237B02F6004D740F /* NSView+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+RSCore.swift"; sourceTree = "<group>"; };
 		51C4506D225FF23B00C03939 /* RSScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSScreen.swift; path = RSCore/RSScreen.swift; sourceTree = "<group>"; };
@@ -262,7 +259,6 @@
 				51C45070225FF25800C03939 /* RSImage.swift */,
 				51C4506D225FF23B00C03939 /* RSScreen.swift */,
 				847E64A12262793300E00365 /* SendToCommand.swift */,
-				510BD10E232C369B002692E4 /* ManagedResourceFile.swift */,
 				84FE7D1D23C98A3900F49117 /* MainThreadOperationQueue.swift */,
 				8472618F23CD85C000799D43 /* MainThreadOperation.swift */,
 				842F6D4423D186C800AFFEBF /* MainThreadBlockOperation.swift */,
@@ -619,7 +615,6 @@
 				51C45072225FF25800C03939 /* RSImage.swift in Sources */,
 				8402047F1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
 				51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */,
-				510BD114232C419B002692E4 /* ManagedResourceFile.swift in Sources */,
 				51C4506F225FF23B00C03939 /* RSScreen.swift in Sources */,
 				842DD7F21E14996B00E061EB /* Date+Extensions.swift in Sources */,
 				51C452252264E22B00C03939 /* UIViewController-Extensions.swift in Sources */,
@@ -636,7 +631,6 @@
 				65AA59FC2322812C00D19FA1 /* RSAppMovementMonitor.swift in Sources */,
 				8432B1881DACA2060057D6DF /* NSWindow-Extensions.swift in Sources */,
 				8402047E1FBCE77900D94C1A /* BatchUpdate.swift in Sources */,
-				510BD10F232C369C002692E4 /* ManagedResourceFile.swift in Sources */,
 				B2BF9A6723BD4F6500CCE9A0 /* MacroProcessor.swift in Sources */,
 				849EE70D2039187D0082A1EA /* NSWindowController+RSCore.swift in Sources */,
 				51C4506E225FF23B00C03939 /* RSScreen.swift in Sources */,
