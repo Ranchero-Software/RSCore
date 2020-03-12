@@ -23,6 +23,7 @@ public extension RSImage {
 	/// Create a colored image from the source image using a specified color.
 	///
 	/// - Parameter color: The color with which to fill the mask image.
+	/// - Returns: A new masked image.
 	func maskWithColor(color: CGColor) -> RSImage? {
 		
 		#if os(macOS)
@@ -55,8 +56,12 @@ public extension RSImage {
 		}
 		
 	}
-	
+
 	#if os(iOS)
+	/// Tint an image.
+	///
+	/// - Parameter color: The color to use to tint the image.
+	/// - Returns: The tinted image.
 	func tinted(color: UIColor) -> UIImage? {
 		let image = withRenderingMode(.alwaysTemplate)
 		let imageView = UIImageView(image: image)
@@ -76,7 +81,8 @@ public extension RSImage {
 
 	/// Returns a data representation of the image.
 	///
-	/// Returns TIFF data on macOS and PNG data on iOS.
+	/// The resultant data is TIFF data on macOS, and PNG data on iOS.
+	/// - Returns: Data representing the image.
 	func dataRepresentation() -> Data? {
 		#if os(macOS)
 			return tiffRepresentation
