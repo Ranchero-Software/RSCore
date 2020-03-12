@@ -8,7 +8,7 @@
 
 import Foundation
 
-// For anything that can be renamed by the user.
+/// For anything that can be renamed by the user.
 
 public protocol Renamable {
 

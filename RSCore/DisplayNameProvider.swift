@@ -13,6 +13,7 @@ extension Notification.Name {
 	public static let DisplayNameDidChange = Notification.Name("DisplayNameDidChange")
 }
 
+/// A type that provides a name for display to the user.
 
 public protocol DisplayNameProvider {
 	
