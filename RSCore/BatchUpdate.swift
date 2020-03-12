@@ -13,32 +13,40 @@ import Foundation
 public typealias BatchUpdateBlock = () -> Void
 
 public extension Notification.Name {
+
+	/// A notification posted when a batch update completes.
 	static let BatchUpdateDidPerform = Notification.Name(rawValue: "BatchUpdateDidPerform")
 }
 
+/// A class for batch updating.
 public final class BatchUpdate {
-	
+
+	/// The shared batch update object.
 	public static let shared = BatchUpdate()
 	
 	private var count = 0
-	
+
+	/// Is updating in progress?
 	public var isPerforming: Bool {
 		precondition(Thread.isMainThread)
 		return count > 0
 	}
-	
+
+	/// Perform a batch update.
 	public func perform(_ batchUpdateBlock: BatchUpdateBlock) {
 		precondition(Thread.isMainThread)
 		incrementCount()
 		batchUpdateBlock()
 		decrementCount()
 	}
-	
+
+	/// Start batch updates.
 	public func start() {
 		precondition(Thread.isMainThread)
 		incrementCount()
 	}
-	
+
+	/// End batch updates.
 	public func end() {
 		precondition(Thread.isMainThread)
 		decrementCount()

@@ -11,7 +11,6 @@ import os
 
 public enum Platform {
 
-
 	/// Get the path to a subfolder of the application's data folder (often `Application Support`).
 	/// - Parameters:
 	///   - appName: The name of the application.
