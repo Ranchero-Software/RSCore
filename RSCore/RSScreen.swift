@@ -10,11 +10,7 @@
 import AppKit
 
 public class RSScreen {
-	
-	public static var mainScreenScale: CGFloat = {
-		return NSScreen.main?.backingScaleFactor ?? CGFloat(integerLiteral: 1)
-	}()
-	
+	public static var maxScreenScale = CGFloat(integerLiteral: 2)
 }
 
 #endif
@@ -23,11 +19,7 @@ public class RSScreen {
 import UIKit
 
 public class RSScreen {
-	
-	public static var mainScreenScale: CGFloat = {
-		return UIScreen.main.scale
-	}()
-	
+	public static var maxScreenScale = CGFloat(integerLiteral: 3)
 }
 
 #endif
