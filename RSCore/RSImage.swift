@@ -20,6 +20,10 @@ public typealias RSImage = UIImage
 
 public extension RSImage {
 
+	/// Create a colored image from the source image using a specified color.
+	///
+	/// - Parameter color: The color with which to fill the mask image.
+	/// - Returns: A new masked image.
 	func maskWithColor(color: CGColor) -> RSImage? {
 		
 		#if os(macOS)
@@ -52,8 +56,12 @@ public extension RSImage {
 		}
 		
 	}
-	
+
 	#if os(iOS)
+	/// Tint an image.
+	///
+	/// - Parameter color: The color to use to tint the image.
+	/// - Returns: The tinted image.
 	func tinted(color: UIColor) -> UIImage? {
 		let image = withRenderingMode(.alwaysTemplate)
 		let imageView = UIImageView(image: image)
@@ -71,6 +79,10 @@ public extension RSImage {
 	}
 	#endif
 
+	/// Returns a data representation of the image.
+	///
+	/// The resultant data is TIFF data on macOS, and PNG data on iOS.
+	/// - Returns: Data representing the image.
 	func dataRepresentation() -> Data? {
 		#if os(macOS)
 			return tiffRepresentation
@@ -78,7 +90,12 @@ public extension RSImage {
 			return pngData()
 		#endif
 	}
-		
+
+	/// Asynchronously initializes an image from data.
+	///
+	/// - Parameters:
+	///   - data: The data object containing the image data.
+	///   - imageResultBlock: The closure to call when the image has been initialized.
 	static func image(with data: Data, imageResultBlock: @escaping ImageResultBlock) {
 		DispatchQueue.global().async {
 			let image = RSImage(data: data)
@@ -88,7 +105,12 @@ public extension RSImage {
 		}
 	}
 
-	// Note: the returned image may be larger than maxPixelSize, but not more than maxPixelSize * 2.
+	/// Create a scaled image from image data.
+	///
+	/// - Note: the returned image may be larger than `maxPixelSize`, but not more than `maxPixelSize * 2`.
+	/// - Parameters:
+	///   - data: The data object containing the image data.
+	///   - maxPixelSize: The maximum dimension of the image.
 	static func scaleImage(_ data: Data, maxPixelSize: Int) -> CGImage? {
 		
 		guard let imageSource = CGImageSourceCreateWithData(data as CFData, nil) else {
@@ -163,7 +185,12 @@ public extension RSImage {
 		return RSImage.createThumbnail(imageSource, maxPixelSize: maxPixelSize)
 		
 	}
-	
+
+	/// Create a thumbnail from a CGImageSource.
+	///
+	/// - Parameters:
+	///   - imageSource: The `CGImageSource` from which to create the thumbnail.
+	///   - maxPixelSize: The maximum dimension of the resulting image.
 	static func createThumbnail(_ imageSource: CGImageSource, maxPixelSize: Int) -> CGImage? {
 		let options = [kCGImageSourceCreateThumbnailWithTransform : true,
 					   kCGImageSourceCreateThumbnailFromImageIfAbsent : true,

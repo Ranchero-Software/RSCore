@@ -8,20 +8,17 @@
 
 import Foundation
 
-/**
-This is for sending articles to MarsEdit and other apps that implement the [send-to-blog-editor Apple Events API](http://ranchero.com/netnewswire/developers/externalinterface)\.
-*/
+/// This is for sending articles to MarsEdit and other apps that implement the
+/// [send-to-blog-editor Apple Events API](http://ranchero.com/netnewswire/developers/externalinterface)\.
 
 public struct SendToBlogEditorApp {
 
-	/**
-	The target descriptor of the application.
-
-	The easiest way to get this is probably `UserApp.targetDescriptor` or `NSAppleEventDescriptor(runningApplication:)`.
-
-	This does not take care of launching the application in the first place.
-	See UserApp.swift.
-	*/
+	///The target descriptor of the application.
+	///
+	/// The easiest way to get this is probably `UserApp.targetDescriptor` or `NSAppleEventDescriptor(runningApplication:)`.
+	///
+	/// This does not take care of launching the application in the first place.
+	/// See UserApp.swift.
 	private let targetDescriptor: NSAppleEventDescriptor
 	private let title: String?
 	private let body: String?
