@@ -11,7 +11,6 @@ import AppKit
 public extension NSToolbar {
 
 	func existingItem(withIdentifier identifier: NSToolbarItem.Identifier) -> NSToolbarItem? {
-
-		return items.firstElementPassingTest{ $0.itemIdentifier == identifier }
+		return items.first(where: {$0.itemIdentifier == identifier})
 	}
 }
