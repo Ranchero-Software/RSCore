@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		510E3314244DF46B00E7A6AF /* Character+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510E3313244DF46B00E7A6AF /* Character+RSCore.swift */; };
+		510E3315244DF46B00E7A6AF /* Character+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510E3313244DF46B00E7A6AF /* Character+RSCore.swift */; };
 		51126C152258F9E100722696 /* CoalescingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C326862038C9F6006A025C /* CoalescingQueue.swift */; };
 		518C3196237B02F6004D740F /* NSView+RSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C3195237B02F6004D740F /* NSView+RSCore.swift */; };
 		51C4506E225FF23B00C03939 /* RSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C4506D225FF23B00C03939 /* RSScreen.swift */; };
@@ -112,6 +114,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		510E3313244DF46B00E7A6AF /* Character+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+RSCore.swift"; sourceTree = "<group>"; };
 		518B2EA9235135F700400001 /* RSCore_project_test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project_test.xcconfig; sourceTree = "<group>"; };
 		518C3195237B02F6004D740F /* NSView+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+RSCore.swift"; sourceTree = "<group>"; };
 		51C4506D225FF23B00C03939 /* RSScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSScreen.swift; path = RSCore/RSScreen.swift; sourceTree = "<group>"; };
@@ -301,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				B2C3DF2B23C9490400492598 /* Calendar+RSCore.swift */,
+				510E3313244DF46B00E7A6AF /* Character+RSCore.swift */,
 				B2D1A8DD23D2D5470045D235 /* Data+RSCore.swift */,
 				B2C3DF3023C9B1E200492598 /* FileManager+RSCore.swift */,
 				840F7BF821AD05560057E851 /* String+RSCore.swift */,
@@ -597,6 +601,7 @@
 				B2C3DF0423C8010B00492598 /* Platform.swift in Sources */,
 				842DD7F41E14996B00E061EB /* Set+Extensions.swift in Sources */,
 				B2D1A8DF23D2D5470045D235 /* Data+RSCore.swift in Sources */,
+				510E3315244DF46B00E7A6AF /* Character+RSCore.swift in Sources */,
 				8472619123CD85C000799D43 /* MainThreadOperation.swift in Sources */,
 				84B99C9B1FAE650100ECDEDB /* OPMLRepresentable.swift in Sources */,
 				847E64A32262793300E00365 /* SendToCommand.swift in Sources */,
@@ -647,6 +652,7 @@
 				84F20F831F16BA6200D8E682 /* PropertyList.swift in Sources */,
 				8472619023CD85C000799D43 /* MainThreadOperation.swift in Sources */,
 				84C687351FBC025600345C9E /* Log.swift in Sources */,
+				510E3314244DF46B00E7A6AF /* Character+RSCore.swift in Sources */,
 				84FEB4AC1D19D7F4004727E5 /* Date+Extensions.swift in Sources */,
 				8479213E1FBA4285004AD08C /* WebViewWindowController.swift in Sources */,
 				844B5B571FE9D36000C7C76A /* Keyboard.swift in Sources */,
