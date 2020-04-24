@@ -115,7 +115,6 @@
 
 /* Begin PBXFileReference section */
 		510E3313244DF46B00E7A6AF /* Character+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+RSCore.swift"; sourceTree = "<group>"; };
-		518B2EA9235135F700400001 /* RSCore_project_test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RSCore_project_test.xcconfig; sourceTree = "<group>"; };
 		518C3195237B02F6004D740F /* NSView+RSCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+RSCore.swift"; sourceTree = "<group>"; };
 		51C4506D225FF23B00C03939 /* RSScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSScreen.swift; path = RSCore/RSScreen.swift; sourceTree = "<group>"; };
 		51C45070225FF25800C03939 /* RSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RSImage.swift; path = RSCore/RSImage.swift; sourceTree = "<group>"; };
@@ -387,7 +386,6 @@
 			children = (
 				D511EEFE20242E4C00712EC3 /* RSCore_project.xcconfig */,
 				D511EF0120242E4C00712EC3 /* RSCore_project_debug.xcconfig */,
-				518B2EA9235135F700400001 /* RSCore_project_test.xcconfig */,
 				D511EF0020242E4C00712EC3 /* RSCore_project_release.xcconfig */,
 				D511EEFD20242E4C00712EC3 /* RSCore_target.xcconfig */,
 				D511EF2620243B6300712EC3 /* RSCore_mac_target.xcconfig */,
@@ -712,34 +710,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		51EC893B2351206A0061B6F6 /* Test */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 518B2EA9235135F700400001 /* RSCore_project_test.xcconfig */;
-			buildSettings = {
-			};
-			name = Test;
-		};
-		51EC893C2351206A0061B6F6 /* Test */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D511EF2620243B6300712EC3 /* RSCore_mac_target.xcconfig */;
-			buildSettings = {
-			};
-			name = Test;
-		};
-		51EC893D2351206A0061B6F6 /* Test */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D511EEFF20242E4C00712EC3 /* RSCoreTests_target.xcconfig */;
-			buildSettings = {
-			};
-			name = Test;
-		};
-		51EC893E2351206A0061B6F6 /* Test */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D511EF2A202446E300712EC3 /* RSCore_ios_target_debug.xcconfig */;
-			buildSettings = {
-			};
-			name = Test;
-		};
 		842DD7C21E14993900E061EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D511EF2A202446E300712EC3 /* RSCore_ios_target_debug.xcconfig */;
@@ -803,7 +773,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				842DD7C21E14993900E061EB /* Debug */,
-				51EC893E2351206A0061B6F6 /* Test */,
 				842DD7C31E14993900E061EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -813,7 +782,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84CFF5081AC3C69700CEA6C8 /* Debug */,
-				51EC893B2351206A0061B6F6 /* Test */,
 				84CFF5091AC3C69700CEA6C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -823,7 +791,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84CFF50B1AC3C69700CEA6C8 /* Debug */,
-				51EC893C2351206A0061B6F6 /* Test */,
 				84CFF50C1AC3C69700CEA6C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -833,7 +800,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84CFF50E1AC3C69700CEA6C8 /* Debug */,
-				51EC893D2351206A0061B6F6 /* Test */,
 				84CFF50F1AC3C69700CEA6C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
