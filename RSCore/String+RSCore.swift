@@ -69,12 +69,25 @@ public extension String {
 		self.range(of: "\\[[0-9a-fA-F:]+\\]", options: .regularExpression) != nil
 	}
 
+	private var hostMayBeLocalhost: Bool {
+		guard let components = URLComponents(string: self) else { return false }
+
+		if let host = components.host {
+			return host == "localhost"
+		}
+
+		// If self is schemeless:
+		if components.path.split(separator: "/", omittingEmptySubsequences: false).first == "localhost" { return true }
+
+		return false
+	}
+
 	/// Returns `true` if the string may be a URL.
 	var mayBeURL: Bool {
 
 		let s = self.trimmingWhitespace
 
-		if s.isEmpty || (!s.contains(".") && !s.mayBeIPv6URL) {
+		if (s.isEmpty || (!s.contains(".") && !s.mayBeIPv6URL && !s.hostMayBeLocalhost)) {
 			return false
 		}
 
