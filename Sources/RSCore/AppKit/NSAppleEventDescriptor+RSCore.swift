@@ -5,7 +5,7 @@
 //  Created by Nate Weaver on 2020-01-02.
 //  Copyright © 2020 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import AppKit
 
 public extension NSAppleEventDescriptor {
@@ -27,3 +27,4 @@ public extension NSAppleEventDescriptor {
 	}
 
 }
+#endif

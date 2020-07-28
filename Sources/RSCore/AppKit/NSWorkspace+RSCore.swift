@@ -5,7 +5,7 @@
 //  Created by Brent Simmons on 9/3/18.
 //  Copyright © 2018 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import AppKit
 
 public extension NSWorkspace {
@@ -74,3 +74,4 @@ public extension NSWorkspace {
 		return Bundle(path: path)?.bundleIdentifier
 	}
 }
+#endif

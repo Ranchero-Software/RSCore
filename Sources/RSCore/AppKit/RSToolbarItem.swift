@@ -5,7 +5,7 @@
 //  Created by Brent Simmons on 10/16/16.
 //  Copyright © 2016 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import AppKit
 
 public class RSToolbarItem: NSToolbarItem {
@@ -62,3 +62,4 @@ private extension RSToolbarItem {
 		return target.validateUserInterfaceItem(self)
 	}
 }
+#endif

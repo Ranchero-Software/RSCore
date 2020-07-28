@@ -6,7 +6,7 @@
 //  Created by Daniel Jalkut on 8/28/19.
 //  Copyright © 2019 Red Sweater Software. All rights reserved.
 //
-
+#if os(macOS)
 import Cocoa
 
 public class RSAppMovementMonitor: NSObject {
@@ -151,3 +151,4 @@ public class RSAppMovementMonitor: NSObject {
 	}
 
 }
+#endif

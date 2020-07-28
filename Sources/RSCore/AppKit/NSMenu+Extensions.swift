@@ -5,7 +5,7 @@
 //  Created by Brent Simmons on 2/9/18.
 //  Copyright © 2018 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import AppKit
 
 public extension NSMenu {
@@ -28,3 +28,4 @@ public extension NSMenu {
 		}
 	}
 }
+#endif

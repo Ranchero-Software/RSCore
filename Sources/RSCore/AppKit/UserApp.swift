@@ -5,7 +5,7 @@
 //  Created by Brent Simmons on 1/14/18.
 //  Copyright © 2018 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import AppKit
 
 /// Represents an app (the type of app mostly found in /Applications.)
@@ -136,5 +136,5 @@ public final class UserApp {
 		return NSAppleEventDescriptor(runningApplication: runningApplication)
 	}
 }
-
+#endif
 

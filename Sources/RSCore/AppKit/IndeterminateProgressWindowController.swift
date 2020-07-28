@@ -5,7 +5,7 @@
 //  Created by Brent Simmons on 8/28/16.
 //  Copyright © 2016 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import AppKit
 
 public func runIndeterminateProgressWithMessage(_ message: String) {
@@ -66,6 +66,6 @@ private final class IndeterminateProgressWindowController: NSWindowController {
 		progressIndicator.startAnimation(self)
 	}
 }
-
+#endif
 
 

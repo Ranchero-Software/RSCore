@@ -5,7 +5,7 @@
 //  Created by Brent Simmons on 10/10/16.
 //  Copyright © 2016 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import AppKit
 
 public extension NSWindow {
@@ -92,3 +92,4 @@ public extension NSWindow {
 		setFrameOrigin(unflippedPoint)
 	}
 }
+#endif

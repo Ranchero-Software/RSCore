@@ -5,7 +5,7 @@
 //  Created by Brent Simmons on 12/19/17.
 //  Copyright © 2017 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import AppKit
 
 // To get, for instance, the keyboard integer value for "\r": "\r".keyboardIntegerValue (returns 13)
@@ -148,3 +148,4 @@ public struct KeyboardKey: Hashable {
 		self.init(integerValue: integerValue, shiftKeyDown: shiftKeyDown, optionKeyDown: optionKeyDown, commandKeyDown: commandKeyDown, controlKeyDown: controlKeyDown)
 	}
 }
+#endif

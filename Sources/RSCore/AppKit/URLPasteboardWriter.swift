@@ -5,7 +5,7 @@
 //  Created by Brent Simmons on 1/28/18.
 //  Copyright © 2018 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import AppKit
 
 // Takes a string, not a URL, but writes it as a URL (when possible) and as a String.
@@ -44,3 +44,4 @@ import AppKit
 		return urlString
 	}
 }
+#endif

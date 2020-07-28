@@ -6,6 +6,7 @@
 //  Copyright © 2018 Ranchero Software, LLC. All rights reserved.
 //
 
+#if os(macOS)
 import AppKit
 
 extension NSAppearance {
@@ -20,3 +21,4 @@ extension NSAppearance {
 		}
 	}
 }
+#endif
