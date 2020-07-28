@@ -6,6 +6,7 @@
 //  Copyright © 2019 Ranchero Software, LLC. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 
 extension UIView {
@@ -37,3 +38,4 @@ extension UIView {
     }
 	
 }
+#endif
