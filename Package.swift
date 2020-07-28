@@ -24,7 +24,7 @@ let package = Package(
             name: "RSCore",
             dependencies: [],
             resources: [
-                .process("Resources/VerifyNoBuildSettings.swift"),
+                .copy("Resources/VerifyNoBuildSettings.swift"),
                 .copy("Resources/WebViewWindow.xib"),
                 .copy("Resurces/IndeterminateProgressWindow.xib")
             ]),
