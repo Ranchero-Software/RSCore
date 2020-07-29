@@ -9,6 +9,7 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(name: "RSCore", type: .dynamic, targets: ["RSCore"]),
+        .library(name: "RSCoreWithResources", type: .dynamic, targets: ["RSCoreResources"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -19,12 +20,14 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "RSCore",
-            dependencies: [],
-            exclude: ["Resources/WebViewWindow.xib", "Resources/IndeterminateProgressWindow.xib"],
+            dependencies: []),
+        .target(
+            name: "RSCoreResources",
+            dependencies: ["RSCore"],
             resources: [
                 .copy("Resources/VerifyNoBuildSettings.swift"),
-                .copy("Resources/WebViewWindow.xib"),
-                .copy("Resources/IndeterminateProgressWindow.xib")
+                .process("Resources/WebViewWindow.xib"),
+                .process("Resources/IndeterminateProgressWindow.xib")
             ]),
         .testTarget(
             name: "RSCoreTests",
