@@ -9,7 +9,7 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(name: "RSCore", type: .dynamic, targets: ["RSCore"]),
-        .library(name: "RSCoreResources", type: .dynamic, targets: ["RSCoreResources"])
+        .library(name: "RSCoreResources", type: .static, targets: ["RSCoreResources"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
