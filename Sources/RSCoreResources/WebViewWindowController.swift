@@ -17,7 +17,7 @@ public final class WebViewWindowController: NSWindowController {
 	public convenience init(title: String) {
         self.init(window: nil)
 		self.title = title
-        Bundle.main.loadNibNamed("WebViewWindow", owner: self, topLevelObjects: nil)
+        Bundle.module.loadNibNamed("WebViewWindow", owner: self, topLevelObjects: nil)
     }
 
 	public override func windowDidLoad() {
