@@ -15,8 +15,8 @@ public final class WebViewWindowController: NSWindowController {
 	private var title: String!
 
 	public convenience init(title: String) {
-
-		self.init(windowNibName: "WebViewWindow")
+        self.init()
+        self.init(windowNibPath: Bundle.module.path(forResource: "WebViewWindow", ofType: "xib")!, owner: self)
 		self.title = title
 	}
 
