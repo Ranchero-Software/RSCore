@@ -15,18 +15,9 @@ public final class WebViewWindowController: NSWindowController {
 	private var title: String!
     
 	public convenience init(title: String) {
-		self.init(windowNibName: "WebViewWindow")
+        self.init(window: nil)
 		self.title = title
-        
-        guard let _ = Bundle.module.path(forResource: "WebViewWindow", ofType: "xib") else {
-            print("No file at path.")
-            return
-        }
-        
-        guard let _ = Bundle.main.path(forResource: "WebViewWindow", ofType: "xib") else {
-            print("No file at path.")
-            return
-        }
+        Bundle.main.loadNibNamed("WebViewWindow", owner: self, topLevelObjects: nil)
     }
 
 	public override func windowDidLoad() {
