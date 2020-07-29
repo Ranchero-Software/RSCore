@@ -5,7 +5,7 @@
 //  Created by Nate Weaver on 2020-01-04.
 //  Copyright © 2020 Ranchero Software, LLC. All rights reserved.
 //
-
+#if os(macOS)
 import Foundation
 
 /// This is for sending articles to MarsEdit and other apps that implement the
@@ -138,3 +138,4 @@ private extension TimeInterval {
 	static let AEDefaultTimeout = TimeInterval(kAEDefaultTimeout)
 
 }
+#endif

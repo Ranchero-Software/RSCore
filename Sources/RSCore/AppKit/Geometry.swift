@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+#if os(macOS)
 public extension CGRect {
 
 	/// Centers a rectangle vertically in another rectangle.
@@ -45,3 +45,4 @@ public extension CGRect {
 		return self.centeredHorizontally(in: self.centeredVertically(in: containerRect))
 	}
 }
+#endif

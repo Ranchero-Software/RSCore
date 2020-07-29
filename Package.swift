@@ -5,13 +5,10 @@ import PackageDescription
 
 let package = Package(
     name: "RSCore",
-    platforms: [.macOS(SupportedPlatform.MacOSVersion.v10_14), .iOS(SupportedPlatform.IOSVersion.v10)],
+    platforms: [.macOS(SupportedPlatform.MacOSVersion.v10_15), .iOS(SupportedPlatform.IOSVersion.v13)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(
-            name: "RSCore",
-            type: .dynamic,
-            targets: ["RSCore"]),
+        .library(name: "RSCore", type: .dynamic, targets: ["RSCore"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -23,10 +20,11 @@ let package = Package(
         .target(
             name: "RSCore",
             dependencies: [],
+            exclude: ["Resources/WebViewWindow.xib", "Resources/IndeterminateProgressWindow.xib"],
             resources: [
                 .copy("Resources/VerifyNoBuildSettings.swift"),
                 .copy("Resources/WebViewWindow.xib"),
-                .copy("Resurces/IndeterminateProgressWindow.xib")
+                .copy("Resources/IndeterminateProgressWindow.xib")
             ]),
         .testTarget(
             name: "RSCoreTests",
