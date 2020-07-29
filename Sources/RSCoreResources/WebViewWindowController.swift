@@ -22,6 +22,11 @@ public final class WebViewWindowController: NSWindowController {
             print("No file at path.")
             return
         }
+        
+        guard let _ = Bundle.main.path(forResource: "WebViewWindow", ofType: "xib") else {
+            print("No file at path.")
+            return
+        }
     }
 
 	public override func windowDidLoad() {
