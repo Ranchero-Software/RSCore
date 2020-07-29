@@ -13,11 +13,16 @@ public final class WebViewWindowController: NSWindowController {
 
 	@IBOutlet private var webview: WKWebView!
 	private var title: String!
-
+    
 	public convenience init(title: String) {
 		self.init(windowNibName: "WebViewWindow")
 		self.title = title
-	}
+        
+        guard let _ = Bundle.module.path(forResource: "WebViewWindow", ofType: "xib") else {
+            print("No file at path.")
+            return
+        }
+    }
 
 	public override func windowDidLoad() {
 
