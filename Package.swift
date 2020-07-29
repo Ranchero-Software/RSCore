@@ -9,7 +9,7 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(name: "RSCore", type: .dynamic, targets: ["RSCore"]),
-        .library(name: "RSCoreWithResources", type: .dynamic, targets: ["RSCoreResources"])
+        .library(name: "RSCoreResources", type: .dynamic, targets: ["RSCoreResources"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -23,7 +23,6 @@ let package = Package(
             dependencies: []),
         .target(
             name: "RSCoreResources",
-            dependencies: ["RSCore"],
             resources: [
                 .copy("Resources/VerifyNoBuildSettings.swift"),
                 .process("Resources/WebViewWindow.xib"),
