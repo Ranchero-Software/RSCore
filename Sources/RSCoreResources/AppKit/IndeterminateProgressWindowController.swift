@@ -56,9 +56,9 @@ private final class IndeterminateProgressWindowController: NSWindowController {
 	@objc dynamic var message = ""
 
 	convenience init(message: String) {
-
-		self.init(windowNibName: NSNib.Name("IndeterminateProgressWindow"))
+        self.init(window: nil)
 		self.message = message
+        Bundle.module.loadNibNamed("IndeterminateProgressWindow", owner: self, topLevelObjects: nil)
 	}
 
 	override func windowDidLoad() {
