@@ -24,7 +24,6 @@ let package = Package(
         .target(
             name: "RSCoreResources",
             resources: [
-                .process("Resources/VerifyNoBuildSettings.swift"),
                 .process("Resources/WebViewWindow.xib"),
                 .process("Resources/IndeterminateProgressWindow.xib")
             ]),
