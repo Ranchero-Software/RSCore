@@ -128,14 +128,20 @@ public extension RSImage {
 
 			let imageProperties = cfImageProperties as NSDictionary
 
-			let imagePixelWidth = (imageProperties[kCGImagePropertyPixelWidth] as! NSNumber).intValue
-			if imagePixelWidth != maxPixelSize {
+			guard let imagePixelWidth = imageProperties[kCGImagePropertyPixelWidth] as? NSNumber else {
 				continue
 			}
-			let imagePixelHeight = (imageProperties[kCGImagePropertyPixelHeight] as! NSNumber).intValue
-			if imagePixelHeight != maxPixelSize {
+			if imagePixelWidth.intValue != maxPixelSize {
 				continue
 			}
+			
+			guard let imagePixelHeight = imageProperties[kCGImagePropertyPixelHeight] as? NSNumber else {
+				continue
+			}
+			if imagePixelHeight.intValue != maxPixelSize {
+				continue
+			}
+			
 			return CGImageSourceCreateImageAtIndex(imageSource, i, nil)
 		}
 
@@ -148,14 +154,20 @@ public extension RSImage {
 
 			let imageProperties = cfImageProperties as NSDictionary
 
-			let imagePixelWidth = (imageProperties[kCGImagePropertyPixelWidth] as! NSNumber).intValue
-			if imagePixelWidth > maxPixelSize * 2 || imagePixelWidth < maxPixelSize {
+			guard let imagePixelWidth = imageProperties[kCGImagePropertyPixelWidth] as? NSNumber else {
 				continue
 			}
-			let imagePixelHeight = (imageProperties[kCGImagePropertyPixelHeight] as! NSNumber).intValue
-			if imagePixelHeight > maxPixelSize * 2 || imagePixelHeight < maxPixelSize {
+			if imagePixelWidth.intValue > maxPixelSize * 2 || imagePixelWidth.intValue < maxPixelSize {
 				continue
 			}
+
+			guard let imagePixelHeight = imageProperties[kCGImagePropertyPixelHeight] as? NSNumber else {
+				continue
+			}
+			if imagePixelHeight.intValue > maxPixelSize * 2 || imagePixelHeight.intValue < maxPixelSize {
+				continue
+			}
+
 			return CGImageSourceCreateImageAtIndex(imageSource, i, nil)
 		}
 
@@ -169,13 +181,17 @@ public extension RSImage {
 			
 			let imageProperties = cfImageProperties as NSDictionary
 			
-			let imagePixelWidth = (imageProperties[kCGImagePropertyPixelWidth] as! NSNumber).intValue
-			if imagePixelWidth < 1 || imagePixelWidth > maxPixelSize {
+			guard let imagePixelWidth = imageProperties[kCGImagePropertyPixelWidth] as? NSNumber else {
+				continue
+			}
+			if imagePixelWidth.intValue < 1 || imagePixelWidth.intValue > maxPixelSize {
 				continue
 			}
 			
-			let imagePixelHeight = (imageProperties[kCGImagePropertyPixelHeight] as! NSNumber).intValue
-			if imagePixelHeight > 0 && imagePixelHeight <= maxPixelSize {
+			guard let imagePixelHeight = imageProperties[kCGImagePropertyPixelHeight] as? NSNumber else {
+				continue
+			}
+			if imagePixelHeight.intValue > 0 && imagePixelHeight.intValue <= maxPixelSize {
 				if let image = CGImageSourceCreateImageAtIndex(imageSource, i, nil) {
 					return image
 				}
