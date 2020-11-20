@@ -5,6 +5,7 @@
 //  Created by Maurice Parker on 11/17/20.
 //
 
+#if os(iOS)
 import UIKit
 
 extension UIResponder {
@@ -31,3 +32,4 @@ extension UIResponder {
 	}
 	
 }
+#endif
