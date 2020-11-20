@@ -1,8 +1,9 @@
 //
 //  UIResponder+.swift
-//  Manhattan
+//  RSCore
 //
 //  Created by Maurice Parker on 11/17/20.
+//  Copyright © 2020 Ranchero Software. All rights reserved.
 //
 
 #if os(iOS)
