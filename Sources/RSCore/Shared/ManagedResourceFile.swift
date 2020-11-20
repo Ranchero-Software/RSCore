@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RSCore
 
 public final class ManagedResourceFile: NSObject, NSFilePresenter {
 	
