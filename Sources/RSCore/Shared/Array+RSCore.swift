@@ -18,7 +18,7 @@ public extension Array {
 	
 }
 
-extension Array where Element: Equatable {
+public extension Array where Element: Equatable {
 
 	mutating func removeFirst(object: Element) {
 		guard let index = firstIndex(of: object) else {return}
