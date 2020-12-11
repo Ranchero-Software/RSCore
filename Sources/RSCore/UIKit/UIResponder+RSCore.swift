@@ -27,6 +27,12 @@ extension UIResponder {
 		UIApplication.shared.sendAction(#selector(findFirstResponder(sender:)), to: nil, from: nil, for: nil)
 		return UIResponder._currentFirstResponder
 	}
+	
+	public static func resignCurrentFirstResponder() {
+		if let responder = currentFirstResponder {
+			responder.resignFirstResponder()
+		}
+	}
 
 	@objc internal func findFirstResponder(sender: AnyObject) {
 		UIResponder._currentFirstResponder = self
