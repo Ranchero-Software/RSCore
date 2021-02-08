@@ -68,6 +68,37 @@ public extension CloudKitZone {
 		#endif
 	}
 	
+	var oldChangeTokenKey: String {
+		return "cloudkit.server.token.\(zoneID.zoneName)"
+	}
+
+	var changeTokenKey: String {
+		return "cloudkit.server.token.\(zoneID.zoneName).\(zoneID.ownerName)"
+	}
+
+	var changeToken: CKServerChangeToken? {
+		get {
+			guard let tokenData = UserDefaults.standard.object(forKey: changeTokenKey) as? Data else { return nil }
+			return try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKServerChangeToken.self, from: tokenData)
+		}
+		set {
+			guard let token = newValue, let data = try? NSKeyedArchiver.archivedData(withRootObject: token, requiringSecureCoding: false) else {
+				UserDefaults.standard.removeObject(forKey: changeTokenKey)
+				return
+			}
+			UserDefaults.standard.set(data, forKey: changeTokenKey)
+		}
+	}
+
+	/// Moves the change token to the new key name.  This can eventually be removed.
+	func migrateChangeToken() {
+		if let tokenData = UserDefaults.standard.object(forKey: oldChangeTokenKey) as? Data,
+		   let oldChangeToken = try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKServerChangeToken.self, from: tokenData) {
+			changeToken = oldChangeToken
+			UserDefaults.standard.removeObject(forKey: oldChangeTokenKey)
+		}
+	}
+	
 	/// Reset the change token used to determine what point in time we are doing changes fetches
 	func resetChangeToken() {
 		changeToken = nil
@@ -654,34 +685,6 @@ public extension CloudKitZone {
         }
 
         database?.add(op)
-    }
-	
-}
-
-private extension CloudKitZone {
-	
-	var changeTokenKey: String {
-		return "cloudkit.server.token.\(zoneID.zoneName)"
-	}
-
-    var changeToken: CKServerChangeToken? {
-        get {
-			guard let tokenData = UserDefaults.standard.object(forKey: changeTokenKey) as? Data else { return nil }
-			return try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKServerChangeToken.self, from: tokenData)
-        }
-        set {
-            guard let token = newValue, let data = try? NSKeyedArchiver.archivedData(withRootObject: token, requiringSecureCoding: false) else {
-                UserDefaults.standard.removeObject(forKey: changeTokenKey)
-                return
-            }
-            UserDefaults.standard.set(data, forKey: changeTokenKey)
-        }
-    }
-
-	var zoneConfiguration: CKFetchRecordZoneChangesOperation.ZoneConfiguration {
-		let config = CKFetchRecordZoneChangesOperation.ZoneConfiguration()
-		config.previousServerChangeToken = changeToken
-		return config
     }
 	
 }
