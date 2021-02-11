@@ -318,7 +318,7 @@ public extension CloudKitZone {
 				
 			case .limitExceeded:
 
-				let chunkedRecords = records.chunked(into: 300)
+				let chunkedRecords = records.chunked(into: 200)
 
 				let group = DispatchGroup()
 				var errorOccurred = false
@@ -549,8 +549,8 @@ public extension CloudKitZone {
 					self.modify(recordsToSave: recordsToSave, recordIDsToDelete: recordIDsToDelete, completion: completion)
 				}
 			case .limitExceeded:
-				let recordToSaveChunks = recordsToSave.chunked(into: 300)
-				let recordIDsToDeleteChunks = recordIDsToDelete.chunked(into: 300)
+				let recordToSaveChunks = recordsToSave.chunked(into: 200)
+				let recordIDsToDeleteChunks = recordIDsToDelete.chunked(into: 200)
 
 				let group = DispatchGroup()
 				var errorOccurred = false
