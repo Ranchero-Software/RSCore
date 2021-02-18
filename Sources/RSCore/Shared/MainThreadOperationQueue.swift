@@ -302,9 +302,9 @@ private extension MainThreadOperationQueue {
 	}
 
 	func removeOperationIDsFromStorage(_ operationIDs: [Int]) {
-		DispatchQueue.main.async {
+		DispatchQueue.main.async { [weak self] in
 			for operationID in operationIDs {
-				self.operations[operationID] = nil
+				self?.operations[operationID] = nil
 			}
 		}
 	}
