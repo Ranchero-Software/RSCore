@@ -61,7 +61,7 @@ public extension CloudKitZone {
 	// .userInitiated is too aggressive on iOS and can lead the UI slowing down and appearing to block.
 	// .default (or lower) on macOS will sometimes hang for extended periods of time and appear to hang.
 	static var qualityOfService: QualityOfService {
-		#if os(macOS)
+		#if os(macOS) || targetEnvironment(macCatalyst)
 		return .userInitiated
 		#else
 		return .default
