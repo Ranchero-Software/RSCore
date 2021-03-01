@@ -12,7 +12,7 @@ import CloudKit
 
 public class CloudKitError: LocalizedError {
 
-	let error: Error
+	public let error: Error
 	
 	public init(_ error: Error) {
 		self.error = error
