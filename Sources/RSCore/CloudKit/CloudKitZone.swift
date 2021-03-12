@@ -359,29 +359,25 @@ public extension CloudKitZone {
 				
 			case .limitExceeded:
 
-				let chunkedRecords = records.chunked(into: 200)
+				var chunkedRecords = records.chunked(into: 200)
 
-				let group = DispatchGroup()
-				var errorOccurred = false
-
-				for chunk in chunkedRecords {
-					group.enter()
-					self.saveIfNew(chunk) { result in
-						if case .failure(let error) = result {
-							os_log(.error, log: self.log, "%@ zone modify records error: %@", self.zoneID.zoneName, error.localizedDescription)
-							errorOccurred = true
+				func saveChunksIfNew() {
+					if let records = chunkedRecords.popLast() {
+						self.saveIfNew(records) { result in
+							switch result {
+							case .success:
+								os_log(.info, log: self.log, "Saved %d chunked new records.", records.count)
+								saveChunksIfNew()
+							case .failure(let error):
+								completion(.failure(error))
+							}
 						}
-						group.leave()
-					}
-				}
-				
-				group.notify(queue: DispatchQueue.main) {
-					if errorOccurred {
-						completion(.failure(CloudKitZoneError.unknown))
 					} else {
 						completion(.success(()))
 					}
 				}
+				
+				saveChunksIfNew()
 				
 			default:
 				DispatchQueue.main.async {
@@ -590,43 +586,47 @@ public extension CloudKitZone {
 					self.modify(recordsToSave: recordsToSave, recordIDsToDelete: recordIDsToDelete, completion: completion)
 				}
 			case .limitExceeded:
-				let recordToSaveChunks = recordsToSave.chunked(into: 200)
-				let recordIDsToDeleteChunks = recordIDsToDelete.chunked(into: 200)
+				var recordToSaveChunks = recordsToSave.chunked(into: 200)
+				var recordIDsToDeleteChunks = recordIDsToDelete.chunked(into: 200)
 
-				let group = DispatchGroup()
-				var errorOccurred = false
-
-				for chunk in recordToSaveChunks {
-					group.enter()
-					self.modify(recordsToSave: chunk, recordIDsToDelete: []) { result in
-						if case .failure(let error) = result {
-							os_log(.error, log: self.log, "%@ zone modify records error: %@", self.zoneID.zoneName, error.localizedDescription)
-							errorOccurred = true
-						}
-						group.leave()
-					}
-				}
-				
-				for chunk in recordIDsToDeleteChunks {
-					group.enter()
-					self.modify(recordsToSave: [], recordIDsToDelete: chunk) { result in
-						if case .failure(let error) = result {
-							os_log(.error, log: self.log, "%@ zone modify records error: %@", self.zoneID.zoneName, error.localizedDescription)
-							errorOccurred = true
-						}
-						group.leave()
-					}
-				}
-				
-				group.notify(queue: DispatchQueue.global(qos: .background)) {
-					if errorOccurred {
-						DispatchQueue.main.async {
-							completion(.failure(CloudKitZoneError.unknown))
+				func saveChunks(completion: @escaping (Result<Void, Error>) -> Void) {
+					if let records = recordToSaveChunks.popLast() {
+						self.modify(recordsToSave: records, recordIDsToDelete: []) { result in
+							switch result {
+							case .success:
+								os_log(.info, log: self.log, "Saved %d chunked records.", records.count)
+								saveChunks(completion: completion)
+							case .failure(let error):
+								completion(.failure(error))
+							}
 						}
 					} else {
-						DispatchQueue.main.async {
-							completion(.success(()))
+						completion(.success(()))
+					}
+				}
+				
+				func deleteChunks() {
+					if let records = recordIDsToDeleteChunks.popLast() {
+						self.modify(recordsToSave: [], recordIDsToDelete: records) { result in
+							switch result {
+							case .success:
+								os_log(.info, log: self.log, "Deleted %d chunked records.", records.count)
+								deleteChunks()
+							case .failure(let error):
+								completion(.failure(error))
+							}
 						}
+					} else {
+						completion(.success(()))
+					}
+				}
+				
+				saveChunks() { result in
+					switch result {
+					case .success:
+						deleteChunks()
+					case .failure(let error):
+						completion(.failure(error))
 					}
 				}
 				
