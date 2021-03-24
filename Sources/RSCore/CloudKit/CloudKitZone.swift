@@ -11,13 +11,16 @@ import os.log
 
 public enum CloudKitZoneError: LocalizedError {
 	case userDeletedZone
-	case invalidParameter
+	case corruptAccount
 	case unknown
 	
 	public var errorDescription: String? {
-		if case .userDeletedZone = self {
-			return NSLocalizedString("The iCloud data was deleted.  Please delete the NetNewsWire iCloud account and add it again to continue using NetNewsWire's iCloud support.", comment: "User deleted zone.")
-		} else {
+		switch self {
+		case .userDeletedZone:
+			return NSLocalizedString("The iCloud data was deleted.  Please remove the application iCloud account and add it again to continue using the application's iCloud support.", comment: "User deleted zone.")
+		case .corruptAccount:
+			return NSLocalizedString("There is an unrecoverable problem with your application iCloud account. Please make sure you have iCloud and iCloud Drive enabled in System Preferences. Then remove the application iCloud account and add it again.", comment: "Corrupt account.")
+		default:
 			return NSLocalizedString("An unexpected CloudKit error occurred.", comment: "An unexpected CloudKit error occurred.")
 		}
 	}
@@ -259,7 +262,7 @@ public extension CloudKitZone {
 	/// Fetch a CKRecord by using its externalID
 	func fetch(externalID: String?, completion: @escaping (Result<CKRecord, Error>) -> Void) {
 		guard let externalID = externalID else {
-			completion(.failure(CloudKitZoneError.invalidParameter))
+			completion(.failure(CloudKitZoneError.corruptAccount))
 			return
 		}
 
@@ -507,7 +510,7 @@ public extension CloudKitZone {
 	/// Delete a CKRecord using its externalID
 	func delete(externalID: String?, completion: @escaping (Result<Void, Error>) -> Void) {
 		guard let externalID = externalID else {
-			completion(.failure(CloudKitZoneError.invalidParameter))
+			completion(.failure(CloudKitZoneError.corruptAccount))
 			return
 		}
 
