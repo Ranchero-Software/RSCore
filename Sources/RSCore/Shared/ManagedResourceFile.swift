@@ -47,6 +47,7 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 		
 		saveQueue = CoalescingQueue(name: "ManagedResourceFile Save Queue", interval: saveInterval)
 		operationQueue = OperationQueue()
+		operationQueue.qualityOfService = .userInteractive
 		operationQueue.maxConcurrentOperationCount = 1
 	
 		super.init()
