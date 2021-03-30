@@ -593,7 +593,8 @@ public extension CloudKitZone {
 				var recordIDsToDeleteChunks = recordIDsToDelete.chunked(into: 200)
 
 				func saveChunks(completion: @escaping (Result<Void, Error>) -> Void) {
-					if let records = recordToSaveChunks.popLast() {
+					if !recordToSaveChunks.isEmpty {
+						let records = recordToSaveChunks.removeFirst()
 						self.modify(recordsToSave: records, recordIDsToDelete: []) { result in
 							switch result {
 							case .success:
@@ -609,7 +610,8 @@ public extension CloudKitZone {
 				}
 				
 				func deleteChunks() {
-					if let records = recordIDsToDeleteChunks.popLast() {
+					if !recordIDsToDeleteChunks.isEmpty {
+						let records = recordIDsToDeleteChunks.removeFirst()
 						self.modify(recordsToSave: [], recordIDsToDelete: records) { result in
 							switch result {
 							case .success:
