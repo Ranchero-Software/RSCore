@@ -56,6 +56,7 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 	}
 	
 	public func presentedItemDidChange() {
+		guard !isDirty else { return }
 		DispatchQueue.main.async {
 			self.load()
 		}
