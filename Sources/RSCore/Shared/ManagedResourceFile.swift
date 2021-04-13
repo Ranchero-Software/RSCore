@@ -109,6 +109,10 @@ public final class ManagedResourceFile: NSObject, NSFilePresenter {
 		NSFileCoordinator.removeFilePresenter(self)
 	}
 	
+	deinit {
+		NSFileCoordinator.removeFilePresenter(self)
+	}
+	
 }
 
 private extension ManagedResourceFile {
