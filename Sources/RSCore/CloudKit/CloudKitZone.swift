@@ -689,11 +689,15 @@ public extension CloudKitZone {
 								os_log(.info, log: self.log, "Deleted %d chunked records.", records.count)
 								deleteChunks()
 							case .failure(let error):
-								completion(.failure(error))
+								DispatchQueue.main.async {
+									completion(.failure(error))
+								}
 							}
 						}
 					} else {
-						completion(.success(()))
+						DispatchQueue.main.async {
+							completion(.success(()))
+						}
 					}
 				}
 				
@@ -702,7 +706,9 @@ public extension CloudKitZone {
 					case .success:
 						deleteChunks()
 					case .failure(let error):
-						completion(.failure(error))
+						DispatchQueue.main.async {
+							completion(.failure(error))
+						}
 					}
 				}
 				
