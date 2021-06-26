@@ -618,7 +618,9 @@ public extension CloudKitZone {
 	/// Modify and delete the supplied CKRecords and CKRecord.IDs
 	func modify(recordsToSave: [CKRecord], recordIDsToDelete: [CKRecord.ID], completion: @escaping (Result<Void, Error>) -> Void) {
 		guard !(recordsToSave.isEmpty && recordIDsToDelete.isEmpty) else {
-			completion(.success(()))
+			DispatchQueue.main.async {
+				completion(.success(()))
+			}
 			return
 		}
 
