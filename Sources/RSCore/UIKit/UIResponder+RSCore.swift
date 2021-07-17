@@ -13,6 +13,7 @@ extension UIResponder {
 	
 	private weak static var _currentFirstResponder: UIResponder? = nil
 
+	@available(iOSApplicationExtension, unavailable)
 	public static var isFirstResponderTextField: Bool {
 		var isTextField = false
 		if let firstResponder = UIResponder.currentFirstResponder {
@@ -29,6 +30,7 @@ extension UIResponder {
 		return UIResponder._currentFirstResponder
 	}
 	
+	@available(iOSApplicationExtension, unavailable)
 	public static func resignCurrentFirstResponder() {
 		if let responder = currentFirstResponder {
 			responder.resignFirstResponder()
