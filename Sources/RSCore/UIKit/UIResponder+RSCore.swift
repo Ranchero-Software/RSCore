@@ -22,6 +22,7 @@ extension UIResponder {
 		return isTextField
 	}
 
+	@available(iOSApplicationExtension, unavailable)
 	public static var currentFirstResponder: UIResponder? {
 		UIResponder._currentFirstResponder = nil
 		UIApplication.shared.sendAction(#selector(findFirstResponder(sender:)), to: nil, from: nil, for: nil)
