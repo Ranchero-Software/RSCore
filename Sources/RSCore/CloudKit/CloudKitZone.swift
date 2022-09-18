@@ -32,13 +32,11 @@ public protocol CloudKitZoneDelegate: AnyObject {
 
 public typealias CloudKitRecordKey = (recordType: CKRecord.RecordType, recordID: CKRecord.ID)
 
-public protocol CloudKitZone: AnyObject {
+public protocol CloudKitZone: AnyObject, Logging {
 	
 	static var qualityOfService: QualityOfService { get }
 
 	var zoneID: CKRecordZone.ID { get }
-
-	var log: OSLog { get }
 
 	var container: CKContainer? { get }
 	var database: CKDatabase? { get }
@@ -127,7 +125,7 @@ public extension CloudKitZone {
 		
 		fetchChangesInZone() { result in
 			if case .failure(let error) = result {
-				os_log(.error, log: self.log, "%@ zone remote notification fetch error: %@", self.zoneID.zoneName, error.localizedDescription)
+                self.logger.error("\(self.zoneID.zoneName) zone remote notification fetch error: \(error.localizedDescription)")
 			}
 			completion()
 		}
@@ -159,7 +157,7 @@ public extension CloudKitZone {
 					}
 				}
 			case .retry(let timeToWait):
-				os_log(.error, log: self.log, "%@ zone fetch changes retry in %f seconds.", self.zoneID.zoneName, timeToWait)
+                self.logger.error("\(self.zoneID.zoneName) zone fetch changes retry in \(timeToWait) seconds.")
 				self.retryIfPossible(after: timeToWait) {
 					self.fetchZoneRecord(completion: completion)
 				}
@@ -204,7 +202,7 @@ public extension CloudKitZone {
         
 		save(subscription) { result in
 			if case .failure(let error) = result {
-				os_log(.error, log: self.log, "%@ zone subscribe to changes error: %@", self.zoneID.zoneName, error.localizedDescription)
+                self.logger.error("\(self.zoneID.zoneName) subscribe to changes error: \(error.localizedDescription)")
 			}
 		}
     }
@@ -251,7 +249,7 @@ public extension CloudKitZone {
 					}
 				}
 			case .retry(let timeToWait):
-				os_log(.error, log: self.log, "%@ zone query retry in %f seconds.", self.zoneID.zoneName, timeToWait)
+                self.logger.error("\(self.zoneID.zoneName) zone query retry in \(timeToWait) seconds.")
 				self.retryIfPossible(after: timeToWait) {
 					self.query(ckQuery, desiredKeys: desiredKeys, completion: completion)
 				}
@@ -311,7 +309,7 @@ public extension CloudKitZone {
 					}
 				}
 			case .retry(let timeToWait):
-				os_log(.error, log: self.log, "%@ zone query retry in %f seconds.", self.zoneID.zoneName, timeToWait)
+                self.logger.error("\(self.zoneID.zoneName) zone query retry in \(timeToWait) seconds.")
 				self.retryIfPossible(after: timeToWait) {
 					self.query(cursor: cursor, desiredKeys: desiredKeys, carriedRecords: records, completion: completion)
 				}
@@ -366,7 +364,7 @@ public extension CloudKitZone {
 					}
 				}
 			case .retry(let timeToWait):
-				os_log(.error, log: self.log, "%@ zone fetch retry in %f seconds.", self.zoneID.zoneName, timeToWait)
+                self.logger.error("\(self.zoneID.zoneName) zone fetch retry in \(timeToWait) seconds.")
 				self.retryIfPossible(after: timeToWait) {
 					self.fetch(externalID: externalID, completion: completion)
 				}
@@ -440,7 +438,7 @@ public extension CloudKitZone {
 						self.saveIfNew(records) { result in
 							switch result {
 							case .success:
-								os_log(.info, log: self.log, "Saved %d chunked new records.", records.count)
+                                self.logger.info("Saved \(records.count) chunked new records.")
 								saveChunksIfNew()
 							case .failure(let error):
 								completion(.failure(error))
@@ -488,7 +486,7 @@ public extension CloudKitZone {
 					}
 				}
 			case .retry(let timeToWait):
-				os_log(.error, log: self.log, "%@ zone save subscription retry in %f seconds.", self.zoneID.zoneName, timeToWait)
+                self.logger.error("\(self.zoneID.zoneName) zone save subscription retry in \(timeToWait) seconds.")
 				self.retryIfPossible(after: timeToWait) {
 					self.save(subscription, completion: completion)
 				}
@@ -603,7 +601,7 @@ public extension CloudKitZone {
 					completion(.success(()))
 				}
 			case .retry(let timeToWait):
-				os_log(.error, log: self.log, "%@ zone delete subscription retry in %f seconds.", self.zoneID.zoneName, timeToWait)
+                self.logger.error("\(self.zoneID.zoneName) zone delete subscription retry in \(timeToWait) seconds.")
 				self.retryIfPossible(after: timeToWait) {
 					self.delete(subscriptionID: subscriptionID, completion: completion)
 				}
@@ -657,7 +655,7 @@ public extension CloudKitZone {
 					completion(.failure(CloudKitZoneError.userDeletedZone))
 				}
 			case .retry(let timeToWait):
-				os_log(.error, log: self.log, "%@ zone modify retry in %f seconds.", self.zoneID.zoneName, timeToWait)
+                self.logger.error("\(self.zoneID.zoneName) zone modify retry in \(timeToWait) seconds.")
 				self.retryIfPossible(after: timeToWait) {
 					self.modify(recordsToSave: recordsToSave, recordIDsToDelete: recordIDsToDelete, completion: completion)
 				}
@@ -671,7 +669,7 @@ public extension CloudKitZone {
 						self.modify(recordsToSave: records, recordIDsToDelete: []) { result in
 							switch result {
 							case .success:
-								os_log(.info, log: self.log, "Saved %d chunked records.", records.count)
+                                self.logger.info("Saved \(records.count) chunked records.")
 								saveChunks(completion: completion)
 							case .failure(let error):
 								completion(.failure(error))
@@ -688,7 +686,7 @@ public extension CloudKitZone {
 						self.modify(recordsToSave: [], recordIDsToDelete: records) { result in
 							switch result {
 							case .success:
-								os_log(.info, log: self.log, "Deleted %d chunked records.", records.count)
+                                self.logger.error("Deleted \(records.count) chunked records.")
 								deleteChunks()
 							case .failure(let error):
 								DispatchQueue.main.async {
@@ -792,7 +790,7 @@ public extension CloudKitZone {
 					completion(.failure(CloudKitZoneError.userDeletedZone))
 				}
 			case .retry(let timeToWait):
-				os_log(.error, log: self.log, "%@ zone fetch changes retry in %f seconds.", self.zoneID.zoneName, timeToWait)
+                self.logger.error("\(self.zoneID.zoneName) zone fetch changes retry in \(timeToWait) seconds.")
 				self.retryIfPossible(after: timeToWait) {
 					self.fetchChangesInZone(completion: completion)
 				}
