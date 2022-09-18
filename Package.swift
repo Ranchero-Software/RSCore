@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "RSCore",
-    platforms: [.macOS(SupportedPlatform.MacOSVersion.v11), .iOS(SupportedPlatform.IOSVersion.v13)],
+    platforms: [.macOS(SupportedPlatform.MacOSVersion.v11), .iOS(SupportedPlatform.IOSVersion.v14)],
     products: [
         .library(name: "RSCore", type: .dynamic, targets: ["RSCore"]),
 		.library(name: "RSCoreObjC", type: .dynamic, targets: ["RSCoreObjC"]),
