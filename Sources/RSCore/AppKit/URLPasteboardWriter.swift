@@ -26,6 +26,13 @@ import AppKit
 		pasteboard.writeObjects([writer])
 	}
 
+	public class func write(urlStrings: [String], to pasteboard: NSPasteboard) {
+
+		pasteboard.clearContents()
+		let writers = urlStrings.map { URLPasteboardWriter(urlString: $0) }
+		pasteboard.writeObjects(writers)
+	}
+
 	// MARK: - NSPasteboardWriting
 
 	public func writableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
