@@ -125,7 +125,7 @@ public extension CloudKitZone {
 		
 		fetchChangesInZone() { result in
 			if case .failure(let error) = result {
-                self.logger.error("\(self.zoneID.zoneName) zone remote notification fetch error: \(error.localizedDescription)")
+                self.logger.error("\(self.zoneID.zoneName) zone remote notification fetch error: \(error.localizedDescription, privacy: .public)")
 			}
 			completion()
 		}
@@ -202,7 +202,7 @@ public extension CloudKitZone {
         
 		save(subscription) { result in
 			if case .failure(let error) = result {
-                self.logger.error("\(self.zoneID.zoneName) subscribe to changes error: \(error.localizedDescription)")
+                self.logger.error("\(self.zoneID.zoneName) subscribe to changes error: \(error.localizedDescription, privacy: .public)")
 			}
 		}
     }
