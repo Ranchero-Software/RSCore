@@ -195,7 +195,7 @@ public extension String {
 	///
 	/// - Note: Doesn't work correctly with nested tags of the same name.
 	private func removingTagAndContents(_ tag: String) -> String {
-		return self.replacingOccurrences(of: "<\(tag).+?</\(tag)>", with: "", options: [.regularExpression, .caseInsensitive])
+		return self.replacingOccurrences(of: "<\(tag)[\\s\\S]+?</\(tag)>", with: "", options: [.regularExpression, .caseInsensitive])
 	}
 
 	/// Strips HTML from a string.
