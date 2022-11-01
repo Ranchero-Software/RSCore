@@ -26,7 +26,14 @@ public enum CloudKitZoneError: LocalizedError {
 	}
 }
 
+public struct CloudKitChangeTokenKey: Hashable, Codable {
+	public let zoneName: String
+	public let ownerName: String
+}
+
 public protocol CloudKitZoneDelegate: AnyObject {
+	func store(changeToken: Data?, key: CloudKitChangeTokenKey)
+	func findChangeToken(key: CloudKitChangeTokenKey) -> Data?
 	func cloudKitDidModify(changed: [CKRecord], deleted: [CloudKitRecordKey], completion: @escaping (Result<Void, Error>) -> Void);
 }
 
@@ -40,10 +47,7 @@ public protocol CloudKitZone: AnyObject, Logging {
 
 	var container: CKContainer? { get }
 	var database: CKDatabase? { get }
-	var delegate: CloudKitZoneDelegate? { get set }
-
-	/// Reset the change token used to determine what point in time we are doing changes fetches
-	func resetChangeToken()
+	var delegate: CloudKitZoneDelegate? { get }
 
 	/// Generates a new CKRecord.ID using a UUID for the record's name
 	func generateRecordID() -> CKRecord.ID
@@ -69,40 +73,33 @@ public extension CloudKitZone {
 		#endif
 	}
 	
-	var oldChangeTokenKey: String {
-		return "cloudkit.server.token.\(zoneID.zoneName)"
-	}
-
-	var changeTokenKey: String {
+	private var oldChangeTokenKey: String {
 		return "cloudkit.server.token.\(zoneID.zoneName).\(zoneID.ownerName)"
 	}
 
-	var changeToken: CKServerChangeToken? {
+	private var changeTokenKey: CloudKitChangeTokenKey {
+		return CloudKitChangeTokenKey(zoneName: zoneID.zoneName, ownerName: zoneID.ownerName)
+	}
+	
+	private var changeToken: CKServerChangeToken? {
 		get {
-			guard let tokenData = UserDefaults.standard.object(forKey: changeTokenKey) as? Data else { return nil }
+			guard let tokenData = delegate!.findChangeToken(key: changeTokenKey) else { return nil }
 			return try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKServerChangeToken.self, from: tokenData)
 		}
 		set {
-			guard let token = newValue, let data = try? NSKeyedArchiver.archivedData(withRootObject: token, requiringSecureCoding: false) else {
-				UserDefaults.standard.removeObject(forKey: changeTokenKey)
+			guard let token = newValue, let tokenData = try? NSKeyedArchiver.archivedData(withRootObject: token, requiringSecureCoding: false) else {
 				return
 			}
-			UserDefaults.standard.set(data, forKey: changeTokenKey)
+			delegate!.store(changeToken: tokenData, key: changeTokenKey)
 		}
 	}
 
 	/// Moves the change token to the new key name.  This can eventually be removed.
 	func migrateChangeToken() {
-		if let tokenData = UserDefaults.standard.object(forKey: oldChangeTokenKey) as? Data,
-		   let oldChangeToken = try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKServerChangeToken.self, from: tokenData) {
-			changeToken = oldChangeToken
+		if let tokenData = UserDefaults.standard.object(forKey: oldChangeTokenKey) as? Data {
+			delegate!.store(changeToken: tokenData, key: changeTokenKey)
 			UserDefaults.standard.removeObject(forKey: oldChangeTokenKey)
 		}
-	}
-	
-	/// Reset the change token used to determine what point in time we are doing changes fetches
-	func resetChangeToken() {
-		changeToken = nil
 	}
 	
 	func generateRecordID() -> CKRecord.ID {
