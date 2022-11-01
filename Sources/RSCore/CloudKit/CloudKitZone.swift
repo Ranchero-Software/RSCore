@@ -381,30 +381,30 @@ public extension CloudKitZone {
 	}
 	
 	/// Save the CKRecord
-	func save(_ record: CKRecord, completion: @escaping (Result<Void, Error>) -> Void) {
+	func save(_ record: CKRecord, completion: @escaping (Result<([CKRecord], [CKRecord.ID]), Error>) -> Void) {
 		modify(recordsToSave: [record], recordIDsToDelete: [], completion: completion)
 	}
 	
 	/// Save the CKRecords
-	func save(_ records: [CKRecord], completion: @escaping (Result<Void, Error>) -> Void) {
+	func save(_ records: [CKRecord], completion: @escaping (Result<([CKRecord], [CKRecord.ID]), Error>) -> Void) {
 		modify(recordsToSave: records, recordIDsToDelete: [], completion: completion)
 	}
 	
 	/// Saves or modifies the records as long as they are unchanged relative to the local version
-	func saveIfNew(_ records: [CKRecord], completion: @escaping (Result<Void, Error>) -> Void) {
+	func saveIfNew(_ records: [CKRecord], completion: @escaping (Result<([CKRecord], [CKRecord.ID]), Error>) -> Void) {
 		let op = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: [CKRecord.ID]())
 		op.savePolicy = .ifServerRecordUnchanged
 		op.isAtomic = false
 		op.qualityOfService = Self.qualityOfService
 		
-		op.modifyRecordsCompletionBlock = { [weak self] (_, _, error) in
+		op.modifyRecordsCompletionBlock = { [weak self] (savedRecords, deletedRecordIDs, error) in
 			
 			guard let self = self else { return }
 			
 			switch CloudKitZoneResult.resolve(error) {
 			case .success, .partialFailure:
 				DispatchQueue.main.async {
-					completion(.success(()))
+					completion(.success((savedRecords ?? [], deletedRecordIDs ?? [])))
 				}
 				
 			case .zoneNotFound:
@@ -445,7 +445,7 @@ public extension CloudKitZone {
 							}
 						}
 					} else {
-						completion(.success(()))
+						completion(.success(([], [])))
 					}
 				}
 				
@@ -499,7 +499,7 @@ public extension CloudKitZone {
 	}
 	
 	/// Delete CKRecords using a CKQuery
-	func delete(ckQuery: CKQuery, completion: @escaping (Result<Void, Error>) -> Void) {
+	func delete(ckQuery: CKQuery, completion: @escaping (Result<([CKRecord], [CKRecord.ID]), Error>) -> Void) {
 		
 		var records = [CKRecord]()
 		
@@ -521,7 +521,7 @@ public extension CloudKitZone {
 			} else {
 				guard !records.isEmpty else {
 					DispatchQueue.main.async {
-						completion(.success(()))
+						completion(.success(([], [])))
 					}
 					return
 				}
@@ -536,7 +536,7 @@ public extension CloudKitZone {
 	}
 	
 	/// Delete CKRecords using a CKQuery
-	func delete(cursor: CKQueryOperation.Cursor, carriedRecords: [CKRecord], completion: @escaping (Result<Void, Error>) -> Void) {
+	func delete(cursor: CKQueryOperation.Cursor, carriedRecords: [CKRecord], completion: @escaping (Result<([CKRecord], [CKRecord.ID]), Error>) -> Void) {
 		
 		var records = [CKRecord]()
 		
@@ -567,17 +567,17 @@ public extension CloudKitZone {
 	}
 	
 	/// Delete a CKRecord using its recordID
-	func delete(recordID: CKRecord.ID, completion: @escaping (Result<Void, Error>) -> Void) {
+	func delete(recordID: CKRecord.ID, completion: @escaping (Result<([CKRecord], [CKRecord.ID]), Error>) -> Void) {
 		modify(recordsToSave: [], recordIDsToDelete: [recordID], completion: completion)
 	}
 		
 	/// Delete CKRecords
-	func delete(recordIDs: [CKRecord.ID], completion: @escaping (Result<Void, Error>) -> Void) {
+	func delete(recordIDs: [CKRecord.ID], completion: @escaping (Result<([CKRecord], [CKRecord.ID]), Error>) -> Void) {
 		modify(recordsToSave: [], recordIDsToDelete: recordIDs, completion: completion)
 	}
-		
+
 	/// Delete a CKRecord using its externalID
-	func delete(externalID: String?, completion: @escaping (Result<Void, Error>) -> Void) {
+	func delete(externalID: String?, completion: @escaping (Result<([CKRecord], [CKRecord.ID]), Error>) -> Void) {
 		guard let externalID = externalID else {
 			completion(.failure(CloudKitZoneError.corruptAccount))
 			return
@@ -614,10 +614,10 @@ public extension CloudKitZone {
 	}
 
 	/// Modify and delete the supplied CKRecords and CKRecord.IDs
-	func modify(recordsToSave: [CKRecord], recordIDsToDelete: [CKRecord.ID], completion: @escaping (Result<Void, Error>) -> Void) {
+	func modify(recordsToSave: [CKRecord], recordIDsToDelete: [CKRecord.ID], completion: @escaping (Result<([CKRecord], [CKRecord.ID]), Error>) -> Void) {
 		guard !(recordsToSave.isEmpty && recordIDsToDelete.isEmpty) else {
 			DispatchQueue.main.async {
-				completion(.success(()))
+				completion(.success(([], [])))
 			}
 			return
 		}
@@ -627,7 +627,7 @@ public extension CloudKitZone {
 		op.isAtomic = true
 		op.qualityOfService = Self.qualityOfService
 
-		op.modifyRecordsCompletionBlock = { [weak self] (_, _, error) in
+		op.modifyRecordsCompletionBlock = { [weak self] (savedRecords, deletedRecordIDs, error) in
 			
 			guard let self = self else {
 				completion(.failure(CloudKitZoneError.unknown))
@@ -637,7 +637,7 @@ public extension CloudKitZone {
 			switch CloudKitZoneResult.resolve(error) {
 			case .success:
 				DispatchQueue.main.async {
-					completion(.success(()))
+					completion(.success((savedRecords ?? [], deletedRecordIDs ?? [])))
 				}
 			case .zoneNotFound:
 				self.createZoneRecord() { result in
@@ -696,7 +696,7 @@ public extension CloudKitZone {
 						}
 					} else {
 						DispatchQueue.main.async {
-							completion(.success(()))
+							completion(.success(([], [])))
 						}
 					}
 				}
