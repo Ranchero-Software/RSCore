@@ -74,13 +74,6 @@ extension CKError: LocalizedError, Logging {
 		case .operationCancelled:
 			return NSLocalizedString("Operation Cancelled: the operation was explicitly canceled.", comment: "Known iCloud Error")
 		case .partialFailure:
-			#warning("Don't leave this shit in place you idiot.")
-			for error in partialErrorsByItemID!.values {
-				guard let ckError = error as? CKError else { continue }
-				if ckError.code != CKError.Code.batchRequestFailed {
-					return ckError.errorDescription
-				}
-			}
 			return NSLocalizedString("Partial Failure: some items failed, but the operation succeeded overall.", comment: "Known iCloud Error")
 		case .participantMayNeedVerification:
 			return NSLocalizedString("Participant May Need Verification: you are not a member of the share.", comment: "Known iCloud Error")
