@@ -1,29 +1,42 @@
 //
-//  CloudKitError.swift
-//  RSCore
+//  CKError+RSCore.swift
+//  
 //
-//  Created by Maurice Parker on 3/26/20.
-//  Copyright © 2020 Ranchero Software, LLC. All rights reserved.
+//  Created by Maurice Parker on 11/1/22.
 //
-// Derived from https://github.com/caiyue1993/IceCream
 
 import Foundation
 import CloudKit
 
-public class CloudKitError: LocalizedError {
-
-	public let error: Error
+extension CKError: LocalizedError, Logging {
 	
-	public init(_ error: Error) {
-		self.error = error
+	/// Selects the most current field for merging and assigns it to the server record
+	public func merge<T>(key: String, fieldType: T.Type) throws where T:Equatable, T:CKRecordValueProtocol {
+		guard let ancestorField = ancestorRecord?[key] as? T,
+			  let serverField = serverRecord?[key] as? T,
+			  let clientField = clientRecord?[key] as? T else {	return }
+
+		guard ancestorField == serverField else { return }
+		serverRecord?[key] = clientField
+	}
+
+	/// Merges the contents of an Array and assigns the result to the server record. Use the other merge if you wish to replace the Array.
+	public func mergeArray<T>(key: String, fieldType: T.Type) throws where T:Equatable, T:CKRecordValueProtocol, T:BidirectionalCollection {
+		guard  let ancestorField = ancestorRecord?[key] as? [T],
+			  let serverField = serverRecord?[key] as? [T],
+			  let clientField = clientRecord?[key] as? [T] else {	return }
+
+		let diff = serverField.difference(from: ancestorField)
+		
+		guard let merged = clientField.applying(diff) else {
+			throw CloudKitZoneError.unresolvedConflict(self)
+		}
+		
+		serverRecord?[key] = merged
 	}
 	
 	public var errorDescription: String? {
-		guard let ckError = error as? CKError else {
-			return error.localizedDescription
-		}
-		
-		switch ckError.code {
+		switch code {
 		case .alreadyShared:
 			return NSLocalizedString("Already Shared: a record or share cannot be saved because doing so would cause the same hierarchy of records to exist in multiple shares.", comment: "Known iCloud Error")
 		case .assetFileModified:
@@ -61,6 +74,13 @@ public class CloudKitError: LocalizedError {
 		case .operationCancelled:
 			return NSLocalizedString("Operation Cancelled: the operation was explicitly canceled.", comment: "Known iCloud Error")
 		case .partialFailure:
+			#warning("Don't leave this shit in place you idiot.")
+			for error in partialErrorsByItemID!.values {
+				guard let ckError = error as? CKError else { continue }
+				if ckError.code != CKError.Code.batchRequestFailed {
+					return ckError.errorDescription
+				}
+			}
 			return NSLocalizedString("Partial Failure: some items failed, but the operation succeeded overall.", comment: "Known iCloud Error")
 		case .participantMayNeedVerification:
 			return NSLocalizedString("Participant May Need Verification: you are not a member of the share.", comment: "Known iCloud Error")
@@ -94,5 +114,5 @@ public class CloudKitError: LocalizedError {
 			return NSLocalizedString("Unhandled Error.", comment: "Unknown iCloud Error")
 		}
 	}
-	
+
 }

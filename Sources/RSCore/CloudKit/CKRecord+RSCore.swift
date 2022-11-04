@@ -25,5 +25,12 @@ extension CKRecord {
 			return archiver.encodedData
 		}
 	}
+
+	public func isEqual<T: Equatable>(key: String, valueType: T.Type, other: CKRecord) -> Bool {
+		guard let value = object(forKey: key) as? T,
+			  let otherValue = other.object(forKey: key) as? T,
+			  value == otherValue else { return false }
+		return true
+	}
 	
 }
