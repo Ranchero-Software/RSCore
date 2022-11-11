@@ -51,9 +51,6 @@ public protocol CloudKitZone: AnyObject, Logging {
 	/// Subscribe to changes at a zone level
 	func subscribeToZoneChanges()
 	
-	/// Process a remove notification
-	func receiveRemoteNotification(userInfo: [AnyHashable : Any], completion: @escaping () -> Void)
-	
 }
 
 public extension CloudKitZone {
@@ -116,14 +113,14 @@ public extension CloudKitZone {
 		})
 	}
 	
-	func receiveRemoteNotification(userInfo: [AnyHashable : Any], completion: @escaping () -> Void) {
+	func receiveRemoteNotification(userInfo: [AnyHashable : Any], incrementalFetch: Bool = true, completion: @escaping () -> Void) {
 		let note = CKRecordZoneNotification(fromRemoteNotificationDictionary: userInfo)
 		guard note?.recordZoneID?.zoneName == zoneID.zoneName else {
 			completion()
 			return
 		}
 		
-		fetchChangesInZone() { result in
+		fetchChangesInZone(incremental: incrementalFetch) { result in
 			if case .failure(let error) = result {
                 self.logger.error("\(self.zoneID.zoneName, privacy: .public) zone remote notification fetch error: \(error.localizedDescription, privacy: .public)")
 			}
@@ -723,7 +720,7 @@ public extension CloudKitZone {
 	}
 
 	/// Fetch all the changes in the CKZone since the last time we checked
-    func fetchChangesInZone(completion: @escaping (Result<Void, Error>) -> Void) {
+	func fetchChangesInZone(incremental: Bool = true, completion: @escaping (Result<Void, Error>) -> Void) {
 
 		var updatedRecords = [CKRecord]()
 		var deletedRecordKeys = [CloudKitRecordKey]()
@@ -751,6 +748,8 @@ public extension CloudKitZone {
 		op.qualityOfService = Self.qualityOfService
 
         op.recordZoneChangeTokensUpdatedBlock = { zoneID, token, _ in
+			guard incremental else { return }
+			
 			wasChanged(updated: updatedRecords, deleted: deletedRecordKeys, token: token) { error in
 				if let error {
 					op.cancel()
@@ -798,7 +797,7 @@ public extension CloudKitZone {
 				self.createZoneRecord() { result in
 					switch result {
 					case .success:
-						self.fetchChangesInZone(completion: completion)
+						self.fetchChangesInZone(incremental: incremental, completion: completion)
 					case .failure(let error):
 						DispatchQueue.main.async {
 							completion(.failure(error))
@@ -812,12 +811,12 @@ public extension CloudKitZone {
 			case .retry(let timeToWait):
                 self.logger.error("\(self.zoneID.zoneName, privacy: .public) zone fetch changes retry in \(timeToWait, privacy: .public) seconds.")
 				self.retryIfPossible(after: timeToWait) {
-					self.fetchChangesInZone(completion: completion)
+					self.fetchChangesInZone(incremental: incremental, completion: completion)
 				}
 			case .changeTokenExpired:
 				DispatchQueue.main.async {
 					self.changeToken = nil
-					self.fetchChangesInZone(completion: completion)
+					self.fetchChangesInZone(incremental: incremental, completion: completion)
 				}
 			default:
 				DispatchQueue.main.async {
