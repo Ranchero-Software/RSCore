@@ -741,7 +741,9 @@ public extension CloudKitZone {
 				if let error = zoneOperation.error {
 					completion(error)
 				} else {
-					self.changeToken = zoneOperation.changeToken
+					if let changeToken = zoneOperation.changeToken {
+						self.changeToken = changeToken
+					}
 					completion(nil)
 				}
 			}
