@@ -400,6 +400,7 @@ public extension CloudKitZone {
 			
 			switch CloudKitZoneResult.resolve(error) {
 			case .success, .partialFailure:
+				self.logger.debug("Saved \(records.count, privacy: .public) new records.")
 				DispatchQueue.main.async {
 					completion(.success(()))
 				}
@@ -634,6 +635,7 @@ public extension CloudKitZone {
 			switch CloudKitZoneResult.resolve(error) {
 			case .success:
 				DispatchQueue.main.async {
+					self.logger.debug("Updated \(recordsToSave.count, privacy: .public) records and deleted \(recordIDsToDelete.count, privacy: .public) records.")
 					completion(.success(()))
 				}
 			case .zoneNotFound:
@@ -726,7 +728,7 @@ public extension CloudKitZone {
 		var deletedRecordKeys = [CloudKitRecordKey]()
 		
 		func wasChanged(updated: [CKRecord], deleted: [CloudKitRecordKey], token: CKServerChangeToken?, completion: @escaping (Error?) -> Void) {
-			logger.info("Received \(updated.count, privacy: .public) updated records and \(deleted.count, privacy: .public) delete requests.")
+			logger.debug("Received \(updated.count, privacy: .public) updated records and \(deleted.count, privacy: .public) delete requests.")
 			
 			DispatchQueue.main.async {
 				self.delegate?.cloudKitWasChanged(updated: updated, deleted: deleted) { result in
