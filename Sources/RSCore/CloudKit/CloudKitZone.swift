@@ -729,18 +729,27 @@ public extension CloudKitZone {
 		
 		func wasChanged(updated: [CKRecord], deleted: [CloudKitRecordKey], token: CKServerChangeToken?, completion: @escaping (Error?) -> Void) {
 			logger.debug("Received \(updated.count, privacy: .public) updated records and \(deleted.count, privacy: .public) delete requests.")
+
+			let op = CloudKitZoneApplyChangesOperation(delegate: delegate, updated: updated, deleted: deleted, changeToken: token)
 			
-			DispatchQueue.main.async {
-				self.delegate?.cloudKitWasChanged(updated: updated, deleted: deleted) { result in
-					switch result {
-					case .success:
-						self.changeToken = token
-						completion(nil)
-					case .failure(let error):
-						completion(error)
-					}
+			op.completionBlock = { [weak self] mainThreadOperation in
+				guard let self = self, let zoneOperation = mainThreadOperation as? CloudKitZoneApplyChangesOperation else {
+					completion(nil)
+					return
+				}
+				
+				if let error = zoneOperation.error {
+					completion(error)
+				} else {
+					self.changeToken = zoneOperation.changeToken
+					completion(nil)
 				}
 			}
+			
+			DispatchQueue.main.async {
+				CloudKitZoneApplyChangesOperation.mainThreadOperationQueue.add(op)
+			}
+			
 		}
 		
 		let zoneConfig = CKFetchRecordZoneChangesOperation.ZoneConfiguration()
@@ -792,8 +801,14 @@ public extension CloudKitZone {
 
 			switch CloudKitZoneResult.resolve(error) {
 			case .success:
-				DispatchQueue.main.async {
+				let op = CloudKitZoneApplyChangesOperation()
+				
+				op.completionBlock = { _ in
 					completion(.success(()))
+				}
+				
+				DispatchQueue.main.async {
+					CloudKitZoneApplyChangesOperation.mainThreadOperationQueue.add(op)
 				}
 			case .zoneNotFound:
 				self.createZoneRecord() { result in
@@ -830,5 +845,59 @@ public extension CloudKitZone {
 
         database?.add(op)
     }
+	
+}
+
+private class CloudKitZoneApplyChangesOperation: MainThreadOperation {
+	
+	static let mainThreadOperationQueue = MainThreadOperationQueue()
+
+	// MainThreadOperation
+	public var isCanceled = false
+	public var id: Int?
+	public weak var operationDelegate: MainThreadOperationDelegate?
+	public var name: String? = "CloudKitReceiveStatusOperation"
+	public var completionBlock: MainThreadOperation.MainThreadOperationCompletionBlock?
+
+	private weak var delegate: CloudKitZoneDelegate?
+	private var updated: [CKRecord]
+	private var deleted: [CloudKitRecordKey]
+	
+	private(set) var error: Error?
+	private(set) weak var changeToken: CKServerChangeToken?
+	
+	/// Used to queue up the final success call so that it doesn't happen before we are done processing records
+	init() {
+		updated = []
+		deleted = []
+	}
+	
+	/// Used for regular record processing
+	init(delegate: CloudKitZoneDelegate?, updated: [CKRecord], deleted: [CloudKitRecordKey], changeToken: CKServerChangeToken?) {
+		self.delegate = delegate
+		self.updated = updated
+		self.deleted = deleted
+		self.changeToken = changeToken
+	}
+	
+	func run() {
+		guard let delegate = delegate else {
+			self.operationDelegate?.operationDidComplete(self)
+			return
+		}
+		
+		delegate.cloudKitWasChanged(updated: updated, deleted: deleted) { [weak self] result in
+			guard let self = self else { return }
+			
+			switch result {
+			case .success:
+				self.operationDelegate?.operationDidComplete(self)
+			case .failure(let error):
+				self.error = error
+				self.operationDelegate?.cancelOperation(self)
+			}
+		}
+
+	}
 	
 }
