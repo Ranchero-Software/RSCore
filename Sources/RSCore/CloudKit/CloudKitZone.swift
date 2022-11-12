@@ -866,7 +866,7 @@ private class CloudKitZoneApplyChangesOperation: MainThreadOperation {
 	private var deleted: [CloudKitRecordKey]
 	
 	private(set) var error: Error?
-	private(set) weak var changeToken: CKServerChangeToken?
+	private(set) var changeToken: CKServerChangeToken?
 	
 	/// Used to queue up the final success call so that it doesn't happen before we are done processing records
 	init() {
