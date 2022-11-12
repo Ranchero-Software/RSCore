@@ -12,20 +12,25 @@ public class RSToolbarItem: NSToolbarItem {
 
 	override public func validate() {
 
-		guard let control = self.view as? NSControl, let action = self.action,
+		let control = self.view as? NSControl
+
+		guard let action = self.action ?? control?.action,
 			  let validator = NSApp.target(forAction: action, to: self.target, from: self) as AnyObject? else {
 
 			isEnabled = false
 			return
 		}
 
+		let validateResult: Bool
 		// Prefer `NSUserInterfaceValidations` protocol over calling `validateToolbarItem`.
 		switch validator {
 		case let validator as NSUserInterfaceValidations:
-			control.isEnabled = validator.validateUserInterfaceItem(self)
+			validateResult = validator.validateUserInterfaceItem(self)
 		default:
-			control.isEnabled = validator.validateToolbarItem(self)
+			validateResult = validator.validateToolbarItem(self)
 		}
+		isEnabled = validateResult
+		control?.isEnabled = validateResult
 	}
 }
 #endif
