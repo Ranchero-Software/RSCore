@@ -189,6 +189,26 @@ public extension CloudKitZone {
 		}
 	}
 
+	/// Deletes the zone record
+	func deleteZoneRecord(completion: @escaping (Result<Void, Error>) -> Void) {
+		guard let database = database else {
+			completion(.failure(CloudKitZoneError.unknown))
+			return
+		}
+
+		database.delete(withRecordZoneID: zoneID) { (recordZoneID, error) in
+			if let error = error {
+				DispatchQueue.main.async {
+					completion(.failure(CloudKitError(error)))
+				}
+			} else {
+				DispatchQueue.main.async {
+					completion(.success(()))
+				}
+			}
+		}
+	}
+
 	/// Subscribes to zone changes
 	func subscribeToZoneChanges() {
 		let subscription = CKRecordZoneSubscription(zoneID: zoneID)
