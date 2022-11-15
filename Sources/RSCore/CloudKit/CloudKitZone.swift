@@ -737,27 +737,7 @@ public extension CloudKitZone {
 				
 			case .serverRecordChanged(let error), .partialFailure(let error):
 				self.logger.info("Modify failed: \(error.localizedDescription, privacy: .public). Attempting to recover...")
-				
-//				if let loneError = error.partialErrorsByItemID?.values.first as? CKError {
-//					let ancestorRecord = loneError.ancestorRecord!
-//
-//					print("======= \(ancestorRecord.recordID) : \(ancestorRecord.recordChangeTag ?? "N/A")")
-//
-//					if let changeTag = ancestorRecord.recordChangeTag {
-//						let predicate = NSPredicate(format: "recordID == %@ AND recordChangeTag == %@", ancestorRecord.recordID, changeTag)
-//						let query = CKQuery(recordType: ancestorRecord.recordType, predicate: predicate)
-//
-//						self.query(query) { result in
-//							switch result {
-//							case .success(let records):
-//								print("++++++++ \(records.first!)")
-//							case .failure(let error):
-//								print("!!!!!!!! \(error.localizedDescription)")
-//							}
-//						}
-//					}
-//				}
-				
+								
 				do {
 					let resolvedRecords = try resolver!.resolve(refinedResult)
 					self.logger.info("\(resolvedRecords.count, privacy: .public) records resolved. Attempting Modify again...")
