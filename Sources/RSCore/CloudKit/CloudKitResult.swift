@@ -43,12 +43,37 @@ public enum CloudKitResult {
 		case .serverRecordChanged:
 			return .serverRecordChanged(error: ckError)
 		case .partialFailure:
-			return .partialFailure(error: ckError)
+			if let partialErrors = ckError.userInfo[CKPartialErrorsByItemIDKey] as? [AnyHashable: CKError] {
+				if let zoneResult = anyRequestErrors(partialErrors) {
+					return zoneResult
+				} else {
+					return .partialFailure(error: ckError)
+				}
+			} else {
+				return .failure(error: ckError)
+			}
 		case .limitExceeded:
 			return .limitExceeded
 		default:
 			return .failure(error: ckError)
 		}
+	}
+	
+}
+
+private extension CloudKitResult {
+	
+	static func anyRequestErrors(_ errors: [AnyHashable: CKError]) -> CloudKitResult? {
+		if errors.values.contains(where: { $0.code == .changeTokenExpired } ) {
+			return .changeTokenExpired
+		}
+		if errors.values.contains(where: { $0.code == .zoneNotFound } ) {
+			return .zoneNotFound
+		}
+		if errors.values.contains(where: { $0.code == .userDeletedZone } ) {
+			return .userDeletedZone
+		}
+		return nil
 	}
 	
 }
