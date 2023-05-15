@@ -764,17 +764,10 @@ public extension CloudKitZone {
 			guard incremental else { return }
 			
 			wasChanged(updated: updatedRecords, deleted: deletedRecordKeys, token: token) { error in
-                #if swift(>=5.7)
-				if let error {
-					op.cancel()
-					completion(.failure(error))
-				}
-                #else
                 if let error = error {
                     op.cancel()
                     completion(.failure(error))
                 }
-                #endif
 			}
 			updatedRecords = [CKRecord]()
 			deletedRecordKeys = [CloudKitRecordKey]()
@@ -792,17 +785,10 @@ public extension CloudKitZone {
         op.recordZoneFetchCompletionBlock = { zoneID ,token, _, finalChange, error in
 			if case .success = CloudKitZoneResult.resolve(error) {
 				wasChanged(updated: updatedRecords, deleted: deletedRecordKeys, token: token) { error in
-                    #if swift(>=5.7)
-					if let error {
-						op.cancel()
-						completion(.failure(error))
-					}
-                    #else
                     if let error = error {
                         op.cancel()
                         completion(.failure(error))
                     }
-                    #endif
 				}
 			}
 			updatedRecords = [CKRecord]()
