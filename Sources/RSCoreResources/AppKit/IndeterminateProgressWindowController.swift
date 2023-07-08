@@ -5,20 +5,21 @@
 //  Created by Brent Simmons on 8/28/16.
 //  Copyright © 2016 Ranchero Software, LLC. All rights reserved.
 //
+
 #if os(macOS)
 import AppKit
 
-public func runIndeterminateProgressWithMessage(_ message: String) {
+@MainActor public func runIndeterminateProgressWithMessage(_ message: String) {
 
 	IndeterminateProgressController.beginProgressWithMessage(message)
 }
 
-public func stopIndeterminateProgress() {
+@MainActor public func stopIndeterminateProgress() {
 
 	IndeterminateProgressController.endProgress()
 }
 
-private final class IndeterminateProgressController {
+@MainActor private final class IndeterminateProgressController {
 
 	static var windowController: IndeterminateProgressWindowController?
 	static var runningProgressWindow = false
@@ -67,5 +68,3 @@ private final class IndeterminateProgressWindowController: NSWindowController {
 	}
 }
 #endif
-
-

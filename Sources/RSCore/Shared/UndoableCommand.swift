@@ -10,15 +10,15 @@ import Foundation
 
 public protocol UndoableCommand: AnyObject {
 
-	var undoActionName: String { get }
-	var redoActionName: String { get }
-	var undoManager: UndoManager { get }
+    @MainActor var undoActionName: String { get }
+    @MainActor var redoActionName: String { get }
+    @MainActor var undoManager: UndoManager { get }
 
-	func perform() // must call registerUndo()
-	func undo() // must call registerRedo()
+    @MainActor func perform() // must call registerUndo()
+    @MainActor func undo() // must call registerRedo()
 }
 
-extension UndoableCommand {
+@MainActor extension UndoableCommand {
 
 	public func registerUndo() {
 
@@ -41,14 +41,14 @@ extension UndoableCommand {
 
 public protocol UndoableCommandRunner: AnyObject {
     
-    var undoableCommands: [UndoableCommand] { get set }
-    var undoManager: UndoManager? { get }
+    @MainActor var undoableCommands: [UndoableCommand] { get set }
+    @MainActor var undoManager: UndoManager? { get }
     
-    func runCommand(_ undoableCommand: UndoableCommand)
-    func clearUndoableCommands()
+    @MainActor func runCommand(_ undoableCommand: UndoableCommand)
+    @MainActor func clearUndoableCommands()
 }
 
-public extension UndoableCommandRunner {
+@MainActor public extension UndoableCommandRunner {
     
     func runCommand(_ undoableCommand: UndoableCommand) {
         

@@ -728,30 +728,30 @@ public extension CloudKitZone {
 		var deletedRecordKeys = [CloudKitRecordKey]()
 		
 		func wasChanged(updated: [CKRecord], deleted: [CloudKitRecordKey], token: CKServerChangeToken?, completion: @escaping (Error?) -> Void) {
-			logger.debug("Received \(updated.count, privacy: .public) updated records and \(deleted.count, privacy: .public) delete requests.")
 
-			let op = CloudKitZoneApplyChangesOperation(delegate: delegate, updated: updated, deleted: deleted, changeToken: token)
-			
-			op.completionBlock = { [weak self] mainThreadOperation in
-				guard let self = self, let zoneOperation = mainThreadOperation as? CloudKitZoneApplyChangesOperation else {
-					completion(nil)
-					return
-				}
-				
-				if let error = zoneOperation.error {
-					completion(error)
-				} else {
-					if let changeToken = zoneOperation.changeToken {
-						self.changeToken = changeToken
-					}
-					completion(nil)
-				}
-			}
-			
-			DispatchQueue.main.async {
-				CloudKitZoneApplyChangesOperation.mainThreadOperationQueue.add(op)
-			}
-			
+            Task { @MainActor in
+                logger.debug("Received \(updated.count, privacy: .public) updated records and \(deleted.count, privacy: .public) delete requests.")
+
+                let op = CloudKitZoneApplyChangesOperation(delegate: delegate, updated: updated, deleted: deleted, changeToken: token)
+
+                op.completionBlock = { [weak self] mainThreadOperation in
+                    guard let self = self, let zoneOperation = mainThreadOperation as? CloudKitZoneApplyChangesOperation else {
+                        completion(nil)
+                        return
+                    }
+
+                    if let error = zoneOperation.error {
+                        completion(error)
+                    } else {
+                        if let changeToken = zoneOperation.changeToken {
+                            self.changeToken = changeToken
+                        }
+                        completion(nil)
+                    }
+                }
+
+                CloudKitZoneApplyChangesOperation.mainThreadOperationQueue.add(op)
+            }
 		}
 		
 		let zoneConfig = CKFetchRecordZoneChangesOperation.ZoneConfiguration()
@@ -803,15 +803,15 @@ public extension CloudKitZone {
 
 			switch CloudKitZoneResult.resolve(error) {
 			case .success:
-				let op = CloudKitZoneApplyChangesOperation()
-				
-				op.completionBlock = { _ in
-					completion(.success(()))
-				}
-				
-				DispatchQueue.main.async {
-					CloudKitZoneApplyChangesOperation.mainThreadOperationQueue.add(op)
-				}
+                Task { @MainActor in
+                    let op = CloudKitZoneApplyChangesOperation()
+
+                    op.completionBlock = { _ in
+                        completion(.success(()))
+                    }
+
+                    CloudKitZoneApplyChangesOperation.mainThreadOperationQueue.add(op)
+                }
 			case .zoneNotFound:
 				self.createZoneRecord() { result in
 					switch result {

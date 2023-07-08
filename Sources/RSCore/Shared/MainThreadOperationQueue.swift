@@ -9,9 +9,9 @@
 import Foundation
 
 public protocol MainThreadOperationDelegate: AnyObject {
-	func operationDidComplete(_ operation: MainThreadOperation)
-	func cancelOperation(_ operation: MainThreadOperation)
-	func make(_ childOperation: MainThreadOperation, dependOn parentOperation: MainThreadOperation)
+    @MainActor func operationDidComplete(_ operation: MainThreadOperation)
+    @MainActor func cancelOperation(_ operation: MainThreadOperation)
+    @MainActor func make(_ childOperation: MainThreadOperation, dependOn parentOperation: MainThreadOperation)
 }
 
 /// Manage a queue of MainThreadOperation tasks.
@@ -23,7 +23,7 @@ public protocol MainThreadOperationDelegate: AnyObject {
 /// Use this only on the main thread.
 /// The operation can be suspended and resumed.
 /// It is *not* suspended on creation.
-public final class MainThreadOperationQueue {
+@MainActor public final class MainThreadOperationQueue {
 
 	/// Use the shared queue when you don’t need to create a separate queue.
 	public static let shared: MainThreadOperationQueue = {
@@ -44,10 +44,6 @@ public final class MainThreadOperationQueue {
 
 	public init() {
 		// Silence compiler complaint about init not being public.
-	}
-
-	deinit {
-		cancelAllOperations()
 	}
 
 	/// Add an operation to the queue.
@@ -349,7 +345,7 @@ private extension MainThreadOperationQueue {
 	}
 }
 
-private final class MainThreadOperationDependencies {
+@MainActor private final class MainThreadOperationDependencies {
 
 	private var dependencies = [Int: Dependency]() // Key is parentOperationID
 

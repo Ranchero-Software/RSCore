@@ -5,10 +5,11 @@
 //  Created by Maurice Parker on 4/15/19.
 //  Copyright © 2019 Ranchero Software. All rights reserved.
 //
+
 #if os(iOS)
 import UIKit
 
-extension UIWindow {
+@MainActor extension UIWindow {
 	
 	public var topViewController: UIViewController? {
 		

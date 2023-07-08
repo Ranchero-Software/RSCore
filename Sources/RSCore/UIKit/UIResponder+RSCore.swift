@@ -9,7 +9,7 @@
 #if os(iOS)
 import UIKit
 
-extension UIResponder {
+@MainActor extension UIResponder {
 	
 	private weak static var _currentFirstResponder: UIResponder? = nil
 

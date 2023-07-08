@@ -9,7 +9,7 @@
 #if os(iOS)
 import UIKit
 
-extension UIView {
+@MainActor extension UIView {
 	
 	public func setFrameIfNotEqual(_ rect: CGRect) {
 		if !self.frame.equalTo(rect) {
