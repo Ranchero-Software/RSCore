@@ -19,7 +19,7 @@ public extension Notification.Name {
 }
 
 /// A class for batch updating.
-public final class BatchUpdate {
+@MainActor public final class BatchUpdate {
 
 	/// The shared batch update object.
 	public static let shared = BatchUpdate()
