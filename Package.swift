@@ -8,20 +8,12 @@ let package = Package(
     platforms: [.macOS(SupportedPlatform.MacOSVersion.v13), .iOS(SupportedPlatform.IOSVersion.v16)],
     products: [
         .library(name: "RSCore", type: .dynamic, targets: ["RSCore"]),
-		.library(name: "RSCoreObjC", type: .dynamic, targets: ["RSCoreObjC"]),
 		.library(name: "RSCoreResources", type: .static, targets: ["RSCoreResources"])
     ],
     targets: [
         .target(
             name: "RSCore",
-            dependencies: ["RSCoreObjC"]),
-		.target(
-			name: "RSCoreObjC",
-			dependencies: [],
-			cSettings: [
-				.headerSearchPath("include")
-			 ]
-		),
+            dependencies: []),
 		.target(
             name: "RSCoreResources",
             resources: [
