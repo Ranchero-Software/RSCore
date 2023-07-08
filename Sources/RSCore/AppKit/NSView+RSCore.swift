@@ -5,10 +5,11 @@
 //  Created by Maurice Parker on 11/12/19.
 //  Copyright © 2019 Ranchero Software, LLC. All rights reserved.
 //
+
 #if os(macOS)
 import AppKit
 
-extension NSView {
+@MainActor extension NSView {
 	
     public func asImage() -> NSImage {
 		let rep = bitmapImageRepForCachingDisplay(in: bounds)!
@@ -21,7 +22,7 @@ extension NSView {
 	
 }
 
-public extension NSView {
+@MainActor public extension NSView {
 
 	/// Keeps a subview at same size as receiver.
 	///

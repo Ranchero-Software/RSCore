@@ -32,7 +32,7 @@ public extension String {
 	}
 }
 
-public struct KeyboardShortcut: Hashable {
+@MainActor public struct KeyboardShortcut: Hashable {
 
 	public let key: KeyboardKey
 	public let actionString: String
