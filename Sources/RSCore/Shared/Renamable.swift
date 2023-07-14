@@ -14,5 +14,5 @@ public protocol Renamable {
 	/// Renames an object.
 	/// - Parameters:
 	///   - to: The new name for the object.
-	func rename(to: String) async throws
+    @MainActor func rename(to: String) async throws
 }
