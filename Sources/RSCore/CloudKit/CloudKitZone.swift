@@ -114,7 +114,7 @@ public extension CloudKitZone {
 	}
 	
 	func receiveRemoteNotification(userInfo: [AnyHashable : Any], incrementalFetch: Bool = true) async {
-		
+
 		let note = CKRecordZoneNotification(fromRemoteNotificationDictionary: userInfo)
 		guard note?.recordZoneID?.zoneName == zoneID.zoneName else {
 			return
@@ -144,12 +144,12 @@ public extension CloudKitZone {
 			case .success:
 				completion(.success(zoneRecords?[self.zoneID]))
 			case .zoneNotFound, .userDeletedZone:
-				self.createZoneRecord() { result in
-					switch result {
-					case .success:
+				Task {
+					do {
+						try await self.createZoneRecord()
 						self.fetchZoneRecord(completion: completion)
-					case .failure(let error):
-						DispatchQueue.main.async {
+					} catch {
+						Task { @MainActor in
 							completion(.failure(error))
 						}
 					}
@@ -171,22 +171,14 @@ public extension CloudKitZone {
 	}
 
 	/// Creates the zone record
-	func createZoneRecord(completion: @escaping (Result<Void, Error>) -> Void) {
-		guard let database = database else {
-			completion(.failure(CloudKitZoneError.unknown))
+	func createZoneRecord() async throws {
+		guard let database else {
 			return
 		}
-
-		database.save(CKRecordZone(zoneID: zoneID)) { (recordZone, error) in
-			if let error = error {
-				DispatchQueue.main.async {
-					completion(.failure(CloudKitError(error)))
-				}
-			} else {
-				DispatchQueue.main.async {
-					completion(.success(()))
-				}
-			}
+		do {
+			try await database.save(CKRecordZone(zoneID: zoneID))
+		} catch {
+			throw CloudKitError(error)
 		}
 	}
 
@@ -236,12 +228,12 @@ public extension CloudKitZone {
 					}
 				}
 			case .zoneNotFound:
-				self.createZoneRecord() { result in
-					switch result {
-					case .success:
+				Task {
+					do {
+						try await self.createZoneRecord()
 						self.query(ckQuery, desiredKeys: desiredKeys, completion: completion)
-					case .failure(let error):
-						DispatchQueue.main.async {
+					} catch {
+						Task { @MainActor in
 							completion(.failure(error))
 						}
 					}
@@ -296,12 +288,13 @@ public extension CloudKitZone {
 					}
 				}
 			case .zoneNotFound:
-				self.createZoneRecord() { result in
-					switch result {
-					case .success:
-						self.query(cursor: cursor, desiredKeys: desiredKeys, carriedRecords: records, completion: completion)
-					case .failure(let error):
-						DispatchQueue.main.async {
+				let recordsCopy = records
+				Task {
+					do {
+						try await self.createZoneRecord()
+						self.query(cursor: cursor, desiredKeys: desiredKeys, carriedRecords: recordsCopy, completion: completion)
+					} catch {
+						Task { @MainActor in
 							completion(.failure(error))
 						}
 					}
@@ -351,12 +344,12 @@ public extension CloudKitZone {
 					}
 				}
 			case .zoneNotFound:
-				self.createZoneRecord() { result in
-					switch result {
-					case .success:
+				Task {
+					do {
+						try await self.createZoneRecord()
 						self.fetch(externalID: externalID, completion: completion)
-					case .failure(let error):
-						DispatchQueue.main.async {
+					} catch {
+						Task { @MainActor in
 							completion(.failure(error))
 						}
 					}
@@ -407,17 +400,16 @@ public extension CloudKitZone {
 				}
 				
 			case .zoneNotFound:
-				self.createZoneRecord() { result in
-					switch result {
-					case .success:
+				Task {
+					do {
+						try await self.createZoneRecord()
 						self.saveIfNew(records, completion: completion)
-					case .failure(let error):
-						DispatchQueue.main.async {
+					} catch {
+						Task { @MainActor in
 							completion(.failure(error))
 						}
 					}
 				}
-				
 			case .userDeletedZone:
 				DispatchQueue.main.async {
 					completion(.failure(CloudKitZoneError.userDeletedZone))
@@ -474,12 +466,12 @@ public extension CloudKitZone {
 					completion(.success((savedSubscription!)))
 				}
 			case .zoneNotFound:
-				self.createZoneRecord() { result in
-					switch result {
-					case .success:
+				Task {
+					do {
+						try await self.createZoneRecord()
 						self.save(subscription, completion: completion)
-					case .failure(let error):
-						DispatchQueue.main.async {
+					} catch {
+						Task { @MainActor in
 							completion(.failure(error))
 						}
 					}
@@ -640,12 +632,12 @@ public extension CloudKitZone {
 					completion(.success(()))
 				}
 			case .zoneNotFound:
-				self.createZoneRecord() { result in
-					switch result {
-					case .success:
+				Task {
+					do {
+						try await self.createZoneRecord()
 						self.modify(recordsToSave: recordsToSave, recordIDsToDelete: recordIDsToDelete, completion: completion)
-					case .failure(let error):
-						DispatchQueue.main.async {
+					} catch {
+						Task { @MainActor in
 							completion(.failure(error))
 						}
 					}
@@ -828,12 +820,12 @@ public extension CloudKitZone {
                     CloudKitZoneApplyChangesOperation.mainThreadOperationQueue.add(op)
                 }
 			case .zoneNotFound:
-				self.createZoneRecord() { result in
-					switch result {
-					case .success:
+				Task {
+					do {
+						try await self.createZoneRecord()
 						self.fetchChangesInZone(incremental: incremental, completion: completion)
-					case .failure(let error):
-						DispatchQueue.main.async {
+					} catch {
+						Task { @MainActor in
 							completion(.failure(error))
 						}
 					}
