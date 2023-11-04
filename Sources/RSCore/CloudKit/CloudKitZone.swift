@@ -113,18 +113,19 @@ public extension CloudKitZone {
 		})
 	}
 	
-	func receiveRemoteNotification(userInfo: [AnyHashable : Any], incrementalFetch: Bool = true, completion: @escaping () -> Void) {
+	func receiveRemoteNotification(userInfo: [AnyHashable : Any], incrementalFetch: Bool = true) async {
+		
 		let note = CKRecordZoneNotification(fromRemoteNotificationDictionary: userInfo)
 		guard note?.recordZoneID?.zoneName == zoneID.zoneName else {
-			completion()
 			return
 		}
 		
-		fetchChangesInZone(incremental: incrementalFetch) { result in
-			if case .failure(let error) = result {
-                self.logger.error("\(self.zoneID.zoneName, privacy: .public) zone remote notification fetch error: \(error.localizedDescription, privacy: .public)")
+		Task {
+			do {
+				try await fetchChangesInZone(incremental: incrementalFetch)
+			} catch {
+				self.logger.error("\(self.zoneID.zoneName, privacy: .public) zone remote notification fetch error: \(error.localizedDescription, privacy: .public)")
 			}
-			completion()
 		}
 	}
 
@@ -722,7 +723,21 @@ public extension CloudKitZone {
 	}
 
 	/// Fetch all the changes in the CKZone since the last time we checked
-	func fetchChangesInZone(incremental: Bool = true, completion: @escaping (Result<Void, Error>) -> Void) {
+	func fetchChangesInZone(incremental: Bool = true) async throws {
+
+		try await withCheckedThrowingContinuation { continuation in
+			self.fetchChangesInZone(incremental: incremental) { result in
+				switch result {
+				case .success:
+					continuation.resume()
+				case .failure(let error):
+					continuation.resume(throwing: error)
+				}
+			}
+		}
+	}
+
+	private func fetchChangesInZone(incremental: Bool = true, completion: @escaping (Result<Void, Error>) -> Void) {
 
 		var updatedRecords = [CKRecord]()
 		var deletedRecordKeys = [CloudKitRecordKey]()
