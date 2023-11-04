@@ -27,7 +27,7 @@ public enum CloudKitZoneError: LocalizedError {
 }
 
 public protocol CloudKitZoneDelegate: AnyObject {
-	func cloudKitWasChanged(updated: [CKRecord], deleted: [CloudKitRecordKey], completion: @escaping (Result<Void, Error>) -> Void);
+	func cloudKitWasChanged(updated: [CKRecord], deleted: [CloudKitRecordKey]) async throws
 }
 
 public typealias CloudKitRecordKey = (recordType: CKRecord.RecordType, recordID: CKRecord.ID)
@@ -888,18 +888,19 @@ private class CloudKitZoneApplyChangesOperation: MainThreadOperation {
 			return
 		}
 		
-		delegate.cloudKitWasChanged(updated: updated, deleted: deleted) { [weak self] result in
-			guard let self = self else { return }
-			
-			switch result {
-			case .success:
-				self.operationDelegate?.operationDidComplete(self)
-			case .failure(let error):
+		Task { @MainActor [weak self] in
+
+			guard let self else {
+				return
+			}
+
+			do {
+				try await delegate.cloudKitWasChanged(updated: updated, deleted: deleted)
+				operationDelegate?.operationDidComplete(self)
+			} catch {
 				self.error = error
-				self.operationDelegate?.cancelOperation(self)
+				operationDelegate?.cancelOperation(self)
 			}
 		}
-
 	}
-	
 }
