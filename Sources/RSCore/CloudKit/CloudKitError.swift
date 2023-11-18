@@ -25,7 +25,7 @@ public class CloudKitError: LocalizedError {
 		
 		switch ckError.code {
 		case .alreadyShared:
-			return String(localized: "cloudkit.error.alread-shared", bundle: .module, comment: "Already Shared: a record or share cannot be saved because doing so would cause the same hierarchy of records to exist in multiple shares.")
+			return String(localized: "cloudkit.error.already-shared", bundle: .module, comment: "Already Shared: a record or share cannot be saved because doing so would cause the same hierarchy of records to exist in multiple shares.")
 		case .assetFileModified:
 			return String(localized: "cloudkit.error.asset-file-modified", bundle: .module, comment: "Asset File Modified: the content of the specified asset file was modified while being saved.")
 		case .assetFileNotFound:

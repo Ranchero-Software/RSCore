@@ -1,10 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "cloudkit.error.alread-shared" : {
+    "cloudkit.error.already-shared" : {
       "comment" : "Already Shared: a record or share cannot be saved because doing so would cause the same hierarchy of records to exist in multiple shares.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already Shared: a record or share cannot be saved because doing so would cause the same hierarchy of records to exist in multiple shares."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Already Shared: a record or share cannot be saved because doing so would cause the same hierarchy of records to exist in multiple shares."
@@ -20,6 +26,12 @@
             "state" : "translated",
             "value" : "Asset File Modified: the content of the specified asset file was modified while being saved."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asset File Modified: the content of the specified asset file was modified while being saved."
+          }
         }
       }
     },
@@ -27,6 +39,12 @@
       "comment" : "Asset File Not Found: the specified asset file is not found.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asset File Not Found: the specified asset file is not found."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Asset File Not Found: the specified asset file is not found."
@@ -42,6 +60,12 @@
             "state" : "translated",
             "value" : "Bad Container: the specified container is unknown or unauthorized."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bad Container: the specified container is unknown or unauthorised."
+          }
         }
       }
     },
@@ -49,6 +73,12 @@
       "comment" : "Bad Database: the operation could not be completed on the given database.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bad Database: the operation could not be completed on the given database."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bad Database: the operation could not be completed on the given database."
@@ -64,6 +94,12 @@
             "state" : "translated",
             "value" : "Batch Request Failed: the entire batch was rejected."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch Request Failed: the entire batch was rejected."
+          }
         }
       }
     },
@@ -71,6 +107,12 @@
       "comment" : "Change Token Expired: the previous server change token is too old.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Token Expired: the previous server change token is too old."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Change Token Expired: the previous server change token is too old."
@@ -86,6 +128,12 @@
             "state" : "translated",
             "value" : "Constraint Violation: the server rejected the request because of a conflict with a unique field."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Constraint Violation: the server rejected the request because of a conflict with a unique field."
+          }
         }
       }
     },
@@ -93,6 +141,12 @@
       "comment" : "There is an unrecoverable problem with your application iCloud account. Please make sure you have iCloud and iCloud Drive enabled in System Preferences. Then remove the application iCloud account and add it again.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There is an unrecoverable problem with your application iCloud account. Please make sure you have iCloud and iCloud Drive enabled in System Preferences. Then remove the application iCloud account and add it again."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "There is an unrecoverable problem with your application iCloud account. Please make sure you have iCloud and iCloud Drive enabled in System Preferences. Then remove the application iCloud account and add it again."
@@ -108,6 +162,12 @@
             "state" : "translated",
             "value" : "The iCloud data was deleted.  Please remove the application iCloud account and add it again to continue using the application's iCloud support."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The iCloud data was deleted.  Please remove the application iCloud account and add it again to continue using the application's iCloud support."
+          }
         }
       }
     },
@@ -115,6 +175,12 @@
       "comment" : "Incompatible Version: your app version is older than the oldest version allowed.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incompatible Version: your app version is older than the oldest version allowed."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Incompatible Version: your app version is older than the oldest version allowed."
@@ -130,6 +196,12 @@
             "state" : "translated",
             "value" : "Internal Error: a non-recoverable error was encountered by CloudKit."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Internal Error: a non-recoverable error was encountered by CloudKit."
+          }
         }
       }
     },
@@ -137,6 +209,12 @@
       "comment" : "Invalid Arguments: the specified request contains bad information.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid Arguments: the specified request contains bad information."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Invalid Arguments: the specified request contains bad information."
@@ -152,6 +230,12 @@
             "state" : "translated",
             "value" : "Limit Exceeded: the request to the server is too large."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limit Exceeded: the request to the server is too large."
+          }
         }
       }
     },
@@ -159,6 +243,12 @@
       "comment" : "Managed Account Restricted: the request was rejected due to a managed-account restriction.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Managed Account Restricted: the request was rejected due to a managed-account restriction."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Managed Account Restricted: the request was rejected due to a managed-account restriction."
@@ -174,6 +264,12 @@
             "state" : "translated",
             "value" : "Missing Entitlement: the app is missing a required entitlement."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missing Entitlement: the app is missing a required entitlement."
+          }
         }
       }
     },
@@ -181,6 +277,12 @@
       "comment" : "Network Failure: the internet connection appears to be offline.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network Failure: the internet connection appears to be offline."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Network Failure: the internet connection appears to be offline."
@@ -196,6 +298,12 @@
             "state" : "translated",
             "value" : "Network Unavailable: the internet connection appears to be offline."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network Unavailable: the internet connection appears to be offline."
+          }
         }
       }
     },
@@ -203,6 +311,12 @@
       "comment" : "Not Authenticated: to use the iCloud account, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Authenticated: to use the iCloud account, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Not Authenticated: to use the iCloud account, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled."
@@ -218,6 +332,12 @@
             "state" : "translated",
             "value" : "Operation Canceled: the operation was explicitly canceled."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operation Cancelled: the operation was explicitly cancelled."
+          }
         }
       }
     },
@@ -225,6 +345,12 @@
       "comment" : "Partial Failure: some items failed, but the operation succeeded overall.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partial Failure: some items failed, but the operation succeeded overall."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Partial Failure: some items failed, but the operation succeeded overall."
@@ -240,6 +366,12 @@
             "state" : "translated",
             "value" : "Participant May Need Verification: you are not a member of the share."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participant May Need Verification: you are not a member of the share."
+          }
         }
       }
     },
@@ -247,6 +379,12 @@
       "comment" : "Permission Failure: to use this app, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permission Failure: to use this app, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Permission Failure: to use this app, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled."
@@ -262,6 +400,12 @@
             "state" : "translated",
             "value" : "Quota Exceeded: saving would exceed your current iCloud storage quota."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota Exceeded: saving would exceed your current iCloud storage quota."
+          }
         }
       }
     },
@@ -269,6 +413,12 @@
       "comment" : "Reference Violation: the target of a record's parent or share reference was not found.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reference Violation: the target of a record's parent or share reference was not found."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reference Violation: the target of a record's parent or share reference was not found."
@@ -284,6 +434,12 @@
             "state" : "translated",
             "value" : "Request Rate Limited: transfers to and from the server are being rate limited at this time."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request Rate Limited: transfers to and from the server are being rate limited at this time."
+          }
         }
       }
     },
@@ -291,6 +447,12 @@
       "comment" : "Server Record Changed: the record was rejected because the version on the server is different.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Record Changed: the record was rejected because the version on the server is different."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Server Record Changed: the record was rejected because the version on the server is different."
@@ -306,6 +468,12 @@
             "state" : "translated",
             "value" : "Server Rejected Request"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Rejected Request"
+          }
         }
       }
     },
@@ -313,6 +481,12 @@
       "comment" : "Server Response Lost",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Response Lost"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Server Response Lost"
@@ -328,6 +502,12 @@
             "state" : "translated",
             "value" : "Service Unavailable: Please try again."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service Unavailable: Please try again."
+          }
         }
       }
     },
@@ -335,6 +515,12 @@
       "comment" : "Too Many Participants: a share cannot be saved because too many participants are attached to the share.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too Many Participants: a share cannot be saved because too many participants are attached to the share."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Too Many Participants: a share cannot be saved because too many participants are attached to the share."
@@ -350,6 +536,12 @@
             "state" : "translated",
             "value" : "An unexpected CloudKit error occurred."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unexpected CloudKit error occurred."
+          }
         }
       }
     },
@@ -357,6 +549,12 @@
       "comment" : "Unhandled Error.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unhandled Error."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unhandled Error."
@@ -372,6 +570,12 @@
             "state" : "translated",
             "value" : "Unknown Item: the specified record does not exist."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown Item: the specified record does not exist."
+          }
         }
       }
     },
@@ -379,6 +583,12 @@
       "comment" : "User Deleted Zone: the user has deleted this zone from the settings UI.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User Deleted Zone: the user has deleted this zone from the settings UI."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "User Deleted Zone: the user has deleted this zone from the settings UI."
@@ -394,6 +604,12 @@
             "state" : "translated",
             "value" : "Zone Busy: the server is too busy to handle the zone operation."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zone Busy: the server is too busy to handle the zone operation."
+          }
         }
       }
     },
@@ -401,6 +617,12 @@
       "comment" : "Zone Not Found: the specified record zone does not exist on the server.",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zone Not Found: the specified record zone does not exist on the server."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zone Not Found: the specified record zone does not exist on the server."
@@ -416,6 +638,12 @@
             "state" : "translated",
             "value" : "%@ was moved or renamed while open."
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ was moved or renamed while open."
+          }
         }
       }
     },
@@ -423,6 +651,12 @@
       "comment" : "Informative text for app moved while running alert",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moving an open application can cause unexpected behavior. Relaunch the application to continue."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Moving an open application can cause unexpected behavior. Relaunch the application to continue."
@@ -438,6 +672,12 @@
             "state" : "translated",
             "value" : "Relaunch"
           }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Relaunch"
+          }
         }
       }
     },
@@ -445,6 +685,12 @@
       "comment" : "Backup name if the app name cannot be deduced from the bundle",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "This app"
