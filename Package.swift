@@ -5,7 +5,8 @@ import PackageDescription
 
 let package = Package(
     name: "RSCore",
-    platforms: [.macOS(SupportedPlatform.MacOSVersion.v13), .iOS(SupportedPlatform.IOSVersion.v16)],
+    defaultLocalization: "en",
+    platforms: [.macOS(.v13), .iOS(.v16)],
     products: [
         .library(name: "RSCore", type: .dynamic, targets: ["RSCore"]),
 		.library(name: "RSCoreResources", type: .static, targets: ["RSCoreResources"])
@@ -13,7 +14,7 @@ let package = Package(
     targets: [
         .target(
             name: "RSCore",
-            dependencies: []),
+            dependencies: [], resources: [.process("Resources")]),
 		.target(
             name: "RSCoreResources",
             resources: [
