@@ -25,13 +25,384 @@
     "Change Token Expired: the previous server change token is too old." : {
       "comment" : "Known iCloud Error"
     },
+    "cloudkit.error.alread-shared" : {
+      "comment" : "Already Shared: a record or share cannot be saved because doing so would cause the same hierarchy of records to exist in multiple shares.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already Shared: a record or share cannot be saved because doing so would cause the same hierarchy of records to exist in multiple shares."
+          }
+        }
+      }
+    },
+    "cloudkit.error.asset-file-modified" : {
+      "comment" : "Asset File Modified: the content of the specified asset file was modified while being saved.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asset File Modified: the content of the specified asset file was modified while being saved."
+          }
+        }
+      }
+    },
+    "cloudkit.error.asset-file-not-found" : {
+      "comment" : "Asset File Not Found: the specified asset file is not found.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asset File Not Found: the specified asset file is not found."
+          }
+        }
+      }
+    },
+    "cloudkit.error.bad-container" : {
+      "comment" : "Bad Container: the specified container is unknown or unauthorized.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bad Container: the specified container is unknown or unauthorized."
+          }
+        }
+      }
+    },
+    "cloudkit.error.bad-database" : {
+      "comment" : "Bad Database: the operation could not be completed on the given database.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bad Database: the operation could not be completed on the given database."
+          }
+        }
+      }
+    },
+    "cloudkit.error.batch-request-failed" : {
+      "comment" : "Batch Request Failed: the entire batch was rejected.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch Request Failed: the entire batch was rejected."
+          }
+        }
+      }
+    },
+    "cloudkit.error.change-token-expired" : {
+      "comment" : "Change Token Expired: the previous server change token is too old.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Token Expired: the previous server change token is too old."
+          }
+        }
+      }
+    },
+    "cloudkit.error.constraint-violation" : {
+      "comment" : "Constraint Violation: the server rejected the request because of a conflict with a unique field.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Constraint Violation: the server rejected the request because of a conflict with a unique field."
+          }
+        }
+      }
+    },
+    "cloudkit.error.incompatible-version" : {
+      "comment" : "Incompatible Version: your app version is older than the oldest version allowed.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incompatible Version: your app version is older than the oldest version allowed."
+          }
+        }
+      }
+    },
+    "cloudkit.error.internal-error" : {
+      "comment" : "Internal Error: a non-recoverable error was encountered by CloudKit.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Internal Error: a non-recoverable error was encountered by CloudKit."
+          }
+        }
+      }
+    },
+    "cloudkit.error.invalid-arguments" : {
+      "comment" : "Invalid Arguments: the specified request contains bad information.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid Arguments: the specified request contains bad information."
+          }
+        }
+      }
+    },
+    "cloudkit.error.limit-exceeded" : {
+      "comment" : "Limit Exceeded: the request to the server is too large.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limit Exceeded: the request to the server is too large."
+          }
+        }
+      }
+    },
+    "cloudkit.error.managed-account-restriction" : {
+      "comment" : "Managed Account Restricted: the request was rejected due to a managed-account restriction.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Managed Account Restricted: the request was rejected due to a managed-account restriction."
+          }
+        }
+      }
+    },
+    "cloudkit.error.missing-entitlement" : {
+      "comment" : "Missing Entitlement: the app is missing a required entitlement.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missing Entitlement: the app is missing a required entitlement."
+          }
+        }
+      }
+    },
+    "cloudkit.error.network-failure" : {
+      "comment" : "Network Failure: the internet connection appears to be offline.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network Failure: the internet connection appears to be offline."
+          }
+        }
+      }
+    },
+    "cloudkit.error.network-unavailable" : {
+      "comment" : "Network Unavailable: the internet connection appears to be offline.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network Unavailable: the internet connection appears to be offline."
+          }
+        }
+      }
+    },
+    "cloudkit.error.not-authenticated" : {
+      "comment" : "Not Authenticated: to use the iCloud account, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Authenticated: to use the iCloud account, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled."
+          }
+        }
+      }
+    },
+    "cloudkit.error.operation-canceled" : {
+      "comment" : "Operation Canceled: the operation was explicitly canceled.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Operation Canceled: the operation was explicitly canceled."
+          }
+        }
+      }
+    },
+    "cloudkit.error.partial-failure" : {
+      "comment" : "Partial Failure: some items failed, but the operation succeeded overall.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partial Failure: some items failed, but the operation succeeded overall."
+          }
+        }
+      }
+    },
+    "cloudkit.error.participant-may-need-verification" : {
+      "comment" : "Participant May Need Verification: you are not a member of the share.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participant May Need Verification: you are not a member of the share."
+          }
+        }
+      }
+    },
+    "cloudkit.error.permission-failure" : {
+      "comment" : "Permission Failure: to use this app, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permission Failure: to use this app, you must enable iCloud Drive. Go to device Settings, sign in to iCloud, then in the app settings, be sure the iCloud Drive feature is enabled."
+          }
+        }
+      }
+    },
+    "cloudkit.error.quota-exceeded" : {
+      "comment" : "Quota Exceeded: saving would exceed your current iCloud storage quota.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota Exceeded: saving would exceed your current iCloud storage quota."
+          }
+        }
+      }
+    },
+    "cloudkit.error.reference-violation" : {
+      "comment" : "Reference Violation: the target of a record's parent or share reference was not found.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reference Violation: the target of a record's parent or share reference was not found."
+          }
+        }
+      }
+    },
+    "cloudkit.error.request-rate-limited" : {
+      "comment" : "Request Rate Limited: transfers to and from the server are being rate limited at this time.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request Rate Limited: transfers to and from the server are being rate limited at this time."
+          }
+        }
+      }
+    },
+    "cloudkit.error.server-record-changed" : {
+      "comment" : "Server Record Changed: the record was rejected because the version on the server is different.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Record Changed: the record was rejected because the version on the server is different."
+          }
+        }
+      }
+    },
+    "cloudkit.error.server-rejected-request" : {
+      "comment" : "Server Rejected Request",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Rejected Request"
+          }
+        }
+      }
+    },
+    "cloudkit.error.server-response-lost" : {
+      "comment" : "Server Response Lost",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Response Lost"
+          }
+        }
+      }
+    },
+    "cloudkit.error.service-unavailable" : {
+      "comment" : "Service Unavailable: Please try again.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service Unavailable: Please try again."
+          }
+        }
+      }
+    },
+    "cloudkit.error.too-many-participants" : {
+      "comment" : "Too Many Participants: a share cannot be saved because too many participants are attached to the share.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too Many Participants: a share cannot be saved because too many participants are attached to the share."
+          }
+        }
+      }
+    },
+    "cloudkit.error.unhandled-error" : {
+      "comment" : "Unhandled Error.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unhandled Error."
+          }
+        }
+      }
+    },
+    "cloudkit.error.unknown-item" : {
+      "comment" : "Unknown Item: the specified record does not exist.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown Item: the specified record does not exist."
+          }
+        }
+      }
+    },
+    "cloudkit.error.user-deleted-zone" : {
+      "comment" : "User Deleted Zone: the user has deleted this zone from the settings UI.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User Deleted Zone: the user has deleted this zone from the settings UI."
+          }
+        }
+      }
+    },
+    "cloudkit.error.zone-busy" : {
+      "comment" : "Zone Busy: the server is too busy to handle the zone operation.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zone Busy: the server is too busy to handle the zone operation."
+          }
+        }
+      }
+    },
+    "cloudkit.error.zone-not-found" : {
+      "comment" : "Zone Not Found: the specified record zone does not exist on the server.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zone Not Found: the specified record zone does not exist on the server."
+          }
+        }
+      }
+    },
     "Constraint Violation: the server rejected the request because of a conflict with a unique field." : {
       "comment" : "Known iCloud Error"
     },
     "Incompatible Version: your app version is older than the oldest version allowed." : {
-      "comment" : "Known iCloud Error"
-    },
-    "Internal Error: a nonrecoverable error was encountered by CloudKit." : {
       "comment" : "Known iCloud Error"
     },
     "Invalid Arguments: the specified request contains bad information." : {
@@ -102,9 +473,6 @@
     "OK" : {
       "comment" : "OK"
     },
-    "Operation Cancelled: the operation was explicitly canceled." : {
-      "comment" : "Known iCloud Error"
-    },
     "Partial Failure: some items failed, but the operation succeeded overall." : {
       "comment" : "Known iCloud Error"
     },
@@ -149,9 +517,6 @@
     },
     "Unhandled Error." : {
       "comment" : "Unknown iCloud Error"
-    },
-    "Unknown Item:  the specified record does not exist." : {
-      "comment" : "Known iCloud Error"
     },
     "User Deleted Zone: the user has deleted this zone from the settings UI." : {
       "comment" : "Known iCloud Error"
