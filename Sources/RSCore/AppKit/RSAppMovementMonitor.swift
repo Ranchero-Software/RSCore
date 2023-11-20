@@ -45,11 +45,13 @@ public class RSAppMovementMonitor: NSObject {
 		self.appTrackingURL = (Bundle.main.bundleURL as NSURL).fileReferenceURL() as NSURL?
 		self.originalAppURL = appTrackingURL?.absoluteURL
 
-		let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? NSLocalizedString("This app", comment: "Backup name if the app name cannot be deduced from the bundle")
-		let informativeTextTemplate = NSLocalizedString("%@ was moved or renamed while open.", comment: "Message text for app moved while running alert")
+        let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? String(localized: "label.text.this-app", bundle: .module, comment: "Backup name if the app name cannot be deduced from the bundle")
+		let informativeTextTemplate = String(localized: "label.text.\(appName)-moved-or-renamed", bundle: .module, comment: "<App Name> was moved or renamed while open.")
+        
 		self.alertMessageText = String(format: informativeTextTemplate, arguments: [appName])
-		self.alertInformativeText = NSLocalizedString("Moving an open application can cause unexpected behavior. Relaunch the application to continue.", comment: "Informative text for app moved while running alert")
-		self.alertRelaunchButtonText = NSLocalizedString("Relaunch", comment: "Relaunch Button")
+		self.alertInformativeText = String(localized: "label.text.moving-open-application-informative-text", bundle: .module, comment: "Informative text for app moved while running alert")
+        
+		self.alertRelaunchButtonText = String(localized: "label.text.relaunch", bundle: .module, comment: "Relaunch")
 
 		super.init()
 

@@ -17,11 +17,11 @@ public enum CloudKitZoneError: LocalizedError {
 	public var errorDescription: String? {
 		switch self {
 		case .userDeletedZone:
-			return NSLocalizedString("The iCloud data was deleted.  Please remove the application iCloud account and add it again to continue using the application's iCloud support.", comment: "User deleted zone.")
+			return String(localized: "cloudkit.error.icloud-data-deleted", bundle: .module, comment: "The iCloud data was deleted.  Please remove the application iCloud account and add it again to continue using the application's iCloud support.")
 		case .corruptAccount:
-			return NSLocalizedString("There is an unrecoverable problem with your application iCloud account. Please make sure you have iCloud and iCloud Drive enabled in System Preferences. Then remove the application iCloud account and add it again.", comment: "Corrupt account.")
+			return String(localized: "cloudkit.error.corrupt-action", bundle: .module, comment: "There is an unrecoverable problem with your application iCloud account. Please make sure you have iCloud and iCloud Drive enabled in System Preferences. Then remove the application iCloud account and add it again.")
 		default:
-			return NSLocalizedString("An unexpected CloudKit error occurred.", comment: "An unexpected CloudKit error occurred.")
+			return String(localized: "cloudkit.error.unexpected-error", bundle: .module, comment: "An unexpected CloudKit error occurred.")
 		}
 	}
 }
