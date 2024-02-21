@@ -63,7 +63,7 @@ public final class UserApp {
 				path = bundleURL.path
 			}
 			else {
-				path = NSWorkspace.shared.absolutePathForApplication(withBundleIdentifier: bundleID)
+				path = pathForApplication(bundleIdentifier: bundleID)
 			}
 			if icon == nil, let path = path {
 				icon = NSWorkspace.shared.icon(forFile: path)
@@ -71,7 +71,7 @@ public final class UserApp {
 			return
 		}
 
-		path = NSWorkspace.shared.absolutePathForApplication(withBundleIdentifier: bundleID)
+		path = pathForApplication(bundleIdentifier: bundleID)
 		if let path = path {
 			if icon == nil {
 				icon = NSWorkspace.shared.icon(forFile: path)
@@ -136,5 +136,14 @@ public final class UserApp {
 		return NSAppleEventDescriptor(runningApplication: runningApplication)
 	}
 }
-#endif
 
+private extension UserApp {
+
+	func pathForApplication(bundleIdentifier: String) -> String? {
+
+		let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleID)
+		return url?.path
+	}
+}
+
+#endif
